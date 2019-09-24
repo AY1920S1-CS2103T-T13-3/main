@@ -298,11 +298,13 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference.
 This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object.
 An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>+
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -1469,13 +1471,21 @@ At any time, User chooses to cancel the purchase made.</p>
 <dd>
 <p>A contact detail that is not meant to be shared with others</p>
 </dd>
-<dt class="hdlist1"><a id="transactions"></a> Transactions</dt>
+</dl>
+</div>
+<div id="transactions" class="dlist">
+<dl>
+<dt class="hdlist1">transactions</dt>
 <dd>
 <p>Transactions include all the expenses spent and sales made.</p>
 </dd>
-<dt class="hdlist1"><a id="inventory"></a> Inventory</dt>
+</dl>
+</div>
+<div id="inventory" class="dlist">
+<dl>
+<dt class="hdlist1">inventory</dt>
 <dd>
-<p>Inventory refers to the items that are stored to be sold. It consists of item description and quantity.</p>
+<p>Inventory refers to the items that are stored to be sold. It consists of item description and quantity left.</p>
 </dd>
 </dl>
 </div>
@@ -1549,7 +1559,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-   Expected: Shows the GUI with a set of sample contacts.
+Expected: Shows the GUI with a set of sample contacts.
 The window size may not be optimum.</p>
 </li>
 </ol>
@@ -1591,13 +1601,13 @@ Multiple persons in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-   Expected: First contact is deleted from the list.
+Expected: First contact is deleted from the list.
 Details of the deleted contact shown in the status message.
 Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-   Expected: No person is deleted.
+Expected: No person is deleted.
 Error details shown in the status message.
 Status bar remains the same.</p>
 </li>
@@ -1635,4 +1645,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-23 10:20:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-24 04:14:10 UTC</div></div></div></body></html>
