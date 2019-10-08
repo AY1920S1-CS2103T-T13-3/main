@@ -8,16 +8,23 @@ import seedu.address.person.logic.commands.exceptions.CommandException;
 import seedu.address.person.model.person.Person;
 import seedu.address.transaction.model.Model;
 import seedu.address.transaction.model.Transaction;
+import seedu.address.transaction.model.exception.NoSuchIndexException;
 import seedu.address.transaction.model.exception.NoSuchPersonException;
 import seedu.address.transaction.ui.TransactionMessages;
 
+/**
+ * Edits a transaction to the transaction list.
+ */
 public class EditCommand extends Command {
     private static int id;
     private int index;
     private EditTransactionDescriptor editTransactionDescriptor;
     public static final String COMMAND_WORD = "edit";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person is already recorded.";
+    public static final String MESSAGE_DUPLICATE_TRANSACTION = "This transaction is already recorded.";
 
+    /**
+     * Creates an EditCommand to add the specified {@code Transaction}
+     */
     public EditCommand(int index, EditTransactionDescriptor editTransactionDescriptor) {
         this.index = index;
 
@@ -27,14 +34,15 @@ public class EditCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model, seedu.address.person.model.Model personModel) throws Exception {
+    public CommandResult execute(Model model, seedu.address.person.model.Model personModel)
+            throws NoSuchIndexException, CommandException, NoSuchPersonException {
         TransactionMessages transactionMessages = new TransactionMessages();
         Transaction transactionToEdit = model.findTransactionByIndex(index);
 
         Transaction editedTransaction = createdEditedTransaction(transactionToEdit, editTransactionDescriptor, personModel);
 
         if (!transactionToEdit.equals(editedTransaction) && model.hasTransaction(editedTransaction)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            throw new CommandException(MESSAGE_DUPLICATE_TRANSACTION);
         }
         if (!personModel.hasPerson(editedTransaction.getPerson())) {
             //personModel.addPerson(editedTransaction.getPerson());
@@ -57,6 +65,10 @@ public class EditCommand extends Command {
         return new Transaction(updatedDate, updatedDescription, updatedCategory, updatedAmount, updatedPerson, id);
     }
 
+    /**
+     * Stores the details to edit the transaction with. Each non-empty field value will replace the
+     * corresponding field value of the transaction.
+     */
     public static class EditTransactionDescriptor {
         private String date;
         private String description;
@@ -71,7 +83,6 @@ public class EditCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
          */
         public EditTransactionDescriptor(EditTransactionDescriptor toCopy) {
             setDate(toCopy.date);
