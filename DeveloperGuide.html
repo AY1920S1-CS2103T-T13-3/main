@@ -22,10 +22,16 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#home-tab">3.1. Home Tab</a></li>
+<li><a href="#members-tab">3.2. Members Tab</a></li>
+<li><a href="#reimbursement-tab">3.3. Reimbursement Tab</a></li>
+<li><a href="#inventory-tab">3.4. Inventory Tab</a></li>
+<li><a href="#cashier-tab">3.5. Cashier Tab</a></li>
+<li><a href="#overview-tab">3.6. Overview Tab</a></li>
+<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -35,11 +41,11 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#overview-tab">C.1. Overview Tab</a></li>
+<li><a href="#overview-tab-2">C.1. Overview Tab</a></li>
 <li><a href="#transaction-tab">C.2. Transaction Tab</a></li>
-<li><a href="#reimbursement-tab">C.3. Reimbursement Tab</a></li>
-<li><a href="#inventory-tab">C.4. Inventory Tab</a></li>
-<li><a href="#cashier-tab">C.5. Cashier Tab</a></li>
+<li><a href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></li>
+<li><a href="#inventory-tab-2">C.4. Inventory Tab</a></li>
+<li><a href="#cashier-tab-2">C.5. Cashier Tab</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -344,12 +350,60 @@ An example of how such a model may look like is given below.<br>
 <h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
+<p>This section describes some noteworthy details on how certain features are implemented.
+There are a total of 6 tabs in our application for each feature: Home Tab, Members Tab, Reimbursement Tab,
+Inventory Tab, Cashier Tab, Overview Tab.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="home-tab"><a class="link" href="#home-tab">3.1. Home Tab</a></h3>
+<div class="paragraph">
+<p>This tab will help to show records of individual transactions from miscellaneous spending, revenue from sales and
+cost of buying items to sell. Each transaction will require an input of its date, description, category, amount
+and member that is accountable for it. Revenue from each cashier checkout will also be automatically inputted as
+a positive transaction in this tab with the person being the cashier. The inputted transactions that corresponds to
+a spending will be tabulated for each member in the reimbursement tab to keep track of reimbursements.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="add-command-feature"><a class="link" href="#add-command-feature">3.1.1. Add Command feature</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="delete-by-index-feature"><a class="link" href="#delete-by-index-feature">3.1.2. Delete by Index Feature</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="delete-by-person-feature"><a class="link" href="#delete-by-person-feature">3.1.3. Delete by Person Feature</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="sort-by-date-feature"><a class="link" href="#sort-by-date-feature">3.1.4. Sort by Date Feature</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="members-tab"><a class="link" href="#members-tab">3.2. Members Tab</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="reimbursement-tab"><a class="link" href="#reimbursement-tab">3.3. Reimbursement Tab</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="inventory-tab"><a class="link" href="#inventory-tab">3.4. Inventory Tab</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="cashier-tab"><a class="link" href="#cashier-tab">3.5. Cashier Tab</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="overview-tab"><a class="link" href="#overview-tab">3.6. Overview Tab</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -504,7 +558,7 @@ This is the behavior that most modern desktop applications follow.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -576,13 +630,13 @@ Violates Single Responsibility Principle and Separation of Concerns as <code>His
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -590,7 +644,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -621,7 +675,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -871,7 +925,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <p>(For all use cases below, the <strong>System</strong> is the <code>treasurerPro (tP)</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <div class="sect2">
-<h3 id="overview-tab"><a class="link" href="#overview-tab">C.1. Overview Tab</a></h3>
+<h3 id="overview-tab-2"><a class="link" href="#overview-tab-2">C.1. Overview Tab</a></h3>
 <h3 id="use-case-1-sets-goals-for-expenditure-budget-and-sales" class="discrete">Use Case 1: Sets goals for expenditure, budget and sales</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1192,7 +1246,7 @@ Lion replies with wrong input message</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reimbursement-tab"><a class="link" href="#reimbursement-tab">C.3. Reimbursement Tab</a></h3>
+<h3 id="reimbursement-tab-2"><a class="link" href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></h3>
 <h3 id="use-case-7-refresh-and-update-reimbursement-status" class="discrete">Use Case 7: Refresh and update reimbursement status</h3>
 <div class="paragraph">
 <p><strong>Preconditions</strong></p>
@@ -1265,7 +1319,7 @@ User disagrees to confirm</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory-tab"><a class="link" href="#inventory-tab">C.4. Inventory Tab</a></h3>
+<h3 id="inventory-tab-2"><a class="link" href="#inventory-tab-2">C.4. Inventory Tab</a></h3>
 <h3 id="use-case-8-edit-an-item" class="discrete">Use Case 8: Edit an item</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1349,7 +1403,7 @@ If just typing the index, the lion returns the total profit for that item</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cashier-tab"><a class="link" href="#cashier-tab">C.5. Cashier Tab</a></h3>
+<h3 id="cashier-tab-2"><a class="link" href="#cashier-tab-2">C.5. Cashier Tab</a></h3>
 <h3 id="use-case-10-stores-the-information-of-transactions" class="discrete">Use Case 10: Stores the information of transactions</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1712,4 +1766,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-21 10:28:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-21 16:47:26 UTC</div></div></div></body></html>
