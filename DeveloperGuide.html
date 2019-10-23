@@ -28,6 +28,34 @@
 <li><a href="#inventory-tab">3.4. Inventory Tab</a></li>
 <li><a href="#cashier-tab">3.5. Cashier Tab</a></li>
 <li><a href="#overview-tab">3.6. Overview Tab</a></li>
+<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">4. Documentation</a></li>
+<li><a href="#testing">5. Testing</a></li>
+<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#product-scope">Appendix A: Product Scope</a></li>
+<li><a href="#user-stories">Appendix B: User Stories</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#overview-tab-2">C.1. Overview Tab</a></li>
+<li><a href="#home-tab-2">C.2. Home Tab</a></li>
+<li><a href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></li>
+<li><a href="#inventory-tab-2">C.4. Inventory Tab</a></li>
+<li><a href="#cashier-tab-2">C.5. Cashier Tab</a></li>
+</ul>
+</li>
+<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#product-survey">Appendix F: Product Survey</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -53,52 +81,38 @@
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
-Given below is a quick overview of each component.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
-</td>
-</tr>
-</table>
+<p>The <strong><em>Architecture Diagram</em></strong> given above depicts the high-level design of treasurerPro.</p>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>.
-It is responsible for,</p>
+<p>treasurerPro is divided primarily into 6 packages:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>Transactions</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>Members</p>
 </li>
-</ul>
+<li>
+<p>Reimbursement</p>
+</li>
+<li>
+<p>Inventory</p>
+</li>
+<li>
+<p>Cashier</p>
+</li>
+<li>
+<p>Overview</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
-The following class plays an important role at the architecture level:</p>
+<p>Each package shares a similar structure, consisting of the following components:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The rest of the App consists of four components.</p>
-</div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
 </li>
@@ -111,10 +125,10 @@ The following class plays an important role at the architecture level:</p>
 <li>
 <p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
 </li>
-</ul>
+</ol>
 </div>
 <div class="paragraph">
-<p>Each of the four components</p>
+<p>Each of the four components:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -134,6 +148,44 @@ The following class plays an important role at the architecture level:</p>
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p>Apart from the components above, treasurerPro also has the following shared components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Main</p>
+</li>
+<li>
+<p>Log Center</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>.
+It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At app launch: Initializes each package in the correct sequence, and connects them up with each other.</p>
+</li>
+<li>
+<p>At shut down: Shuts down each package and invokes cleanup method where necessary.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+The following class plays an important role at the architecture level:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Log Center</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+</li>
+</ul>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
@@ -764,11 +816,42 @@ It can also be called by the user.</p>
 </div>
 <div class="sect2">
 <h3 id="overview-tab"><a class="link" href="#overview-tab">3.6. Overview Tab</a></h3>
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
-<p>==== [Proposed] Undo/Redo feature</p>
+<p>This tab displays summary statistics for the data within treasurerPro. There are four main statistics shown:</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Expense Summary: Pie chart of expenditure by category.</p>
+</li>
+<li>
+<p>Inventory Summary: Pie chart of inventory by category.</p>
+</li>
+<li>
+<p>Sales Summary: Bar chart of sales by months.</p>
+</li>
+<li>
+<p>Budget Overview: Line chart of budget remaining by months.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The above summaries are automatically updated whenever new data is entered from any of the other tabs.</p>
+</div>
+<div class="paragraph">
+<p>The class diagram for this package is shown as follows:</p>
+</div>
+<div class="sect3">
+<h4 id="set-command"><a class="link" href="#set-command">3.6.1. Set command</a></h4>
+<div class="paragraph">
+<p>For each summary statistic, the user may set targets that they plan to achieve/abide by.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -921,24 +1004,11 @@ This is the behavior that most modern desktop applications follow.</p>
 <img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>=== Reimbursement Tab</p>
 </div>
-<div class="paragraph">
-<p>=== Inventory Tab</p>
-</div>
-<div class="paragraph">
-<p>=== Cashier Tab</p>
-</div>
-<div class="paragraph">
-<p>=== Overview Tab</p>
-</div>
-<div class="paragraph">
-<p>==== Design Considerations</p>
-</div>
-<div class="paragraph">
-<p>===== Aspect: How undo &amp; redo executes</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -969,9 +1039,9 @@ This is the behavior that most modern desktop applications follow.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>===== Aspect: Data structure to support the undo/redo commands</p>
 </div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1004,15 +1074,17 @@ Violates Single Responsibility Principle and Separation of Concerns as <code>His
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== [Proposed] Data Encryption</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
-<div class="paragraph">
-<p>=== Logging</p>
 </div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -1020,7 +1092,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1049,33 +1121,42 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </li>
 </ul>
 </div>
-<div id="Implementation-Configuration" class="paragraph">
-<p>=== Configuration</p>
 </div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
-<div class="paragraph">
-<p>== Documentation</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Testing</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Dev Ops</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>== Product Scope</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -1101,9 +1182,11 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="paragraph">
 <p><strong>Value proposition</strong>: Provides money and reimbursement management specific for treasurers in a consolidated application</p>
 </div>
-<div class="paragraph">
-<p>== User Stories</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -1281,15 +1364,16 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>== Use Cases</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>treasurerPro (tP)</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<div class="paragraph">
-<p>=== Overview Tab</p>
-</div>
+<div class="sect2">
+<h3 id="overview-tab-2"><a class="link" href="#overview-tab-2">C.1. Overview Tab</a></h3>
 <h3 id="use-case-1-sets-goals-for-expenditure-budget-and-sales" class="discrete">Use Case 1: Sets goals for expenditure, budget and sales</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1496,9 +1580,9 @@ The user keys in a negative amount</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Home Tab</p>
 </div>
+<div class="sect2">
+<h3 id="home-tab-2"><a class="link" href="#home-tab-2">C.2. Home Tab</a></h3>
 <h3 id="use-case-3-add-a-transaction" class="discrete">Use Case 3: Add a transaction</h3>
 <div class="paragraph">
 <p><strong>Preconditions</strong></p>
@@ -1699,9 +1783,9 @@ Lion replies with wrong input message if there invalid input</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Reimbursement Tab</p>
 </div>
+<div class="sect2">
+<h3 id="reimbursement-tab-2"><a class="link" href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></h3>
 <h3 id="use-case-7-refresh-and-update-reimbursement-status" class="discrete">Use Case 7: Refresh and update reimbursement status</h3>
 <div class="paragraph">
 <p><strong>Preconditions</strong></p>
@@ -1772,9 +1856,9 @@ User disagrees to confirm</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Inventory Tab</p>
 </div>
+<div class="sect2">
+<h3 id="inventory-tab-2"><a class="link" href="#inventory-tab-2">C.4. Inventory Tab</a></h3>
 <h3 id="use-case-8-edit-an-item" class="discrete">Use Case 8: Edit an item</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1856,9 +1940,9 @@ If just typing the index, the lion returns the total profit for that item</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Cashier Tab</p>
 </div>
+<div class="sect2">
+<h3 id="cashier-tab-2"><a class="link" href="#cashier-tab-2">C.5. Cashier Tab</a></h3>
 <h3 id="use-case-10-stores-the-information-of-transactions" class="discrete">Use Case 10: Stores the information of transactions</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1942,9 +2026,12 @@ At any time, User chooses to cancel the purchase made.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== Non Functional Requirements</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2025,9 +2112,11 @@ At any time, User chooses to cancel the purchase made.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>== Glossary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
+<div class="sectionbody">
 <div id="mainstream-os" class="dlist">
 <dl>
 <dt class="hdlist1">Mainstream OS</dt>
@@ -2060,9 +2149,11 @@ At any time, User chooses to cancel the purchase made.</p>
 </dd>
 </dl>
 </div>
-<div class="paragraph">
-<p>== Product Survey</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
 </div>
@@ -2095,9 +2186,11 @@ At any time, User chooses to cancel the purchase made.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== Instructions for Manual Testing</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
@@ -2113,9 +2206,8 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>=== Launch and Shutdown</p>
-</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2154,9 +2246,9 @@ Expected: The most recent window size and location is retained.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
-<div class="paragraph">
-<p>=== Deleting a person</p>
 </div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2191,9 +2283,9 @@ Expected: Similar to previous.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
-<div class="paragraph">
-<p>=== Saving data</p>
 </div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2213,6 +2305,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:40:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 16:01:06 UTC</div></div></div></body></html>
