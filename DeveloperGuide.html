@@ -505,15 +505,21 @@ Back Command that calls <code>resetPredicate()</code>.</p>
 <div class="sect2">
 <h3 id="cashier-tab"><a class="link" href="#cashier-tab">3.5. Cashier Tab</a></h3>
 <div class="paragraph">
-<p>This tab will act as a shopping cart to show sales item added from the inventory that will contribute to sales made.</p>
+<p>This tab will act as a shopping cart to record sales item from the inventory that will contribute
+to the sales made.</p>
 </div>
 <div class="paragraph">
-<p>To add the sales item into the cart, it will require an input of a description and its quantity.
-An optional input of category is provided to guide the cashier to find the desired item.</p>
+<p>Only sales items can be added to the cart. If the price of the item is zero, it is not available for sale. The
+system will prohibit the addition of such an item to the cart.</p>
+</div>
+<div class="paragraph">
+<p>Adding of a sales item to the cart will require an input of its description and quantity. An optional field for
+category is provided to guide the cashier to find the desired item.
+Before every checkout, an existing person on the <code>Members Tab</code> must be set as the cashier-in-charge.</p>
 </div>
 <div class="paragraph">
 <p>Revenue from every checkout will also be automatically inputted as
-a positive transaction in Home tab with the cashier being the person-in-charge. For every sales made,
+a positive transaction in <code>Home tab</code> with the cashier being the person-in-charge. For every sales made,
 the quantity of each item will be updated accordingly in the <code>Inventory Tab</code>.</p>
 </div>
 <div class="paragraph">
@@ -528,27 +534,12 @@ the quantity of each item will be updated accordingly in the <code>Inventory Tab
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
 <div class="paragraph">
-<p>The add command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows the adding of sales items to the cart.</p>
+<p>This feature allows the adding of sales items to the cart.</p>
 </div>
 <div class="paragraph">
-<p>Only description and quantity fields are compulsory to be inputted by the user. If the category field
-is input with other incomplete description and quantity fields, suggestions will be shown by Leo,
-the assistant according to that category.</p>
-</div>
-<div class="paragraph">
-<p>The quantity of the item inputted must not exceed the quantity of stock available in the inventory.</p>
-</div>
-<div class="paragraph">
-<p>Whenever the addition of sales item is successful, a response message will be shown by Leo.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how an add command works with the description and quantity fields present:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/addCommandCashierSeqDiag.png" alt="addCommandCashierSeqDiag">
-</div>
-<div class="title">Figure 18. Sequence Diagram of Add Command (cashier package)</div>
+<p>Only description and quantity fields are required to be inputted by the user. If the category field
+is input with other incomplete description and quantity fields, suggestions according to the specified category
+would be shown by Leo, the assistant.</p>
 </div>
 <div class="paragraph">
 <p>For the description field to be valid, it must match the description of an item in the inventory that is listed for
@@ -556,9 +547,19 @@ sale. For quantity field, the quantity specified must be positive and checks wil
 sufficient stock in the inventory.</p>
 </div>
 <div class="paragraph">
-<p>When the user input an invalid description or quantity field without any category field, an appropriate response
-message will be shown accordingly. If the category field is specified, suggestions according to the category specified
-will be shown.</p>
+<p>The following sequence diagram shows how an add command works with the description and quantity fields present:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddCommandCashierSeqDiag.png" alt="AddCommandCashierSeqDiag">
+</div>
+<div class="title">Figure 18. Sequence Diagram of Add Command (cashier package)</div>
+</div>
+<div class="paragraph">
+<p>As shown, when the user input an invalid description or quantity field without any category field, an appropriate response
+message will be shown accordingly. If the category field is specified, suggestions according to that category
+would be shown.
+Checks will be done by the <code>Cashier Model</code> to ensure that the item specified is available for sale.</p>
 </div>
 <div class="paragraph">
 <p>If description and quantity field are both valid, a response message will be shown, informing the user of the successful
@@ -577,19 +578,24 @@ addition of the sales item.</p>
 <div class="sect3">
 <h4 id="edit-feature"><a class="link" href="#edit-feature">3.5.2. Edit Feature</a></h4>
 <div class="paragraph">
-<p>The edit command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows the editing of the quantity of
-sales item that are already added to the cart. There are two ways to edit - by index or by description.</p>
+<p>This feature allows the editing of the quantity of sales item that are already added to the cart.
+There are two ways to edit - by index or by description.</p>
 </div>
 <div class="paragraph">
-<p>To edit by index, it will require an input consisting of the index and quantity field. The specified index
-is based on the table shown on the Cashier tab.</p>
+<p>To edit by index, it will require an input consisting of the index and quantity fields. The specified index
+should be row index of the item in the table shown on the Cashier tab.</p>
 </div>
 <div class="paragraph">
-<p>To edit by description, it will require an input consisting of the description and quantity field. The specified
-description should match the description of an item in the table shown on the Cashier tab.</p>
+<p>To edit by description, it will require an input consisting of the description and quantity fields. The specified
+description should match the description of an item in the table.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how an edit command works with the required fields present:</p>
+<p>For the index field to be valid, it must be a positive integer and be within the size of the
+table shown on the Cashier tab. For the quantity field to be valid, it must not exceed the stock
+available in the inventory.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how an edit command works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -598,13 +604,12 @@ description should match the description of an item in the table shown on the Ca
 <div class="title">Figure 20. Sequence Diagram of Edit Command (cashier package)</div>
 </div>
 <div class="paragraph">
-<p>For the index field to be valid, it must be a positive integer and be within the size of the
-table shown on the Cashier tab. For the quantity field to be valid, it must not exceed the stock
-available in the inventory.</p>
-</div>
-<div class="paragraph">
 <p>If the inputted field are valid, a response message will be shown, informing the user of the successful
 updating of the sales item.</p>
+</div>
+<div class="paragraph">
+<p>As shown below, if the description of the item has been input, the model will return the index of that item
+according to the specified description.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram shows the process after the user input an edit command:</p>
@@ -619,11 +624,10 @@ updating of the sales item.</p>
 <div class="sect3">
 <h4 id="delete-feature-2"><a class="link" href="#delete-feature-2">3.5.3. Delete Feature</a></h4>
 <div class="paragraph">
-<p>The delete command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows the deleting of the items in
-the cart shown on the Cashier tab.</p>
+<p>This feature allows the deleting of the items in the table shown on the Cashier tab.</p>
 </div>
 <div class="paragraph">
-<p>To edit a specific item in the cart, the only field required is the index of the item based on the table shown.</p>
+<p>To edit a specific item in the table, the only field required is the row index of the item in the table.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how a delete command works:</p>
@@ -650,13 +654,15 @@ from the table shown. A message informing the user of successful deletion will t
 </div>
 <div class="sect3">
 <h4 id="setting-the-cashier-feature"><a class="link" href="#setting-the-cashier-feature">3.5.4. Setting the Cashier Feature</a></h4>
-<div class="paragraph">
-<p>The command to set the cashier is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows
-an existing person in the <code>Address Book</code> to be set as a cashier. The only field required is the name of an
-existing person.</p>
+<div class="literalblock">
+<div class="content">
+<pre>This feature allows an existing person in the `Address Book` to be set as a cashier. The only field required is
+the name of an existing person.</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>To set a cashier, the specified person must be found on the <code>Members Tab</code>.</p>
+<p><code>Members Tab</code> shows a list of existing members of the organisation.
+To set a cashier, the specified person must be found on the <code>Members Tab</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the command works:</p>
@@ -690,14 +696,14 @@ cashier has been set successfully.</p>
 <div class="sect3">
 <h4 id="checkout-feature"><a class="link" href="#checkout-feature">3.5.5. Checkout Feature</a></h4>
 <div class="paragraph">
-<p>The checkout command is facilitated by the <code>VersionedtreasurerPro</code>. This feature confirms
-all the sales items in the table as sold and records the whole cart as a transaction under the <code>Sales</code> category.</p>
+<p>This feature confirms all the sales items in the table as sold and records the whole cart as a
+transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
 <p>The <code>Transaction Tab</code> will be updated with the new transaction labelled as <code>Sales Items</code>.</p>
 </div>
 <div class="paragraph">
-<p>The quantity of every items will be updated in the <code>Inventory Tab</code>.</p>
+<p>The remaining stock of the sales items sold will be updated on the <code>Inventory Tab</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the checkout command works:</p>
@@ -709,13 +715,13 @@ all the sales items in the table as sold and records the whole cart as a transac
 <div class="title">Figure 26. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
-<p>As shown below, if the amount inputted is valid and the cashier has been set, the <code>cashier model</code> will create a new
+<p>As shown below, if the amount inputted is valid and the cashier has been set, the <code>Cashier Model</code> will create a new
 transaction of the sales made. The remaining stock in the inventory will also be updated accordingly.
 A clear command will then be called to clear all the sales items on the tab.</p>
 </div>
 <div class="paragraph">
-<p>The <code>cashier logic</code> will write the updated inventory list and transaction to the relevant data files. To update the
-view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>, transaction will be added to the transaction model and
+<p>The <code>Cashier Logic</code> will write the updated inventory list and newly-generated transaction to the relevant data files.
+To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>, transaction will be added to the transaction model and
 <code>readInUpdatedList()</code> method of inventory model will called to read in the entire inventory data file.</p>
 </div>
 <div class="paragraph">
@@ -731,8 +737,8 @@ view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>, transac
 <div class="sect3">
 <h4 id="clear-feature"><a class="link" href="#clear-feature">3.5.6. Clear Feature</a></h4>
 <div class="paragraph">
-<p>The clear command is facilitated by the <code>VersionedtreasurerPro</code>. This feature clears all the sales items in the table.
-This command is called after the list of items has been checkout. It can also be called by the user.</p>
+<p>This feature clears all the sales items in the table. This command is called after the cart has been checkout.
+It can also be called by the user.</p>
 </div>
 <div class="paragraph">
 <p>There is no required fields.</p>
@@ -2209,4 +2215,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 13:08:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:40:06 UTC</div></div></div></body></html>
