@@ -26,6 +26,7 @@
 <ul class="sectlevel2">
 <li><a href="#current-enhancement-2">4.1. Current enhancement</a></li>
 <li><a href="#proposed-enhancement-for-v2-0-2">4.2. Proposed enhancement for v2.0</a></li>
+<li><a href="#glossary">Glossary</a></li>
 </ul>
 </li>
 </ul></div></div><div id="content"><div class="sect1">
@@ -46,7 +47,7 @@ Computer Science students and the other is a year 4 Computer Engineering student
 <h3 id="about-the-project"><a class="link" href="#about-the-project">1.2. About the project</a></h3>
 <div class="paragraph">
 <p>This project is part of the module Software Engineering Project, CS2103T where we were tasked to develop a basic
-command line interface <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>
+command line interface <a href="#CLI">[CLI]</a>
 desktop application by morphing or enhancing an existing AddressBook desktop application.
 Our team decided to incorporate and morph the AddressBook application as part of our all-in-one application which
 enables treasurers or members of Co-Curricular Activities (CCA) Clubs and Societies to manage their club finances,
@@ -99,7 +100,7 @@ club or society&#8217;s finances.</p>
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My role was to design and write the codes for the Home Tab features. The following sections illustrate these
+<p>My role was to design and write the codes for the features of the <code>Home Tab</code>. The following sections illustrate these
 enhancements in more detail, as well as the relevant documentation I have added to the user and developer guides in
 relation to these enhancements.</p>
 </div>
@@ -111,15 +112,15 @@ relation to these enhancements.</p>
 <div class="sect3">
 <h4 id="add-delete-and-edit-commands"><a class="link" href="#add-delete-and-edit-commands">2.1.1. Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
-<p>The basic create, read, update and delete (CRUD) commands were added. The user can <code class="blue"><strong>add</strong></code>, <code class="blue"><strong>delete</strong></code> and
-<code class="blue"><strong>edit</strong></code> transactions.</p>
+<p>The basic create, read, update and delete (CRUD) commands were added such that the user can <code class="blue"><strong>add</strong></code>, <code class="blue"><strong>delete</strong></code> and
+<code class="blue"><strong>edit</strong></code> transactions to keep track of them.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does:
 It allows the user to create, delete and update transactions. It also allows the application to restore data from
-previous usage of the application by reading a data text file.</p>
+previous usage of the application by reading and saving data in a background text file.</p>
 </li>
 <li>
 <p>Justification:
@@ -128,8 +129,8 @@ It forms the fundamental features required for the <code>Home Tab</code> to be u
 <li>
 <p>Highlights:
 These commands help to store and keep track of transactions in the <code>Home Tab</code> but also help keep track of sales
-transactions from the <code>Cashier Tab</code>. The transactions are also tabulated by members that require reimbursement in the
-<code>Reimbursement Tab</code>.</p>
+transactions from the <code>Cashier Tab</code>. The transactions for each member&#8217;s spending in this tab are also tabulated in the
+<code>Reimbursement Tab</code> to help the treasurer keep track of pending reimbursements.</p>
 </li>
 </ul>
 </div>
@@ -144,12 +145,12 @@ transactions from the <code>Cashier Tab</code>. The transactions are also tabula
 <li>
 <p>What it does:
 The addition of transactions requires the user to input the date, description, category, amount of money and
-person accountable for each transaction. Thus, the command helps to sort the transactions by the alphabetical order of
+person accountable for each transaction. Thus, this command helps to sort the transactions by the alphabetical order of
 the person&#8217;s name, by the date (from oldest to most recent) or amount (from largest to smallest).</p>
 </li>
 <li>
 <p>Justification:
-It is useful for users to keep track of transactions and look at the transaction records according to different
+It is useful for users to keep track of transactions and view the transaction records according to different
 priority.</p>
 </li>
 <li>
@@ -231,6 +232,9 @@ The links lead to our team&#8217;s GitHub repository
 </div>
 <div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">2.3. Other contributions</a></h3>
+<div class="paragraph">
+<p>The following section leads to the GitHub pull requests <a href="#PR">[PR]</a> related to the contribution.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -239,8 +243,7 @@ The links lead to our team&#8217;s GitHub repository
 <ul>
 <li>
 <p>Integrated <code>Transaction Tab</code> with <code>Reimbursement Tab</code>:
-<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/49">pull request #49</a>
-<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup></p>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/49">pull request #49</a> <a href="#PR">[PR]</a></p>
 </li>
 </ul>
 </div>
@@ -267,7 +270,7 @@ which allows our members to review the new code before it can be merged with the
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated the original <code>AddressBook</code> into the <code>Members Tab</code> in GUI <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnote_3" title="View footnote.">3</a>]</sup>:
+<p>Integrated the original <code>AddressBook</code> into the <code>Members Tab</code> in graphical user interface <a href="#GUI">[GUI]</a>:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/42">pull request #42</a></p>
 </li>
 <li>
@@ -283,7 +286,7 @@ which allows our members to review the new code before it can be merged with the
 <div class="ulist">
 <ul>
 <li>
-<p>Added Travis CI for the repository. <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnote_4" title="View footnote.">4</a>]</sup></p>
+<p>Added Travis CI <a href="#TravisCI">[TravisCI]</a> for the repository.</p>
 </li>
 </ul>
 </div>
@@ -298,7 +301,7 @@ which allows our members to review the new code before it can be merged with the
 </td>
 <td class="content">
 By version 1.2, our team ensures that we only merge pull requests that pass all the tests to ensure
-we can meet the milestones with higher quality code.
+we can meet the milestones with higher code quality.
 </td>
 </tr>
 </table>
@@ -422,12 +425,15 @@ due to prior the inputted Find Command.</p>
 amount to indicate a spending that needs to be reimbursed, the reimbursement tab will update and show this record.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the reimbursement <code>Model</code> and <code>Storage</code> is updated.</p>
+<p><a id="update-reimbursement-ppp"></a>The following sequence diagram shows how the reimbursement <code>Model</code> and <code>Storage</code> is updated.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TransactionUpdatingReimbursement.png" alt="TransactionUpdatingReimbursement">
+</div>
 </div>
 <div class="paragraph">
-<p>[[update reimbursement]]
-image::TransactionUpdatingReimbursement.png[]
-<strong class="italic small red">Figure 12. Sequence Diagram of updating Reimbursement Tab (reimbursement package)</strong></p>
+<p><strong class="italic small red">Figure 12. Sequence Diagram of updating Reimbursement Tab (reimbursement package)</strong></p>
 </div>
 <div class="paragraph">
 <p>This is done for every feature in the <code>LogicManager</code>.</p>
@@ -452,7 +458,7 @@ that person to be deleted.</p>
 <p><strong class="italic small red">Figure 13. Sequence Diagram of Delete Command in Home Tab (transaction package)</strong></p>
 </div>
 <div class="paragraph">
-<p>After this, the reimbursement tab is updated as shown in <a href="#update reimbursement">Figure 12</a>.
+<p>After this, the reimbursement tab is updated as shown in <a href="#update-reimbursement-ppp">Figure 12</a>.
 The delete by index implementation would be similar but does not require interaction with the <code>Model</code> from the
 <code>AddressBook</code> in the person package.</p>
 </div>
@@ -526,5 +532,23 @@ Back Command that calls <code>resetPredicate()</code>.</p>
 <h3 id="proposed-enhancement-for-v2-0-2"><a class="link" href="#proposed-enhancement-for-v2-0-2">4.2. Proposed enhancement for v2.0</a></h3>
 
 </div>
+<div class="sect2">
+<h3 id="glossary"><a class="link" href="#glossary">Glossary</a></h3>
+<div class="paragraph">
+<p><a id="CLI"></a> Command line interface (CLI): Command line interface applications allow users to use all the features in the app by typing and without a need to click on anything</p>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. Command line interface applications allow users to use all the features in the app by typing and without a need to click on anything</div><div class="footnote" id="_footnote_2"><a href="#_footnoteref_2">2</a>. Making a pull request is a way of submitting contributions to an open development project.</div><div class="footnote" id="_footnote_3"><a href="#_footnoteref_3">3</a>. GUI stands for graphical user interface. It refers to the visual means of interacting with the application, such as windows, buttons and menus.</div><div class="footnote" id="_footnote_4"><a href="#_footnoteref_4">4</a>. Travis CI will automatically detect when a commit has been made and pushed to the GitHub repository, and each time this happens, it will try to build the project and run tests according to the standards set.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 11:43:25 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><a id="PR"></a> Pull request (PR): Making a pull request is a way of submitting contributions to an open development project. It allows the developers to approve code before
+it is added or merged with the current code in the project.</p>
+</div>
+<div class="paragraph">
+<p><a id="GUI"></a> Graphical user interface (GUI): Refers to the visual means of interacting with the application, such
+as windows, buttons and menus.</p>
+</div>
+<div class="paragraph">
+<p><a id="TravisCI"></a> Travis CI: Travis will automatically detect when a commit has been made and pushed to the GitHub repository that allows it access,
+and each time this happens, it will try to build the project and run tests according to the standards set by the developers.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 13:08:14 UTC</div></div></div></body></html>

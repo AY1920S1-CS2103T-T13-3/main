@@ -481,6 +481,14 @@ To view the full transaction list, the user would have to input the
 Back Command that calls <code>resetPredicate()</code>.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="proposed-clear-command"><a class="link" href="#proposed-clear-command">3.1.4. [Proposed] Clear Command</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="proposed-auto-complete-feature"><a class="link" href="#proposed-auto-complete-feature">3.1.5. [Proposed] Auto-complete feature</a></h4>
+
+</div>
 </div>
 <div class="sect2">
 <h3 id="members-tab"><a class="link" href="#members-tab">3.2. Members Tab</a></h3>
@@ -1483,19 +1491,33 @@ The user keys in a negative amount</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>=== Transaction Tab</p>
+<p>=== Home Tab</p>
 </div>
 <h3 id="use-case-3-add-a-transaction" class="discrete">Use Case 3: Add a transaction</h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User inputs spending as a negative amount and sales revenue is inputted as a positive amount
+for the transaction.</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User type in command field</p>
+<p>User type in command field with add command</p>
 </li>
 <li>
 <p>Lion replies with success message</p>
+</li>
+<li>
+<p>Table shows list of transactions</p>
 </li>
 </ol>
 </div>
@@ -1506,27 +1528,34 @@ The user keys in a negative amount</p>
 <ul class="none">
 <li>
 <p>2a.
-Lion replies with wrong input message</p>
+Lion replies with wrong input message if input is invalid</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-4-delete-a-transaction" class="discrete">Use Case 4: Delete a transaction</h3>
+<h3 id="use-case-4-delete-a-transaction-by-index" class="discrete">Use Case 4: Delete a transaction by index</h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is transactions shown in the table</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User type command in command field</p>
-</li>
-<li>
-<p>Lion replies with a confirmation message</p>
-</li>
-<li>
-<p>User types confirmation</p>
+<p>User type command in command field with the index</p>
 </li>
 <li>
 <p>Lion replies with success message and info on all transactions</p>
+</li>
+<li>
+<p>Table shows list of transactions</p>
 </li>
 </ol>
 </div>
@@ -1536,12 +1565,74 @@ Lion replies with wrong input message</p>
 <div class="ulist none">
 <ul class="none">
 <li>
+<p>2a.
+Lion replies with wrong input if invalid index inputted</p>
+</li>
+<li>
 <p>3a.
-Lion replies with wrong input message</p>
+User input back command for table to show all transactions if find command was prior to the
+delete command</p>
+</li>
+</ul>
+</div>
+<h3 id="use-case-4-delete-a-transaction-by-the-person-s-name" class="discrete">Use Case 4: Delete a transaction by the person&#8217;s name</h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is transactions shown in the table</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User type command in command field with the person&#8217;s name</p>
+</li>
+<li>
+<p>Lion replies with success message and info on all transactions</p>
+</li>
+<li>
+<p>Table shows list of transactions</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extension</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a.
+Lion replies with wrong input if invalid index inputted</p>
+</li>
+<li>
+<p>3a.
+User input back command for table to show all transactions if find command was prior to the
+delete command</p>
 </li>
 </ul>
 </div>
 <h3 id="use-case-5-edit-a-transaction" class="discrete">Use Case 5: Edit a transaction</h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User inputs spending as a negative amount and sales revenue is inputted as a positive amount
+for the transaction.</p>
+</li>
+<li>
+<p>There is transactions shown in the table</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1553,6 +1644,9 @@ Lion replies with wrong input message</p>
 <li>
 <p>Lion replies with message</p>
 </li>
+<li>
+<p>Table shows transactions</p>
+</li>
 </ol>
 </div>
 <div class="paragraph">
@@ -1562,7 +1656,12 @@ Lion replies with wrong input message</p>
 <ul class="none">
 <li>
 <p>2a.
-Lion replies with wrong input message</p>
+Lion replies with wrong input message if there is invalid index or person given</p>
+</li>
+<li>
+<p>3a.
+User input back command for table to show all transactions if find command was prior to the
+delete command</p>
 </li>
 </ul>
 </div>
@@ -1573,7 +1672,7 @@ Lion replies with wrong input message</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type in command field</p>
+<p>Type in command field with sort command</p>
 </li>
 <li>
 <p>Lion replies with success message</p>
@@ -1590,7 +1689,7 @@ Lion replies with wrong input message</p>
 <ul class="none">
 <li>
 <p>2a.
-Lion replies with wrong input message</p>
+Lion replies with wrong input message if there invalid input</p>
 </li>
 </ul>
 </div>
@@ -2110,4 +2209,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 11:43:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 13:08:14 UTC</div></div></div></body></html>
