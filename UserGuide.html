@@ -12,12 +12,7 @@
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a></li>
-<li><a href="#universal-commands">4. Universal Commands</a>
-<ul class="sectlevel2">
-<li><a href="#navigation-code-go-tab-code">4.1. Navigation: <code>go /TAB</code></a></li>
-<li><a href="#search-code-search-keyword-code">4.2. Search: <code>search /KEYWORD</code></a></li>
-</ul>
-</li>
+<li><a href="#universal-commands">4. Universal Commands</a></li>
 <li><a href="#feature-specific-commands">5. Feature Specific Commands</a>
 <ul class="sectlevel2">
 <li><a href="#home">5.1. Home</a></li>
@@ -112,22 +107,35 @@ e.g. typing <strong><code>go /home</code></strong> and pressing <kbd>Enter</kbd>
 <div class="paragraph">
 <p>These are commands available within the command box for all tabs.</p>
 </div>
-<div class="sect2">
-<h3 id="navigation-code-go-tab-code"><a class="link" href="#navigation-code-go-tab-code">4.1. Navigation: <code>go /TAB</code></a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Navigation between tabs:
+Command: <code>go /TAB</code></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Allows you to navigate between tabs
-* <code>go /home</code>
-* <code>go /inventory</code>
-* <code>go /reimbursement</code>
-* <code>go /cashier</code>
-* <code>go /overview</code></p>
+<p>Allows you to navigate between tabs</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="search-code-search-keyword-code"><a class="link" href="#search-code-search-keyword-code">4.2. Search: <code>search /KEYWORD</code></a></h3>
-<div class="paragraph">
-<p>Allows you to search for any item in the inventory, reimbursement, home tab with a keyword</p>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>go home</code></p>
+</li>
+<li>
+<p><code>go inventory</code></p>
+</li>
+<li>
+<p><code>go reimbursement</code></p>
+</li>
+<li>
+<p><code>go cashier</code></p>
+</li>
+<li>
+<p><code>go overview</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -150,16 +158,17 @@ e.g. typing <strong><code>go /home</code></strong> and pressing <kbd>Enter</kbd>
 <p>The columns will show the date/time of the transaction, description of the expenditure, category it is under, amount spent and the person who bought it.</p>
 </li>
 <li>
-<p>At the side, our mascot lion will help to give replies to indicate successful addition, deletion, edits of the command line input.</p>
+<p>At the side, our mascot lion 'Leo' will help to give replies to indicate successful addition, deletion, edits of the command line input.</p>
 </li>
 <li>
 <p>He will also give you replies when there is a wrong input.</p>
 </li>
 <li>
-<p>There is a function to filter the transactions by date so from latest to oldest, person so by alphabetical order of the person and amount so from most to least.</p>
+<p>There is a function to sort the transactions by date so from latest to oldest, person so by alphabetical order of the person and amount so from most to least.</p>
 </li>
 <li>
-<p>There will be autocomplete for the person according to who is in our address book database.</p>
+<p>The amount should be inputted as positive if the transaction is considered revenue and adds to the club or society&#8217;s reserves
+and the amount should be inputted as negative if the transaction is a spending.</p>
 </li>
 </ul>
 </div>
@@ -168,7 +177,7 @@ e.g. typing <strong><code>go /home</code></strong> and pressing <kbd>Enter</kbd>
 <div class="ulist">
 <ul>
 <li>
-<p>To add an expense:
+<p>To add a transaction:
 <code>add dt/DATE_AND_TIME d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
 </li>
 </ul>
@@ -177,31 +186,52 @@ e.g. typing <strong><code>go /home</code></strong> and pressing <kbd>Enter</kbd>
 <p>Examples:
 <code>add dt/January 1st 2019, 07:00PM d/Printer ink c/Miscellaneous a/3.50 p/Janelle</code></p>
 </div>
+<div class="paragraph">
+<p>If the added transaction is negative which indicates a spending, it will be shown in the Reimbursement Tab as a pending reimbursement
+record for the member that spent it. If there is an existing reimbursement record for that member still pending, the amount
+of the newly added transaction will be added to the existing pending reimbursement amount.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>To delete an expense:
-<code>delete INDEX</code> or <code>delete DESCRIPTION</code></p>
+<code>delete INDEX</code> or <code>delete p/PERSON</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Examples:
 <strong> <code>delete 1</code>
-</strong> <code>delete Printer ink</code></p>
+</strong> <code>delete p/Alex Yeoh</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>To edit:
-<code>edit INDEX</code> or <code>edit DESCRIPTION</code></p>
+<p>To edit a transaction:
+<code>edit INDEX dt/DATE d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The fields above can vary and be in different order. It is not compulsory to include all of them.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:
-<strong> <code>edit 1</code>
-</strong> <code>edit Printer ink</code></p>
+<strong> <code>edit 1 p/Bernice Yu dt/23-Aug-2019</code>
+</strong> <code>edit 3 a/12</code></p>
+</div>
+<div class="paragraph">
+<p>If the transaction intended to be deleted still has a pending reimbursement record, there will be an error response shown
+and the deletion will not be allowed until the reimbursement record is marked as done.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -210,16 +240,67 @@ e.g. typing <strong><code>go /home</code></strong> and pressing <kbd>Enter</kbd>
 <div class="ulist">
 <ul>
 <li>
-<p>By date: <code>sort d</code></p>
+<p>By date: <code>sort date</code></p>
 </li>
 <li>
-<p>By person: <code>sort p</code></p>
+<p>By person: <code>sort person</code></p>
 </li>
 <li>
-<p>By amount: <code>sort a</code></p>
+<p>By amount: <code>sort amount</code></p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sort by date command will allow the user to view the table of transactions from the oldest to most recent.
+The sort by person command will allow the user to view the table of transactions in alphabetical order.
+The sort by amount command will allow the user to view the table of transactions from the one with the largest amount to the smallest amount.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To un-sort:
+<code>sort reset</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This command will allow the user to view the table of transactions in the order of when the current session of this application was just opened.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To find:
+<code>find KEYWORDS</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The keyword can be one or more words. An entire keyword must match a word in the transaction intended to be found to be shown in the table
+after the command. If the keyword is just a part of the word in the transaction, the transaction will not be shown in the table after the
+command is inputted.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find Alex Yeoh</code></p>
+</li>
+<li>
+<p><code>find Alex</code></p>
 </li>
 </ul>
 </div>
@@ -473,4 +554,4 @@ There is no need to save manually.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 05:57:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 14:25:56 UTC</div></div></div></body></html>
