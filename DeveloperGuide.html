@@ -23,39 +23,6 @@
 <li><a href="#Implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#home-tab">3.1. Home Tab</a></li>
-<li><a href="#members-tab">3.2. Members Tab</a></li>
-<li><a href="#reimbursement-tab">3.3. Reimbursement Tab</a></li>
-<li><a href="#inventory-tab">3.4. Inventory Tab</a></li>
-<li><a href="#cashier-tab">3.5. Cashier Tab</a></li>
-<li><a href="#overview-tab">3.6. Overview Tab</a></li>
-<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
-</ul>
-</li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
-<li><a href="#product-scope">Appendix A: Product Scope</a></li>
-<li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a>
-<ul class="sectlevel2">
-<li><a href="#overview-tab-2">C.1. Overview Tab</a></li>
-<li><a href="#home-tab-2">C.2. Home Tab</a></li>
-<li><a href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></li>
-<li><a href="#inventory-tab-2">C.4. Inventory Tab</a></li>
-<li><a href="#cashier-tab-2">C.5. Cashier Tab</a></li>
-</ul>
-</li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -83,6 +50,19 @@
 <div class="paragraph">
 <p>The <strong><em>Architecture Diagram</em></strong> given above depicts the high-level design of treasurerPro.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>.xml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/docs/diagrams/">diagrams</a> folder.
+You may use <a href="draw.io">draw.io</a> to edit the diagrams.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>treasurerPro is divided primarily into 6 packages:</p>
 </div>
@@ -109,7 +89,8 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>Each package shares a similar structure, consisting of the following components:</p>
+<p>Each package uses either TXT or JSON based storage. Within the package, they share a similar structure,
+consisting of the following components:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -153,9 +134,6 @@ Alternatively, clicking on the names in the above list will bring you to the res
 <p>Main</p>
 </li>
 <li>
-<p>MainWindow</p>
-</li>
-<li>
 <p>Commons</p>
 </li>
 </ol>
@@ -175,11 +153,6 @@ It is responsible for:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><code>MainWindow</code> consists of the <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> class.
-It defines a <code>TabPane</code> that holds <code>Tabs</code> for each of the Ui elements of the individual package, as well, as a <code>ScrollPane</code>
-for Leo the Lion, our personal assistant.</p>
-</div>
-<div class="paragraph">
 <p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
 The following class plays an important role at the architecture level:</p>
 </div>
@@ -192,18 +165,22 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The processing of commands from a user depends on which tab the user is currently on, and consequently, which package will be invoked.
+<p>Commands in treasurerPro are tab-specific.
 The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues
-the command <code>delete 1</code> within the Transactions tab.</p>
+the command <code>delete 1</code> in the Transactions tab.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 2. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 2. Component interactions for <code>delete 1</code> command within Transactions tab. &lt;NEEDS TO BE UPDATED&gt;</div>
 </div>
 <div class="paragraph">
-<p>The sections below give more details of each component.</p>
+<p>A command input by the user is received by the Ui, and based upon which tab the user is currently on, forwarded to
+the respective Logic.</p>
+</div>
+<div class="paragraph">
+<p>Further details of the interactions between Logic, Model and Storage are given below.</p>
 </div>
 </div>
 <div class="sect2">
@@ -218,12 +195,12 @@ the command <code>delete 1</code> within the Transactions tab.</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI component of each package is made up of an <code>AnchorPane</code> that holds UI elements based on what needs to be displayed.
-For example, the Transactions package uses the <code>TableView</code> component, while the Overview package uses <code>PieChart</code>, <code>BarChart</code>,
-and <code>LineChart</code> elements.</p>
+<p>The UI component consists of a <code>MainWindow</code> that holds both a <code>TabPane</code> and a <code>Lion</code>.
+The <code>TabPane</code> holds multiple <code>Tab</code> objects, for example, <code>Transactions</code> and <code>Cashier</code>.
+The <code>Lion</code> consists of a <code>ScrollPane</code> that holds messages displayed to the user.</p>
 </div>
 <div class="paragraph">
-<p>The UI of all packages inherit from the abstract <code>UiPart</code> class.</p>
+<p>All these, including <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework.
@@ -239,7 +216,7 @@ For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T13-
 <p>Executes user commands using the respective package&#8217;s <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Listens for changes to respective package&#8217;s <code>Model</code> data so that the UI can be updated with the modified data.</p>
+<p>Updates itself with modified data whenever changes are made by the user.</p>
 </li>
 </ul>
 </div>
@@ -247,7 +224,8 @@ For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T13-
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div class="paragraph">
-<p>This section will show the structures of the Logic Component of the different tabs.</p>
+<p>This section will show the structures of the Logic Component of the different tabs.
+The diagram below shows a generalised view of the Logic component within each package.</p>
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
@@ -256,9 +234,15 @@ For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T13-
 <div class="title">Figure 4. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
-<p>The above diagram shows the general design of the Logic component within each package. Further details on the
-implementation of the Parser and Command can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursement Tab</a>,
-<a href="#ICLogic">Section 2.3.2. Inventory and Casheir Tab</a> and <a href="#PLogic">Section 2.3.3. Members Tab</a> below.</p>
+<p>An outline of how a command is processed through Logic is as follows:
+. <code>Logic</code> uses the tab&#8217;s <code>Parser</code> class to parse the user command.
+. This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.
+. The command execution can affect the <code>Model</code> (e.g. adding a person, transaction).
+. The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code> (not depicted).</p>
+</div>
+<div class="paragraph">
+<p>Further details on the implementation of the Parser and Command can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursement Tab</a>,
+<a href="#ICLogic">Section 2.3.2. Inventory and Cashier Tab</a> and <a href="#PLogic">Section 2.3.3. Members Tab</a> below.</p>
 </div>
 <div class="sect3">
 <h4 id="RTLogic"><a class="link" href="#RTLogic">2.3.1. Home and Reimbursement Tab</a></h4>
@@ -368,50 +352,16 @@ Tab.
 <div class="sect3">
 <h4 id="PLogic"><a class="link" href="#PLogic">2.3.3. Members Tab</a></h4>
 <div class="paragraph">
-<p>This section will show the general structure of the Logic Component of the Members Tab. This is integrated from the
-existing <code>AddressBook</code>. Given below is a general Class Diagram showing the structure of the Logic Component for these 2 tabs.</p>
+<p>This section will show the general structure of the Logic Component of the Members Tab.
+This is integrated from the
+existing <code>AddressBook</code>.
+Given below is a general Class Diagram showing the structure of the Logic Component for these 2 tabs.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicForAB.png" alt="LogicForAB">
 </div>
 <div class="title">Figure 6. Structure of Logic Component for Members Tab.</div>
-</div>
-<div class="paragraph">
-<p>Generally, the following steps are taken when a user inputs a command into the <code>CommandBox</code>.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>Logic</code> uses the tab&#8217;s <code>Parser</code> class to parse the user command.</p>
-</li>
-<li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
-</li>
-<li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person, transaction).</p>
-</li>
-<li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
-</li>
-<li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
-</li>
-</ol>
-</div>
-<div id="GeneralLogicSD" class="paragraph">
-<p>Given below is a general Sequence Diagram depicting interactions within the <code>Logic</code> component.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/GeneralSequenceDiagram.png" alt="GeneralSequenceDiagram">
-</div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for a Command</div>
-</div>
-<div class="paragraph">
-<p>Note that the diagram depicts only a general sequence of events within the <code>Logic</code> component.
-More detailed Sequence Diagram&#8217;s for commands in each Tab can be found in <a href="#Implementation">Section 3, &#8220;Implementation&#8221;</a>
-Any deviations from this general sequence diagram will also be covered there.</p>
 </div>
 </div>
 </div>
@@ -421,7 +371,7 @@ Any deviations from this general sequence diagram will also be covered there.</p
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -469,7 +419,7 @@ An example of how such a model may look like is given below.<br>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -531,7 +481,7 @@ has to match a name already existing in the <code>AddressBook</code> which is sh
 <div class="content">
 <img src="images/HomeAddCommandSD.png" alt="HomeAddCommandSD">
 </div>
-<div class="title">Figure 10. Sequence Diagram of Add Command in Home Tab (transaction package)</div>
+<div class="title">Figure 9. Sequence Diagram of Add Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>In addition, the <code>resetPredicate()</code> method from <code>ModelManager</code> is called in the <code>AddCommand</code>. Thus, the UI table will immediately shows the full
@@ -548,7 +498,7 @@ in the data file:</p>
 <div class="content">
 <img src="images/HomeAddCommandMMSM.png" alt="HomeAddCommandMMSM">
 </div>
-<div class="title">Figure 11. Sequence Diagram of updating the transaction list in Home Tab (transaction package)</div>
+<div class="title">Figure 10. Sequence Diagram of updating the transaction list in Home Tab (transaction package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -571,7 +521,7 @@ the Reimbursement Tab is updated:</p>
 <div class="content">
 <img src="images/HomeUpdateReimbursement.png" alt="HomeUpdateReimbursement">
 </div>
-<div class="title">Figure 12. Sequence Diagram of updating the reimbursement list in Reimbursement Tab (transaction package)</div>
+<div class="title">Figure 11. Sequence Diagram of updating the reimbursement list in Reimbursement Tab (transaction package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -593,7 +543,7 @@ the activity diagram for the Add Command is shown below:</p>
 <div class="content">
 <img src="images/HomeTabActivityDiagramAddCommand.png" alt="HomeTabActivityDiagramAddCommand">
 </div>
-<div class="title">Figure 13. Activity Diagram of Add Command in Home Tab (transaction package)</div>
+<div class="title">Figure 12. Activity Diagram of Add Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, when a user does not input all the compulsory fields or input a name that does not match anyone in
@@ -619,15 +569,28 @@ that person to be deleted.</p>
 <div class="content">
 <img src="images/HomeDeleteNameCommand.png" alt="HomeDeleteNameCommand">
 </div>
-<div class="title">Figure 14. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 13. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>In addition, the <code>resetPredicate()</code> method in <code>ModelManager</code> is not called in the <code>DeleteNameCommand</code>. Thus, the UI table will continue to show the
 filtered transaction list. If the prior input is a Find Command and the list at the start of the activity diagram shows
 a filtered list by the Find Command&#8217;s keywords, it will continue to show the filtered list at the end of the command.
 To view the full transaction list, the user would be required to input the
-Back Command where <code>BackCommand</code> calls <code>resetPredicate()</code>.</p>
+Back Command where <code>BackCommand</code> calls <code>resetPredicate()</code>.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 </div>
+<div class="paragraph">
+<p>The <code>BackCommand</code> is not initialised by a parser but initialised by the <code>TransactionTabParser</code> instead.
+The following detailed sequence diagram shows how the back command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeTabBackCommandSequenceDiagram.png" alt="HomeTabBackCommandSequenceDiagram">
+</div>
+<div class="title">Figure 14. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>The <code>BackCommand</code> is not initialised by a parser but initialised by the <code>TransactionTabParser</code> instead.
 The following detailed sequence diagram shows how the back command works:</p>
@@ -639,7 +602,8 @@ The following detailed sequence diagram shows how the back command works:</p>
 <div class="title">Figure 15. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/master
+After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
 respectively.
 The delete by index implementation would be similar but does not require interaction with the <code>Model</code> from the
 <code>AddressBook</code> in the person package.</p>
@@ -658,11 +622,9 @@ The delete by index implementation would be similar but does not require interac
 be shown about the incorrect input. Also, as shown above, response on other incorrect inputs will also be shown.
 When a successful deletion is done, a response message is shown as well.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="sort-feature"><a class="link" href="#sort-feature">3.1.3. Sort Feature</a></h4>
 <div class="paragraph">
-<p>The Sort Command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows for 3 types of sort, by name in
+<p>==== Sort Feature
+The Sort Command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows for 3 types of sort, by name in
 alphabetical order, by amount (from most to least) and by date (from oldest to most recent).</p>
 </div>
 <div class="paragraph">
@@ -685,25 +647,19 @@ of the activity diagram shows a filtered list by the Find Command&#8217;s keywor
 To view the full transaction list, the user would have to input the
 Back Command that calls <code>resetPredicate()</code>.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="proposed-clear-command"><a class="link" href="#proposed-clear-command">3.1.4. [Proposed] Clear Command</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="proposed-auto-complete-feature"><a class="link" href="#proposed-auto-complete-feature">3.1.5. [Proposed] Auto-complete feature</a></h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="members-tab"><a class="link" href="#members-tab">3.2. Members Tab</a></h3>
 <div class="paragraph">
-<p>This tab will help to keep track of the contact details of members in the club or society for the treasurer.</p>
+<p>==== [Proposed] Clear Command</p>
 </div>
-<div class="sect3">
-<h4 id="delete-feature-2"><a class="link" href="#delete-feature-2">3.2.1. Delete Feature</a></h4>
 <div class="paragraph">
-<p>The Delete Command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows for deletion by
+<p>==== [Proposed] Auto-complete feature</p>
+</div>
+<div class="paragraph">
+<p>=== Members Tab
+This tab will help to keep track of the contact details of members in the club or society for the treasurer.</p>
+</div>
+<div class="paragraph">
+<p>==== Delete Feature
+The Delete Command is facilitated by the <code>VersionedtreasurerPro</code>. This feature allows for deletion by
 the index shown in the <code>Members Tab</code>. This tab integrates the existing <code>AddressBook</code>.</p>
 </div>
 <div class="paragraph">
@@ -731,12 +687,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>Before, the deletion is done, there will be a check to the <code>TransactionModel</code> to ensure that the member is not linked
 to any transaction records since every transaction must be linked to a <code>Person</code> in the <code>Members Tab</code> (<code>AddressBook</code>).</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="reimbursement-tab"><a class="link" href="#reimbursement-tab">3.3. Reimbursement Tab</a></h3>
 <div class="paragraph">
-<p>This tab will help to show records of reimbursements
+<p>=== Reimbursement Tab
+This tab will help to show records of reimbursements
 that treasurer needs to pay to a person.</p>
 </div>
 <div class="paragraph">
@@ -755,10 +708,9 @@ find a reimbursement and sort reimbursements.</p>
 </div>
 <div class="title">Figure 19. Class Diagram of Reimbursement Tab (reimbursement package)</div>
 </div>
-<div class="sect3">
-<h4 id="deadline-command-feature"><a class="link" href="#deadline-command-feature">3.3.1. Deadline Command feature</a></h4>
 <div class="paragraph">
-<p>The deadline command is facilitated by the <code>VersionedtreasurerPro</code>. This command requires access to the <code>Model</code> of the
+<p>==== Deadline Command feature
+The deadline command is facilitated by the <code>VersionedtreasurerPro</code>. This command requires access to the <code>Model</code> of the
 person package which the <code>AddressBook</code> implementation is contained in.
 Deadline field should be provided in a valid date format. The
 person&#8217;s name inputted has to match a name already existing in the <code>Reimbursement</code> which is shown in our Reimbursement
@@ -780,22 +732,18 @@ person&#8217;s name and creates a <code>DeadlineCommand</code> with person and d
 This <code>DeadlineCommand</code> is returned back to <code>LogicManager</code> and is executed by calling <code>addDeadline</code> method in
 <code>ModelManager</code>. After the operations, <code>LogicManager</code> gets updated reimbursement list from <code>ModelManager</code> and saves it.</p>
 </div>
+<div class="paragraph">
+<p>==== Done Command feature</p>
 </div>
-<div class="sect3">
-<h4 id="done-command-feature"><a class="link" href="#done-command-feature">3.3.2. Done Command feature</a></h4>
-
+<div class="paragraph">
+<p>==== Find Command feature</p>
 </div>
-<div class="sect3">
-<h4 id="find-command-feature"><a class="link" href="#find-command-feature">3.3.3. Find Command feature</a></h4>
-
+<div class="paragraph">
+<p>==== Sort Command feature</p>
 </div>
-<div class="sect3">
-<h4 id="sort-command-feature"><a class="link" href="#sort-command-feature">3.3.4. Sort Command feature</a></h4>
-
+<div class="paragraph">
+<p>=== Inventory Tab</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="inventory-tab"><a class="link" href="#inventory-tab">3.4. Inventory Tab</a></h3>
 <div class="paragraph">
 <p>This tab will help to keep records of all items currently in the club’s possession.
 Each item will require an input of its description, category, quantity, and cost per unit. Optionally, if the item is meant for
@@ -810,10 +758,9 @@ sale, the price can be inputted as well.</p>
 </div>
 <div class="title">Figure 21. Class Diagram of Inventory Tab (inventory package)</div>
 </div>
-<div class="sect3">
-<h4 id="add-item-feature"><a class="link" href="#add-item-feature">3.4.1. Add Item Feature</a></h4>
 <div class="paragraph">
-<p>This features allows the adding of items to the inventory.</p>
+<p>==== Add Item Feature
+This features allows the adding of items to the inventory.</p>
 </div>
 <div class="paragraph">
 <p>When adding a new item, the user is required to input the description, category, quantity and cost per unit of the item.
@@ -849,28 +796,21 @@ that the command was in an invalid format and reminded of the correct format.</p
 <p>Otherwise, the user will be informed through Leo that their input was successful, and the item will immediately be displayed in
 the Table of the UI.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="delete-item-feature"><a class="link" href="#delete-item-feature">3.4.2. Delete Item Feature</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="edit-item-feature"><a class="link" href="#edit-item-feature">3.4.3. Edit Item Feature</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="sort-items-feature"><a class="link" href="#sort-items-feature">3.4.4. Sort Items Feature</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="proposed-auto-complete-feature-2"><a class="link" href="#proposed-auto-complete-feature-2">3.4.5. [Proposed] Auto-Complete Feature</a></h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="cashier-tab"><a class="link" href="#cashier-tab">3.5. Cashier Tab</a></h3>
 <div class="paragraph">
-<p>This tab will act as a shopping cart to record sales item from the inventory that will contribute
+<p>==== Delete Item Feature</p>
+</div>
+<div class="paragraph">
+<p>==== Edit Item Feature</p>
+</div>
+<div class="paragraph">
+<p>==== Sort Items Feature</p>
+</div>
+<div class="paragraph">
+<p>==== [Proposed] Auto-Complete Feature</p>
+</div>
+<div class="paragraph">
+<p>=== Cashier Tab
+This tab will act as a shopping cart to record sales item from the inventory that will contribute
 to the sales made.</p>
 </div>
 <div class="paragraph">
@@ -896,10 +836,9 @@ the quantity of each item will be updated accordingly in the <code>Inventory Tab
 </div>
 <div class="title">Figure 23. Class Diagram of Cashier Tab (cashier package)</div>
 </div>
-<div class="sect3">
-<h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
 <div class="paragraph">
-<p>This feature allows the adding of sales items to the cart.</p>
+<p>==== Add Sales Item Feature
+This feature allows the adding of sales items to the cart.</p>
 </div>
 <div class="paragraph">
 <p>Only description and quantity fields are required to be inputted by the user. If the category field
@@ -939,11 +878,9 @@ addition of the sales item.</p>
 </div>
 <div class="title">Figure 25. Activity Diagram of Add Command (cashier package)</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="edit-feature"><a class="link" href="#edit-feature">3.5.2. Edit Feature</a></h4>
 <div class="paragraph">
-<p>This feature allows the editing of the quantity of sales item that are already added to the cart.
+<p>==== Edit Feature
+This feature allows the editing of the quantity of sales item that are already added to the cart.
 There are two ways to edit - by index or by description.</p>
 </div>
 <div class="paragraph">
@@ -985,11 +922,9 @@ according to the specified description.</p>
 </div>
 <div class="title">Figure 27. Activity Diagram of Edit Command (cashier package)</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="delete-feature-3"><a class="link" href="#delete-feature-3">3.5.3. Delete Feature</a></h4>
 <div class="paragraph">
-<p>This feature allows the deleting of the items in the table shown on the Cashier tab.</p>
+<p>==== Delete Feature
+This feature allows the deleting of the items in the table shown on the Cashier tab.</p>
 </div>
 <div class="paragraph">
 <p>To edit a specific item in the table, the only field required is the row index of the item in the table.</p>
@@ -1016,14 +951,10 @@ from the table shown. A message informing the user of successful deletion will t
 </div>
 <div class="title">Figure 29. Activity Diagram of Delete Command (cashier package)</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="setting-the-cashier-feature"><a class="link" href="#setting-the-cashier-feature">3.5.4. Setting the Cashier Feature</a></h4>
-<div class="literalblock">
-<div class="content">
-<pre>This feature allows an existing person in the `Address Book` to be set as a cashier. The only field required is
-the name of an existing person.</pre>
-</div>
+<div class="paragraph">
+<p>==== Setting the Cashier Feature
+ This feature allows an existing person in the <code>Address Book</code> to be set as a cashier. The only field required is
+ the name of an existing person.</p>
 </div>
 <div class="paragraph">
 <p><code>Members Tab</code> shows a list of existing members of the organisation.
@@ -1057,11 +988,9 @@ cashier has been set successfully.</p>
 </div>
 <div class="title">Figure 31. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="checkout-feature"><a class="link" href="#checkout-feature">3.5.5. Checkout Feature</a></h4>
 <div class="paragraph">
-<p>This feature confirms all the sales items in the table as sold and records the whole cart as a
+<p>==== Checkout Feature
+This feature confirms all the sales items in the table as sold and records the whole cart as a
 transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
@@ -1098,11 +1027,9 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 </div>
 <div class="title">Figure 33. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="clear-feature"><a class="link" href="#clear-feature">3.5.6. Clear Feature</a></h4>
 <div class="paragraph">
-<p>This feature clears all the sales items in the table. This command is called after the cart has been checkout.
+<p>==== Clear Feature
+This feature clears all the sales items in the table. This command is called after the cart has been checkout.
 It can also be called by the user.</p>
 </div>
 <div class="paragraph">
@@ -1125,10 +1052,9 @@ It can also be called by the user.</p>
 </div>
 <div class="title">Figure 34. Activity Diagram of Clear Command (cashier package)</div>
 </div>
+<div class="paragraph">
+<p>=== Overview Tab</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="overview-tab"><a class="link" href="#overview-tab">3.6. Overview Tab</a></h3>
 <div class="paragraph">
 <p>This tab displays summary statistics for the data within treasurerPro. There are four main statistics shown:</p>
 </div>
@@ -1154,17 +1080,16 @@ It can also be called by the user.</p>
 <div class="paragraph">
 <p>The class diagram for this package is shown as follows:</p>
 </div>
-<div class="sect3">
-<h4 id="set-command"><a class="link" href="#set-command">3.6.1. Set command</a></h4>
 <div class="paragraph">
-<p>For each summary statistic, the user may set targets that they plan to achieve/abide by.</p>
+<p>==== Set command
+For each summary statistic, the user may set targets that they plan to achieve/abide by.</p>
 </div>
+<div class="paragraph">
+<p>=== [Proposed] Undo/Redo feature</p>
 </div>
+<div class="paragraph">
+<p>==== Proposed Implementation</p>
 </div>
-<div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -1317,11 +1242,12 @@ This is the behavior that most modern desktop applications follow.</p>
 <img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
 </div>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.7.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<div class="paragraph">
+<p>===== Aspect: How undo &amp; redo executes</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1352,9 +1278,9 @@ This is the behavior that most modern desktop applications follow.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>===== Aspect: Data structure to support the undo/redo commands</p>
 </div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1387,17 +1313,15 @@ Violates Single Responsibility Principle and Separation of Concerns as <code>His
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== [Proposed] Data Encryption</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
+<div class="paragraph">
+<p>=== Logging</p>
 </div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -1405,7 +1329,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">[Implementation-Configuration]</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1434,42 +1358,33 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </li>
 </ul>
 </div>
+<div id="Implementation-Configuration" class="paragraph">
+<p>=== Configuration</p>
 </div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
+<div class="paragraph">
+<p>== Documentation</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
 </div>
+<div class="paragraph">
+<p>== Testing</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
 </div>
+<div class="paragraph">
+<p>== Dev Ops</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
 </div>
+<div class="paragraph">
+<p>== Product Scope</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
@@ -1495,11 +1410,9 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="paragraph">
 <p><strong>Value proposition</strong>: Provides money and reimbursement management specific for treasurers in a consolidated application</p>
 </div>
+<div class="paragraph">
+<p>== User Stories</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -1677,16 +1590,15 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>== Use Cases</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>treasurerPro (tP)</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<div class="sect2">
-<h3 id="overview-tab-2"><a class="link" href="#overview-tab-2">C.1. Overview Tab</a></h3>
+<div class="paragraph">
+<p>=== Overview Tab</p>
+</div>
 <h3 id="use-case-1-sets-goals-for-expenditure-budget-and-sales" class="discrete">Use Case 1: Sets goals for expenditure, budget and sales</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -1893,9 +1805,9 @@ The user keys in a negative amount</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Home Tab</p>
 </div>
-<div class="sect2">
-<h3 id="home-tab-2"><a class="link" href="#home-tab-2">C.2. Home Tab</a></h3>
 <h3 id="use-case-3-add-a-transaction" class="discrete">Use Case 3: Add a transaction</h3>
 <div class="paragraph">
 <p><strong>Preconditions</strong></p>
@@ -2096,9 +2008,9 @@ Lion replies with wrong input message if there invalid input</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Reimbursement Tab</p>
 </div>
-<div class="sect2">
-<h3 id="reimbursement-tab-2"><a class="link" href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></h3>
 <h3 id="use-case-7-refresh-and-update-reimbursement-status" class="discrete">Use Case 7: Refresh and update reimbursement status</h3>
 <div class="paragraph">
 <p><strong>Preconditions</strong></p>
@@ -2169,9 +2081,9 @@ User disagrees to confirm</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Inventory Tab</p>
 </div>
-<div class="sect2">
-<h3 id="inventory-tab-2"><a class="link" href="#inventory-tab-2">C.4. Inventory Tab</a></h3>
 <h3 id="use-case-8-edit-an-item" class="discrete">Use Case 8: Edit an item</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -2253,9 +2165,9 @@ If just typing the index, the lion returns the total profit for that item</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Cashier Tab</p>
 </div>
-<div class="sect2">
-<h3 id="cashier-tab-2"><a class="link" href="#cashier-tab-2">C.5. Cashier Tab</a></h3>
 <h3 id="use-case-10-stores-the-information-of-transactions" class="discrete">Use Case 10: Stores the information of transactions</h3>
 <div class="paragraph">
 <p><strong>Guarantees</strong></p>
@@ -2339,12 +2251,9 @@ At any time, User chooses to cancel the purchase made.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Non Functional Requirements</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2425,11 +2334,9 @@ At any time, User chooses to cancel the purchase made.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>== Glossary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
-<div class="sectionbody">
 <div id="mainstream-os" class="dlist">
 <dl>
 <dt class="hdlist1">Mainstream OS</dt>
@@ -2462,11 +2369,9 @@ At any time, User chooses to cancel the purchase made.</p>
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>== Product Survey</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
 </div>
@@ -2499,11 +2404,9 @@ At any time, User chooses to cancel the purchase made.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Instructions for Manual Testing</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
 </div>
@@ -2519,8 +2422,9 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<div class="paragraph">
+<p>=== Launch and Shutdown</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2559,9 +2463,9 @@ Expected: The most recent window size and location is retained.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Deleting a person</p>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2596,9 +2500,9 @@ Expected: Similar to previous.</p>
 <div class="paragraph">
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
+<div class="paragraph">
+<p>=== Saving data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2618,4 +2522,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 09:07:52 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 10:23:33 UTC</div></div></div></body></html>
