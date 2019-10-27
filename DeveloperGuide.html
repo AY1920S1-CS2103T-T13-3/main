@@ -14,7 +14,7 @@
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
 <li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
+<li><a href="#Design-Logic">2.3. <code>Logic</code> component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
 <li><a href="#Design-Commons">2.6. Common classes</a></li>
@@ -164,10 +164,10 @@ Alternatively, clicking on the names in the above list will bring you to the res
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Main</p>
+<p><code>Main</code></p>
 </li>
 <li>
-<p>Commons</p>
+<p><code>Commons</code></p>
 </li>
 </ol>
 </div>
@@ -206,11 +206,11 @@ the command <code>delete 1</code> in the Transactions tab.</p>
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 2. Component interactions for <code>delete 1</code> command within Transactions tab. &lt;NEEDS TO BE UPDATED&gt;</div>
+<div class="title">Figure 2. Component interactions for <code>delete 1</code> command within Transactions tab.</div>
 </div>
 <div class="paragraph">
-<p>A command input by the user is received by the Ui, and based upon which tab the user is currently on, forwarded to
-the respective Logic. Further details of the interactions between Logic, Model and Storage are given below.</p>
+<p>A command input by the user is received by <code>MainWindow</code>, and based upon which tab the user is currently on, forwarded to
+the respective <code>Logic</code>. Further details of the interactions between <code>Logic</code>, <code>Model</code> and <code>Storage</code> are given below.</p>
 </div>
 </div>
 <div class="sect2">
@@ -252,19 +252,19 @@ For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T13-
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. <code>Logic</code> component</a></h3>
 <div class="paragraph">
-<p>This section will show the structures of the Logic Component of the different tabs.
-The diagram below shows a generalised view of the Logic component within each package.</p>
+<p>This section will show the structures of the <code>Logic</code> Component of the different tabs.
+The diagram below shows a generalised view of the <code>Logic</code> component within each package.</p>
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the Logic Component</div>
+<div class="title">Figure 4. Structure of the <code>Logic</code> Component</div>
 </div>
 <div class="paragraph">
-<p>An outline of how a command is processed through Logic is as follows:</p>
+<p>An outline of how a command is processed through <code>Logic</code> is as follows:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -289,23 +289,23 @@ The diagram below shows a generalised view of the Logic component within each pa
 <div class="content">
 <img src="images/GeneralSequenceDiagram.png" alt="GeneralSequenceDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 5. Sequence Diagram for execution within <code>Logic</code>.</div>
 </div>
 <div class="paragraph">
-<p>Further details on the implementation of the Parser and Command can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursement Tab</a>,
+<p>Further details on the implementation of the <code>Parser</code> and <code>Command</code> can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursement Tab</a>,
 <a href="#ICLogic">Section 2.3.2. Inventory and Cashier Tab</a> and <a href="#PLogic">Section 2.3.3. Members Tab</a> below.</p>
 </div>
 <div class="sect3">
 <h4 id="RTLogic"><a class="link" href="#RTLogic">2.3.1. Home and Reimbursement Tab</a></h4>
 <div class="paragraph">
-<p>This section will show the general structure of the Logic Component of the Home Tab and Reimbursement Tab.
-Given below is a general Class Diagram showing the structure of the Logic Component for these 2 tabs.</p>
+<p>This section will show further details of the <code>Logic</code> Component of the Home and Reimbursement Tabs.
+Given below is a Class Diagram showing the structure of <code>Parser</code> within the <code>Logic</code> component:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicForR&T.png" alt="LogicForR&amp;T">
 </div>
-<div class="title">Figure 6. Structure of Logic Component for Transaction and Reimbursement Tab.</div>
+<div class="title">Figure 6. Structure of <code>Parser</code> for Transaction and Reimbursement Tab.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -408,16 +408,15 @@ Tab.
 <div class="sect3">
 <h4 id="PLogic"><a class="link" href="#PLogic">2.3.3. Members Tab</a></h4>
 <div class="paragraph">
-<p>This section will show the general structure of the Logic Component of the Members Tab.
-This is integrated from the
-existing <code>AddressBook</code>.
-Given below is a general Class Diagram showing the structure of the Logic Component for these 2 tabs.</p>
+<p>This section will show further details of the <code>Logic</code> Component of the Members Tab.
+This is integrated from the existing <code>AddressBook</code>.
+Given below is a Class Diagram showing the structure of <code>Parser</code> within the <code>Logic</code> Component:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicForAB.png" alt="LogicForAB">
 </div>
-<div class="title">Figure 7. Structure of Logic Component for Members Tab.</div>
+<div class="title">Figure 7. Structure of <code>Parser</code> for Members Tab.</div>
 </div>
 </div>
 </div>
@@ -2623,4 +2622,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 10:12:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 11:36:28 UTC</div></div></div></body></html>
