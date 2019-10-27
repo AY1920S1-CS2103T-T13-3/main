@@ -746,56 +746,171 @@ to any transaction records since every transaction must be linked to a <code>Per
 <div class="sect2">
 <h3 id="reimbursement-tab"><a class="link" href="#reimbursement-tab">3.3. Reimbursement Tab</a></h3>
 <div class="paragraph">
-<p>This tab will help to show records of reimbursements
-that the treasurer user needs to pay to a person.
-Each reimbursement record is auto extracted from transactions.</p>
+<p>This tab helps to show reimbursements
+that the user has not paid to a person.
+Each reimbursement is auto extracted from transactions and grouped by person in transactions.
+So, each reimbursement shows the total amount that the user needs to reimburse a person.
+And there can not be two reimbursements that refer to the same person.</p>
 </div>
 <div class="paragraph">
 <p>The user can add deadline to a reimbursement, mark a reimbursement,
 find a reimbursement and sort reimbursements.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ReimbursementTabClassDiagram.png" alt="ReimbursementTabClassDiagram">
-</div>
-</div>
 <div class="sect3">
 <h4 id="deadline-command-feature"><a class="link" href="#deadline-command-feature">3.3.1. Deadline Command feature</a></h4>
 <div class="paragraph">
-<p>The deadline command is facilitated by the <code>VersionedtreasurerPro</code>. This command requires access to the <code>Model</code> of the
+<p>This command is used to add a deadline date to a reimbursement for a person.
+Deadline command requires access to the <code>Model</code> of the
 person package which the <code>AddressBook</code> implementation is contained in.
 Deadline field should be provided in a valid date format. The
-person&#8217;s name inputted has to match a name already existing in the <code>Reimbursement</code> which is shown in our Reimbursement
+person&#8217;s name inputted has to match a person&#8217;s name already existing in the <code>Reimbursement</code> which is shown in our Reimbursement
 Tab.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the deadline command works:</p>
+<p>The following sequence diagram shows the execution of deadline command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReimbursementTabDeadlineCommandSequenceDiagram.png" alt="ReimbursementTabDeadlineCommandSequenceDiagram">
+<img src="images/Reimbursement/ReimbursementDeadlineCommandSD.png" alt="ReimbursementDeadlineCommandSD">
 </div>
-<div class="title">Figure 20. Sequence Diagram of Deadline Command in Reimbursement Tab (deadline package)</div>
+<div class="title">Figure 20. Sequence Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
-<p>As shown, when a user wants to add a deadline to a reimbursement by specifying
-the person&#8217;s name. The <code>DeadlineCommandParser</code> gets the person from <code>PersonModel</code> based on
-person&#8217;s name and creates a <code>DeadlineCommand</code> with person and deadline information.
-This <code>DeadlineCommand</code> is returned back to <code>LogicManager</code> and is executed by calling <code>addDeadline</code> method in
-<code>ModelManager</code>. After the operations, <code>LogicManager</code> gets updated reimbursement list from <code>ModelManager</code> and saves it.</p>
+<p>As shown, a user needs to add a deadline to a reimbursement by specifying
+the person&#8217;s name and providing a date.
+The <code>DeadlineCommandParser</code> creates a <code>DeadlineCommand</code> with person and deadline date information.
+This <code>DeadlineCommand</code> is returned back to <code>LogicManager</code> of reimbursement and is executed by calling <code>addDeadline</code> method in
+<code>ModelManager</code>. After the operations, <code>LogicManager</code> gets updated reimbursement list from <code>ModelManager</code> and displays the deadline in reimbursement list.
+After that, the deadline is saved into a <code>.txt</code> file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementTabActivityDiagramDeadlineCommand.png" alt="ReimbursementTabActivityDiagramDeadlineCommand">
+</div>
+<div class="title">Figure 21. Activity Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>As shown by the above activity diagram, when a user inputs a person who does not exist in any
+reimbursement or keys in an invalid data format, our app displays the expected format of the deadline command.
+Otherwise, when the execution is successful,
+a response informs the user that deadline is successfully added to the reimbursement.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="done-command-feature"><a class="link" href="#done-command-feature">3.3.2. Done Command feature</a></h4>
-
+<h4 id="find-command-feature"><a class="link" href="#find-command-feature">3.3.2. Find Command feature</a></h4>
+<div class="paragraph">
+<p>This command is used to find a reimbursement that contains the person&#8217;s name.
+Find command requires access to <code>Model</code> of the
+person package which the <code>AddressBook</code> implementation is contained in.
+Person field should be provided and the person&#8217;s name should exist in reimbursement list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementFindCommandSD.png" alt="ReimbursementFindCommandSD">
+</div>
+<div class="title">Figure 22. Sequence Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>A user needs to find a reimbursement by providing the person&#8217;s name.
+As shown in the above figure, <code>FindCommand</code> is executed by calling <code>findReimbursement</code> method in
+<code>ModelManager</code>. After the operations, that reimbursement is returned
+and reimbursement tab only shows a <code>filteredList</code> which contains this single reimbursement.</p>
+</div>
+<div id="ReimbursementTabActivityDiagramFindCommand" class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementTabActivityDiagramFindCommand.png" alt="ReimbursementTabActivityDiagramFindCommand">
+</div>
+<div class="title">Figure 23. Activity Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>The above activity diagram shows the steps needed for find command.
+The person&#8217;s name is checked whether it exists in reimbursement list.
+If not, our app informs the user that command is incorrect. If command is valid, the reimbursement
+is found and displayed in the tab.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="find-command-feature"><a class="link" href="#find-command-feature">3.3.3. Find Command feature</a></h4>
-
+<h4 id="back-command-feature-2"><a class="link" href="#back-command-feature-2">3.3.3. Back Command feature</a></h4>
+<div class="paragraph">
+<p>This command is used to return to the original list after executing find command</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementBackCommandSD.png" alt="ReimbursementBackCommandSD">
+</div>
+<div class="title">Figure 24. Sequence Diagram of Back Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p><code>BackCommand</code> execution updates <code>filteredList</code> inside <code>ModelManager</code> to the original full <code>reimbursementList</code>.
+After the operations, the original full reimbursement list is displayed.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="sort-command-feature-2"><a class="link" href="#sort-command-feature-2">3.3.4. Sort Command feature</a></h4>
-
+<h4 id="done-command-feature"><a class="link" href="#done-command-feature">3.3.4. Done Command feature</a></h4>
+<div class="paragraph">
+<p>This command is used to mark a reimbursement that has been done.
+Done command requires access to <code>Model</code> of the
+person package which the <code>AddressBook</code> implementation is contained in.
+Person field should be provided and the person&#8217;s name should exist in reimbursement list.</p>
+</div>
+<div id="ReimbursementDoneCommandSD" class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementDoneCommandSD.png" alt="ReimbursementDoneCommandSD">
+</div>
+<div class="title">Figure 25. Sequence Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>A user needs to mark a reimbursement as done by specifying the person&#8217;s name for the specific reimbursement.
+The <code>DeadlineCommandParser</code> creates a <code>DoneCommand</code> with person&#8217;s information.
+As shown in the above figure, <code>DoneCommand</code> is returned back to <code>LogicManager</code>
+and it is executed by calling <code>doneReimbursement</code> method in
+<code>ModelManager</code>. After the operations, that reimbursement is deleted from reimbursement list
+and the status of transactions that consist of this reimbursement is updated to <code>True</code>.
+Then the updated reimbursement list is displayed and this new list without that deleted reimbursement is saved.</p>
+</div>
+<div class="paragraph">
+<p>The following figure shows how transactions' status is updated. Firstly, the reimbursement
+which contains the person&#8217;s name updates status of all transactions that made up of the reimbursement.
+Then <code>LogicManager</code> gets the updated transaction list and passes this list to <code>StorageManager</code>
+of transaction tab to save it.</p>
+</div>
+<div id="ReimbursementUpdateTransactionsSD" class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementUpdateTransactionsSD.png" alt="ReimbursementUpdateTransactionsSD">
+</div>
+<div class="title">Figure 26. Sequence Diagram of updating transactions in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p><a href="#ReimbursementTabActivityDiagramDoneCommand">Figure 23</a> shows the steps needed for done command.
+The person&#8217;s name is checked whether it exists in reimbursement list.
+If not, our app informs the user that command is incorrect. If command is valid, the reimbursement
+containing the provided person&#8217;s name is deleted from reimbursement list and will not be displayed.</p>
+</div>
+<div id="ReimbursementTabActivityDiagramDoneCommand" class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementTabActivityDiagramDoneCommand.png" alt="ReimbursementTabActivityDiagramDoneCommand">
+</div>
+<div class="title">Figure 27. Activity Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-command-feature-2"><a class="link" href="#sort-command-feature-2">3.3.5. Sort Command feature</a></h4>
+<div class="paragraph">
+<p>This command is used to sort reimbursements and the user can choose to sort based on name, amount or deadline.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortCommandSD.png" alt="ReimbursementSortCommandSD">
+</div>
+<div class="title">Figure 28. Sequence Diagram of Sort Command in Reimbursement Tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>As shown in the above figure, <code>SortXYZCommand</code> is executed by calling <code>sortListByXYZ</code> method in
+<code>ModelManager</code>. And reimbursement list is sorted using <code>SortByXYZ</code> comparator.
+For <code>SortAmountCommand</code>, the list will be sorted in descending order of absolute value of amount.
+For <code>SortNameCommand</code>, the list will be sorted in descending alphabetical order of person&#8217;s name.
+For <code>SortDeadlineCommand</code>, the list will be sorted in the order that nearest deadlines are at the front.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -812,7 +927,7 @@ sale, the price can be inputted as well.</p>
 <div class="content">
 <img src="images/InventoryTabClassDiagram.png" alt="InventoryTabClassDiagram">
 </div>
-<div class="title">Figure 21. Class Diagram of Inventory Tab (inventory package)</div>
+<div class="title">Figure 29. Class Diagram of Inventory Tab (inventory package)</div>
 </div>
 <div class="sect3">
 <h4 id="add-item-feature"><a class="link" href="#add-item-feature">3.4.1. Add Item Feature</a></h4>
@@ -843,7 +958,7 @@ present:</p>
 <div class="content">
 <img src="images/InventoryAddCommandActivityDiagram.png" alt="InventoryAddCommandActivityDiagram">
 </div>
-<div class="title">Figure 22. Activity Diagram of Add Command in Inventory Tab (inventory package)</div>
+<div class="title">Figure 30. Activity Diagram of Add Command in Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>As shown above, the input will be evaluated for its validity. If the input is not valid, the user will be informed through Leo
@@ -898,7 +1013,7 @@ the quantity of each item will be updated accordingly in the <code>Inventory Tab
 <div class="content">
 <img src="images/UMLCashierTab.png" alt="UMLCashierTab">
 </div>
-<div class="title">Figure 23. Class Diagram of Cashier Tab (cashier package)</div>
+<div class="title">Figure 31. Class Diagram of Cashier Tab (cashier package)</div>
 </div>
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
@@ -922,7 +1037,7 @@ sufficient stock in the inventory.</p>
 <div class="content">
 <img src="images/AddCommandCashierSeqDiag.png" alt="AddCommandCashierSeqDiag">
 </div>
-<div class="title">Figure 24. Sequence Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 32. Sequence Diagram of Add Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, when the user input an invalid description or quantity field without any category field, an appropriate response
@@ -941,7 +1056,7 @@ addition of the sales item.</p>
 <div class="content">
 <img src="images/AddCommandCashierActivityDiag.png" alt="AddCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 25. Activity Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 33. Activity Diagram of Add Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -970,7 +1085,7 @@ available in the inventory.</p>
 <div class="content">
 <img src="images/EditCommandCashierSeqDiag.png" alt="EditCommandCashierSeqDiag">
 </div>
-<div class="title">Figure 26. Sequence Diagram of Edit Command (cashier package)</div>
+<div class="title">Figure 34. Sequence Diagram of Edit Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the inputted field are valid, a response message will be shown, informing the user of the successful
@@ -987,7 +1102,7 @@ according to the specified description.</p>
 <div class="content">
 <img src="images/EditCommandCashierActivityDiag.png" alt="EditCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 27. Activity Diagram of Edit Command (cashier package)</div>
+<div class="title">Figure 35. Activity Diagram of Edit Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1005,7 +1120,7 @@ according to the specified description.</p>
 <div class="content">
 <img src="images/DeleteCommandCashierSeqDiag.png" alt="DeleteCommandCashierSeqDiag">
 </div>
-<div class="title">Figure 28. Sequence Diagram of Delete Command (cashier package)</div>
+<div class="title">Figure 36. Sequence Diagram of Delete Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the index field is valid, the cashier model will delete the item from the sales list. The item will also be removed
@@ -1018,7 +1133,7 @@ from the table shown. A message informing the user of successful deletion will t
 <div class="content">
 <img src="images/DeleteCommandCashierActivityDiag.png" alt="DeleteCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 29. Activity Diagram of Delete Command (cashier package)</div>
+<div class="title">Figure 37. Activity Diagram of Delete Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1040,7 +1155,7 @@ To set a cashier, the specified person must be found on the <code>Members Tab</c
 <div class="content">
 <img src="images/SetCashierCommandCashierSeqDiag.png" alt="SetCashierCommandCashierSeqDiag">
 </div>
-<div class="title">Figure 30. Sequence Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 38. Sequence Diagram of Set Cashier Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the person&#8217;s name cannot be found in the <code>Model</code> of the person package, a response message will be shown by Leo,
@@ -1059,7 +1174,7 @@ cashier has been set successfully.</p>
 <div class="content">
 <img src="images/SetCashierCommandCashierActivityDiag.png" alt="SetCashierCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 31. Activity Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 39. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1081,7 +1196,7 @@ transaction under the <code>Sales</code> category.</p>
 <div class="content">
 <img src="images/CheckoutCommandCashierSeqDiag.png" alt="CheckoutCommandCashierSeqDiag">
 </div>
-<div class="title">Figure 32. Sequence Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 40. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>As shown below, if the amount inputted is valid and the cashier has been set, the <code>Cashier Model</code> will create a new
@@ -1100,7 +1215,7 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 <div class="content">
 <img src="images/CheckoutCommandCashierActivityDiag.png" alt="CheckoutCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 33. Activity Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 41. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1127,7 +1242,7 @@ It can also be called by the user.</p>
 <div class="content">
 <img src="images/ClearCommandCashierActivityDiag.png" alt="ClearCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 34. Activity Diagram of Clear Command (cashier package)</div>
+<div class="title">Figure 42. Activity Diagram of Clear Command (cashier package)</div>
 </div>
 </div>
 </div>
@@ -2622,4 +2737,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 13:51:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 16:22:39 UTC</div></div></div></body></html>
