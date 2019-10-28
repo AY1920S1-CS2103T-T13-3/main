@@ -16,8 +16,8 @@
 <li><a href="#feature-specific-commands">5. Feature Specific Commands</a>
 <ul class="sectlevel2">
 <li><a href="#home">5.1. Home</a></li>
-<li><a href="#inventory">5.2. Inventory</a></li>
-<li><a href="#reimbursements">5.3. Reimbursements</a></li>
+<li><a href="#reimbursements">5.2. Reimbursements</a></li>
+<li><a href="#inventory">5.3. Inventory</a></li>
 <li><a href="#cashier">5.4. Cashier</a></li>
 <li><a href="#overview">5.5. Overview</a></li>
 <li><a href="#saving-the-data">5.6. Saving the data</a></li>
@@ -318,7 +318,276 @@ command is inputted.
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory"><a class="link" href="#inventory">5.2. Inventory</a></h3>
+<h3 id="reimbursements"><a class="link" href="#reimbursements">5.2. Reimbursements</a></h3>
+<div class="paragraph">
+<p>The reimbursement tab displays all the reimbursements the treasurer needs to pay to people.
+Each reimbursement contains a person&#8217;s name, the total amount the person needs to be reimbursed,
+description of the transactions related to the person and deadline for that reimbursement.</p>
+</div>
+<div class="paragraph">
+<p>The reimbursement records are automatically extracted from transactions history with negative amount of money.
+And each person only has one aggregated reimbursement in the reimbursement list.
+All the reimbursements in reimbursement tab have not been done. Once the reimbursement is done,
+that reimbursement record will not be displayed.</p>
+</div>
+<div class="paragraph">
+<p>A user can add deadline to a reimbursement, find a reimbursement by providing the person&#8217;s name,
+let the app display full list, mark a reimbursement as done and sort reimbursement lists.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-deadline-to-a-reimbursement-code-deadline-p-name-dt-dd-mmm-yyyy-code"><a class="link" href="#adding-deadline-to-a-reimbursement-code-deadline-p-name-dt-dd-mmm-yyyy-code">5.2.1. Adding deadline to a reimbursement: <code>deadline p/[name] dt/dd-mmm-yyyy</code></a></h4>
+<div class="paragraph">
+<p>This command helps to add a deadline to a reimbursement for the person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementDeadlineCommand.png" alt="ReimbursementDeadlineCommand">
+</div>
+<div class="title">Figure 1. Diagram of deadline command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The tab will show the added deadline for the reimbursement if the person appears in reimbursement.
+Otherwise, Leo in the right box shows response that the person is not in reimbursement list.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementDeadlineCommandSuccess.png" alt="ReimbursementDeadlineCommandSuccess">
+</div>
+<div class="title">Figure 2. Diagram of successful deadline command in reimbursement tab</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The deadline date provided should be in the format of <code>dd-mmm-yyyy</code> e.g. <code>19-Dec-2019</code>.
+If you provide an invalid form e.g. <code>01-AAA-2019</code> or <code>19-DEC-2019</code> or <code>-1-Dec-2019</code>,
+Leo will remind you that the date is invalid.
+In another case, if you input an invalid date e.g. <code>31-Feb-2019</code>,
+our app helps to round it to <code>28-Feb-2019</code> and adds this deadline.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you want to modify the deadline for a reimbursement, you can use <code>deadline</code> command again
+to reassign deadline to a reimbursement.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-a-reimbursement-for-a-person-code-find-p-name-code"><a class="link" href="#finding-a-reimbursement-for-a-person-code-find-p-name-code">5.2.2. Finding a reimbursement for a person: <code>find p/[name]</code></a></h4>
+<div class="paragraph">
+<p>This command helps to find out the reimbursement for the person.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>find p/[name]</code> into command box and press <code>enter</code> to execute it. e.g. <code>find p/Bernice Yu</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementFindCommand.png" alt="ReimbursementFindCommand">
+</div>
+<div class="title">Figure 3. Diagram of find command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The tab will show the found reimbursement if the person appears in reimbursement.
+Otherwise, Leo in the right box shows response that the person is not in reimbursement list.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementFindCommandSuccess.png" alt="ReimbursementFindCommandSuccess">
+</div>
+<div class="title">Figure 4. Diagram of successful find command in reimbursement tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="going-back-to-display-the-full-list-code-back-code"><a class="link" href="#going-back-to-display-the-full-list-code-back-code">5.2.3. Going back to display the full list: <code>Back</code></a></h4>
+<div class="paragraph">
+<p>This command helps to display the full reimbursement list after <code>find</code> and <code>deadline</code> commands.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>back</code> into command box and press <code>enter</code> to execute it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementBackCommand.png" alt="ReimbursementBackCommand">
+</div>
+<div class="title">Figure 5. Diagram of back command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The tab will show the full reimbursement list.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementBackCommandSuccess.png" alt="ReimbursementBackCommandSuccess">
+</div>
+<div class="title">Figure 6. Diagram of successful back command in reimbursement tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-a-command-as-done-code-done-p-name-code"><a class="link" href="#marking-a-command-as-done-code-done-p-name-code">5.2.4. Marking a command as done: <code>done p/[name]</code></a></h4>
+<div class="paragraph">
+<p>This command helps to mark a reimbursement as done and remove it from reimbursement list.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>done p/[name]</code> into command box and press <code>enter</code> to execute it. e.g. <code>done p/Roy Balakrishnan</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementDoneCommand.png" alt="ReimbursementDoneCommand">
+</div>
+<div class="title">Figure 7. Diagram of done command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The reimbursement for that person will be removed from the tab.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementDoneCommandSuccess.png" alt="ReimbursementDoneCommandSuccess">
+</div>
+<div class="title">Figure 8. Diagram of successful done command in reimbursement tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-the-list-based-on-amount-code-sort-amount-code"><a class="link" href="#sorting-the-list-based-on-amount-code-sort-amount-code">5.2.5. Sorting the list based on amount: <code>sort amount</code></a></h4>
+<div class="paragraph">
+<p>This command helps to sort the reimbursement lists based on amount. And the
+list will be in descending order of the amount.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sort amount</code> into command box and press <code>enter</code> to execute it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortAmountCommand.png" alt="ReimbursementSortAmountCommand">
+</div>
+<div class="title">Figure 9. Diagram of sort amount command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The reimbursements are sorted in descending order of the amount.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortAmountCommandSuccess.png" alt="ReimbursementSortAmountCommandSuccess">
+</div>
+<div class="title">Figure 10. Diagram of successful sort amount command in reimbursement tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-the-list-based-on-name-code-sort-name-code"><a class="link" href="#sorting-the-list-based-on-name-code-sort-name-code">5.2.6. Sorting the list based on name: <code>sort name</code></a></h4>
+<div class="paragraph">
+<p>This command helps to sort the reimbursement lists based on name.
+And the list will be in alphabetical order.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sort name</code> into command box and press <code>enter</code> to execute it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortNameCommand.png" alt="ReimbursementSortNameCommand">
+</div>
+<div class="title">Figure 11. Diagram of sort name command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The reimbursements are sorted in alphabetical order of person&#8217;s name.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortNameCommandSuccess.png" alt="ReimbursementSortNameCommandSuccess">
+</div>
+<div class="title">Figure 12. Diagram of successful sort name command in reimbursement tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-the-list-based-on-deadline-code-sort-date-code"><a class="link" href="#sorting-the-list-based-on-deadline-code-sort-date-code">5.2.7. Sorting the list based on deadline: <code>sort date</code></a></h4>
+<div class="paragraph">
+<p>This command helps to sort the reimbursement lists based on deadline.
+And the reimbursements with closer deadline will be at the front.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>sort date</code> into command box and press <code>enter</code> to execute it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortDateCommand.png" alt="ReimbursementSortDateCommand">
+</div>
+<div class="title">Figure 13. Diagram of sort date command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>The reimbursements are sorted by deadline date.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Reimbursement/ReimbursementSortDateCommandSuccess.png" alt="ReimbursementSortDateCommandSuccess">
+</div>
+<div class="title">Figure 14. Diagram of successful sort date command in reimbursement tab</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inventory"><a class="link" href="#inventory">5.3. Inventory</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -400,48 +669,6 @@ command is inputted.
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="reimbursements"><a class="link" href="#reimbursements">5.3. Reimbursements</a></h3>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The reimbursement page contains details of reimbursement for each CCA member.</p>
-</li>
-<li>
-<p>Each reimbursement record is represented by Person, Amount, Description and Status.</p>
-</li>
-<li>
-<p>Once the person is reimbursed, the status can be modified from Pending to Completed.</p>
-</li>
-<li>
-<p>This page helps the treasurer to directly retrieve the amount of reimbursement for each person from expenditure histories.</p>
-</li>
-<li>
-<p>This page also contains a Manage People button. Once clicked, a pop up page will come out and show all the CCA members’ information.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To find an reimbursement:
-<code>find p/PERSON</code></p>
-</li>
-<li>
-<p>To update status:
-<code>update p/PERSON</code></p>
-</li>
-<li>
-<p>To add a person:
-<code>add p/PERSON a/BANK_ACCOUNT_NUMBER</code></p>
 </li>
 </ul>
 </div>
@@ -894,4 +1121,4 @@ e.g. <code>find James Jake</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 17:23:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 02:04:29 UTC</div></div></div></body></html>
