@@ -12,22 +12,31 @@
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a></li>
-<li><a href="#universal-commands">4. Universal Commands</a></li>
-<li><a href="#feature-specific-commands">5. Feature Specific Commands</a>
+<li><a href="#universal-commands-for-all-tabs">4. Universal Commands For All Tabs</a>
 <ul class="sectlevel2">
-<li><a href="#home">5.1. Home</a></li>
-<li><a href="#reimbursements">5.2. Reimbursements</a></li>
-<li><a href="#inventory">5.3. Inventory</a></li>
-<li><a href="#cashier">5.4. Cashier</a></li>
-<li><a href="#overview">5.5. Overview</a></li>
-<li><a href="#saving-the-data">5.6. Saving the data</a></li>
+<li><a href="#navigation-between-tabs">4.1. Navigation between tabs</a></li>
+<li><a href="#exit-the-application">4.2. Exit the application</a></li>
+</ul>
+</li>
+<li><a href="#application-tab-specific-commands">5. Application Tab Specific Commands</a>
+<ul class="sectlevel2">
+<li><a href="#home-tab">5.1. Home Tab</a></li>
+<li><a href="#delete-transaction-s-from-the-table">5.2. Delete Transaction(s) from the Table</a></li>
+<li><a href="#edit-a-transaction-in-the-table">5.3. Edit a Transaction in the Table</a></li>
+<li><a href="#sort-transactions-in-the-table">5.4. Sort Transactions in the Table</a></li>
+<li><a href="#find-transactions-that-match-keywords">5.5. Find Transactions that Match Keywords:</a></li>
+<li><a href="#reimbursements">5.6. Reimbursements</a></li>
+<li><a href="#inventory">5.7. Inventory</a></li>
+<li><a href="#cashier">5.8. Cashier</a></li>
+<li><a href="#overview">5.9. Overview</a></li>
+<li><a href="#saving-the-data">5.10. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
 <li><a href="#command-summary">7. Command Summary</a>
 <ul class="sectlevel2">
 <li><a href="#navigation">7.1. Navigation</a></li>
-<li><a href="#home-2">7.2. Home</a></li>
+<li><a href="#home">7.2. Home</a></li>
 <li><a href="#members">7.3. Members</a></li>
 <li><a href="#reimbursement">7.4. Reimbursement</a></li>
 <li><a href="#inventory-2">7.5. Inventory</a></li>
@@ -88,13 +97,20 @@ e.g. typing <strong><code>go /members</code></strong> and pressing <kbd>Enter</k
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section will contain the details on the features the application. These features include the universal commands available for all tabs and
+commands specific for each tab. The commands are organised according to the tabs that they can be used in.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>General Command Format Tabs</strong></p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>Words highlighted like <code>add n/John Doe</code> or <code>add n/NAME</code> indicate that those can be entered into the Command Box.</p>
+</li>
 <li>
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
@@ -114,21 +130,18 @@ e.g. typing <strong><code>go /members</code></strong> and pressing <kbd>Enter</k
 </div>
 </div>
 <div class="sect1">
-<h2 id="universal-commands"><a class="link" href="#universal-commands">4. Universal Commands</a></h2>
+<h2 id="universal-commands-for-all-tabs"><a class="link" href="#universal-commands-for-all-tabs">4. Universal Commands For All Tabs</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>These are commands available within the command box for all tabs.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Navigation between tabs:
-Command: <code>go /TAB</code></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="navigation-between-tabs"><a class="link" href="#navigation-between-tabs">4.1. Navigation between tabs</a></h3>
+<div class="paragraph">
+<p>Command: <code>go /TAB</code></p>
 </div>
 <div class="paragraph">
-<p>Allows you to navigate between tabs</p>
+<p>This command allows you to navigate between tabs.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -150,77 +163,257 @@ Command: <code>go /TAB</code></p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="exit-the-application"><a class="link" href="#exit-the-application">4.2. Exit the application</a></h3>
+<div class="paragraph">
+<p>Command: <code>exit</code></p>
+</div>
+<div class="paragraph">
+<p>This command allows you to exit the application immediately.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="feature-specific-commands"><a class="link" href="#feature-specific-commands">5. Feature Specific Commands</a></h2>
+<h2 id="application-tab-specific-commands"><a class="link" href="#application-tab-specific-commands">5. Application Tab Specific Commands</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>These are commands that are specific to each feature which would be categorised into tabs in our application.</p>
 </div>
 <div class="sect2">
-<h3 id="home"><a class="link" href="#home">5.1. Home</a></h3>
+<h3 id="home-tab"><a class="link" href="#home-tab">5.1. Home Tab</a></h3>
+<div class="paragraph">
+<p>This section will contain the details on all commands available to the Home tab.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
+<div class="paragraph">
+<p><strong>Summary of Features of the Home Tab</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>Home tab shows the transaction history of each expenditure.</p>
 </li>
 <li>
-<p>The columns will show the date/time of the transaction, description of the expenditure, category it is under, amount spent and the person who bought it.</p>
+<p>The columns will show the date of the transaction, description of the expenditure, category it is under, amount spent and the person who bought it.</p>
 </li>
 <li>
 <p>At the side, our mascot lion 'Leo' will help to give replies to indicate successful addition, deletion, edits of the command line input.</p>
 </li>
 <li>
-<p>He will also give you replies when there is a wrong input.</p>
+<p>Leo will also give you replies to guide you when there is a wrong input.</p>
 </li>
 <li>
 <p>There is a function to sort the transactions by date so from latest to oldest, person so by alphabetical order of the person and amount so from most to least.</p>
 </li>
 <li>
-<p>The amount should be inputted as positive if the transaction is considered revenue and adds to the club or society&#8217;s reserves
-and the amount should be inputted as negative if the transaction is a spending.</p>
+<p>The amount should be inputted as positive if the transaction is considered revenue and adds to the club or society&#8217;s reserves</p>
+</li>
+<li>
+<p>The amount should be inputted as negative if the transaction is a spending to be reimbursed which will be shown in the Reimbursements tab.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="add-a-transaction-to-the-table"><a class="link" href="#add-a-transaction-to-the-table">5.1.1. Add a Transaction to the Table</a></h4>
+<div class="paragraph">
+<p>This command helps to add a transaction record into the table and to be saved into the system.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>To add a transaction:
-<code>add dt/DATE_AND_TIME d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
+<p>Command format:
+<code>add dt/DATE d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Examples:
-<code>add dt/January 1st 2019, 07:00PM d/Printer ink c/Miscellaneous a/3.50 p/Janelle</code></p>
+<code>add dt/24-Aug-2019, 07:00PM d/Printer ink c/Miscellaneous a/3.50 p/Janelle</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The format of the date has to be in dd-MMM-yyyy format. (Eg. 24-Aug-2019 or 03-Sep-2019)
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with all the parameters filled in as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeAddStep1.png" alt="HomeAddStep1">
+</div>
+<div class="title">Figure 1. Screenshot of user input into command box for add command in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Enter the command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the command is successfully added, there will be a response from Leo and the transaction record
+will be shown in the table. This is shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeAddStep2.png" alt="HomeAddStep2">
+</div>
+<div class="title">Figure 2. Screenshot of successful user input for add command in Home tab</div>
+</div>
+<div id="NoSuchPerson" class="paragraph">
+<p>If the person&#8217;s name is not someone in the Members tab then there will be a response from Leo and the transaction
+record will not be added. This is shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeAddUnsuccessfulStep2.png" alt="HomeAddUnsuccessfulStep2">
+</div>
+<div class="title">Figure 3. Screenshot of unsuccessful user input for add command in Home tab due to invalid person&#8217;s name input</div>
 </div>
 <div class="paragraph">
 <p>If the added transaction has a negative amount which indicates a spending, it will be shown in the Reimbursement Tab as a pending reimbursement
 record for the member that spent it. If there is an existing reimbursement record for that member still pending, the amount
-of the newly added transaction will be added to the existing pending reimbursement amount.</p>
+of the newly added transaction will be added to the existing pending reimbursement amount. This is shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeAddShowInR.png" alt="HomeAddShowInR">
+</div>
+<div class="title">Figure 4. Screenshot of Reimbursement tab after successfully adding transactions</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-transaction-s-from-the-table"><a class="link" href="#delete-transaction-s-from-the-table">5.2. Delete Transaction(s) from the Table</a></h3>
+<div class="paragraph">
+<p>This command helps to delete all transactions of a one person or a single transaction of a specific ID from the table.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>To delete an expense:
-<code>delete INDEX</code> or <code>delete p/PERSON</code></p>
+<p>Command Format:
+<code>delete ID</code> or <code>delete p/PERSON</code></p>
+</li>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code></p>
+</li>
+<li>
+<p><code>delete p/Alex Yeo</code></p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Steps for Deleting By ID:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the ID of the transaction to be deleted as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeDeleteStep1.png" alt="HomeDeleteStep1">
+</div>
+<div class="title">Figure 5. Screenshot of user input into command box for delete by ID command in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Enter the command.</p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
-<p>Examples:
-<strong> <code>delete 1</code>
-</strong> <code>delete p/Alex Yeoh</code></p>
+<p>Leo will respond with the successful deletion and the transaction will be removed from the table as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeDeleteStep2.png" alt="HomeDeleteStep2">
+</div>
+<div class="title">Figure 6. Screenshot of successful user input for delete by ID command in Home tab</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>To edit a transaction:
-<code>edit INDEX dt/DATE d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
+<p>Steps for Deleting By Person:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the person&#8217;s name for all corresponding transactions related to that person to be deleted as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeDeletePStep1.png" alt="HomeDeletePStep1">
+</div>
+<div class="title">Figure 7. Screenshot of user input into command box for delete by ID command in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Enter the command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Leo will respond with the successful deletion and the transactions will be removed from the table as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeDeletePStep2.png" alt="HomeDeletePStep2">
+</div>
+<div class="title">Figure 8. Screenshot of successful user input for delete by person command in Home tab</div>
+</div>
+<div class="paragraph">
+<p>If the person inputted does not have any transactions related to him or her, Leo will also respond to inform you.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-a-transaction-in-the-table"><a class="link" href="#edit-a-transaction-in-the-table">5.3. Edit a Transaction in the Table</a></h3>
+<div class="paragraph">
+<p>This command helps to edit an existing transaction record in a table with different parameters.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command Format:
+<code>edit ID dt/DATE d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
 </li>
 </ul>
 </div>
@@ -236,14 +429,61 @@ The fields above can vary and be in different order. It is not compulsory to inc
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:
-<strong> <code>edit 1 p/Bernice Yu dt/23-Aug-2019</code>
-</strong> <code>edit 3 a/12</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/Bernice Yu dt/23-Aug-2019</code></p>
+</li>
+<li>
+<p><code>edit 3 a/12</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the ID of the transaction to be edit with the new parameters to be changed to as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeEditStep1.png" alt="HomeEditStep1">
+</div>
+<div class="title">Figure 9. Screenshot of user input into command box for edit command in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Enter the command.
+Leo will respond with the successfully edited transaction and the transactions will be shown in the table as shown below:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeEditStep2.png" alt="HomeEditStep2">
+</div>
+<div class="title">Figure 10. Screenshot of successful user input for edit command in Home tab</div>
 </div>
 <div class="paragraph">
-<p>If the transaction intended to be deleted still has a pending reimbursement record, there will be an error response shown
-and the deletion will not be allowed until the reimbursement record is marked as done.</p>
+<p>If the person entered into the command is not found in the Members tab, Leo will respond to inform you which is similar to <a href="#NoSuchPerson">Figure 3</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-transactions-in-the-table"><a class="link" href="#sort-transactions-in-the-table">5.4. Sort Transactions in the Table</a></h3>
+<div class="paragraph">
+<p>This command helps to sort the table of transactions into specific orders for viewing and for carrying out subsequent commands.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -252,39 +492,46 @@ and the deletion will not be allowed until the reimbursement record is marked as
 <div class="ulist">
 <ul>
 <li>
-<p>By date: <code>sort date</code></p>
+<p>By date (from oldest to most recent): <code>sort date</code></p>
 </li>
 <li>
-<p>By person: <code>sort person</code></p>
+<p>By name (alphabetical order of name): <code>sort person</code></p>
 </li>
 <li>
-<p>By amount: <code>sort amount</code></p>
+<p>By amount (from most to least in amount): <code>sort amount</code></p>
 </li>
-</ul>
+<li>
+<p>Undo sort: <code>sort reset</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The undo sort command will allow the user to view the table of transactions in the order of when the current session of this application was just opened,
+not when the transactions was first entered.
+</td>
+</tr>
+</table>
 </div>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-transactions-that-match-keywords"><a class="link" href="#find-transactions-that-match-keywords">5.5. Find Transactions that Match Keywords:</a></h3>
 <div class="paragraph">
-<p>The sort by date command will allow the user to view the table of transactions from the oldest to most recent.
-The sort by person command will allow the user to view the table of transactions in alphabetical order.
-The sort by amount command will allow the user to view the table of transactions from the one with the largest amount to the smallest amount.</p>
+<p>This command helps to find transactions that match the entered keywords for viewing and for subsequent commands to be inputted based
+on the filtered table of transactions shown.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>To un-sort:
-<code>sort reset</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This command will allow the user to view the table of transactions in the order of when the current session of this application was just opened.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To find:
+<p>Command Format:
 <code>find KEYWORDS</code></p>
 </li>
 </ul>
@@ -296,16 +543,17 @@ The sort by amount command will allow the user to view the table of transactions
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The keyword can be one or more words. An entire keyword must match a word in the transaction intended to be found to be shown in the table
-after the command. If the keyword is just a part of the word in the transaction, the transaction will not be shown in the table after the
+The keyword can be one or more words. An entire keyword must match a word in any of the parameters of the transaction intended to be found and shown in the table.
+If the keyword is just a part of the word in the transaction, the transaction will not be shown in the table after the
 command is inputted.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p>Examples:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -316,9 +564,89 @@ command is inputted.
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Steps:
+Shown below is the table of all transactions:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeFindCurr.png" alt="HomeFindCurr">
+</div>
+<div class="title">Figure 11. Screenshot of all transactions in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with keyword(s) to find transactions as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeFindStep1.png" alt="HomeFindStep1">
+</div>
+<div class="title">Figure 12. Screenshot of user input into command box for find command in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Enter the command.
+Leo will respond with the number of matching transactions to the keywords and the table will only show the filtered
+transactions matching the keywords. This is shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeFindStep2.png" alt="HomeFindStep2">
+</div>
+<div class="title">Figure 13. Screenshot of successful user input for find command in Home tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Enter <code>back</code> to return to the table of all transactions or enter your next command to be executed. The edit command
+being inputted as the next command can be shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeFindStep3.png" alt="HomeFindStep3">
+</div>
+<div class="title">Figure 14. Screenshot of user input for edit command according to filtered table&#8217;s ID in Home tab</div>
+</div>
+<div class="paragraph">
+<p>The table will continue to show the filtered table with the transaction edited according to the command shown in the screenshot above.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the add command, the table will automatically show the full list of all transactions. The rest of the commands will
+require the user to input <code>back</code> to return to the full list of all transactions.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The screenshot below shows the table after entering <code>back</code> which shows all the transactions in the table again:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeFindStep3Back.png" alt="HomeFindStep3Back">
+</div>
+<div class="title">Figure 15. Screenshot of user input for back command after entering find command in Home tab</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="reimbursements"><a class="link" href="#reimbursements">5.2. Reimbursements</a></h3>
+<h3 id="reimbursements"><a class="link" href="#reimbursements">5.6. Reimbursements</a></h3>
 <div class="paragraph">
 <p>The reimbursement tab displays all the reimbursements the treasurer needs to pay to people.
 Each reimbursement contains a person&#8217;s name, the total amount the person needs to be reimbursed,
@@ -335,7 +663,7 @@ that reimbursement record will not be displayed.</p>
 let the app display full list, mark a reimbursement as done and sort reimbursement lists.</p>
 </div>
 <div class="sect3">
-<h4 id="adding-deadline-to-a-reimbursement-code-deadline-p-name-dt-dd-mmm-yyyy-code"><a class="link" href="#adding-deadline-to-a-reimbursement-code-deadline-p-name-dt-dd-mmm-yyyy-code">5.2.1. Adding deadline to a reimbursement: <code>deadline p/[name] dt/dd-mmm-yyyy</code></a></h4>
+<h4 id="adding-deadline-to-a-reimbursement-code-deadline-p-name-dt-dd-mmm-yyyy-code"><a class="link" href="#adding-deadline-to-a-reimbursement-code-deadline-p-name-dt-dd-mmm-yyyy-code">5.6.1. Adding deadline to a reimbursement: <code>deadline p/[name] dt/dd-mmm-yyyy</code></a></h4>
 <div class="paragraph">
 <p>This command helps to add a deadline to a reimbursement for the person.</p>
 </div>
@@ -343,7 +671,7 @@ let the app display full list, mark a reimbursement as done and sort reimburseme
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommand.png" alt="ReimbursementDeadlineCommand">
 </div>
-<div class="title">Figure 1. Diagram of deadline command in reimbursement tab</div>
+<div class="title">Figure 16. Diagram of deadline command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -357,7 +685,7 @@ Otherwise, Leo in the right box shows response that the person is not in reimbur
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommandSuccess.png" alt="ReimbursementDeadlineCommandSuccess">
 </div>
-<div class="title">Figure 2. Diagram of successful deadline command in reimbursement tab</div>
+<div class="title">Figure 17. Diagram of successful deadline command in reimbursement tab</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -390,7 +718,7 @@ to reassign deadline to a reimbursement.
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-reimbursement-for-a-person-code-find-p-name-code"><a class="link" href="#finding-a-reimbursement-for-a-person-code-find-p-name-code">5.2.2. Finding a reimbursement for a person: <code>find p/[name]</code></a></h4>
+<h4 id="finding-a-reimbursement-for-a-person-code-find-p-name-code"><a class="link" href="#finding-a-reimbursement-for-a-person-code-find-p-name-code">5.6.2. Finding a reimbursement for a person: <code>find p/[name]</code></a></h4>
 <div class="paragraph">
 <p>This command helps to find out the reimbursement for the person.</p>
 </div>
@@ -405,7 +733,7 @@ to reassign deadline to a reimbursement.
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommand.png" alt="ReimbursementFindCommand">
 </div>
-<div class="title">Figure 3. Diagram of find command in reimbursement tab</div>
+<div class="title">Figure 18. Diagram of find command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -419,11 +747,11 @@ Otherwise, Leo in the right box shows response that the person is not in reimbur
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommandSuccess.png" alt="ReimbursementFindCommandSuccess">
 </div>
-<div class="title">Figure 4. Diagram of successful find command in reimbursement tab</div>
+<div class="title">Figure 19. Diagram of successful find command in reimbursement tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="going-back-to-display-the-full-list-code-back-code"><a class="link" href="#going-back-to-display-the-full-list-code-back-code">5.2.3. Going back to display the full list: <code>Back</code></a></h4>
+<h4 id="going-back-to-display-the-full-list-code-back-code"><a class="link" href="#going-back-to-display-the-full-list-code-back-code">5.6.3. Going back to display the full list: <code>Back</code></a></h4>
 <div class="paragraph">
 <p>This command helps to display the full reimbursement list after <code>find</code> and <code>deadline</code> commands.</p>
 </div>
@@ -438,7 +766,7 @@ Otherwise, Leo in the right box shows response that the person is not in reimbur
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommand.png" alt="ReimbursementBackCommand">
 </div>
-<div class="title">Figure 5. Diagram of back command in reimbursement tab</div>
+<div class="title">Figure 20. Diagram of back command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -451,11 +779,11 @@ Otherwise, Leo in the right box shows response that the person is not in reimbur
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommandSuccess.png" alt="ReimbursementBackCommandSuccess">
 </div>
-<div class="title">Figure 6. Diagram of successful back command in reimbursement tab</div>
+<div class="title">Figure 21. Diagram of successful back command in reimbursement tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="marking-a-command-as-done-code-done-p-name-code"><a class="link" href="#marking-a-command-as-done-code-done-p-name-code">5.2.4. Marking a command as done: <code>done p/[name]</code></a></h4>
+<h4 id="marking-a-command-as-done-code-done-p-name-code"><a class="link" href="#marking-a-command-as-done-code-done-p-name-code">5.6.4. Marking a command as done: <code>done p/[name]</code></a></h4>
 <div class="paragraph">
 <p>This command helps to mark a reimbursement as done and remove it from reimbursement list.</p>
 </div>
@@ -470,7 +798,7 @@ Otherwise, Leo in the right box shows response that the person is not in reimbur
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommand.png" alt="ReimbursementDoneCommand">
 </div>
-<div class="title">Figure 7. Diagram of done command in reimbursement tab</div>
+<div class="title">Figure 22. Diagram of done command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -483,11 +811,11 @@ Otherwise, Leo in the right box shows response that the person is not in reimbur
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommandSuccess.png" alt="ReimbursementDoneCommandSuccess">
 </div>
-<div class="title">Figure 8. Diagram of successful done command in reimbursement tab</div>
+<div class="title">Figure 23. Diagram of successful done command in reimbursement tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-the-list-based-on-amount-code-sort-amount-code"><a class="link" href="#sorting-the-list-based-on-amount-code-sort-amount-code">5.2.5. Sorting the list based on amount: <code>sort amount</code></a></h4>
+<h4 id="sorting-the-list-based-on-amount-code-sort-amount-code"><a class="link" href="#sorting-the-list-based-on-amount-code-sort-amount-code">5.6.5. Sorting the list based on amount: <code>sort amount</code></a></h4>
 <div class="paragraph">
 <p>This command helps to sort the reimbursement lists based on amount. And the
 list will be in descending order of the amount.</p>
@@ -503,7 +831,7 @@ list will be in descending order of the amount.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortAmountCommand.png" alt="ReimbursementSortAmountCommand">
 </div>
-<div class="title">Figure 9. Diagram of sort amount command in reimbursement tab</div>
+<div class="title">Figure 24. Diagram of sort amount command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -516,11 +844,11 @@ list will be in descending order of the amount.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortAmountCommandSuccess.png" alt="ReimbursementSortAmountCommandSuccess">
 </div>
-<div class="title">Figure 10. Diagram of successful sort amount command in reimbursement tab</div>
+<div class="title">Figure 25. Diagram of successful sort amount command in reimbursement tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-the-list-based-on-name-code-sort-name-code"><a class="link" href="#sorting-the-list-based-on-name-code-sort-name-code">5.2.6. Sorting the list based on name: <code>sort name</code></a></h4>
+<h4 id="sorting-the-list-based-on-name-code-sort-name-code"><a class="link" href="#sorting-the-list-based-on-name-code-sort-name-code">5.6.6. Sorting the list based on name: <code>sort name</code></a></h4>
 <div class="paragraph">
 <p>This command helps to sort the reimbursement lists based on name.
 And the list will be in alphabetical order.</p>
@@ -536,7 +864,7 @@ And the list will be in alphabetical order.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortNameCommand.png" alt="ReimbursementSortNameCommand">
 </div>
-<div class="title">Figure 11. Diagram of sort name command in reimbursement tab</div>
+<div class="title">Figure 26. Diagram of sort name command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -549,11 +877,11 @@ And the list will be in alphabetical order.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortNameCommandSuccess.png" alt="ReimbursementSortNameCommandSuccess">
 </div>
-<div class="title">Figure 12. Diagram of successful sort name command in reimbursement tab</div>
+<div class="title">Figure 27. Diagram of successful sort name command in reimbursement tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-the-list-based-on-deadline-code-sort-date-code"><a class="link" href="#sorting-the-list-based-on-deadline-code-sort-date-code">5.2.7. Sorting the list based on deadline: <code>sort date</code></a></h4>
+<h4 id="sorting-the-list-based-on-deadline-code-sort-date-code"><a class="link" href="#sorting-the-list-based-on-deadline-code-sort-date-code">5.6.7. Sorting the list based on deadline: <code>sort date</code></a></h4>
 <div class="paragraph">
 <p>This command helps to sort the reimbursement lists based on deadline.
 And the reimbursements with closer deadline will be at the front.</p>
@@ -569,7 +897,7 @@ And the reimbursements with closer deadline will be at the front.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortDateCommand.png" alt="ReimbursementSortDateCommand">
 </div>
-<div class="title">Figure 13. Diagram of sort date command in reimbursement tab</div>
+<div class="title">Figure 28. Diagram of sort date command in reimbursement tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -582,12 +910,12 @@ And the reimbursements with closer deadline will be at the front.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortDateCommandSuccess.png" alt="ReimbursementSortDateCommandSuccess">
 </div>
-<div class="title">Figure 14. Diagram of successful sort date command in reimbursement tab</div>
+<div class="title">Figure 29. Diagram of successful sort date command in reimbursement tab</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory"><a class="link" href="#inventory">5.3. Inventory</a></h3>
+<h3 id="inventory"><a class="link" href="#inventory">5.7. Inventory</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -674,7 +1002,7 @@ And the reimbursements with closer deadline will be at the front.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cashier"><a class="link" href="#cashier">5.4. Cashier</a></h3>
+<h3 id="cashier"><a class="link" href="#cashier">5.8. Cashier</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -939,7 +1267,7 @@ This command is irreversible. Please use at your own discretion.
 </div>
 </div>
 <div class="sect2">
-<h3 id="overview"><a class="link" href="#overview">5.5. Overview</a></h3>
+<h3 id="overview"><a class="link" href="#overview">5.9. Overview</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -1024,7 +1352,7 @@ This command is irreversible. Please use at your own discretion.
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.6. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.10. Saving the data</a></h3>
 <div class="paragraph">
 <p>Data in treasurerPro is saved automatically after executing any command. There is no need to save manually.</p>
 </div>
@@ -1054,7 +1382,7 @@ This command is irreversible. Please use at your own discretion.
 </div>
 </div>
 <div class="sect2">
-<h3 id="home-2"><a class="link" href="#home-2">7.2. Home</a></h3>
+<h3 id="home"><a class="link" href="#home">7.2. Home</a></h3>
 
 </div>
 <div class="sect2">
@@ -1121,4 +1449,4 @@ e.g. <code>find James Jake</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 02:39:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 02:41:23 UTC</div></div></div></body></html>
