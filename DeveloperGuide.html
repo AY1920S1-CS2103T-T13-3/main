@@ -263,9 +263,11 @@ For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T13-
 <p>This section will show the structures of the <code>Logic</code> Component of the different tabs.
 The diagram below shows a generalised view of the <code>Logic</code> component within the packages.</p>
 </div>
-<div id="fig-LogicClassDiagram" class="paragraph">
-<div class="title">Structure of the Generalised <code>Logic</code> Component</div>
-<p>image::LogicClassDiagram.png[]<em>__</em></p>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+</div>
+<div class="title">Figure 4. Structure of the Generalised <code>Logic</code> Component</div>
 </div>
 <div class="paragraph">
 <p>An outline of how a command is processed through <code>Logic</code> is as follows:</p>
@@ -293,7 +295,7 @@ The diagram below shows a generalised view of the <code>Logic</code> component w
 <div class="content">
 <img src="images/GeneralSequenceDiagram.png" alt="GeneralSequenceDiagram">
 </div>
-<div class="title">Figure 4. Sequence Diagram for execution within <code>Logic</code>.</div>
+<div class="title">Figure 5. Sequence Diagram for execution within <code>Logic</code>.</div>
 </div>
 <div class="paragraph">
 <p>Further details on the implementation of the <code>Parser</code> and <code>Command</code> can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursement Tab</a>,
@@ -309,7 +311,7 @@ Given below is a Class Diagram showing the structure of <code>Parser</code> with
 <div class="content">
 <img src="images/LogicForR&T.png" alt="LogicForR&amp;T">
 </div>
-<div class="title">Figure 5. Structure of <code>Parser</code> for Transaction and Reimbursement Tab.</div>
+<div class="title">Figure 6. Structure of <code>Parser</code> for Home (Transaction) and Reimbursement Tab.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -406,7 +408,81 @@ Tab.
 <div class="sect3">
 <h4 id="ICLogic"><a class="link" href="#ICLogic">2.3.2. Details on <code>Logic</code> Implementation for Inventory and Cashier Tab</a></h4>
 <div class="paragraph">
-<p>To be filled in by the respective members :)</p>
+<p>This section will show further details of the <code>Logic</code> Component of the Inventory and Cashier Tabs.
+Given below is a Class Diagram showing the structure of <code>Parser</code> within the <code>Logic</code> component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ParserForInventoryCashier.png" alt="ParserForInventoryCashier">
+</div>
+<div class="title">Figure 7. Structure of <code>Parser</code> for Inventory and Cashier Tabs.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>XYZTabParser</code> represents the <code>InventoryTabParser</code> for the Inventory Tab and <code>CashierTabParser</code> for the Cashier
+Tab.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The parsers represented by the <code>ABCParser</code>:</p>
+</div>
+<div class="paragraph">
+<p><code>ABCParser</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Inventory Tab:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddCommandParser</code></p>
+</li>
+<li>
+<p><code>DeleteCommandParser</code></p>
+</li>
+<li>
+<p><code>EditCommandParser</code></p>
+</li>
+<li>
+<p><code>SortCommandParser</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cashier Tab:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddCommandParser</code></p>
+</li>
+<li>
+<p><code>EditCommandParser</code></p>
+</li>
+<li>
+<p><code>DeleteCommandParser</code></p>
+</li>
+<li>
+<p><code>SetCashierCommandParser</code></p>
+</li>
+<li>
+<p><code>CheckoutCommandParser</code></p>
+</li>
+<li>
+<p><code>ClearCommandParser</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -420,7 +496,7 @@ Given below is a Class Diagram showing the structure of <code>Parser</code> with
 <div class="content">
 <img src="images/LogicForAB.png" alt="LogicForAB">
 </div>
-<div class="title">Figure 6. Structure of <code>Parser</code> for Members Tab.</div>
+<div class="title">Figure 8. Structure of <code>Parser</code> for Members Tab.</div>
 </div>
 </div>
 </div>
@@ -434,7 +510,7 @@ The diagram below shows a generalised view of the <code>Model</code> component w
 <div class="content">
 <img src="images/ModelCD.png" alt="ModelCD">
 </div>
-<div class="title">Figure 7. Structure of the Generalised <code>Model</code> Component</div>
+<div class="title">Figure 9. Structure of the Generalised <code>Model</code> Component</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -443,7 +519,7 @@ The diagram below shows a generalised view of the <code>Model</code> component w
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>XYZObjects</code> are only present in the <code>transaction</code>, <code>reimbursement</code>, <code>person</code> and <code>inventory</code> packages.
+<code>XYZObjects</code> are only present in the <code>transaction</code>, <code>reimbursement</code>, <code>person</code>, <code>cashier</code> and <code>inventory</code> packages.
 </td>
 </tr>
 </table>
@@ -536,7 +612,7 @@ The diagram below shows a generalised view of the <code>Storage</code> component
 <div class="content">
 <img src="images/ABStorageCD.png" alt="ABStorageCD">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component for Members tab in person package</div>
+<div class="title">Figure 10. Structure of the Storage Component for Members tab in person package</div>
 </div>
 <div class="paragraph">
 <p>The following diagram shows a generalised view of the <code>Storage</code> component within the other packages for transaction,
@@ -546,7 +622,7 @@ reimbursement, inventory, cashier and overview.</p>
 <div class="content">
 <img src="images/StorageCD.png" alt="StorageCD">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component for Home, Reimbursements, Inventory, Cashier and Overview Tab</div>
+<div class="title">Figure 11. Structure of the Storage Component for Home, Reimbursements, Inventory, Cashier and Overview Tab</div>
 </div>
 <div class="sect3">
 <h4 id="details-on-the-code-storage-code-implementation-for-home-tab"><a class="link" href="#details-on-the-code-storage-code-implementation-for-home-tab">2.5.1. Details on the <code>Storage</code> Implementation for Home Tab</a></h4>
@@ -664,7 +740,7 @@ has to match a name already existing in the <code>AddressBook</code> which is sh
 <div class="content">
 <img src="images/HomeAddCommandSD.png" alt="HomeAddCommandSD">
 </div>
-<div class="title">Figure 10. Sequence Diagram of Add Command in Home Tab (transaction package)</div>
+<div class="title">Figure 12. Sequence Diagram of Add Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>In addition, the <code>resetPredicate()</code> method from <code>ModelManager</code> is called in the <code>AddCommand</code>. Thus, the UI table will immediately shows the full
@@ -681,7 +757,7 @@ in the data file:</p>
 <div class="content">
 <img src="images/HomeAddCommandMMSM.png" alt="HomeAddCommandMMSM">
 </div>
-<div class="title">Figure 11. Sequence Diagram of updating the transaction list in Home Tab (transaction package)</div>
+<div class="title">Figure 13. Sequence Diagram of updating the transaction list in Home Tab (transaction package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -704,7 +780,7 @@ the Reimbursement Tab is updated from the <code>MainWindow</code>:</p>
 <div class="content">
 <img src="images/TUpdateRinMainWindow.png" alt="TUpdateRinMainWindow">
 </div>
-<div class="title">Figure 12. Sequence Diagram of updating the reimbursement list in Reimbursement Tab (transaction package)</div>
+<div class="title">Figure 14. Sequence Diagram of updating the reimbursement list in Reimbursement Tab (transaction package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -726,7 +802,7 @@ the activity diagram for the Add Command is shown below:</p>
 <div class="content">
 <img src="images/HomeTabActivityDiagramAddCommand.png" alt="HomeTabActivityDiagramAddCommand">
 </div>
-<div class="title">Figure 13. Activity Diagram of Add Command in Home Tab (transaction package)</div>
+<div class="title">Figure 15. Activity Diagram of Add Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, when a user does not input all the compulsory fields or input a name that does not match anyone in
@@ -752,7 +828,7 @@ that person to be deleted.</p>
 <div class="content">
 <img src="images/HomeDeleteNameCommand.png" alt="HomeDeleteNameCommand">
 </div>
-<div class="title">Figure 14. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 16. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>In addition, the <code>resetPredicate()</code> method in <code>ModelManager</code> is not called in the <code>DeleteNameCommand</code>. Thus, the UI table will continue to show the
@@ -774,7 +850,7 @@ The following detailed sequence diagram shows how the back command works:</p>
 <div class="content">
 <img src="images/HomeTabBackCommandSequenceDiagram.png" alt="HomeTabBackCommandSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
+<div class="title">Figure 17. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
@@ -787,7 +863,7 @@ The following activity diagram shows the steps needed to delete a new transactio
 <div class="content">
 <img src="images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand">
 </div>
-<div class="title">Figure 16. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 18. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
@@ -812,7 +888,7 @@ The following sequence diagram shows how the delete command works:</p>
 <div class="content">
 <img src="images/MembersDeleteSD.png" alt="MembersDeleteSD">
 </div>
-<div class="title">Figure 17. Sequence Diagram of Delete Command in Member Tab (transaction package)</div>
+<div class="title">Figure 19. Sequence Diagram of Delete Command in Member Tab (transaction package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -862,7 +938,7 @@ Tab.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommandSD.png" alt="ReimbursementDeadlineCommandSD">
 </div>
-<div class="title">Figure 18. Sequence Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 20. Sequence Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, a user needs to add a deadline to a reimbursement by specifying
@@ -876,7 +952,7 @@ After that, the deadline is saved into a <code>.txt</code> file.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDeadlineCommand.png" alt="ReimbursementTabActivityDiagramDeadlineCommand">
 </div>
-<div class="title">Figure 19. Activity Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 21. Activity Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown by the above activity diagram, when a user inputs a person who does not exist in any
@@ -897,7 +973,7 @@ Person field should be provided and the person&#8217;s name should exist in reim
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommandSD.png" alt="ReimbursementFindCommandSD">
 </div>
-<div class="title">Figure 20. Sequence Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 22. Sequence Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>A user needs to find a reimbursement by providing the person&#8217;s name.
@@ -909,7 +985,7 @@ and reimbursement tab only shows a <code>filteredList</code> which contains this
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramFindCommand.png" alt="ReimbursementTabActivityDiagramFindCommand">
 </div>
-<div class="title">Figure 21. Activity Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 23. Activity Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>The above activity diagram shows the steps needed for find command.
@@ -927,7 +1003,7 @@ is found and displayed in the tab.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommandSD.png" alt="ReimbursementBackCommandSD">
 </div>
-<div class="title">Figure 22. Sequence Diagram of Back Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 24. Sequence Diagram of Back Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p><code>BackCommand</code> execution updates <code>filteredList</code> inside <code>ModelManager</code> to the original full <code>reimbursementList</code>.
@@ -946,7 +1022,7 @@ Person field should be provided and the person&#8217;s name should exist in reim
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommandSD.png" alt="ReimbursementDoneCommandSD">
 </div>
-<div class="title">Figure 23. Sequence Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 25. Sequence Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>A user needs to mark a reimbursement as done by specifying the person&#8217;s name for the specific reimbursement.
@@ -967,7 +1043,7 @@ of transaction tab to save it.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementUpdateTransactionsSD.png" alt="ReimbursementUpdateTransactionsSD">
 </div>
-<div class="title">Figure 24. Sequence Diagram of updating transactions in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 26. Sequence Diagram of updating transactions in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p><a href="#ReimbursementTabActivityDiagramDoneCommand">The following activity diagram</a> shows the steps needed for done command.
@@ -979,7 +1055,7 @@ containing the provided person&#8217;s name is deleted from reimbursement list a
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDoneCommand.png" alt="ReimbursementTabActivityDiagramDoneCommand">
 </div>
-<div class="title">Figure 25. Activity Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 27. Activity Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -991,7 +1067,7 @@ containing the provided person&#8217;s name is deleted from reimbursement list a
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortCommandSD.png" alt="ReimbursementSortCommandSD">
 </div>
-<div class="title">Figure 26. Sequence Diagram of Sort Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 28. Sequence Diagram of Sort Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown in the above figure, <code>SortXYZCommand</code> is executed by calling <code>sortListByXYZ</code> method in
@@ -1016,7 +1092,7 @@ sale, the price can be inputted as well.</p>
 <div class="content">
 <img src="images/InventoryTabClassDiagram.png" alt="InventoryTabClassDiagram">
 </div>
-<div class="title">Figure 27. Class Diagram of Inventory Tab (inventory package)</div>
+<div class="title">Figure 29. Class Diagram of Inventory Tab (inventory package)</div>
 </div>
 <div class="sect3">
 <h4 id="add-item-feature"><a class="link" href="#add-item-feature">3.4.1. Add Item Feature</a></h4>
@@ -1047,7 +1123,7 @@ present:</p>
 <div class="content">
 <img src="images/InventoryAddCommandActivityDiagram.png" alt="InventoryAddCommandActivityDiagram">
 </div>
-<div class="title">Figure 28. Activity Diagram of Add Command in Inventory Tab (inventory package)</div>
+<div class="title">Figure 30. Activity Diagram of Add Command in Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>As shown above, the input will be evaluated for its validity. If the input is not valid, the user will be informed through Leo
@@ -1078,260 +1154,181 @@ the Table of the UI.</p>
 <div class="sect2">
 <h3 id="cashier-tab"><a class="link" href="#cashier-tab">3.5. Cashier Tab</a></h3>
 <div class="paragraph">
-<p>This tab will act as a shopping cart to record sales item from the inventory that will contribute
-to the sales made.</p>
+<p>This tab will act as a shopping cart to add and record sales items to be sold from the inventory.</p>
 </div>
 <div class="paragraph">
-<p>Only sales items can be added to the cart. If the price of the item is zero, it is not available for sale. The
-system will prohibit the addition of such an item to the cart.</p>
-</div>
-<div class="paragraph">
-<p>Adding of a sales item to the cart will require an input of its description and quantity. An optional field for
-category is provided to guide the cashier to find the desired item.
-Before every checkout, an existing person on the <code>Members Tab</code> must be set as the cashier-in-charge.</p>
-</div>
-<div class="paragraph">
-<p>Revenue from every checkout will also be automatically inputted as
-a positive transaction in <code>Home tab</code> with the cashier being the person-in-charge. For every sales made,
-the quantity of each item will be updated accordingly in the <code>Inventory Tab</code>.</p>
-</div>
-<div class="paragraph">
-<p>This is the overall Class Diagram of this tab:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UMLCashierTab.png" alt="UMLCashierTab">
-</div>
-<div class="title">Figure 29. Class Diagram of Cashier Tab (cashier package)</div>
+<p>Upon every successful checkout, all the sales items sold will recorded as one transaction, which will subsequently be
+appended to the list of transactions on the <code>Home tab</code>.<br>
+In addition, the stock remaining in the inventory will be updated accordingly in the <code>Inventory tab</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
 <div class="paragraph">
-<p>This feature allows the adding of sales items to the cart.</p>
+<p>This feature allows the addition of sales items to the cart.</p>
 </div>
 <div class="paragraph">
-<p>Only description and quantity fields are required to be inputted by the user. If the category field
-is input with other incomplete description and quantity fields, suggestions according to the specified category
-would be shown by Leo, the assistant.</p>
+<p>Only sales items can be added to the cart. If the price of an item is zero, it is not available for sale. The
+system will prohibit any addition of such an item to the cart.</p>
 </div>
 <div class="paragraph">
-<p>For the description field to be valid, it must match the description of an item in the inventory that is listed for
-sale. For quantity field, the quantity specified must be positive and checks will be made to ensure that there is
-sufficient stock in the inventory.</p>
+<p>Adding of a sales item to the cart will require an input of its description and quantity. An optional field for
+category is provided to guide the cashier to find the desired item. If the category field is input with other unspecified
+description and quantity fields, <code>Model</code> will search all the sales items in the <code>Inventory List</code>
+according to the specified category and suggestions would be shown by Leo, the assistant.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how an add command works with the description and quantity fields present:</p>
+<p>If description and quantity field are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>AddCommand</code> works and is the reference
+from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddCommandCashierSeqDiag.png" alt="AddCommandCashierSeqDiag">
+<img src="images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq">
 </div>
-<div class="title">Figure 30. Sequence Diagram of Add Command (cashier package)</div>
-</div>
-<div class="paragraph">
-<p>As shown, when the user input an invalid description or quantity field without any category field, an appropriate response
-message will be shown accordingly. If the category field is specified, suggestions according to that category
-would be shown.
-Checks will be done by the <code>Cashier Model</code> to ensure that the item specified is available for sale.</p>
+<div class="title">Figure 31. Sequence Diagram of Add Command in Cashier Tab (cashier package)</div>
 </div>
 <div class="paragraph">
-<p>If description and quantity field are both valid, a response message will be shown, informing the user of the successful
-addition of the sales item.</p>
+<p><code>AddCommandParser</code> will carry out multiple checks to check the validity of the inputs. <code>hasItemInInventory(description)</code>
+and <code>hasSufficientQuantityToAdd(description, quantity)</code> methods will be called to ensure the item has sufficient stock
+left in the inventory.<br>
+There will also be checks to ensure that the item specified is available for sale.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After every add command, the quantity of items in the Inventory Tab will still remain the same. The remaining stock
+will only be updated after the Checkout Command.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps proceeding after the user input an add command:</p>
+<p>The following activity diagram shows the steps proceeding after the user input an Add Command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddCommandCashierActivityDiag.png" alt="AddCommandCashierActivityDiag">
+<img src="images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity">
 </div>
-<div class="title">Figure 31. Activity Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 32. Activity Diagram of Add Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-feature"><a class="link" href="#edit-feature">3.5.2. Edit Feature</a></h4>
+<h4 id="setting-the-cashier-feature"><a class="link" href="#setting-the-cashier-feature">3.5.2. Setting the Cashier Feature</a></h4>
 <div class="paragraph">
-<p>This feature allows the editing of the quantity of sales item that are already added to the cart.
-There are two ways to edit - by index or by description.</p>
-</div>
-<div class="paragraph">
-<p>To edit by index, it will require an input consisting of the index and quantity fields. The specified index
-should be row index of the item in the table shown on the Cashier tab.</p>
+<p>This feature allows an existing person in the <code>Address Book</code> to be set as a cashier. The only field required is
+the name of an existing person.</p>
 </div>
 <div class="paragraph">
-<p>To edit by description, it will require an input consisting of the description and quantity fields. The specified
-description should match the description of an item in the table.</p>
-</div>
-<div class="paragraph">
-<p>For the index field to be valid, it must be a positive integer and be within the size of the
-table shown on the Cashier tab. For the quantity field to be valid, it must not exceed the stock
-available in the inventory.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how an edit command works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/EditCommandCashierSeqDiag.png" alt="EditCommandCashierSeqDiag">
-</div>
-<div class="title">Figure 32. Sequence Diagram of Edit Command (cashier package)</div>
-</div>
-<div class="paragraph">
-<p>If the inputted field are valid, a response message will be shown, informing the user of the successful
-updating of the sales item.</p>
-</div>
-<div class="paragraph">
-<p>As shown below, if the description of the item has been input, the model will return the index of that item
-according to the specified description.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram shows the process after the user input an edit command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/EditCommandCashierActivityDiag.png" alt="EditCommandCashierActivityDiag">
-</div>
-<div class="title">Figure 33. Activity Diagram of Edit Command (cashier package)</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-feature"><a class="link" href="#delete-feature">3.5.3. Delete Feature</a></h4>
-<div class="paragraph">
-<p>This feature allows the deleting of the items in the table shown on the Cashier tab.</p>
-</div>
-<div class="paragraph">
-<p>To edit a specific item in the table, the only field required is the row index of the item in the table.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how a delete command works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteCommandCashierSeqDiag.png" alt="DeleteCommandCashierSeqDiag">
-</div>
-<div class="title">Figure 34. Sequence Diagram of Delete Command (cashier package)</div>
-</div>
-<div class="paragraph">
-<p>If the index field is valid, the cashier model will delete the item from the sales list. The item will also be removed
-from the table shown. A message informing the user of successful deletion will then be shown.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram shows the steps after the user input a delete command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteCommandCashierActivityDiag.png" alt="DeleteCommandCashierActivityDiag">
-</div>
-<div class="title">Figure 35. Activity Diagram of Delete Command (cashier package)</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="setting-the-cashier-feature"><a class="link" href="#setting-the-cashier-feature">3.5.4. Setting the Cashier Feature</a></h4>
-<div class="literalblock">
-<div class="content">
-<pre>This feature allows an existing person in the `Address Book` to be set as a cashier. The only field required is
-the name of an existing person.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>Members Tab</code> shows a list of existing members of the organisation.
-To set a cashier, the specified person must be found on the <code>Members Tab</code>.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the command works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/SetCashierCommandCashierSeqDiag.png" alt="SetCashierCommandCashierSeqDiag">
-</div>
-<div class="title">Figure 36. Sequence Diagram of Set Cashier Command (cashier package)</div>
+<p>To set a cashier, the person&#8217;s name inputted has to match an existing name in the <code>AddressBook</code> as shown on <code>Members Tab</code>.
+This means that SetCommandParser requires access to the <code>Model</code> of the person package where the <code>AddressBook</code> implementation is.</p>
 </div>
 <div class="paragraph">
 <p>If the person&#8217;s name cannot be found in the <code>Model</code> of the person package, a response message will be shown by Leo,
-informing the user that there is no such person. To input the person, the user have to add the details of the
-person under the <code>Members Tab</code>.</p>
+informing the user that there is no such person.</p>
 </div>
 <div class="paragraph">
-<p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.
-After the cashier is set successfully, a response message will show, informing the user that the
-cashier has been set successfully.</p>
+<p>The following sequence diagram shows how the SetCashierCommandParser checks for existing person:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SetCashierCommandSeq1.png" alt="SetCashierCommandSeq1">
+</div>
+<div class="title">Figure 33. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps after the user input a set cashier command:</p>
+<p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the Set Cashier Command works and is the reference
+from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SetCashierCommandSeq2.png" alt="SetCashierCommandSeq2">
+</div>
+<div class="title">Figure 34. Sequence Diagram of Set Cashier Command (cashier package)</div>
+</div>
+<div class="paragraph">
+<p>If the inputted name is invalid, the user will be prompted to enter a valid name.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the steps after the user input a Set Cashier Command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SetCashierCommandCashierActivityDiag.png" alt="SetCashierCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 37. Activity Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 35. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="checkout-feature"><a class="link" href="#checkout-feature">3.5.5. Checkout Feature</a></h4>
+<h4 id="checkout-feature"><a class="link" href="#checkout-feature">3.5.3. Checkout Feature</a></h4>
 <div class="paragraph">
-<p>This feature confirms all the sales items in the table as sold and records the whole cart as a
-transaction under the <code>Sales</code> category.</p>
+<p>This feature confirms all the sales items in the table as sold as one transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Transaction Tab</code> will be updated with the new transaction labelled as <code>Sales Items</code>.</p>
+<p>The <code>Home Tab</code> will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock of the sales items
+will also be updated on the <code>Inventory Tab</code>.</p>
 </div>
 <div class="paragraph">
-<p>The remaining stock of the sales items sold will be updated on the <code>Inventory Tab</code>.</p>
+<p>During the execution of the command, <code>getCashier()</code> method will be called to create a <code>Transaction</code> object. If the
+cashier is null, the command cannot proceed and Leo will prompt the user to set a cashier.<br>
+If the amount inputted is valid and cashier has been set, the <code>ModelManager</code> will create a new
+transaction of the sales made.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the execution of the above methods, a clear command will then be called to clear all the sales items on the tab.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the checkout command works:</p>
+<p>The following sequence diagram shows how the Checkout Command is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/CheckoutCommandCashierSeqDiag.png" alt="CheckoutCommandCashierSeqDiag">
+<img src="images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1">
 </div>
-<div class="title">Figure 38. Sequence Diagram of Checkout Command (cashier package)</div>
-</div>
-<div class="paragraph">
-<p>As shown below, if the amount inputted is valid and the cashier has been set, the <code>Cashier Model</code> will create a new
-transaction of the sales made. The remaining stock in the inventory will also be updated accordingly.
-A clear command will then be called to clear all the sales items on the tab.</p>
+<div class="title">Figure 36. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
-<p>The <code>Cashier Logic</code> will write the updated inventory list and newly-generated transaction to the relevant data files.
+<p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
+to the respective <code>txt file</code>.<br>
 To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>, transaction will be added to the transaction model and
 <code>readInUpdatedList()</code> method of inventory model will called to read in the entire inventory data file.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps after the user input a checkout command:</p>
+<p>The following sequence diagram shows how the transaction and inventory are updated:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CheckoutCommandCashierSeq2.png" alt="CheckoutCommandCashierSeq2">
+</div>
+<div class="title">Figure 37. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
+</div>
+<div class="paragraph">
+<p>If the amount inputted is less than the total amount of items, the user will be prompted to key in a valid value.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the steps after the user input a Checkout Command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CheckoutCommandCashierActivityDiag.png" alt="CheckoutCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 39. Activity Diagram of Checkout Command (cashier package)</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-feature"><a class="link" href="#clear-feature">3.5.6. Clear Feature</a></h4>
-<div class="paragraph">
-<p>This feature clears all the sales items in the table. This command is called after the cart has been checkout.
-It can also be called by the user.</p>
-</div>
-<div class="paragraph">
-<p>There is no required fields.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ClearCommandCashierSeqDiag.png" alt="ClearCommandCashierSeqDiag">
-</div>
-</div>
-<div class="paragraph">
-<p>As shown below, after the clear command is called, the table will be emptied and the cashier will be set to null.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram shows the steps after the user input a clear command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ClearCommandCashierActivityDiag.png" alt="ClearCommandCashierActivityDiag">
-</div>
-<div class="title">Figure 40. Activity Diagram of Clear Command (cashier package)</div>
+<div class="title">Figure 38. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
 </div>
 </div>
@@ -2826,4 +2823,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 04:16:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 04:51:12 UTC</div></div></div></body></html>
