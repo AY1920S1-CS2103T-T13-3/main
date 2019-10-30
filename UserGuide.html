@@ -25,10 +25,10 @@
 <li><a href="#edit-a-transaction-in-the-table">5.3. Edit a Transaction in the Table</a></li>
 <li><a href="#sort-transactions-in-the-table">5.4. Sort Transactions in the Table</a></li>
 <li><a href="#find-transactions-that-match-keywords">5.5. Find Transactions that Match Keywords:</a></li>
-<li><a href="#reimbursements">5.6. Reimbursements</a></li>
-<li><a href="#inventory">5.7. Inventory</a></li>
-<li><a href="#cashier">5.8. Cashier</a></li>
-<li><a href="#overview">5.9. Overview</a></li>
+<li><a href="#reimbursements-tab">5.6. Reimbursements Tab</a></li>
+<li><a href="#inventory-tab">5.7. Inventory Tab</a></li>
+<li><a href="#cashier-tab">5.8. Cashier Tab</a></li>
+<li><a href="#overview-tab">5.9. Overview Tab</a></li>
 <li><a href="#saving-the-data">5.10. Saving the data</a></li>
 </ul>
 </li>
@@ -39,9 +39,9 @@
 <li><a href="#home">7.2. Home</a></li>
 <li><a href="#members">7.3. Members</a></li>
 <li><a href="#reimbursement">7.4. Reimbursement</a></li>
-<li><a href="#inventory-2">7.5. Inventory</a></li>
-<li><a href="#cashier-2">7.6. Cashier</a></li>
-<li><a href="#overview-2">7.7. Overview</a></li>
+<li><a href="#inventory">7.5. Inventory</a></li>
+<li><a href="#cashier">7.6. Cashier</a></li>
+<li><a href="#overview">7.7. Overview</a></li>
 </ul>
 </li>
 </ul>
@@ -138,7 +138,7 @@ commands specific for each tab. The commands are organised according to the tabs
 <div class="sect2">
 <h3 id="navigation-between-tabs"><a class="link" href="#navigation-between-tabs">4.1. Navigation between tabs</a></h3>
 <div class="paragraph">
-<p>Command: <code>go /TAB</code></p>
+<p>Command: <code>go TAB</code></p>
 </div>
 <div class="paragraph">
 <p>This command allows you to navigate between tabs.</p>
@@ -178,7 +178,7 @@ commands specific for each tab. The commands are organised according to the tabs
 <h2 id="application-tab-specific-commands"><a class="link" href="#application-tab-specific-commands">5. Application Tab Specific Commands</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>These are commands that are specific to each feature which would be categorised into tabs in our application.</p>
+<p>These are commands that are specific to each feature which the tabs in our application are composed of.</p>
 </div>
 <div class="sect2">
 <h3 id="home-tab"><a class="link" href="#home-tab">5.1. Home Tab</a></h3>
@@ -646,7 +646,7 @@ require the user to input <code>back</code> to return to the full list of all tr
 </div>
 </div>
 <div class="sect2">
-<h3 id="reimbursements"><a class="link" href="#reimbursements">5.6. Reimbursements</a></h3>
+<h3 id="reimbursements-tab"><a class="link" href="#reimbursements-tab">5.6. Reimbursements Tab</a></h3>
 <div class="paragraph">
 <p>The reimbursement tab displays all the reimbursements the treasurer needs to pay to people.
 Each reimbursement contains a person&#8217;s name, the total amount the person needs to be reimbursed,
@@ -928,7 +928,7 @@ And the reimbursements with closer deadline will be at the front.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory"><a class="link" href="#inventory">5.7. Inventory</a></h3>
+<h3 id="inventory-tab"><a class="link" href="#inventory-tab">5.7. Inventory Tab</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -1039,9 +1039,9 @@ Adding an item with the same description and category as an existing item is all
 </div>
 </div>
 <div class="sect2">
-<h3 id="cashier"><a class="link" href="#cashier">5.8. Cashier</a></h3>
+<h3 id="cashier-tab"><a class="link" href="#cashier-tab">5.8. Cashier Tab</a></h3>
 <div class="paragraph">
-<p>This section will contain the details on all commands available to the Cashier tab.</p>
+<p>This section will contain the details on all commands available on the Cashier tab.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1065,19 +1065,19 @@ and the subtotal of that row of items.</p>
 the sales items in the table.</p>
 </li>
 <li>
-<p>At the side, just like other tabs, our mascot lion 'Leo' will reply to indicate successful addition, deletion,
-edits of items.</p>
+<p>At the side, just like other tabs, our mascot lion 'Leo' will reply to indicate successful addition, deletion and
+updates of items.</p>
 </li>
 <li>
-<p>Upon wrong inputs, Leo will also prompt you and guide you along to key in the correct inputs.</p>
+<p>Upon wrong inputs, Leo will prompt you and guide you along to key in the correct inputs.</p>
 </li>
 <li>
 <p>Upon successful checkout, the Inventory tab will be immediately updated with the remaining stock left in
-the Inventory.</p>
+the inventory.</p>
 </li>
 <li>
 <p>After every checkout, the sales made will be recorded as one transaction with description being labelled as "Items sold"
-under the category "Sales" and person being the cashier-in-charge. The Home tab will also be updated with this transaction.</p>
+under the category "Sales" and person being the cashier-in-charge. The Home tab will be updated with this transaction.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1092,6 +1092,20 @@ Items with zero price are not available for sale. Such items cannot be added int
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do not key in a quantity where the total amount in table or subtotal of that row exceeds 2,147,483, 647, the range
+of an integer. If it exceeds this number, please key in a smaller quantity or checkout items separately.<br>
+You are advised to key in a number smaller than 10000 due to size limitation.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1110,10 +1124,8 @@ Items with zero price are not available for sale. Such items cannot be added int
 </div>
 <div class="paragraph">
 <p>The quantity of the item inputted must not be greater than the available stock in the inventory. Else, Leo will display
-a message prompting input of a smaller quantity or another item.</p>
-</div>
-<div class="paragraph">
-<p>The category field is optional. If you are unsure about the description of the desired item, you can refer to
+a message prompting input of a smaller quantity or another item.<br>
+The category field is optional. If you are unsure about the description of the desired item, you can refer to
 the Inventory tab or simply key in the category without any other fields. Leo will display all the items in the
 specified category that are available for sale.</p>
 </div>
@@ -1130,10 +1142,10 @@ some possible item descriptions you might be looking for.</p>
 <p><code>add c/food</code> - Displays all items that are under the 'food' category</p>
 </li>
 <li>
-<p><code>add c/stationary d/pancake q/3</code> - Adds 3 items of description "pancake"</p>
+<p><code>add c/stationary d/pancake q/3</code> - Adds 3 items which has the description "pancake"</p>
 </li>
 <li>
-<p><code>add d/pancake q/3</code> - Adds 3 items of description "pancake"</p>
+<p><code>add d/pancake q/3</code> - Adds 3 items which has the description "pancake"</p>
 </li>
 </ul>
 </div>
@@ -1163,19 +1175,15 @@ description even if the category of the item does not match with the specified c
 </tr>
 </table>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Steps:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Type the command with a category specified as shown in the screenshot below:</p>
 </li>
 </ol>
-</div>
-</li>
-</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1184,7 +1192,7 @@ description even if the category of the item does not match with the specified c
 <div class="title">Figure 30. Screenshot of user input (category) into command box for add command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li>
 <p>Enter the required description and quantity according to the items suggested by Leo as shown below:</p>
 </li>
@@ -1197,7 +1205,7 @@ description even if the category of the item does not match with the specified c
 <div class="title">Figure 31. Screenshot of user input (description, quantity) into command box for add command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="3">
 <li>
 <p>Enter the command.</p>
 </li>
@@ -1230,22 +1238,24 @@ description even if the category of the item does not match with the specified c
 <p>The specified index should correspond to the row index of the item on the table.</p>
 </div>
 <div class="paragraph">
-<p>Examples:
-** <code>delete 2</code> - Deletes an item in row 2 of the table</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
+<p><code>delete 2</code> - Deletes an item in row 2 of the table</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Steps:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Type the command with an index specified as shown in the screenshot below:</p>
 </li>
 </ol>
-</div>
-</li>
-</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1254,7 +1264,7 @@ description even if the category of the item does not match with the specified c
 <div class="title">Figure 33. Screenshot of user input into command box for delete command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li>
 <p>Enter the command.</p>
 </li>
@@ -1278,18 +1288,27 @@ description even if the category of the item does not match with the specified c
 <div class="ulist">
 <ul>
 <li>
-<p>Command format:
-<code>edit d/DESCRIPTION q/QUANTITY</code> OR <code>edit i/INDEX q/QUANTITY</code></p>
+<p>Command format:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit d/DESCRIPTION q/QUANTITY</code></p>
+</li>
+<li>
+<p><code>edit i/INDEX q/QUANTITY</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>There are 2 ways to edit an existing item - by its description or index according to the table.</p>
+<p>There are 2 ways to edit an existing item - by its description or index in the table.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If you edit by index, the index must be a positive and be within the size of the table.
+<p>If you edit by index, the index must be positive and be within the size of the table.
 The specified index should correspond to the row index of the item on the table.</p>
 </li>
 <li>
@@ -1311,22 +1330,14 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </li>
 <li>
 <p><code>edit d/book q/3</code> - Updates the quantity of an existing item of description "book" to 3</p>
-<div class="ulist">
-<ul>
-<li>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>To edit by index, enter the command with an index and description specified as shown in the screenshot below:</p>
-</li>
-</ol>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>1.1 To edit by index, enter the command with an index and quantity specified as shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1334,12 +1345,8 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </div>
 <div class="title">Figure 35. Screenshot of user input (index, description) into command box for edit command in Cashier tab</div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>To edit by description, enter the required description and quantity as shown below:</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>1.2. To edit by description, enter the required description and quantity as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1348,7 +1355,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="title">Figure 36. Screenshot of user input (description, quantity) into command box for edit command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="3">
 <li>
 <p>Enter the command.</p>
 </li>
@@ -1400,23 +1407,19 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="ulist">
 <ul>
 <li>
-<p>cashier David Li - Sets David Li as a cashier</p>
-<div class="ulist">
-<ul>
-<li>
+<p><code>cashier David Li</code> - Sets David Li as a cashier</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Steps:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Type the command with a cashier&#8217;s name specified as shown in the screenshot below:</p>
 </li>
 </ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1425,7 +1428,7 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="title">Figure 38. Screenshot of user input into command box for set-cashier command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li>
 <p>Enter the command.</p>
 </li>
@@ -1455,12 +1458,12 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 </ul>
 </div>
 <div class="paragraph">
-<p>The amount inputted is the amount that the customer will be paying. This amount must be greater than or equal to the
+<p>The amount inputted should be the amount that the customer will be paying. This amount must be greater than or equal to the
 total amount listed on the bottom row of the table. If the amount paid is greater than the total amount, Leo will display
 the amount of change that the cashier should return.</p>
 </div>
 <div class="paragraph">
-<p>After checking out, all items in the table will be cleared and the cashier and total amount will be reset.</p>
+<p>After checking out, all items in the table will be cleared and the cashier will be reset.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1469,7 +1472,7 @@ the amount of change that the cashier should return.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Cashier must be set before checking out.
+Cashier must be set before checking out. Else, checkout cannot proceed.
 </td>
 </tr>
 </table>
@@ -1480,23 +1483,19 @@ Cashier must be set before checking out.
 <div class="ulist">
 <ul>
 <li>
-<p>checkout 850 - Customer pays $850 to cashier</p>
-<div class="ulist">
-<ul>
-<li>
+<p><code>checkout 850</code> - Customer pays $850 to cashier</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Steps:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Type the command with the amount that the customer is paying as shown in the screenshot below:</p>
 </li>
 </ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1505,7 +1504,7 @@ Cashier must be set before checking out.
 <div class="title">Figure 40. Screenshot of user input into command box for checkout command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li>
 <p>Enter the command.</p>
 </li>
@@ -1555,23 +1554,19 @@ This command is irreversible. Please use at your own discretion.
 <div class="ulist">
 <ul>
 <li>
-<p>clear</p>
-<div class="ulist">
-<ul>
-<li>
+<p><code>clear</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Steps:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Type only the "clear" command word as shown in the screenshot below:</p>
 </li>
 </ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1580,7 +1575,7 @@ This command is irreversible. Please use at your own discretion.
 <div class="title">Figure 42. Screenshot of user input into command box for clear command in Cashier tab</div>
 </div>
 <div class="olist arabic">
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li>
 <p>Enter the command.</p>
 </li>
@@ -1599,7 +1594,7 @@ will be reset.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="overview"><a class="link" href="#overview">5.9. Overview</a></h3>
+<h3 id="overview-tab"><a class="link" href="#overview-tab">5.9. Overview Tab</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -1748,15 +1743,15 @@ e.g. <code>find James Jake</code></p>
 
 </div>
 <div class="sect2">
-<h3 id="inventory-2"><a class="link" href="#inventory-2">7.5. Inventory</a></h3>
+<h3 id="inventory"><a class="link" href="#inventory">7.5. Inventory</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="cashier-2"><a class="link" href="#cashier-2">7.6. Cashier</a></h3>
+<h3 id="cashier"><a class="link" href="#cashier">7.6. Cashier</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="overview-2"><a class="link" href="#overview-2">7.7. Overview</a></h3>
+<h3 id="overview"><a class="link" href="#overview">7.7. Overview</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1781,4 +1776,4 @@ e.g. <code>find James Jake</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 07:21:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 10:05:48 UTC</div></div></div></body></html>

@@ -585,8 +585,32 @@ The diagram below shows a generalised view of the <code>Model</code> component w
 </div>
 <div class="sect3">
 <h4 id="details-on-the-code-model-code-implementation-for-cashier-tab"><a class="link" href="#details-on-the-code-model-code-implementation-for-cashier-tab">2.4.5. Details on the <code>Model</code> Implementation for Cashier Tab</a></h4>
-<div class="paragraph">
-<p>To be filled in :)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>InventoryList</code> object that represents the list of all inventory data</p>
+</li>
+<li>
+<p>stores a list of sales items present on the table of the Inventory Tab</p>
+</li>
+<li>
+<p>accesses the <code>TransactionList</code> object from Transaction package that represents the list of all transactions data</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This <code>Inventory List</code> is different from the one in the <code>Model</code> of Inventory package. This is so that the <code>Inventory List</code> in
+the <code>Model</code> of cashier package cannot add or delete any items in the inventory. This means that <code>Inventory List</code> in cashier
+package access different set of methods which modifies only the quantity of the item.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>API for cashier package</strong> : <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/cashier/model/Model.java"><code>Model.java</code></a></p>
@@ -680,8 +704,15 @@ reimbursement, inventory, cashier and overview.</p>
 </div>
 <div class="sect3">
 <h4 id="details-on-the-code-storage-code-implementation-for-cashier-tab"><a class="link" href="#details-on-the-code-storage-code-implementation-for-cashier-tab">2.5.5. Details on the <code>Storage</code> Implementation for Cashier Tab</a></h4>
-<div class="paragraph">
-<p>To be filled in :)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>accesses the <code>Transaction List</code> from Transaction package via <code>Logic</code> to append a transaction to the list</p>
+</li>
+<li>
+<p>accesses the <code>Inventory List</code> from Inventory package via <code>Logic</code> to update the current stock</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>API for cashier package</strong> : <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/cashier/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -1154,12 +1185,26 @@ the Table of the UI.</p>
 <div class="sect2">
 <h3 id="cashier-tab"><a class="link" href="#cashier-tab">3.5. Cashier Tab</a></h3>
 <div class="paragraph">
-<p>This tab will act as a shopping cart to add and record sales items to be sold from the inventory.</p>
+<p>This tab will act as a shopping cart to add and record sales items that are to be sold from the inventory.</p>
 </div>
 <div class="paragraph">
 <p>Upon every successful checkout, all the sales items sold will recorded as one transaction, which will subsequently be
-appended to the list of transactions on the <code>Home tab</code>.<br>
-In addition, the stock remaining in the inventory will be updated accordingly in the <code>Inventory tab</code>.</p>
+appended to the list of transactions on the <code>Home tab</code>. In addition, the stock remaining in the inventory will be updated
+accordingly in the <code>Inventory tab</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user key in a quantity where the total amount in table or subtotal of that row exceeds 2,147,483, 647, the range
+of an integer, an exception will be thrown. This is the intended behaviour as the view cannot accommodate such large integers.
+If it exceeds 2,147,483, 647, users are advised to key in a smaller quantity or checkout items separately.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
@@ -1174,10 +1219,8 @@ system will prohibit any addition of such an item to the cart.</p>
 <p>Adding of a sales item to the cart will require an input of its description and quantity. An optional field for
 category is provided to guide the cashier to find the desired item. If the category field is input with other unspecified
 description and quantity fields, <code>Model</code> will search all the sales items in the <code>Inventory List</code>
-according to the specified category and suggestions would be shown by Leo, the assistant.</p>
-</div>
-<div class="paragraph">
-<p>If description and quantity field are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
+according to the specified category and suggestions would be shown by Leo, the assistant.<br>
+If description and quantity field are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>AddCommand</code> works and is the reference
@@ -1209,7 +1252,7 @@ will only be updated after the Checkout Command.
 </table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps proceeding after the user input an Add Command:</p>
+<p>The following activity diagram shows the steps proceeding after the user input an add command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1226,14 +1269,12 @@ the name of an existing person.</p>
 </div>
 <div class="paragraph">
 <p>To set a cashier, the person&#8217;s name inputted has to match an existing name in the <code>AddressBook</code> as shown on <code>Members Tab</code>.
-This means that SetCommandParser requires access to the <code>Model</code> of the person package where the <code>AddressBook</code> implementation is.</p>
-</div>
-<div class="paragraph">
-<p>If the person&#8217;s name cannot be found in the <code>Model</code> of the person package, a response message will be shown by Leo,
+This means that SetCommandParser requires access to the <code>Model</code> of the person package where the <code>AddressBook</code> implementation is.<br>
+If the person&#8217;s name cannot be found in the <code>Model</code> of the person package, a response message will be shown by Leo,
 informing the user that there is no such person.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the SetCashierCommandParser checks for existing person:</p>
+<p>The following sequence diagram shows how the SetCashierCommandParser checks for an existing person:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1245,7 +1286,7 @@ informing the user that there is no such person.</p>
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the Set Cashier Command works and is the reference
+<p>The following sequence diagram shows how the set cashier command works and is the reference
 from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>:</p>
 </div>
 <div class="imageblock">
@@ -1258,11 +1299,11 @@ from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Com
 <p>If the inputted name is invalid, the user will be prompted to enter a valid name.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps after the user input a Set Cashier Command:</p>
+<p>The following activity diagram shows the steps after the user input a set cashier command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SetCashierCommandCashierActivityDiag.png" alt="SetCashierCommandCashierActivityDiag">
+<img src="images/SetCashierCommandActivity.png" alt="SetCashierCommandActivity">
 </div>
 <div class="title">Figure 35. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
@@ -1270,15 +1311,16 @@ from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Com
 <div class="sect3">
 <h4 id="checkout-feature"><a class="link" href="#checkout-feature">3.5.3. Checkout Feature</a></h4>
 <div class="paragraph">
-<p>This feature confirms all the sales items in the table as sold as one transaction under the <code>Sales</code> category.</p>
+<p>This feature confirms all the sales items in the table as one sales transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
 <p>The <code>Home Tab</code> will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock of the sales items
 will also be updated on the <code>Inventory Tab</code>.</p>
 </div>
 <div class="paragraph">
-<p>During the execution of the command, <code>getCashier()</code> method will be called to create a <code>Transaction</code> object. If the
-cashier is null, the command cannot proceed and Leo will prompt the user to set a cashier.<br>
+<p>During the execution of the command, <code>getCashier()</code> method will be called which will return a person. This person will
+be used to create a <code>Transaction</code> object. If the cashier is null, the command cannot proceed and Leo will
+prompt the user to set a cashier.<br>
 If the amount inputted is valid and cashier has been set, the <code>ModelManager</code> will create a new
 transaction of the sales made.</p>
 </div>
@@ -1295,7 +1337,7 @@ After the execution of the above methods, a clear command will then be called to
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the Checkout Command is executed:</p>
+<p>The following sequence diagram shows how the checkout command is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1305,7 +1347,7 @@ After the execution of the above methods, a clear command will then be called to
 </div>
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
-to the respective <code>txt file</code>.<br>
+to the respective <code>.txt file</code>.<br>
 To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>, transaction will be added to the transaction model and
 <code>readInUpdatedList()</code> method of inventory model will called to read in the entire inventory data file.</p>
 </div>
@@ -1322,7 +1364,7 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 <p>If the amount inputted is less than the total amount of items, the user will be prompted to key in a valid value.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps after the user input a Checkout Command:</p>
+<p>The following activity diagram shows the steps after the user input a checkout command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2823,4 +2865,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 07:21:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 10:05:48 UTC</div></div></div></body></html>
