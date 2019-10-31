@@ -1123,36 +1123,77 @@ as shown in the screenshot below:</p>
 </div>
 <div class="sect2">
 <h3 id="inventory-tab"><a class="link" href="#inventory-tab">5.3. Inventory Tab</a></h3>
+<div class="paragraph">
+<p>This section will contain details on all commands in the Inventory Tab.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The inventory tab contains a detailed inventory of items belonging to the CCA for a variety of purposes.</p>
+<p>The Inventory Tab shows a list of all items owned.</p>
 </li>
 <li>
-<p>Each item will have 6 attributes: category, description, quantity, cost per unit, total cost, and price.</p>
+<p>Each column shows the description, category, quantity, cost per unit and the price for each item.</p>
 </li>
 <li>
-<p>The last attribute will be used for sales purposes and is optional.</p>
+<p>The price attribute will be used for sales purposes and is optional.</p>
 </li>
 <li>
-<p>Invalid commands and command formats will be pointed out by Leo.</p>
+<p>You may add, delete or edit items within this tab.</p>
+</li>
+<li>
+<p>Leo, our mascot, helps give replies indicating successful addition, deletion and edit of an item after a command has been input.</p>
+</li>
+<li>
+<p>Leo will also give replies to guide you when there is a wrong input.</p>
+</li>
+<li>
+<p>You may also sort the list of items by ascending quantity or by descending alphabetical order.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do not key in a quantity where the total amount in table or subtotal of that row exceeds 2,147,483,647, the range of an integer.
+If it exceeds this number, please key in a smaller quantity or checkout items separately.
+You are advised to key in a number smaller than 10000 due to size limitation.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="to-add-an-item"><a class="link" href="#to-add-an-item">5.3.1. To add an item:</a></h4>
+<h4 id="add-an-item"><a class="link" href="#add-an-item">5.3.1. Add an Item:</a></h4>
 <div class="paragraph">
-<p><code>add d/DESCRIPTION c/CATEGORY q/QUANTITY co/COST_PER_UNIT [p/PRICE]</code></p>
+<p>This command adds an item to the table and saves it into the system.</p>
 </div>
-<div class="paragraph">
-<p>Adding an item requires the above attributes. However, price is optional. The attributes can also be inputted in any order.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:
+<code>add d/DESCRIPTION c/CATEGORY q/QUANTITY co/COST_PER_UNIT [p/PRICE]</code></p>
+</li>
+<li>
+<p>Examples:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>add d/T-Shirt c/Clothing q/20 co/5 p/14</code></p>
+</li>
+<li>
+<p><code>add d/Cupcake c/Food q/10 co/2</code></p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>The quantity, cost and price must also all be in numerical form and cannot exceed 2,147,483,647.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1161,74 +1202,230 @@ as shown in the screenshot below:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Adding an item with the same description and category as an existing item is allowed.
+The attributes can also be inputted in any order.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:
-<code>add c/Food d/Cupcake q/100 co/0.70</code> &#8594; adds an item of category 'food' and description 'Cupcake', with a quantity of '100' and a cost of '0.70'. It is, as of now, not for sale.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="to-delete-an-expense"><a class="link" href="#to-delete-an-expense">5.3.2. To delete an expense:</a></h4>
-<div class="paragraph">
-<p><code>delete INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:
-<code>delete 1</code> &#8594; deletes the first item.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="to-edit"><a class="link" href="#to-edit">5.3.3. To edit:</a></h4>
-<div class="paragraph">
-<p><code>edit INDEX [d/DESCRIPTION] [c/CATEGORY] [q/QUANTITY] [co/COST_PER_UNIT] [p/PRICE]</code></p>
-</div>
-<div class="paragraph">
-<p>To edit, simply type the above command. You may edit any combination of the attributes, as long as one attribute is present.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 d/T-Shirt</code> &#8594; Edits the item description to be "T-Shirt".</p>
-</li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>edit 1 c/Clothing</code> &#8594; Edits the item category to be "Clothing".</p>
+<p>Type the command with all parameters filled in, as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryUG/AddStep1.png" alt="AddStep1">
+</div>
+<div class="title">Figure 30. Screenshot of the user input into the Command Box for the Add Command in the Inventory Tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the command is successfully added, Leo will respond with a success message and the item
+will be shown in the table. This is shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryUG/AddSuccess.png" alt="AddSuccess">
+</div>
+<div class="title">Figure 31. Screenshot of a successful user input for the Add Command in the Inventory Tab</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the description and category of the input matches that of an existing item, a new item will not be added.
+Instead, the quantity will reflect the combined quantity of the input and the existing item, and the price will be updated.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="to-sort"><a class="link" href="#to-sort">5.3.4. To sort:</a></h4>
+<h4 id="delete-an-item"><a class="link" href="#delete-an-item">5.3.2. Delete an Item:</a></h4>
 <div class="paragraph">
-<p>The inventory list can be sorted by category, description and quantity.</p>
-</div>
-<div class="paragraph">
-<p>Using the reset command, it can also be reset to the order of the inventory list when the app was first opened.</p>
-</div>
-<div class="paragraph">
-<p>Commands:</p>
+<p>This command deletes an item in the table by ID.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>By category: <code>sort category</code></p>
+<p>Command:
+<code>delete ID</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>delete 1</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the ID of the item to be deleted as shown below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryUG/DeleteStep1.png" alt="DeleteStep1">
+</div>
+<div class="title">Figure 32. Screenshot of the user input into Command Box for the Delete Command in the Inventory tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Leo will respond with a success message and the item will be removed from the table as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryUG/DeleteSuccess.png" alt="DeleteSuccess">
+</div>
+<div class="title">Figure 33. Screenshot of a successful user input for the Delete Command in the Inventory Tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-item"><a class="link" href="#edit-an-item">5.3.3. Edit an Item:</a></h4>
+<div class="paragraph">
+<p>This command edits an existing item in the table.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:
+<code>edit INDEX [d/DESCRIPTION] [c/CATEGORY] [q/QUANTITY] [co/COST_PER_UNIT] [p/PRICE]</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may edit any combination, permutation and number of the attributes, as long as at least one attribute is present.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 d/T-Shirt q/6</code></p>
 </li>
 <li>
-<p>By description: <code>sort description</code></p>
+<p><code>edit 1 c/Clothing</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>By quantity: <code>sort quantity</code></p>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the ID of the item to be edited, along with the new parameters to be changed, as shown below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryUG/EditStep1.png" alt="EditStep1">
+</div>
+<div class="title">Figure 34. Screenshot of user input into Command Box for the Edit Command in the Inventory Tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Leo will respond with a success message and the updated item will be shown in the table as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryUG/EditSuccess.png" alt="EditSuccess">
+</div>
+<div class="title">Figure 35. Screenshot of a successful user input for the Edit Command in the Inventory Tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-items"><a class="link" href="#sort-items">5.3.4. Sort Items:</a></h4>
+<div class="paragraph">
+<p>This command sorts the table of items into a specified order for viewing.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Commands:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sort by description: <code>sort description</code></p>
+</li>
+<li>
+<p>Sort by category: <code>sort category</code></p>
+</li>
+<li>
+<p>Sort by quantity: <code>sort quantity</code></p>
 </li>
 <li>
 <p>Reset: <code>sort reset</code></p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using the reset command, it can be reset to the order of the table when the app was first opened.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1386,7 +1583,7 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/AddCommand1.png" alt="AddCommand1">
 </div>
-<div class="title">Figure 30. Screenshot of user input (category) into Command Box for Add Command in Cashier Tab</div>
+<div class="title">Figure 36. Screenshot of user input (category) into Command Box for Add Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1399,7 +1596,7 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/AddCommand2.png" alt="AddCommand2">
 </div>
-<div class="title">Figure 31. Screenshot of the user input (description, quantity) into Command Box for Add Command in Cashier Tab</div>
+<div class="title">Figure 37. Screenshot of the user input (description, quantity) into Command Box for Add Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
@@ -1412,7 +1609,7 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/AddCommand3.png" alt="AddCommand3">
 </div>
-<div class="title">Figure 32. Screenshot of the response message for Add Command in Cashier Tab</div>
+<div class="title">Figure 38. Screenshot of the response message for Add Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo will respond to the successful addition with a response message.</p>
@@ -1456,7 +1653,7 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/DeleteCommand1.png" alt="DeleteCommand1">
 </div>
-<div class="title">Figure 33. Screenshot of the user input into Command Box for Delete Command in Cashier Tab</div>
+<div class="title">Figure 39. Screenshot of the user input into Command Box for Delete Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1469,7 +1666,7 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/DeleteCommand2.png" alt="DeleteCommand2">
 </div>
-<div class="title">Figure 34. Screenshot of the response message for Delete Command in Cashier Tab</div>
+<div class="title">Figure 40. Screenshot of the response message for Delete Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo will respond to the successful deletion with a response message. The item will be deleted from the table.</p>
@@ -1542,7 +1739,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="content">
 <img src="images/cashierUG/EditCommand1.png" alt="EditCommand1">
 </div>
-<div class="title">Figure 35. Screenshot of user input (index, description) into Command Box for Edit Command in Cashier Tab</div>
+<div class="title">Figure 41. Screenshot of user input (index, description) into Command Box for Edit Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>1.2. To edit by description, enter the required description and quantity as shown below:</p>
@@ -1551,7 +1748,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="content">
 <img src="images/cashierUG/EditCommand3.png" alt="EditCommand3">
 </div>
-<div class="title">Figure 36. Screenshot of user input (description, quantity) into Command Box for Edit Command in Cashier Tab</div>
+<div class="title">Figure 42. Screenshot of user input (description, quantity) into Command Box for Edit Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1564,7 +1761,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="content">
 <img src="images/cashierUG/EditCommand3.png" alt="EditCommand3">
 </div>
-<div class="title">Figure 37. Screenshot of response message for Edit Command in Cashier Tab</div>
+<div class="title">Figure 43. Screenshot of response message for Edit Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If successfully updated, Leo will respond with a response message. The quantity will be updated in the table.</p>
@@ -1629,7 +1826,7 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/SetCashierCommand1.png" alt="SetCashierCommand1">
 </div>
-<div class="title">Figure 38. Screenshot of user input into Command Box for Set Cashier Command in Cashier Tab</div>
+<div class="title">Figure 44. Screenshot of user input into Command Box for Set Cashier Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1642,7 +1839,7 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/SetCashierCommand2.png" alt="SetCashierCommand2">
 </div>
-<div class="title">Figure 39. Screenshot of response message for Set Cashier Command in Cashier Tab</div>
+<div class="title">Figure 45. Screenshot of response message for Set Cashier Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If set successfully, Leo will respond with a response message. The cashier in the bottom row will be updated.</p>
@@ -1709,7 +1906,7 @@ The cashier must be set before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/CheckoutCommand1.png" alt="CheckoutCommand1">
 </div>
-<div class="title">Figure 40. Screenshot of user input into Command Box for Checkout Command in Cashier Tab</div>
+<div class="title">Figure 46. Screenshot of user input into Command Box for Checkout Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1722,7 +1919,7 @@ The cashier must be set before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/CheckoutCommand2.png" alt="CheckoutCommand2">
 </div>
-<div class="title">Figure 41. Screenshot of response message for Checkout Command in Cashier Tab</div>
+<div class="title">Figure 47. Screenshot of response message for Checkout Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If checkout is successful, Leo will respond with a response message. The table will be cleared and the cashier will be reset.<br>
@@ -1785,7 +1982,7 @@ This command is irreversible. Please use at your own discretion.
 <div class="content">
 <img src="images/cashierUG/ClearCommand1.png" alt="ClearCommand1">
 </div>
-<div class="title">Figure 42. Screenshot of user input into Command Box for Clear Command in Cashier Tab</div>
+<div class="title">Figure 48. Screenshot of user input into Command Box for Clear Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1798,7 +1995,7 @@ This command is irreversible. Please use at your own discretion.
 <div class="content">
 <img src="images/cashierUG/ClearCommand2.png" alt="ClearCommand2">
 </div>
-<div class="title">Figure 43. Screenshot of response message for Clear Command in Cashier Tab</div>
+<div class="title">Figure 49. Screenshot of response message for Clear Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If cleared successful, Leo will respond with a response message. The table will also be cleared and the cashier
@@ -1915,7 +2112,7 @@ The amount should be non-negative.
 <div class="content">
 <img src="images/overviewUG/SetCommandExample.png" alt="SetCommandExample">
 </div>
-<div class="title">Figure 44. Screenshot of user input into Command Box for Set Command in Overview Tab</div>
+<div class="title">Figure 50. Screenshot of user input into Command Box for Set Command in Overview Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1928,7 +2125,7 @@ The amount should be non-negative.
 <div class="content">
 <img src="images/overviewUG/SetCommandResult.png" alt="SetCommandResult">
 </div>
-<div class="title">Figure 45. Screenshot of a successful user input for Set Command in Overview Tab</div>
+<div class="title">Figure 51. Screenshot of a successful user input for Set Command in Overview Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo displays a confirmation showing that the goal was successfully set.<br>
@@ -2003,7 +2200,7 @@ The percentage value should be a value from 0 - 100.
 <div class="content">
 <img src="images/overviewUG/NotifyCommandExample.png" alt="NotifyCommandExample">
 </div>
-<div class="title">Figure 46. Screenshot of user input into Command Box for Notify Command in Overview Tab</div>
+<div class="title">Figure 52. Screenshot of user input into Command Box for Notify Command in Overview Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -2016,7 +2213,7 @@ The percentage value should be a value from 0 - 100.
 <div class="content">
 <img src="images/overviewUG/NotifyCommandResult.png" alt="NotifyCommandResult">
 </div>
-<div class="title">Figure 47. Screenshot of a successful user input for Notify Command in Overview Tab</div>
+<div class="title">Figure 53. Screenshot of a successful user input for Notify Command in Overview Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo displays a confirmation showing that the notification was successfully set.<br>
@@ -2036,7 +2233,7 @@ Notifications show only once per app run, or whenever a target or threshold is m
 <div class="content">
 <img src="images/overviewUG/NotificationExample.png" alt="NotificationExample">
 </div>
-<div class="title">Figure 48. Screenshot of notifications displayed by Leo for Notify Command in Overview Tab</div>
+<div class="title">Figure 54. Screenshot of notifications displayed by Leo for Notify Command in Overview Tab</div>
 </div>
 </div>
 </div>
@@ -2223,4 +2420,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 17:08:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 18:49:36 UTC</div></div></div></body></html>
