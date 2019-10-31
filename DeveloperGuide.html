@@ -869,6 +869,24 @@ To view the full transaction list, the user would be required to input the
 Back Command where <code>BackCommand</code> calls <code>resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
  following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
 </div>
+<div class="paragraph">
+<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
+respectively.
+The delete by index implementation would be similar but does not require interaction with the <code>Model</code> from the
+<code>AddressBook</code> in the person package.
+The following activity diagram shows the steps needed to delete a new transaction:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand">
+</div>
+<div class="title">Figure 17. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
+</div>
+<div class="paragraph">
+<p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
+be shown about the incorrect input. Also, as shown above, response on other incorrect inputs will also be shown.
+When a successful deletion is done, a response message is shown as well.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="back-command-feature"><a class="link" href="#back-command-feature">3.1.3. Back Command Feature</a></h4>
@@ -881,25 +899,7 @@ The following detailed sequence diagram shows how the back command works:</p>
 <div class="content">
 <img src="images/HomeTabBackCommandSequenceDiagram.png" alt="HomeTabBackCommandSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
-</div>
-<div class="paragraph">
-<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
-respectively.
-The delete by index implementation would be similar but does not require interaction with the <code>Model</code> from the
-<code>AddressBook</code> in the person package.
-The following activity diagram shows the steps needed to delete a new transaction:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand">
-</div>
-<div class="title">Figure 18. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
-</div>
-<div class="paragraph">
-<p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
-be shown about the incorrect input. Also, as shown above, response on other incorrect inputs will also be shown.
-When a successful deletion is done, a response message is shown as well.</p>
+<div class="title">Figure 18. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
 </div>
 </div>
 </div>
@@ -2865,4 +2865,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 10:38:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 13:49:33 UTC</div></div></div></body></html>
