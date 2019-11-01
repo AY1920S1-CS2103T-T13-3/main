@@ -21,11 +21,12 @@
 <li><a href="#application-tab-specific-commands">5. Application Tab Specific Commands</a>
 <ul class="sectlevel2">
 <li><a href="#home-tab">5.1. Home Tab</a></li>
-<li><a href="#reimbursements-tab">5.2. Reimbursements Tab</a></li>
-<li><a href="#inventory-tab">5.3. Inventory Tab</a></li>
-<li><a href="#cashier-tab">5.4. Cashier Tab</a></li>
-<li><a href="#overview-tab">5.5. Overview Tab</a></li>
-<li><a href="#saving-the-data">5.6. Saving the data</a></li>
+<li><a href="#members-tab">5.2. Members Tab</a></li>
+<li><a href="#reimbursements-tab">5.3. Reimbursements Tab</a></li>
+<li><a href="#inventory-tab">5.4. Inventory Tab</a></li>
+<li><a href="#cashier-tab">5.5. Cashier Tab</a></li>
+<li><a href="#overview-tab">5.6. Overview Tab</a></li>
+<li><a href="#saving-the-data">5.7. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
@@ -691,7 +692,180 @@ All other commands require the user to input <code>back</code> to return to the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="reimbursements-tab"><a class="link" href="#reimbursements-tab">5.2. Reimbursements Tab</a></h3>
+<h3 id="members-tab"><a class="link" href="#members-tab">5.2. Members Tab</a></h3>
+<div class="sect3">
+<h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">5.2.1. Adding a person: <code>add</code></a></h4>
+<div class="paragraph">
+<p>Adds a person to the address book<br>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A person can have any number of tags (including 0)
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+</li>
+<li>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">5.2.2. Listing all persons : <code>list</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all persons in the address book.<br>
+Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">5.2.3. Editing a person : <code>edit</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing person in the address book.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">5.2.4. Locating persons by name: <code>find</code></a></h4>
+<div class="paragraph">
+<p>Finds persons whose names contain any of the given keywords.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find Betsy Tim John</code><br>
+Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">5.2.5. Deleting a person : <code>delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified person from the address book.<br>
+Format: <code>delete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd person in the address book.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>delete 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reimbursements-tab"><a class="link" href="#reimbursements-tab">5.3. Reimbursements Tab</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -764,7 +938,7 @@ for their expenditure.
 </table>
 </div>
 <div class="sect3">
-<h4 id="adding-deadline-to-a-reimbursement"><a class="link" href="#adding-deadline-to-a-reimbursement">5.2.1. Adding Deadline to a Reimbursement:</a></h4>
+<h4 id="adding-deadline-to-a-reimbursement"><a class="link" href="#adding-deadline-to-a-reimbursement">5.3.1. Adding Deadline to a Reimbursement:</a></h4>
 <div class="paragraph">
 <p>This command adds a deadline to a person&#8217;s reimbursement.</p>
 </div>
@@ -843,7 +1017,7 @@ to reassign deadline to a reimbursement.
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-reimbursement-for-a-person"><a class="link" href="#finding-a-reimbursement-for-a-person">5.2.2. Finding a Reimbursement for a Person:</a></h4>
+<h4 id="finding-a-reimbursement-for-a-person"><a class="link" href="#finding-a-reimbursement-for-a-person">5.3.2. Finding a Reimbursement for a Person:</a></h4>
 <div class="paragraph">
 <p>This command finds the reimbursement for a specified person.</p>
 </div>
@@ -892,7 +1066,7 @@ Otherwise, Leo will show an error message indicating that the person is not in r
 </div>
 </div>
 <div class="sect3">
-<h4 id="going-back-to-display-the-full-list"><a class="link" href="#going-back-to-display-the-full-list">5.2.3. Going Back to Display the Full List</a></h4>
+<h4 id="going-back-to-display-the-full-list"><a class="link" href="#going-back-to-display-the-full-list">5.3.3. Going Back to Display the Full List</a></h4>
 <div class="paragraph">
 <p>This command helps to display the full reimbursement list after <code>find</code> and <code>deadline</code> commands.</p>
 </div>
@@ -937,7 +1111,7 @@ Otherwise, Leo will show an error message indicating that the person is not in r
 </div>
 </div>
 <div class="sect3">
-<h4 id="marking-a-command-as-done"><a class="link" href="#marking-a-command-as-done">5.2.4. Marking a Command as Done</a></h4>
+<h4 id="marking-a-command-as-done"><a class="link" href="#marking-a-command-as-done">5.3.4. Marking a Command as Done</a></h4>
 <div class="paragraph">
 <p>This command helps to mark a reimbursement as done and remove it from reimbursement list.</p>
 </div>
@@ -986,7 +1160,7 @@ as shown in the screenshot below:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-the-list-based-on-amount"><a class="link" href="#sorting-the-list-based-on-amount">5.2.5. Sorting the List Based on Amount</a></h4>
+<h4 id="sorting-the-list-based-on-amount"><a class="link" href="#sorting-the-list-based-on-amount">5.3.5. Sorting the List Based on Amount</a></h4>
 <div class="paragraph">
 <p>This command helps to sort the reimbursement lists based on amount, in descending order.</p>
 </div>
@@ -1031,7 +1205,7 @@ as shown in the screenshot below:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-the-list-based-on-name-code-sort-name-code"><a class="link" href="#sorting-the-list-based-on-name-code-sort-name-code">5.2.6. Sorting the list based on name: <code>sort name</code></a></h4>
+<h4 id="sorting-the-list-based-on-name-code-sort-name-code"><a class="link" href="#sorting-the-list-based-on-name-code-sort-name-code">5.3.6. Sorting the list based on name: <code>sort name</code></a></h4>
 <div class="paragraph">
 <p>This command helps to sort the reimbursement lists based on name, in alphabetical order.</p>
 </div>
@@ -1076,7 +1250,7 @@ as shown in the screenshot below:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-the-list-based-on-deadline-code-sort-date-code"><a class="link" href="#sorting-the-list-based-on-deadline-code-sort-date-code">5.2.7. Sorting the list based on deadline: <code>sort date</code></a></h4>
+<h4 id="sorting-the-list-based-on-deadline-code-sort-date-code"><a class="link" href="#sorting-the-list-based-on-deadline-code-sort-date-code">5.3.7. Sorting the list based on deadline: <code>sort date</code></a></h4>
 <div class="paragraph">
 <p>This command helps to sort the reimbursement lists based on deadline, in order of the closest date.</p>
 </div>
@@ -1122,7 +1296,7 @@ as shown in the screenshot below:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory-tab"><a class="link" href="#inventory-tab">5.3. Inventory Tab</a></h3>
+<h3 id="inventory-tab"><a class="link" href="#inventory-tab">5.4. Inventory Tab</a></h3>
 <div class="paragraph">
 <p>This section will contain details on all commands in the Inventory Tab.</p>
 </div>
@@ -1170,7 +1344,7 @@ You are advised to key in a number smaller than 10000 due to size limitation.
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-an-item"><a class="link" href="#add-an-item">5.3.1. Add an Item:</a></h4>
+<h4 id="add-an-item"><a class="link" href="#add-an-item">5.4.1. Add an Item:</a></h4>
 <div class="paragraph">
 <p>This command adds an item to the table and saves it into the system.</p>
 </div>
@@ -1259,7 +1433,7 @@ Instead, the quantity will reflect the combined quantity of the input and the ex
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-item"><a class="link" href="#delete-an-item">5.3.2. Delete an Item:</a></h4>
+<h4 id="delete-an-item"><a class="link" href="#delete-an-item">5.4.2. Delete an Item:</a></h4>
 <div class="paragraph">
 <p>This command deletes an item in the table by ID.</p>
 </div>
@@ -1313,7 +1487,7 @@ Instead, the quantity will reflect the combined quantity of the input and the ex
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-item"><a class="link" href="#edit-an-item">5.3.3. Edit an Item:</a></h4>
+<h4 id="edit-an-item"><a class="link" href="#edit-an-item">5.4.3. Edit an Item:</a></h4>
 <div class="paragraph">
 <p>This command edits an existing item in the table.</p>
 </div>
@@ -1388,7 +1562,7 @@ You may edit any combination, permutation and number of the attributes, as long 
 </div>
 </div>
 <div class="sect3">
-<h4 id="sort-items"><a class="link" href="#sort-items">5.3.4. Sort Items:</a></h4>
+<h4 id="sort-items"><a class="link" href="#sort-items">5.4.4. Sort Items:</a></h4>
 <div class="paragraph">
 <p>This command sorts the table of items into a specified order for viewing.</p>
 </div>
@@ -1430,7 +1604,7 @@ Using the reset command, it can be reset to the order of the table when the app 
 </div>
 </div>
 <div class="sect2">
-<h3 id="cashier-tab"><a class="link" href="#cashier-tab">5.4. Cashier Tab</a></h3>
+<h3 id="cashier-tab"><a class="link" href="#cashier-tab">5.5. Cashier Tab</a></h3>
 <div class="paragraph">
 <p>This section will contain the details on all commands available on the Cashier tab.</p>
 </div>
@@ -1501,7 +1675,7 @@ You are advised to key in a number smaller than 10000 due to size limitation.
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-sales-item-to-the-table"><a class="link" href="#add-a-sales-item-to-the-table">5.4.1. Add a Sales Item to the Table</a></h4>
+<h4 id="add-a-sales-item-to-the-table"><a class="link" href="#add-a-sales-item-to-the-table">5.5.1. Add a Sales Item to the Table</a></h4>
 <div class="paragraph">
 <p>This command adds a sales item into the table.</p>
 </div>
@@ -1616,7 +1790,7 @@ description even if the category of the item does not match with the specified c
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-sales-item-from-the-table"><a class="link" href="#delete-a-sales-item-from-the-table">5.4.2. Delete a Sales Item from the Table</a></h4>
+<h4 id="delete-a-sales-item-from-the-table"><a class="link" href="#delete-a-sales-item-from-the-table">5.5.2. Delete a Sales Item from the Table</a></h4>
 <div class="paragraph">
 <p>This command deletes a sales item from the table.</p>
 </div>
@@ -1673,7 +1847,7 @@ description even if the category of the item does not match with the specified c
 </div>
 </div>
 <div class="sect3">
-<h4 id="edits-the-quantity-of-a-sales-item"><a class="link" href="#edits-the-quantity-of-a-sales-item">5.4.3. Edits the Quantity of a Sales Item</a></h4>
+<h4 id="edits-the-quantity-of-a-sales-item"><a class="link" href="#edits-the-quantity-of-a-sales-item">5.5.3. Edits the Quantity of a Sales Item</a></h4>
 <div class="paragraph">
 <p>This command edits the quantity of a sales item that already exists in the table.</p>
 </div>
@@ -1768,7 +1942,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sets-the-cashier-in-charge"><a class="link" href="#sets-the-cashier-in-charge">5.4.4. Sets the Cashier-In-Charge</a></h4>
+<h4 id="sets-the-cashier-in-charge"><a class="link" href="#sets-the-cashier-in-charge">5.5.4. Sets the Cashier-In-Charge</a></h4>
 <div class="paragraph">
 <p>This command sets the cashier-in-charge of the sales.</p>
 </div>
@@ -1846,7 +2020,7 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 </div>
 </div>
 <div class="sect3">
-<h4 id="checkout-all-sales-items"><a class="link" href="#checkout-all-sales-items">5.4.5. Checkout All Sales Items</a></h4>
+<h4 id="checkout-all-sales-items"><a class="link" href="#checkout-all-sales-items">5.5.5. Checkout All Sales Items</a></h4>
 <div class="paragraph">
 <p>This command performs a checkout of all the sales items in the table.</p>
 </div>
@@ -1927,7 +2101,7 @@ The <code>Home Tab</code> will be updated with this transaction and the remainin
 </div>
 </div>
 <div class="sect3">
-<h4 id="clears-all-the-sales-items-in-the-table"><a class="link" href="#clears-all-the-sales-items-in-the-table">5.4.6. Clears All the Sales Items in the Table</a></h4>
+<h4 id="clears-all-the-sales-items-in-the-table"><a class="link" href="#clears-all-the-sales-items-in-the-table">5.5.6. Clears All the Sales Items in the Table</a></h4>
 <div class="paragraph">
 <p>This command clears all the sales item in the table.</p>
 </div>
@@ -2004,7 +2178,7 @@ will be reset.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="overview-tab"><a class="link" href="#overview-tab">5.5. Overview Tab</a></h3>
+<h3 id="overview-tab"><a class="link" href="#overview-tab">5.6. Overview Tab</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -2045,7 +2219,7 @@ will be reset.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-a-financial-goal"><a class="link" href="#set-a-financial-goal">5.5.1. Set a Financial Goal</a></h4>
+<h4 id="set-a-financial-goal"><a class="link" href="#set-a-financial-goal">5.6.1. Set a Financial Goal</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2133,7 +2307,7 @@ The user interface reflects this under the respective section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-a-notification-threshold"><a class="link" href="#set-a-notification-threshold">5.5.2. Set a Notification Threshold</a></h4>
+<h4 id="set-a-notification-threshold"><a class="link" href="#set-a-notification-threshold">5.6.2. Set a Notification Threshold</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2221,7 +2395,7 @@ Additionally, if the goal is already reached, it will display the notification i
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-notifications"><a class="link" href="#viewing-notifications">5.5.3. Viewing Notifications</a></h4>
+<h4 id="viewing-notifications"><a class="link" href="#viewing-notifications">5.6.3. Viewing Notifications</a></h4>
 <div class="paragraph">
 <p>Notifications in treasurerPro are automatically displayed upon app launch  by Leo as long as the threshold is met.<br>
 Notifications show only once per app run, or whenever a target or threshold is modified.</p>
@@ -2238,7 +2412,7 @@ Notifications show only once per app run, or whenever a target or threshold is m
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.6. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.7. Saving the data</a></h3>
 <div class="paragraph">
 <p>Data in treasurerPro is saved automatically after executing any command. There is no need to save manually.</p>
 </div>
@@ -2424,4 +2598,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 00:42:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 04:10:22 UTC</div></div></div></body></html>
