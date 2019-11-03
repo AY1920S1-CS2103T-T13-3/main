@@ -269,7 +269,7 @@ You are advised to key in a number smaller than 10000 due to size limitation.
 </li>
 <li>
 <p>Example:
-<code>add dt/24-Aug-2019, 07:00PM d/Printer ink c/Miscellaneous a/3.50 p/Janelle</code></p>
+<code>add dt/24-Aug-2019 d/Printer ink c/Miscellaneous a/3.50 p/Alex Yeoh</code></p>
 </li>
 </ul>
 </div>
@@ -281,6 +281,7 @@ You are advised to key in a number smaller than 10000 due to size limitation.
 </td>
 <td class="content">
 The format of the date has to be in dd-MMM-yyyy format. (Eg. 24-Aug-2019 or 03-Sep-2019)
+The person should also be someone recorded in the Members Tab
 </td>
 </tr>
 </table>
@@ -301,9 +302,8 @@ The format of the date has to be in dd-MMM-yyyy format. (Eg. 24-Aug-2019 or 03-S
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeAddStep1.png" alt="HomeAddStep1" width="600">
+<img src="images/homeUG/HomeAddStep1cr.png" alt="HomeAddStep1cr">
 </div>
-<div class="title">Figure 1. Screenshot of the user input into the Command Box for Add Command in Home Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -318,9 +318,8 @@ will be shown in the table. This is shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeAddStep2.png" alt="HomeAddStep2" width="600">
+<img src="images/homeUG/HomeAddStep2cr.png" alt="HomeAddStep2cr">
 </div>
-<div class="title">Figure 2. Screenshot of a successful user input for Add Command in Home Tab</div>
 </div>
 <div id="NoSuchPerson" class="paragraph">
 <p>If the person&#8217;s name does not exactly match a current member in the Members Tab, Leo will respond with an error and the transaction
@@ -328,9 +327,9 @@ record will not be added. This is shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeAddUnsuccessfulStep2.png" alt="HomeAddUnsuccessfulStep2" width="600">
+<img src="images/homeUG/HomeAddUnsuccessfulStep2cr.png" alt="HomeAddUnsuccessfulStep2cr">
 </div>
-<div class="title">Figure 3. Screenshot of an unsuccessful user input for Add Command in the Home Tab due to an invalid name</div>
+<div class="title">Figure 1. Screenshot of an unsuccessful user input for Add Command in the Home Tab due to an invalid name</div>
 </div>
 <div class="paragraph">
 <p>If the added transaction contains a negative amount (indicating an expenditure), a corresponding entry will
@@ -342,9 +341,8 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeAddShowInR.png" alt="HomeAddShowInR" width="600">
+<img src="images/homeUG/HomeAddShowInR.png" alt="HomeAddShowInR" width="400">
 </div>
-<div class="title">Figure 4. Screenshot of the Reimbursement Tab after successfully adding a transaction</div>
 </div>
 </div>
 <div class="sect3">
@@ -366,7 +364,7 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 <p><code>delete 1</code></p>
 </li>
 <li>
-<p><code>delete p/Alex Yeo</code></p>
+<p><code>delete p/Alex Yeoh</code></p>
 </li>
 </ul>
 </div>
@@ -385,9 +383,8 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeDeleteStep1.png" alt="HomeDeleteStep1" width="600">
+<img src="images/homeUG/HomeDeleteStep1cr.png" alt="HomeDeleteStep1cr">
 </div>
-<div class="title">Figure 5. Screenshot of the user input into Command Box for Delete by ID command in Home tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -401,9 +398,9 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeDeleteStep2.png" alt="HomeDeleteStep2" width="600">
+<img src="images/homeUG/HomeDeleteStep2cr.png" alt="HomeDeleteStep2cr">
 </div>
-<div class="title">Figure 6. Screenshot of a successful user input for Delete by ID Command in Home Tab</div>
+<div class="title">Figure 2. Screenshot of a successful user input for Delete by ID Command in Home Tab</div>
 </div>
 <div class="ulist">
 <ul>
@@ -421,9 +418,8 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeDeletePStep1.png" alt="HomeDeletePStep1" width="600">
+<img src="images/homeUG/HomeDeletePStep1cr.png" alt="HomeDeletePStep1cr">
 </div>
-<div class="title">Figure 7. Screenshot of a user input into Command Box for Delete by ID command in Home Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -437,12 +433,21 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeDeletePStep2.png" alt="HomeDeletePStep2" width="600">
+<img src="images/homeUG/HomeDeletePStep2cr.png" alt="HomeDeletePStep2cr">
 </div>
-<div class="title">Figure 8. Screenshot of a successful user input for Delete by Person Command in Home Tab</div>
 </div>
 <div class="paragraph">
-<p>If the person does belong to any transactions, Leo will also respond with a message to inform you.</p>
+<p>If the transaction(s) deleted was part of a pending reimbursement record, it will also be removed from that
+reimbursement record. On the other hand, if the person entered is not part of our data base shown in the Members Tab,
+Leo will respond with a message to inform you as shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/homeUG/HomeAddUnsuccessfulStep2cr.png" alt="HomeAddUnsuccessfulStep2cr" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>If the person does not have any transactions, Leo will also respond with a message to inform you.</p>
 </div>
 </div>
 <div class="sect3">
@@ -499,9 +504,8 @@ The fields above can vary in their order. It is not compulsory to include all of
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeEditStep1.png" alt="HomeEditStep1" width="600">
+<img src="images/homeUG/HomeEditStep1cr.png" alt="HomeEditStep1cr">
 </div>
-<div class="title">Figure 9. Screenshot of user input into Command Box for Edit Command in Home Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -515,9 +519,8 @@ The fields above can vary in their order. It is not compulsory to include all of
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeEditStep2.png" alt="HomeEditStep2" width="600">
+<img src="images/homeUG/HomeEditStep2cr.png" alt="HomeEditStep2cr">
 </div>
-<div class="title">Figure 10. Screenshot of a successful user input for Edit Command in Home Tab</div>
 </div>
 <div class="paragraph">
 <p>If the person entered into the command is not found in the Members tab, Leo will respond to inform you which is similar to <a href="#NoSuchPerson">Figure 3</a>.</p>
@@ -538,10 +541,10 @@ The fields above can vary in their order. It is not compulsory to include all of
 <p>By date (from oldest to most recent): <code>sort date</code></p>
 </li>
 <li>
-<p>By name (from alphabetical order of name): <code>sort person</code></p>
+<p>By name (from alphabetical order of name): <code>sort name</code></p>
 </li>
 <li>
-<p>By amount (from largest to smallest in amount): <code>sort amount</code></p>
+<p>By amount (from smallest to largest in amount): <code>sort amount</code></p>
 </li>
 <li>
 <p>Undo sort: <code>sort reset</code></p>
@@ -565,7 +568,7 @@ The undo sort command allows you to view the table of transactions in the order 
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-transactions-that-match-keywords"><a class="link" href="#find-transactions-that-match-keywords">5.1.5. Find Transactions that Match Keywords:</a></h4>
+<h4 id="findCommandHome"><a class="link" href="#findCommandHome">5.1.5. Find Transactions that Match Keywords:</a></h4>
 <div class="paragraph">
 <p>This command transactions matching the specified keywords for viewing and for carrying out of subsequent commands,
 based on the filtered table of transactions shown.</p>
@@ -616,9 +619,8 @@ Transactions matching partial keywords will not be shown.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindCurr.png" alt="HomeFindCurr" width="600">
+<img src="images/homeUG/HomeFindCurr.png" alt="HomeFindCurr" width="400">
 </div>
-<div class="title">Figure 11. Screenshot of all transactions in Home tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -629,9 +631,8 @@ Transactions matching partial keywords will not be shown.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindStep1.png" alt="HomeFindStep1" width="600">
+<img src="images/homeUG/HomeFindStep1cr.png" alt="HomeFindStep1cr">
 </div>
-<div class="title">Figure 12. Screenshot of the user input into Command Box for Find Command in Home Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -646,9 +647,8 @@ transactions matching the keywords. This is shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindStep2.png" alt="HomeFindStep2" width="600">
+<img src="images/homeUG/HomeFindStep2.png" alt="HomeFindStep2" width="400">
 </div>
-<div class="title">Figure 13. Screenshot of a successful user input for find command in Home tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
@@ -660,9 +660,8 @@ The screenshot below shows the Edit Command being input as the next command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindStep3.png" alt="HomeFindStep3" width="600">
+<img src="images/homeUG/HomeFindStep3cr.png" alt="HomeFindStep3cr">
 </div>
-<div class="title">Figure 14. Screenshot of the user input for Edit Command according to filtered table&#8217;s ID in Home Tab</div>
 </div>
 <div class="paragraph">
 <p>The table will continue to show the filtered table with the transaction edited according to the command, shown in the screenshot above.</p>
@@ -687,7 +686,34 @@ All other commands require the user to input <code>back</code> to return to the 
 <div class="content">
 <img src="images/homeUG/HomeFindStep3Back.png" alt="HomeFindStep3Back" width="600">
 </div>
-<div class="title">Figure 15. Screenshot of the user input for Back Command after entering Find Command in Home Tab</div>
+<div class="title">Figure 3. Screenshot of the user input for Back Command after entering Find Command in Home Tab</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="going-back-to-display-the-full-list"><a class="link" href="#going-back-to-display-the-full-list">5.1.6. Going Back to Display the Full List</a></h4>
+<div class="paragraph">
+<p>This command helps to display the full transaction list after Find Commands. After a Find Command, the Delete, Edit, Sort Commands
+can be entered before entering the Back Command to display the full list.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command: <code>back</code></p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>back</code> into the Command Box</p>
+</li>
+<li>
+<p>Hit 'enter'. The table should show the full list of transactions.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -966,7 +992,6 @@ for their expenditure.
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommand.png" alt="ReimbursementDeadlineCommand" width="600">
 </div>
-<div class="title">Figure 16. Screenshot of the user input into Command Box for Deadline Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -984,7 +1009,6 @@ Otherwise, Leo will show an error message indicating that the person is not in t
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommandSuccess.png" alt="ReimbursementDeadlineCommandSuccess" width="600">
 </div>
-<div class="title">Figure 17. Screenshot of a successful user input for Deadline Command in Reimbursement Tab</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1045,7 +1069,6 @@ to reassign deadline to a reimbursement.
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommand.png" alt="ReimbursementFindCommand" width="600">
 </div>
-<div class="title">Figure 18. Screenshot of the user input into Command Box for Find Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1062,11 +1085,10 @@ Otherwise, Leo will show an error message indicating that the person is not in r
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommandSuccess.png" alt="ReimbursementFindCommandSuccess" width="600">
 </div>
-<div class="title">Figure 19. Diagram of successful find command in reimbursement tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="going-back-to-display-the-full-list"><a class="link" href="#going-back-to-display-the-full-list">5.3.3. Going Back to Display the Full List</a></h4>
+<h4 id="going-back-to-display-the-full-list-2"><a class="link" href="#going-back-to-display-the-full-list-2">5.3.3. Going Back to Display the Full List</a></h4>
 <div class="paragraph">
 <p>This command helps to display the full reimbursement list after <code>find</code> and <code>deadline</code> commands.</p>
 </div>
@@ -1091,7 +1113,6 @@ Otherwise, Leo will show an error message indicating that the person is not in r
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommand.png" alt="ReimbursementBackCommand" width="600">
 </div>
-<div class="title">Figure 20. Screenshot of the user input into the Command Box for Back Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1107,7 +1128,6 @@ Otherwise, Leo will show an error message indicating that the person is not in r
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommandSuccess.png" alt="ReimbursementBackCommandSuccess" width="600">
 </div>
-<div class="title">Figure 21. Screenshot of a successful user input for Back Command in Reimbursement Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -1140,7 +1160,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommand.png" alt="ReimbursementDoneCommand" width="600">
 </div>
-<div class="title">Figure 22. Screenshot of the user input into Command Box for Done Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1156,7 +1175,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommandSuccess.png" alt="ReimbursementDoneCommandSuccess" width="600">
 </div>
-<div class="title">Figure 23. Screenshot of a successful user input for Done Command in Reimbursement Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -1185,7 +1203,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortAmountCommand.png" alt="ReimbursementSortAmountCommand" width="600">
 </div>
-<div class="title">Figure 24. Screenshot of the user input into Command Box for Sort Amount Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1201,7 +1218,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortAmountCommandSuccess.png" alt="ReimbursementSortAmountCommandSuccess" width="600">
 </div>
-<div class="title">Figure 25. Screenshot of a successful user input for Sort Amount Command in Reimbursement Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -1230,7 +1246,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortNameCommand.png" alt="ReimbursementSortNameCommand" width="600">
 </div>
-<div class="title">Figure 26. Screenshot of the user input into Command Box for Sort Name Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1246,7 +1261,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortNameCommandSuccess.png" alt="ReimbursementSortNameCommandSuccess" width="600">
 </div>
-<div class="title">Figure 27. Screenshot of a successful user input for Sort Name Command in Reimbursement Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -1275,7 +1289,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortDateCommand.png" alt="ReimbursementSortDateCommand" width="600">
 </div>
-<div class="title">Figure 28. Screenshot of the user input into Command Box for Sort Date Command in Reimbursement Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1291,7 +1304,6 @@ as shown in the screenshot below:</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortDateCommandSuccess.png" alt="ReimbursementSortDateCommandSuccess" width="600">
 </div>
-<div class="title">Figure 29. Screenshot of a successful user input for Sort Date Command in Reimbursement Tab</div>
 </div>
 </div>
 </div>
@@ -1399,7 +1411,6 @@ The attributes can also be inputted in any order.
 <div class="content">
 <img src="images/inventoryUG/AddStep1.png" alt="AddStep1" width="600">
 </div>
-<div class="title">Figure 30. Screenshot of the user input into the Command Box for the Add Command in the Inventory Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1416,7 +1427,6 @@ will be shown in the table. This is shown in the screenshot below:</p>
 <div class="content">
 <img src="images/inventoryUG/AddSuccess.png" alt="AddSuccess" width="600">
 </div>
-<div class="title">Figure 31. Screenshot of a successful user input for the Add Command in the Inventory Tab</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1467,7 +1477,6 @@ Instead, the quantity will reflect the combined quantity of the input and the ex
 <div class="content">
 <img src="images/inventoryUG/DeleteStep1.png" alt="DeleteStep1" width="600">
 </div>
-<div class="title">Figure 32. Screenshot of the user input into Command Box for the Delete Command in the Inventory tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1483,7 +1492,6 @@ Instead, the quantity will reflect the combined quantity of the input and the ex
 <div class="content">
 <img src="images/inventoryUG/DeleteSuccess.png" alt="DeleteSuccess" width="600">
 </div>
-<div class="title">Figure 33. Screenshot of a successful user input for the Delete Command in the Inventory Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -1542,7 +1550,6 @@ You may edit any combination, permutation and number of the attributes, as long 
 <div class="content">
 <img src="images/inventoryUG/EditStep1.png" alt="EditStep1" width="600">
 </div>
-<div class="title">Figure 34. Screenshot of user input into Command Box for the Edit Command in the Inventory Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1558,7 +1565,6 @@ You may edit any combination, permutation and number of the attributes, as long 
 <div class="content">
 <img src="images/inventoryUG/EditSuccess.png" alt="EditSuccess" width="600">
 </div>
-<div class="title">Figure 35. Screenshot of a successful user input for the Edit Command in the Inventory Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -1757,7 +1763,6 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/AddCommand1.png" alt="AddCommand1" width="600">
 </div>
-<div class="title">Figure 36. Screenshot of user input (category) into Command Box for Add Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1770,7 +1775,6 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/AddCommand2.png" alt="AddCommand2" width="600">
 </div>
-<div class="title">Figure 37. Screenshot of the user input (description, quantity) into Command Box for Add Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
@@ -1783,7 +1787,6 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/AddCommand3.png" alt="AddCommand3" width="600">
 </div>
-<div class="title">Figure 38. Screenshot of the response message for Add Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo will respond to the successful addition with a response message.</p>
@@ -1827,7 +1830,6 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/DeleteCommand1.png" alt="DeleteCommand1" width="600">
 </div>
-<div class="title">Figure 39. Screenshot of the user input into Command Box for Delete Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1840,7 +1842,6 @@ description even if the category of the item does not match with the specified c
 <div class="content">
 <img src="images/cashierUG/DeleteCommand2.png" alt="DeleteCommand2" width="600">
 </div>
-<div class="title">Figure 40. Screenshot of the response message for Delete Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo will respond to the successful deletion with a response message. The item will be deleted from the table.</p>
@@ -1913,7 +1914,6 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="content">
 <img src="images/cashierUG/EditCommand1.png" alt="EditCommand1" width="600">
 </div>
-<div class="title">Figure 41. Screenshot of user input (index, description) into Command Box for Edit Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>1.2. To edit by description, enter the required description and quantity as shown below:</p>
@@ -1922,7 +1922,6 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="content">
 <img src="images/cashierUG/EditCommand3.png" alt="EditCommand3" width="600">
 </div>
-<div class="title">Figure 42. Screenshot of user input (description, quantity) into Command Box for Edit Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -1935,7 +1934,6 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <div class="content">
 <img src="images/cashierUG/EditCommand3.png" alt="EditCommand3" width="600">
 </div>
-<div class="title">Figure 43. Screenshot of response message for Edit Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If successfully updated, Leo will respond with a response message. The quantity will be updated in the table.</p>
@@ -2000,7 +1998,6 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/SetCashierCommand1.png" alt="SetCashierCommand1" width="600">
 </div>
-<div class="title">Figure 44. Screenshot of user input into Command Box for Set Cashier Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -2013,7 +2010,6 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/SetCashierCommand2.png" alt="SetCashierCommand2" width="600">
 </div>
-<div class="title">Figure 45. Screenshot of response message for Set Cashier Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If set successfully, Leo will respond with a response message. The cashier in the bottom row will be updated.</p>
@@ -2080,7 +2076,6 @@ The cashier must be set before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/CheckoutCommand1.png" alt="CheckoutCommand1" width="600">
 </div>
-<div class="title">Figure 46. Screenshot of user input into Command Box for Checkout Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -2093,7 +2088,6 @@ The cashier must be set before checking out. Else, checkout cannot proceed.
 <div class="content">
 <img src="images/cashierUG/CheckoutCommand2.png" alt="CheckoutCommand2" width="600">
 </div>
-<div class="title">Figure 47. Screenshot of response message for Checkout Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If checkout is successful, Leo will respond with a response message. The table will be cleared and the cashier will be reset.<br>
@@ -2156,7 +2150,6 @@ This command is irreversible. Please use at your own discretion.
 <div class="content">
 <img src="images/cashierUG/ClearCommand1.png" alt="ClearCommand1" width="600">
 </div>
-<div class="title">Figure 48. Screenshot of user input into Command Box for Clear Command in Cashier Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -2169,7 +2162,6 @@ This command is irreversible. Please use at your own discretion.
 <div class="content">
 <img src="images/cashierUG/ClearCommand2.png" alt="ClearCommand2" width="600">
 </div>
-<div class="title">Figure 49. Screenshot of response message for Clear Command in Cashier Tab</div>
 </div>
 <div class="paragraph">
 <p>If cleared successful, Leo will respond with a response message. The table will also be cleared and the cashier
@@ -2286,7 +2278,6 @@ The amount should be non-negative.
 <div class="content">
 <img src="images/overviewUG/SetCommandExample.png" alt="SetCommandExample" width="600">
 </div>
-<div class="title">Figure 50. Screenshot of user input into Command Box for Set Command in Overview Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -2299,7 +2290,6 @@ The amount should be non-negative.
 <div class="content">
 <img src="images/overviewUG/SetCommandResult.png" alt="SetCommandResult" width="600">
 </div>
-<div class="title">Figure 51. Screenshot of a successful user input for Set Command in Overview Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo displays a confirmation showing that the goal was successfully set.<br>
@@ -2374,7 +2364,6 @@ The percentage value should be a value from 0 - 100.
 <div class="content">
 <img src="images/overviewUG/NotifyCommandExample.png" alt="NotifyCommandExample" width="600">
 </div>
-<div class="title">Figure 52. Screenshot of user input into Command Box for Notify Command in Overview Tab</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -2387,7 +2376,6 @@ The percentage value should be a value from 0 - 100.
 <div class="content">
 <img src="images/overviewUG/NotifyCommandResult.png" alt="NotifyCommandResult" width="600">
 </div>
-<div class="title">Figure 53. Screenshot of a successful user input for Notify Command in Overview Tab</div>
 </div>
 <div class="paragraph">
 <p>Leo displays a confirmation showing that the notification was successfully set.<br>
@@ -2407,7 +2395,6 @@ Notifications show only once per app run, or whenever a target or threshold is m
 <div class="content">
 <img src="images/overviewUG/NotificationExample.png" alt="NotificationExample" width="600">
 </div>
-<div class="title">Figure 54. Screenshot of notifications displayed by Leo for Notify Command in Overview Tab</div>
 </div>
 </div>
 </div>
@@ -2598,4 +2585,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 10:48:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 13:10:23 UTC</div></div></div></body></html>

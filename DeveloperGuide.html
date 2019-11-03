@@ -867,7 +867,7 @@ filtered transaction list. If the prior input is a Find Command and the list at 
 a filtered list by the Find Command&#8217;s keywords, it will continue to show the filtered list at the end of the command.
 To view the full transaction list, the user would be required to input the
 Back Command where <code>BackCommand</code> calls <code>resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
- following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
+following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
 </div>
 <div class="paragraph">
 <p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
@@ -884,14 +884,15 @@ The following activity diagram shows the steps needed to delete a new transactio
 </div>
 <div class="paragraph">
 <p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
-be shown about the incorrect input. Also, as shown above, response on other incorrect inputs will also be shown.
-When a successful deletion is done, a response message is shown as well.</p>
+be shown about the incorrect input. Also, as shown above, responses will be shown to indicate if an input is incorrect or
+when a successful deletion is done.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="back-command-feature"><a class="link" href="#back-command-feature">3.1.3. Back Command Feature</a></h4>
 <div id="BackCommandSD" class="paragraph">
-<p>The <code>BackCommand</code> is not initialised by a specific command parser as shown in as shown in <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>
+<p>The <code>BackCommand</code> is called to show the full list of transactions when the table is showing
+a filtered list. It is not initialised by a specific command parser as shown in as shown in <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>
 but initialised by the <code>TransactionTabParser</code> instead.
 The following detailed sequence diagram shows how the back command works:</p>
 </div>
@@ -901,6 +902,73 @@ The following detailed sequence diagram shows how the back command works:</p>
 </div>
 <div class="title">Figure 18. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="sort-command-feature"><a class="link" href="#sort-command-feature">3.1.4. Sort Command Feature</a></h4>
+<div class="paragraph">
+<p>The <code>SortCommand</code> allows for 3 types of sort, by name in
+alphabetical order, by amount (from least to most) and by date (from oldest to most recent).</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeTabSortSD.png" alt="HomeTabSortSD">
+</div>
+<div class="title">Figure 19. Sequence Diagram of Sort Command in Home Tab (transaction package)</div>
+</div>
+<div class="paragraph">
+<p>When a user inputs the sort command, it is only checked that it is one of the 3 types or it will show a response about
+the incorrect user input. When it is successfully sorted, there will also be a response message shown.</p>
+</div>
+<div class="paragraph">
+<p>Similar to the Delete Command, since the <code>resetPredicate()</code> method is not called.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overall-design-considerations"><a class="link" href="#overall-design-considerations">3.1.5. Overall Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section&#8217;s table explains the design considerations for some implementations in the Home Tab.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+<th class="tableblock halign-left valign-top">Conclusion and Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Reimbursement Tab&#8217;s <code>Model</code> and <code>Storage</code> interface is passed as parameters into Transaction Tab&#8217;s <code>Logic</code>
+to call the methods in <code>Model</code> and <code>Storage</code> to update all the reimbursement data after a <code>Command</code> is
+executed in Home Tab.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The methods in Reimbursement Tab&#8217;s <code>Model</code> and <code>Storage</code> is called to update all the reimbursement data in <code>MainWindow</code>
+after a <code>Command</code> is executed in Home Tab.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented. This limits access to all public methods in Reimbursement Tab&#8217;s
+<code>Model</code> and <code>Storage</code> in Transaction Tab&#8217;s <code>Logic</code> to prevent unwanted modifications to any of the reimbursement data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Members Tab&#8217;s <code>Model</code> interface is passed as parameters into Transaction Tab&#8217;s <code>Logic</code> to give <code>Logic</code> access to all public methods
+of <code>ModelManager</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A new interface is made to allow the only used method of Members Tab&#8217;s <code>ModelManager</code> to be accessed in Transaction Tab&#8217;s
+<code>Logic</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented. The new interface acts as a facade for <code>ModelManager</code> which prevent unwanted modifications
+to <code>AddressBook</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An <code>ArrayList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>LinkedList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. An <code>ArrayList</code> has better performance for the set and get methods than a <code>LinkedList</code> which would beuse frequently in <code>ModelManager</code>.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -919,19 +987,7 @@ The following sequence diagram shows how the delete command works:</p>
 <div class="content">
 <img src="images/MembersDeleteSD.png" alt="MembersDeleteSD">
 </div>
-<div class="title">Figure 19. Sequence Diagram of Delete Command in Member Tab (transaction package)</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
+<div class="title">Figure 20. Sequence Diagram of Delete Command in Member Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>Before, the deletion is done, there will be a check to the <code>TransactionModel</code> to ensure that the member is not linked
@@ -969,7 +1025,7 @@ Tab.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommandSD.png" alt="ReimbursementDeadlineCommandSD">
 </div>
-<div class="title">Figure 20. Sequence Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 21. Sequence Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, a user needs to add a deadline to a reimbursement by specifying
@@ -983,7 +1039,7 @@ After that, the deadline is saved into a <code>.txt</code> file.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDeadlineCommand.png" alt="ReimbursementTabActivityDiagramDeadlineCommand">
 </div>
-<div class="title">Figure 21. Activity Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 22. Activity Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown by the above activity diagram, when a user inputs a person who does not exist in any
@@ -1004,7 +1060,7 @@ Person field should be provided and the person&#8217;s name should exist in reim
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommandSD.png" alt="ReimbursementFindCommandSD">
 </div>
-<div class="title">Figure 22. Sequence Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 23. Sequence Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>A user needs to find a reimbursement by providing the person&#8217;s name.
@@ -1016,7 +1072,7 @@ and reimbursement tab only shows a <code>filteredList</code> which contains this
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramFindCommand.png" alt="ReimbursementTabActivityDiagramFindCommand">
 </div>
-<div class="title">Figure 23. Activity Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 24. Activity Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>The above activity diagram shows the steps needed for find command.
@@ -1034,7 +1090,7 @@ is found and displayed in the tab.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommandSD.png" alt="ReimbursementBackCommandSD">
 </div>
-<div class="title">Figure 24. Sequence Diagram of Back Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 25. Sequence Diagram of Back Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p><code>BackCommand</code> execution updates <code>filteredList</code> inside <code>ModelManager</code> to the original full <code>reimbursementList</code>.
@@ -1053,7 +1109,7 @@ Person field should be provided and the person&#8217;s name should exist in reim
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommandSD.png" alt="ReimbursementDoneCommandSD">
 </div>
-<div class="title">Figure 25. Sequence Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 26. Sequence Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>A user needs to mark a reimbursement as done by specifying the person&#8217;s name for the specific reimbursement.
@@ -1074,7 +1130,7 @@ of transaction tab to save it.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementUpdateTransactionsSD.png" alt="ReimbursementUpdateTransactionsSD">
 </div>
-<div class="title">Figure 26. Sequence Diagram of updating transactions in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 27. Sequence Diagram of updating transactions in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p><a href="#ReimbursementTabActivityDiagramDoneCommand">The following activity diagram</a> shows the steps needed for done command.
@@ -1086,11 +1142,11 @@ containing the provided person&#8217;s name is deleted from reimbursement list a
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDoneCommand.png" alt="ReimbursementTabActivityDiagramDoneCommand">
 </div>
-<div class="title">Figure 27. Activity Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 28. Activity Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sort-command-feature"><a class="link" href="#sort-command-feature">3.3.5. Sort Command feature</a></h4>
+<h4 id="sort-command-feature-2"><a class="link" href="#sort-command-feature-2">3.3.5. Sort Command feature</a></h4>
 <div class="paragraph">
 <p>This command is used to sort reimbursements and the user can choose to sort based on name, amount or deadline.</p>
 </div>
@@ -1098,7 +1154,7 @@ containing the provided person&#8217;s name is deleted from reimbursement list a
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortCommandSD.png" alt="ReimbursementSortCommandSD">
 </div>
-<div class="title">Figure 28. Sequence Diagram of Sort Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 29. Sequence Diagram of Sort Command in Reimbursement Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown in the above figure, <code>SortXYZCommand</code> is executed by calling <code>sortListByXYZ</code> method in
@@ -1123,7 +1179,7 @@ sale, the price can be inputted as well.</p>
 <div class="content">
 <img src="images/InventoryTabClassDiagram.png" alt="InventoryTabClassDiagram">
 </div>
-<div class="title">Figure 29. Class Diagram of Inventory Tab (inventory package)</div>
+<div class="title">Figure 30. Class Diagram of Inventory Tab (inventory package)</div>
 </div>
 <div class="sect3">
 <h4 id="add-item-feature"><a class="link" href="#add-item-feature">3.4.1. Add Item Feature</a></h4>
@@ -1154,7 +1210,7 @@ present:</p>
 <div class="content">
 <img src="images/InventoryAddCommandActivityDiagram.png" alt="InventoryAddCommandActivityDiagram">
 </div>
-<div class="title">Figure 30. Activity Diagram of Add Command in Inventory Tab (inventory package)</div>
+<div class="title">Figure 31. Activity Diagram of Add Command in Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>As shown above, the input will be evaluated for its validity. If the input is not valid, the user will be informed through Leo
@@ -1230,7 +1286,7 @@ from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Com
 <div class="content">
 <img src="images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq">
 </div>
-<div class="title">Figure 31. Sequence Diagram of Add Command in Cashier Tab (cashier package)</div>
+<div class="title">Figure 32. Sequence Diagram of Add Command in Cashier Tab (cashier package)</div>
 </div>
 <div class="paragraph">
 <p><code>AddCommandParser</code> will carry out multiple checks to check the validity of the inputs. <code>hasItemInInventory(description)</code>
@@ -1258,7 +1314,7 @@ will only be updated after the Checkout Command.
 <div class="content">
 <img src="images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity">
 </div>
-<div class="title">Figure 32. Activity Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 33. Activity Diagram of Add Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1280,7 +1336,7 @@ informing the user that there is no such person.</p>
 <div class="content">
 <img src="images/SetCashierCommandSeq1.png" alt="SetCashierCommandSeq1">
 </div>
-<div class="title">Figure 33. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
+<div class="title">Figure 34. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
@@ -1293,7 +1349,7 @@ from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Com
 <div class="content">
 <img src="images/SetCashierCommandSeq2.png" alt="SetCashierCommandSeq2">
 </div>
-<div class="title">Figure 34. Sequence Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 35. Sequence Diagram of Set Cashier Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the inputted name is invalid, the user will be prompted to enter a valid name.</p>
@@ -1305,7 +1361,7 @@ from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Com
 <div class="content">
 <img src="images/SetCashierCommandActivity.png" alt="SetCashierCommandActivity">
 </div>
-<div class="title">Figure 35. Activity Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 36. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1343,7 +1399,7 @@ After the execution of the above methods, a clear command will then be called to
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1">
 </div>
-<div class="title">Figure 36. Sequence Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 37. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
@@ -1358,7 +1414,7 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq2.png" alt="CheckoutCommandCashierSeq2">
 </div>
-<div class="title">Figure 37. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
+<div class="title">Figure 38. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the amount inputted is less than the total amount of items, the user will be prompted to key in a valid value.</p>
@@ -1370,7 +1426,7 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 <div class="content">
 <img src="images/CheckoutCommandCashierActivityDiag.png" alt="CheckoutCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 38. Activity Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 39. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
 </div>
 </div>
@@ -2865,4 +2921,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 10:48:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 13:10:23 UTC</div></div></div></body></html>
