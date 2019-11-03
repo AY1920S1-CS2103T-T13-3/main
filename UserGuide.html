@@ -1671,9 +1671,8 @@ Items with zero price are not available for sale. Such items cannot be added int
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Do not key in a quantity where the total amount in table or subtotal of that row exceeds 2,147,483,647, the range
-of an integer. If it exceeds this number, please key in a smaller quantity or checkout items separately.<br>
-You are advised to key in a number smaller than 10000 due to size limitation.
+Due to size limitation, you will not be allowed to add any items into the cart if the total amount exceeds $9999. You
+are advised to reduce the quantity of items or checkout separately in another cart.
 </td>
 </tr>
 </table>
@@ -2430,6 +2429,13 @@ Notifications show only once per app run, or whenever a target or threshold is m
 <p><strong>Q</strong>: Can I resize the app window?<br>
 <strong>A</strong>: No, you may not resize the app window.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is <code>Cashier Mode</code>? How can I switch it off?<br>
+<strong>A</strong>: <code>Cashier Mode</code> is a feature implemented for security reasons. It is considered turned on when there are sales items
+in the cart on the <code>Cashier Tab</code>. While on <code>Cashier Mode</code>, any modification to the inventory is prohibited except adding of
+items.<br>
+To switch it off, please enter <code>clear</code> on the Command Line Interface (CLI) of the <code>Cashier Tab</code>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2594,4 +2600,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 14:07:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 15:56:52 UTC</div></div></div></body></html>
