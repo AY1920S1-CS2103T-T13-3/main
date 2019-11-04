@@ -1684,7 +1684,7 @@ Using the reset command, it can be reset to the initial order of the table when 
 <div class="sect2">
 <h3 id="cashier-tab"><a class="link" href="#cashier-tab">5.5. Cashier Tab</a></h3>
 <div class="paragraph">
-<p>This section will contain the details on all commands available on the Cashier tab.</p>
+<p>This section will contain the details on all commands available on the Cashier Tab.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1743,7 +1743,7 @@ Items with zero price are not available for sale. Such items cannot be added int
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Due to size limitation, you will not be allowed to add any items into the table if the total amount exceeds $9999. You
+Due to size limitation, you will not be allowed to add any items into the table if the total amount exceeds $999999.99. You
 are advised to reduce the quantity of items or checkout separately in another cart.
 </td>
 </tr>
@@ -1765,7 +1765,7 @@ are advised to reduce the quantity of items or checkout separately in another ca
 </ul>
 </div>
 <div class="paragraph">
-<p>The quantity of the item must not be greater than the stock available in the Inventory Tab.
+<p>The quantity that you input must be less than or equal to the stock available in the Inventory Tab.
 Else, Leo will display a message prompting input of a smaller quantity or another item.<br>
 The category field is optional. If you are unsure about the description of the desired item, you can refer to
 the Inventory Tab or simply key in the category without any other fields. Leo will display all the items in the
@@ -1773,7 +1773,7 @@ specified category that are available for sale.</p>
 </div>
 <div class="paragraph">
 <p>Additionally, if the description is misspelled or does not match any of the items in the inventory, Leo will recommend
-items similar to the description that you might be looking for.</p>
+items with similar description that you might be looking for.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1784,10 +1784,10 @@ items similar to the description that you might be looking for.</p>
 <p><code>add c/food</code> - Displays all items that are under the 'food' category in the response box</p>
 </li>
 <li>
-<p><code>add c/stationary d/pancake q/3</code> - Adds 3 items which has the description "pancake"</p>
+<p><code>add c/stationary d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
 </li>
 <li>
-<p><code>add d/pancake q/3</code> - Adds 3 items which has the description "pancake"</p>
+<p><code>add d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
 </li>
 </ul>
 </div>
@@ -1798,8 +1798,10 @@ items similar to the description that you might be looking for.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The items according to the category will only be displayed in the response box if both description and quantity fields are not specified.
-If both are specified but description is invalid, <strong>only suggestions</strong> will be shown in the response box according to the mistyped description.
+The items will only be displayed according to the category in the response box if both description and quantity fields are not specified
+and the category field is valid.
+If both description and quantity are specified but description is invalid, <strong>only suggestions</strong> will be shown in the response box
+according to the mistyped description.
 </td>
 </tr>
 </table>
@@ -1829,7 +1831,7 @@ description even if the category of the item does <strong>not</strong> match wit
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/cashierUG/AddCommand1.png" alt="AddCommand1" width="600">
+<img src="images/cashierUG/AddCommand1.png" alt="AddCommand1" width="620">
 </div>
 </div>
 <div class="olist arabic">
@@ -1857,7 +1859,7 @@ description even if the category of the item does <strong>not</strong> match wit
 </div>
 </div>
 <div class="paragraph">
-<p>Leo will respond to the successful addition with a response message.</p>
+<p>Leo will respond to the successful addition with a response message. The newly added item will be shown on the table.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1947,16 +1949,16 @@ The specified index should correspond to the row index of the item in the table.
 </ul>
 </div>
 <div class="paragraph">
-<p>There are 2 ways to edit an existing item - by its description or its index in the table.</p>
+<p>There are 2 ways to edit an existing item - by its <strong>description</strong> or its <strong>index</strong> in the table.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If you edit by index, the index must be positive and be within the size of the table.
-The specified index should correspond to the row index of the item in the table.</p>
+<p>If you edit by <strong>index</strong>, the index must be positive and be within the size of the table.
+The specified index should also correspond to the row index of the item in the table.</p>
 </li>
 <li>
-<p>If you edit by description, the specified description must already exist in the table.</p>
+<p>If you edit by <strong>description</strong>, the specified description must already exist in the table.</p>
 </li>
 </ol>
 </div>
@@ -1974,7 +1976,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 <p><code>edit i/2 q/6</code> - Updates the quantity of item at row 2 to 6</p>
 </li>
 <li>
-<p><code>edit d/book q/3</code> - Updates the quantity of an existing item of description "book" to 3</p>
+<p><code>edit d/book q/3</code> - Updates the quantity of an existing item which has the description "book" to 3</p>
 </li>
 </ul>
 </div>
@@ -1985,7 +1987,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>1.1 To edit by index, enter the command with an index and quantity specified as shown in the screenshot below:</p>
+<p>1.1 To edit by <strong>index</strong>, enter the command with an index and quantity specified as shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1993,7 +1995,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>1.2. To edit by description, enter the required description and quantity as shown below:</p>
+<p>1.2. To edit by <strong>description</strong>, enter the required description and quantity as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2030,9 +2032,8 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The person to be set as the cashier must be an existing member of the club.<br>
-This means that their details must be found on the Members tab.<br>
-If you have yet to record the cashier as a member, please proceed to Members tab
+<p>The person to be set as the cashier must be an existing member of the club. This means that their details must be found on the Members Tab.<br>
+If you have yet to record the cashier as a member, please proceed to Members Tab
 to register him/her as a member before executing this command.</p>
 </div>
 <div class="admonitionblock note">
@@ -2064,7 +2065,7 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type the command with a cashier&#8217;s name specified as shown in the screenshot below:</p>
+<p>Type the command with the cashier&#8217;s name specified as shown in the screenshot below:</p>
 </li>
 </ol>
 </div>
@@ -2089,7 +2090,7 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 </div>
 </div>
 <div class="paragraph">
-<p>If set successfully, Leo will respond with a response message. The cashier in the bottom row will be updated.</p>
+<p>If set successfully, Leo will respond with a response message. The cashier will be updated in the bottom row.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2142,7 +2143,7 @@ You must set the cashier before checking out. Else, checkout cannot proceed.
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type the command with the amount that the customer is paying as shown in the screenshot below:</p>
+<p>Type the command and specify the amount that the customer is paying as shown in the screenshot below:</p>
 </li>
 </ol>
 </div>
@@ -2194,7 +2195,7 @@ The <code>Home Tab</code> will be updated with this transaction and the remainin
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This command enables you to disable the <code>Cashier Mode`<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>.
+This command enables you to disable the <code>Cashier Mode</code> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>.
 </td>
 </tr>
 </table>
@@ -2748,4 +2749,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. `Cashier Mode</code> automatically turns on when the table in the <code>Cashier Tab</code> is not empty. This disables any modification to the inventory except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 02:33:14 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the <code>Cashier Tab</code> is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 05:43:22 UTC</div></div></div></body></html>
