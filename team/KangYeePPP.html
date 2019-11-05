@@ -5,7 +5,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>This project portfolio briefly introduces the project, treasurerPro and outlines my contributions to the project
-and showcases the key feature I implemented.</p>
+and showcases the key features I implemented.</p>
 </div>
 <div class="sect2">
 <h3 id="about-the-team"><a class="link" href="#about-the-team">1.1. About the team</a></h3>
@@ -44,7 +44,7 @@ Text with grey highlight indicates a component, class or object in the architect
 the application.</p>
 </div>
 <div class="paragraph">
-<p><code class="blue"><strong>command</strong></code> :
+<p><code class="blue">command</code> :
 Text with blue font and grey highlight indicates a command that can be inputted by the user.</p>
 </div>
 </div>
@@ -56,11 +56,16 @@ for Leo, our lion mascot. Each tab serves a different purpose that helps treasur
 or Society&#8217;s finances.</p>
 </div>
 <div class="paragraph">
-<p>This is what our application looks like when it is first opened. (graphical user interface for treasurerPro):</p>
+<p>The home tab keeps track of individual transactions. The members tab keep track of all contact
+details of members. The reimbursement tab keeps track of reimbursement records for members that have spent money for the club activities.
+The inventory tab keeps track of items for sale. The cashier tab is a convenient way for the club to do
+cashiering duties which helps to directly input sales into the system. The overview tab allows treasurers to plan the
+club&#8217;s finances.
+This is what our application looks like when it is first opened. (graphical user interface for treasurerPro):</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Ui.png" alt="Ui" width="600">
+<img src="../images/AnnotatedUi.png" alt="AnnotatedUi" width="600">
 </div>
 <div class="title">Figure 1. Graphical User Interface of treasurerPro</div>
 </div>
@@ -86,7 +91,7 @@ relation to these features.</p>
 <ul>
 <li>
 <p>What it does:
-The <strong class="blue">delete</strong> command allows all transactions linked to the specified member in the command to be deleted at once.</p>
+The Delete Command allows all transactions linked to the specified member in the command to be deleted at once.</p>
 </li>
 <li>
 <p>Justification:
@@ -109,7 +114,7 @@ records. This works well with the deletion of member feature in Members Tab.</p>
 <li>
 <p>What it does:
 Each transaction records consists of a date, description, category, amount of money and
-person accountable for the transaction. Thus, the <strong class="blue">sort</strong> command helps to sort the transactions by the alphabetical order of
+person accountable for the transaction. Thus, the Sort Command helps to sort the transactions by the alphabetical order of
 the person&#8217;s name, by the date (from oldest to most recent) or amount (from smallest to largest).</p>
 </li>
 <li>
@@ -144,7 +149,7 @@ This command can be extended easily to allow for sorting of transactions in the 
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed Pull Requests (with non-trivial review comments):
+<p>Reviewed Pull Requests (With Non-trivial Review Comments):
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/98">(PR #98)</a></p>
 </li>
 <li>
@@ -184,12 +189,12 @@ This command can be extended easily to allow for sorting of transactions in the 
 <div class="ulist">
 <ul>
 <li>
-<p>Added implementation details for Home Tab, Model Component and Storage Component to the Developer Guide:
+<p>Added Implementation Details for Home Tab, Model Component and Storage Component to the Developer Guide:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/154">(PR #154)</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/199">(PR #199)</a></p>
 </li>
 <li>
-<p>Added to User Stories and Guide to Use the Home Tab to the User Guide:
+<p>Added to User Stories and the Guide to Use the Home Tab to the User Guide:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/22">(PR#22)</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/197">(PR #197)</a></p>
 </li>
@@ -209,13 +214,13 @@ This command can be extended easily to allow for sorting of transactions in the 
 <div class="sect2">
 <h3 id="current-enhancement"><a class="link" href="#current-enhancement">3.1. Current enhancement</a></h3>
 <div class="paragraph">
-<p>{start of extract from User Guide}</p>
+<p>{Start of First Extract from User Guide}</p>
 </div>
 <div class="paragraph">
-<p><span class="big">5.1.2 Delete Transaction(s)</span></p>
+<p><strong class="big red">5.1.2 To Delete Transaction(s) in the Home Tab</strong></p>
 </div>
 <div class="paragraph">
-<p>This command deletes either all transactions of a person or a single transaction of a specific ID from the table.</p>
+<p>This command allows you to delete either all transactions of a person or a single transaction of a specific ID from the table.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -224,20 +229,20 @@ This command can be extended easily to allow for sorting of transactions in the 
 <code>delete ID</code> or <code>delete p/PERSON</code></p>
 </li>
 <li>
-<p>Examples:</p>
+<p>Examples</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code></p>
+<p>Delete by ID: <code class="blue">delete 1</code></p>
 </li>
 <li>
-<p><code>delete p/Alex Yeo</code></p>
+<p>Delete by Person: <code class="blue">delete p/Alex Yeoh</code></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Steps for Deleting by ID:</p>
+<p>Steps for Deleting by ID</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -250,7 +255,7 @@ This command can be extended easily to allow for sorting of transactions in the 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/homeUG/HomeDeleteStep1cr.png" alt="HomeDeleteStep1cr" width="500">
+<img src="../images/homeUG/HomeDeleteStep1cr.png" alt="HomeDeleteStep1cr">
 </div>
 </div>
 <div class="olist arabic">
@@ -265,13 +270,13 @@ This command can be extended easily to allow for sorting of transactions in the 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/homeUG/HomeDeleteStep2cr.png" alt="HomeDeleteStep2cr" width="500">
+<img src="../images/homeUG/HomeDeleteStep2cr.png" alt="HomeDeleteStep2cr">
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Steps for Deleting by Person:</p>
+<p>Steps for Deleting by Person</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -284,7 +289,7 @@ This command can be extended easily to allow for sorting of transactions in the 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/homeUG/HomeDeletePStep1cr.png" alt="HomeDeletePStep1cr" width="500">
+<img src="../images/homeUG/HomeDeletePStep1cr.png" alt="HomeDeletePStep1cr">
 </div>
 </div>
 <div class="olist arabic">
@@ -295,30 +300,26 @@ This command can be extended easily to allow for sorting of transactions in the 
 </ol>
 </div>
 <div class="paragraph">
-<p>The transaction(s) will be removed from the table. Leo will also respond with the success message and  as shown below:</p>
+<p>Leo will respond with the success message and the transaction(s) will be removed from the table as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/homeUG/HomeDeletePStep2cr.png" alt="HomeDeletePStep2cr" width="500">
+<img src="../images/homeUG/HomeDeletePStep2cr.png" alt="HomeDeletePStep2cr">
 </div>
 </div>
 <div class="paragraph">
-<p>If the transaction(s) deleted was part of a pending reimbursement record, it will also be removed from that
-reimbursement record. On the other hand, if the person entered is not part of our data base shown in the Members Tab,
-Leo will respond with a message to inform you as shown in the screenshot below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/homeUG/HomeAddUnsuccessfulStep2cr.png" alt="HomeAddUnsuccessfulStep2cr" width="500">
-</div>
+<p>For both delete commands, if the transaction(s) deleted was part of a pending reimbursement record, it will also be removed from that
+reimbursement record. On the other hand, if the person entered is not part of our database as shown in the Members Tab,
+Leo will respond with a message to inform you. If the person does not have any transactions, Leo will also respond with a message to inform you.</p>
 </div>
 <div class="paragraph">
-<p>In addition, if the person does not have any transactions, Leo will also respond with a message to inform you.
-{end of extract}</p>
+<p>{End of First Extract}</p>
 </div>
 <div class="paragraph">
-<p>{start of extract from User Guide}
-<span class="big">5.1.4 Sort Transactions in the Table</span></p>
+<p>{Start of Second Extract from User Guide}</p>
+</div>
+<div class="paragraph">
+<p><strong class="big red">5.1.4 To Sort Transactions in the Home Tab</strong></p>
 </div>
 <div class="paragraph">
 <p>This command sorts the table of transactions into a specified order for viewing and carrying out of subsequent commands.</p>
@@ -326,20 +327,20 @@ Leo will respond with a message to inform you as shown in the screenshot below:<
 <div class="ulist">
 <ul>
 <li>
-<p>To sort:</p>
+<p>To sort</p>
 <div class="ulist">
 <ul>
 <li>
-<p>By date (from oldest to most recent): <code>sort date</code></p>
+<p>By date (from oldest to most recent): <code class="blue">sort date</code></p>
 </li>
 <li>
-<p>By name (from alphabetical order of name): <code>sort name</code></p>
+<p>By name (from alphabetical order of name): <code class="blue">sort name</code></p>
 </li>
 <li>
-<p>By amount (from smallest to largest in amount): <code>sort amount</code></p>
+<p>By amount (from smallest to largest in amount): <code class="blue">sort amount</code></p>
 </li>
 <li>
-<p>Undo sort: <code>sort reset</code></p>
+<p>Undo sort: <code class="blue">sort reset</code></p>
 </li>
 </ul>
 </div>
@@ -359,7 +360,7 @@ The undo sort command allows you to view the table of transactions in the order 
 </table>
 </div>
 <div class="paragraph">
-<p>{end of extract}</p>
+<p>{End of Second Extract}</p>
 </div>
 </div>
 </div>
@@ -373,47 +374,46 @@ The undo sort command allows you to view the table of transactions in the order 
 <div class="sect2">
 <h3 id="current-enhancement-2"><a class="link" href="#current-enhancement-2">4.1. Current enhancement</a></h3>
 <div class="paragraph">
-<p>{start of extract from Developer Guide}</p>
+<p>{Start of Extract from Developer Guide}</p>
 </div>
 <div class="paragraph">
-<p><span class="big">3.1.2 Delete Feature</span></p>
+<p><strong class="big red">3.1.2 Delete Feature</strong></p>
 </div>
 <div class="paragraph">
-<p>This feature allows for 2 types of deletion, by
+<p>This section explains the implementation of the Delete Command in Home Tab. This feature allows for 2 types of deletion, by
 the index shown in the table or by the person&#8217;s name. Inputting the person&#8217;s name will cause all transactions linked to
 that person to be deleted.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the delete by name command works:</p>
+<p>The following sequence diagram shows how the delete by name command works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/HomeDeleteNameCommand.png" alt="HomeDeleteNameCommand" width="300">
 </div>
-<div class="title">Figure 14. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 16. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p>In addition, the <code>resetPredicate()</code> method in <code>ModelManager</code> is not called in the <code>DeleteNameCommand</code>. Thus, the UI table will continue to show the
+<p>In addition, the <code>ModelManager#resetPredicate()</code> method is not called in the <code>DeleteNameCommand</code>. Thus, the UI table will continue to show the
 filtered transaction list. If the prior input is a Find Command and the list at the start of the activity diagram shows
-a filtered list, the table will continue to show the filtered list at the end of the Delete Command.
+a filtered list by the Find Command&#8217;s keywords, it will continue to show the filtered list at the end of the command.
 To view the full transaction list, the user would be required to input the
 Back Command where <code>BackCommand</code> calls <code>resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
 following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
 </div>
 <div class="paragraph">
-<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">Figure 11</a> and <a href="#update-reimbursement">Figure 12</a>
+<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">3.1.1. Add Command feature: Figure 13</a>
+and <a href="#update-reimbursement">3.1.1. Add Command feature: Figure 14</a>
 respectively.
 The delete by index implementation would be similar but does not require interaction with the <code>Model</code> from the
-<code>AddressBook</code> in the person package.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram shows the steps needed to delete a new transaction:</p>
+<code>AddressBook</code> in the person package.
+The following activity diagram shows the steps needed to delete a new transaction:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand" width="500">
+<img src="../images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand" width="400">
 </div>
-<div class="title">Figure 15. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 17. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
@@ -421,10 +421,12 @@ be shown about the incorrect input. Also, as shown above, responses will be show
 when a successful deletion is done.</p>
 </div>
 <div class="paragraph">
-<p><span class="big">3.1.3 Back Command Feature</span></p>
+<p><strong class="big red">3.1.3 Back Command Feature</strong></p>
 </div>
 <div id="BackCommandSD" class="paragraph">
-<p>The <code>BackCommand</code> is not initialised by a specific command parser as shown in as shown in <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>
+<p>This section explains the implementation of the Back Command feature in Home Tab.
+The <code>BackCommand</code> is not initialised by a specific command parser as shown in as shown in
+ <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>
 but initialised by the <code>TransactionTabParser</code> instead.
 The following detailed sequence diagram shows how the back command works:</p>
 </div>
@@ -432,21 +434,24 @@ The following detailed sequence diagram shows how the back command works:</p>
 <div class="content">
 <img src="../images/HomeTabBackCommandSequenceDiagram.png" alt="HomeTabBackCommandSequenceDiagram" width="450">
 </div>
-<div class="title">Figure 16. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
+<div class="title">Figure 18. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p><span class="big">3.1.4 Sort Command Feature</span>
+<p><strong class="big red">3.1.4 Sort Command Feature</strong></p>
+</div>
+<div class="paragraph">
+<p>This section explains the implementation of the Sort Command feature in Home Tab.
 The <code>SortCommand</code> allows for 3 types of sort, by name in
 alphabetical order, by amount (from least to most) and by date (from oldest to most recent).</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the sort command works:</p>
+<p>The following sequence diagram shows how the sort command works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/HomeTabSortSD.png" alt="HomeTabSortSD" width="300">
 </div>
-<div class="title">Figure 17. Sequence Diagram of Sort Command in Home Tab (transaction package)</div>
+<div class="title">Figure 19. Sequence Diagram of Sort Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>When a user inputs the sort command, it is only checked that it is one of the 3 types or it will show a response about
@@ -456,8 +461,10 @@ the incorrect user input. When it is successfully sorted, there will also be a r
 <p>Similar to the Delete Command, the <code>resetPredicate()</code> method in <code>ModelManager</code> is not called.</p>
 </div>
 <div class="paragraph">
-<p><span class="big">3.1.5 Overall Design Considerations</span>
-This section&#8217;s table explains the design considerations for some implementations in the Home Tab.</p>
+<p><strong class="big red">3.1.5 Overall Design Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>This section&#8217;s table explains the design considerations for some implementations in the Home Tab.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -474,13 +481,12 @@ This section&#8217;s table explains the design considerations for some implement
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Reimbursement Tab&#8217;s <code>Model</code> and <code>Storage</code> interface is passed as parameters into Transaction Tab&#8217;s <code>Logic</code>
-to call the methods in <code>Model</code> and <code>Storage</code> to update all the reimbursement data after a <code>Command</code> is
-executed in Home Tab.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The methods in Reimbursement Tab&#8217;s <code>Model</code> and <code>Storage</code> is called to update all the reimbursement data in <code>MainWindow</code>
-after a <code>Command</code> is executed in Home Tab.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented. This limits access to all public methods in Reimbursement Tab&#8217;s
-<code>Model</code> and <code>Storage</code> in Transaction Tab&#8217;s <code>Logic</code> to prevent unwanted modifications to any of the reimbursement data.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains 2 variables that point to a <code>TransactionList</code> object in original order and a <code>TransactionList</code>
+object for viewing that can be sorted such that when <code class="blue">sort reset</code> is called, the shown <code>TransactionList</code> can be set to be equals to the original one.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains only the shown <code>TransactionList</code> that can be sorted and reads from the data file to get
+the <code>TransactionList</code> object in original order when <code class="blue">sort reset</code> is called.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. Alternative 1 allowed exporting of the data file in the desired order anytime while treasurerPro was running while
+alternative 2 meant that the data file would be updated only when treasurerPro is exited. The implementation is shown below the table in <a href="#lists">Figure 20</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The Members Tab&#8217;s <code>Model</code> interface is passed as parameters into Transaction Tab&#8217;s <code>Logic</code> to give <code>Logic</code> access to all public methods
@@ -488,18 +494,30 @@ of <code>ModelManager</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A new interface is made to allow the only used method of Members Tab&#8217;s <code>ModelManager</code> to be accessed in Transaction Tab&#8217;s
 <code>Logic</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented. The new interface acts as a facade for <code>ModelManager</code> which prevent unwanted modifications
-to <code>AddressBook</code>.</p></td>
+to <code>AddressBook</code>. The interface implemented is <code>GetPersonByNameOnlyModel</code> as shown below the table in <a href="#facade">Figure 21</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An <code>ArrayList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A <code>LinkedList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. An <code>ArrayList</code> has better performance for the set and get methods than a <code>LinkedList</code> which would beuse frequently in <code>ModelManager</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. An <code>ArrayList</code> has better performance for the set and get methods than a <code>LinkedList</code> which would be used frequently in <code>ModelManager</code>.</p></td>
 </tr>
 </tbody>
 </table>
+<div id="lists" class="imageblock">
+<div class="content">
+<img src="../images/homeDG/2lists.png" alt="2lists" width="400">
+</div>
+<div class="title">Figure 20. Code Snippet of <code>ModelManager</code> class with 2 <code>TransactionList</code> objects</div>
+</div>
+<div id="facade" class="imageblock">
+<div class="content">
+<img src="../images/homeDG/facadeForDesignConsiderations.png" alt="facadeForDesignConsiderations" width="400">
+</div>
+<div class="title">Figure 21. Code Snippet of <code>GetPersonByNameOnly</code> facade class for <code>ModelManager</code> from Members Tab</div>
+</div>
 <div class="paragraph">
-<p>{end of extract}</p>
+<p>{End of Extract}</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 13:32:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 06:42:48 UTC</div></div></div></body></html>
