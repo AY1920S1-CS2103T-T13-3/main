@@ -1305,8 +1305,10 @@ If description and quantity field are both valid, the <code>ModelManager</code> 
 </div>
 <div class="paragraph">
 <p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method
-to show a list of suggestions.<br>
-The following are two code snippets from <code>getRecommendedItems(description)</code>:</p>
+to show a list of suggestions.</p>
+</div>
+<div class="paragraph">
+<p>The following are two code snippets from <code>getRecommendedItems(description)</code>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1323,11 +1325,6 @@ The following are two code snippets from <code>getRecommendedItems(description)<
 }</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the above snippet returns an ArrayList of all subsets of
-descriptions that are of at least length 3. While iterating through the <code>InventoryList</code>, these subsets are compared with the
-actual descriptions of all items in the inventory to check if either contains the other.</p>
-</div>
 <div class="literalblock">
 <div class="content">
 <pre>ArrayList&lt;String&gt; newList = recommendedItems.stream()
@@ -1338,11 +1335,17 @@ return newList;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After adding all the suggested words into the <code>recommendedItems</code> list, the list is passed into a stream to remove duplicates.</p>
+<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the above snippet returns an ArrayList of all subsets of
+descriptions that are of at least length 3. As shown in the first code snippet above, while iterating through the <code>InventoryList</code>,
+these subsets are compared with the actual descriptions of all items in the inventory to check if either contains the other.</p>
+</div>
+<div class="paragraph">
+<p>After adding all the suggested words into the <code>recommendedItems</code> list, the list is passed into a stream to remove duplicates
+as shown in the second code snippet.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>AddCommand</code> works and is the reference
-from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>:</p>
+from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1405,7 +1408,7 @@ informing the user that there is no such person.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the set cashier command works and is the reference
-from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>:</p>
+from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1455,7 +1458,8 @@ After the execution of the above methods, a clear command will then be called to
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the checkout command is executed:</p>
+<p>The following sequence diagram shows how the checkout command is executed and is the reference
+from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2988,4 +2992,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 07:14:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 07:41:12 UTC</div></div></div></body></html>
