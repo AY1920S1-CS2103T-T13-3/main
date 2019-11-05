@@ -1304,6 +1304,43 @@ according to the specified category and suggestions would be shown by Leo, the a
 If description and quantity field are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
 </div>
 <div class="paragraph">
+<p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method
+to show a list of suggestions.<br>
+The following are two code snippets from <code>getRecommendedItems(description)</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>if (description.length() &gt;= 3) {
+    char[] arr = description.toCharArray();
+    ArrayList&lt;String&gt; combinations = getCombination(arr, arr.length);
+    for (int j = 0; j &lt; combinations.size(); j++) {
+        if (combinations.get(j).contains(itemDescription) // itemDescription refers to the actual description of an item in the inventory
+                || itemDescription.contains(combinations.get(j))) {
+            recommendedItems.add(item.getDescription());
+            continue;
+        }
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the above snippet returns an ArrayList of all subsets of
+descriptions that are of at least length 3. While iterating through the <code>InventoryList</code>, these subsets are compared with the
+actual descriptions of all items in the inventory to check if either contains the other.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ArrayList&lt;String&gt; newList = recommendedItems.stream()
+.distinct()
+.collect(Collectors
+.toCollection(ArrayList::new));
+return newList;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After adding all the suggested words into the <code>recommendedItems</code> list, the list is passed into a stream to remove duplicates.</p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the <code>AddCommand</code> works and is the reference
 from <a href="#GeneralLogicSD">Interactions Inside the Logic Component for a Command</a>:</p>
 </div>
@@ -2951,4 +2988,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 06:42:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 07:14:44 UTC</div></div></div></body></html>
