@@ -158,7 +158,7 @@ This command can be extended easily to allow for sorting of transactions in the 
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/201">(PR #201)</a></p>
 </li>
 <li>
-<p>Helped to Debug Code in Other Member&#8217;s package:
+<p>Helped to Debug Code in Other Member&#8217;s Package:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/126">(PR #126)</a></p>
 </li>
 </ul>
@@ -209,7 +209,8 @@ This command can be extended easily to allow for sorting of transactions in the 
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my additions to the treasurerPro User Guide for the <code>Home Tab</code> features.</p>
+<p>The following section shows my additions to the treasurerPro User Guide for the <code>Home Tab</code> features which showcases my ability
+to write documentation to guide non-technical end-users on how to use treasurerPro.</p>
 </div>
 <div class="sect2">
 <h3 id="current-enhancement"><a class="link" href="#current-enhancement">3.1. Current Enhancement</a></h3>
@@ -322,7 +323,7 @@ Leo will respond with a message to inform you. If the person does not have any t
 <p><strong class="big red">5.1.4 To Sort Transactions in the Home Tab</strong></p>
 </div>
 <div class="paragraph">
-<p>This command sorts the table of transactions into a specified order for viewing and carrying out of subsequent commands.</p>
+<p>This command sorts the table of transactions into the specified order for viewing and carrying out of subsequent commands.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -359,6 +360,23 @@ The undo sort command allows you to view the table of transactions in the order 
 </tr>
 </table>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the any one of the above command in blue font into the command box.</p>
+</li>
+<li>
+<p>Hit <code>Enter</code>. The table will now be sorted in the specified order for you.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>{End of Second Extract}</p>
 </div>
@@ -369,7 +387,8 @@ The undo sort command allows you to view the table of transactions in the order 
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my additions to the treasurerPro Developer Guide for the <code>Home Tab</code> features.</p>
+<p>The following section shows my contribution to the treasurerPro Developer Guide for the <code>Home Tab</code> features which showcases
+my ability to write documentation of technical concepts and the technical-depth of my contributions to the project.</p>
 </div>
 <div class="sect2">
 <h3 id="current-enhancement-2"><a class="link" href="#current-enhancement-2">4.1. Current enhancement</a></h3>
@@ -382,7 +401,19 @@ The undo sort command allows you to view the table of transactions in the order 
 <div class="paragraph">
 <p>This section explains the implementation of the Delete Command in Home Tab. This feature allows for 2 types of deletion, by
 the index shown in the table or by the person&#8217;s name. Inputting the person&#8217;s name will cause all transactions linked to
-that person to be deleted.</p>
+that person to be deleted.
+The following activity diagram shows the steps needed to delete a new transaction:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand" width="500">
+</div>
+<div class="title">Figure 16. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
+</div>
+<div class="paragraph">
+<p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
+be shown about the incorrect input. Also, as shown above, responses will be shown to indicate if an input is incorrect or
+when a successful deletion is done.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the delete by name command works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
@@ -391,14 +422,14 @@ that person to be deleted.</p>
 <div class="content">
 <img src="../images/HomeDeleteNameCommand.png" alt="HomeDeleteNameCommand" width="300">
 </div>
-<div class="title">Figure 16. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 17. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p>In addition, the <code>ModelManager#resetPredicate()</code> method is not called in the <code>DeleteNameCommand</code>. Thus, the UI table will continue to show the
-filtered transaction list. If the prior input is a Find Command and the list at the start of the activity diagram shows
-a filtered list by the Find Command&#8217;s keywords, it will continue to show the filtered list at the end of the command.
-To view the full transaction list, the user would be required to input the
-Back Command where <code>BackCommand</code> calls <code>resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
+<p>In addition, the <code>ModelManager#resetPredicate()</code> method is not called in the <code>DeleteNameCommand</code>. If the prior input is a
+Find Command and the list at the start of the activity diagram shows
+a filtered list by the Find Command&#8217;s keywords, the table in the UI will continue to show the filtered list at the end of the current Delete Command.
+To view the full transaction list, the user would be required to enter the
+Back Command where <code>BackCommand</code> calls <code>ModelManager#resetPredicate()</code> which sets the predicate to evaluate all <code>Transaction</code> objects to the boolean true. The sequence diagram for the <code>BackCommand</code> is shown in the
 following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
 </div>
 <div class="paragraph">
@@ -406,19 +437,7 @@ following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
 and <a href="#update-reimbursement">3.1.1. Add Command feature: Figure 14</a>
 respectively.
 The delete by index implementation would be similar but does not require interaction with the <code>Model</code> from the
-<code>AddressBook</code> in the person package.
-The following activity diagram shows the steps needed to delete a new transaction:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand" width="500">
-</div>
-<div class="title">Figure 17. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
-</div>
-<div class="paragraph">
-<p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
-be shown about the incorrect input. Also, as shown above, responses will be shown to indicate if an input is incorrect or
-when a successful deletion is done.</p>
+<code>AddressBook</code> in the person package.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big red">3.1.3 Back Command Feature</strong></p>
@@ -458,7 +477,8 @@ alphabetical order, by amount (from least to most) and by date (from oldest to m
 the incorrect user input. When it is successfully sorted, there will also be a response message shown.</p>
 </div>
 <div class="paragraph">
-<p>Similar to the Delete Command, the <code>resetPredicate()</code> method in <code>ModelManager</code> is not called.</p>
+<p>Similar to the Delete Command, the <code>ModelManager#resetPredicate()</code> method is not called. If the UI table is showing a filtered
+list of transactions, the Back Command has to be entered to call that method from <code>BackCommand</code> to reset the predicate.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big red">3.1.5 Overall Design Considerations</strong></p>
@@ -482,10 +502,10 @@ the incorrect user input. When it is successfully sorted, there will also be a r
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains 2 variables that point to a <code>TransactionList</code> object in original order and a <code>TransactionList</code>
-object for viewing that can be sorted such that when <code class="blue">sort reset</code> is called, the shown <code>TransactionList</code> can be set to be equals to the original one.</p></td>
+object for viewing that can be sorted such that when <code class="blue">sort reset</code> is called, the <code>TransactionList</code> for viewing can be set to be equals to the original one.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains only the shown <code>TransactionList</code> that can be sorted and reads from the data file to get
 the <code>TransactionList</code> object in original order when <code class="blue">sort reset</code> is called.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. Alternative 1 allowed exporting of the data file in the desired order anytime while treasurerPro was running while
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. Alternative 1 allows the data file to be exported in the desired order anytime while treasurerPro is running while
 alternative 2 meant that the data file would be updated only when treasurerPro is exited. The implementation is shown below the table in <a href="#lists">Figure 20</a>.</p></td>
 </tr>
 <tr>
@@ -520,4 +540,4 @@ to <code>AddressBook</code>. The interface implemented is <code>GetPersonByNameO
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 08:45:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 12:18:22 UTC</div></div></div></body></html>
