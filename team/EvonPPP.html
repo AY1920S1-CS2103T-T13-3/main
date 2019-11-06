@@ -1,13 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Evon Dong Bing Bing – Project Portfolio for treasurerPro (tP)</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">treasurerPro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T13-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Evon Dong Bing Bing – Project Portfolio for treasurerPro (tP)</h1><div id="toc" class="toc"><div id="toctitle"></div><ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#about-the-team">1.1. About the team</a></li>
-<li><a href="#about-the-project">1.2. About the project</a></li>
-</ul>
-</li>
-</ul></div></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">treasurerPro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T13-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Evon Dong Bing Bing – Project Portfolio for treasurerPro (tP)</h1></div><div id="content"><div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -23,7 +16,635 @@ are year 2 Computer Science students and the other is a year 4 Computer Engineer
 </div>
 <div class="sect2">
 <h3 id="about-the-project"><a class="link" href="#about-the-project">1.2. About the project</a></h3>
-
+<div class="paragraph">
+<p>This project is part of the module - Software Engineering Project, CS2103T. We were tasked to develop a basic
+command line interface <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup> (CLI)
+desktop application by morphing or enhancing an existing AddressBook desktop application over a period of 13 weeks.
+My team decided to morph and incorporate the AddressBook application as part of our all-in-one expense tracker.
+This application enables treasurers and members of Co-Curricular Activities (CCA) Clubs and Societies to regulate
+their club expenses, manage the stocks in the inventory and retrieve records of reimbursements of its members and
+their contact details easily.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 12:18:22 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="typographical-conventions"><a class="link" href="#typographical-conventions">1.3. Typographical Conventions</a></h3>
+<div class="paragraph">
+<p>This section covers the key icons and formatting used in this document.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This symbol indicates important information or definition.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code class="blue"><strong>command</strong></code> :
+Text with blue font and grey highlight indicates a command that can be inputted into the command line by the user and
+be executed by the application.</p>
+</div>
+<div class="paragraph">
+<p><code>Model</code> :
+Text with grey highlight indicates a component, class, or an object in the architecture of the application.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="introduction-of-treasurerpro"><a class="link" href="#introduction-of-treasurerpro">1.4. Introduction of treasurerPro</a></h3>
+<div class="paragraph">
+<p>This section briefly summarises the main features of treasurerPro.</p>
+</div>
+<div class="paragraph">
+<p>This desktop application consists of 6 tabs, a command box for user inputs and a response box
+for Leo, our lion mascot. Each tab serves a different purpose, but every tab aims to facilitate seamless and effortless
+managing of the organisation&#8217;s finances. The following shows the various tabs and their respective purposes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Home Tab</code>: keeps track of individual transactions</p>
+</li>
+<li>
+<p><code>Members Tab</code>: records contact details of all members</p>
+</li>
+<li>
+<p><code>Reimbursement Tab</code>: handles reimbursement records for members who fork in their money</p>
+</li>
+<li>
+<p><code>Inventory Tab</code>: keeps track of items in the inventory</p>
+</li>
+<li>
+<p><code>Cashier Tab</code>: supports cashiering duties and directly input sales into the system</p>
+</li>
+<li>
+<p><code>Overview Tab</code>: gives an analysis of the organisation&#8217;s finances for future planning</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This is what the application looks like when it starts up:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AnnotatedUi.png" alt="AnnotatedUi" width="680">
+</div>
+<div class="title">Figure 1. Graphical User Interface (GUI) of treasurerPro</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My role was to design the layout and code the features for the <code>Cashier Tab</code>. The following sections presents the
+enhancements that I have implemented in greater detail, as well as the relevant documentation I have done in the
+user guide and developer guide.</p>
+</div>
+<div class="sect2">
+<h3 id="main-enhancements"><a class="link" href="#main-enhancements">2.1. Main Enhancements</a></h3>
+<div class="paragraph">
+<p>The following illustrates some crucial enhancements that I have added for <code>Cashier Tab</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding, Deleting and Editing of Sales Items</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+It allows the user to add, delete and update the sales items added in the table shown on the tab.</p>
+</li>
+<li>
+<p>Justification:
+These features incorporates the essential elements of a cash register and are fundamental for the <code>Cashier Tab</code>.
+By expediting the process of calculating and recording the quantity of sales items, it enables the cashier-in-charge to
+perform cashiering duties more efficiently.</p>
+</li>
+<li>
+<p>Highlights:
+The tab monitors the current stock in the inventory to ensure that the quantity keyed in does not exceed the stock
+available. This eliminates any hindrance involving manual checks for the availability of a certain item.<br>
+Furthermore, upon any mistyped words or description inputs that does not match an existing item in the inventory,
+suggestions will be offered. This further augments the hassle-free aspect of this tab.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checking Out the Cart</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+This checkout feature calculates and displays the total amount and the change to be returned.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification:
+This feature allows the stock to be updated accordingly automatically on the <code>Inventory Tab</code>
+and abolish any need for manual logging of the stock.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Highlights:
+This feature ensures accountability by prohibiting checkout if the cashier has not been set. Additionally, the sales
+made will be recorded and updated on the <code>Home Tab</code>. The sales made will also contribute towards the revenue and
+be used in the financial analysis.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">2.2. Code contributed</a></h3>
+<div class="paragraph">
+<p>The code that I wrote for my features can be found in the following links:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/cashier">Functional Code</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/test/java/seedu/address/cashier">Test Code</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">2.3. Other contributions</a></h3>
+<div class="paragraph">
+<p>The following section leads to the relevant GitHub pull requests <a href="#PR">[PR]</a> in relation to the specific contributions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote tests for several <code>Inventory</code> classes:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/148">(PR #148)</a></p>
+</li>
+<li>
+<p>Refactored code to write to and from <code>Inventory</code> and <code>Transaction</code> package and update the respective models:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/202">(PR #202)</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed pull requests and offered suggestions (with non-trivial review comments):
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/221">(PR #221)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/196">(PR #196)</a></p>
+</li>
+<li>
+<p>Integrated <code>Cashier Tab</code> with other packages, fixed and added some <code>Inventory</code> classes:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/96">(PR #96)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/94">(PR #94)</a></p>
+</li>
+<li>
+<p>Standardized decimal places for all amounts attributes in all packages for calculation and display:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/297">(PR #297)</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the developer guide with diagrams and information about <code>Inventory</code> and <code>Cashier</code> parsers:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/209">(PR #209)</a></p>
+</li>
+<li>
+<p>Added implementation details for the <code>Cashier Tab</code>:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/209">(PR #209)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/164">(PR #164)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/162">(PR #162)</a></p>
+</li>
+<li>
+<p>Added guide to use <code>Cashier Tab</code> in user guide:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/209">(PR #209)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/212">(PR #212)</a></p>
+</li>
+<li>
+<p>Enhanced user guide to make it more user-friendly and updated <code>Members</code> Tab:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/303">(PR #303)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/252">(PR #252)</a></p>
+</li>
+<li>
+<p>Amended README document to make it more comprehensible with a better format:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/230">(PR #230)</a></p>
+</li>
+<li>
+<p>Updated glossary and FAQ questions:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/301">(PR #301)</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section illustrates my contribution to the User Guide for features specific to the <code>Cashier Tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>{Start of First Extract from User Guide}</p>
+</div>
+<div class="paragraph">
+<p><span class="big">5.5.1. Add a Sales Item to the Table</span></p>
+</div>
+<div class="paragraph">
+<p>This command enables you to add a sales item into the table.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:
+<code>add [c/CATEGORY] d/DESCRIPTION q/QUANTITY</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The quantity that you input must be less than or equal to the stock available in the Inventory Tab.
+The category field is optional. If you are unsure about the description of the desired item, you can refer to
+the Inventory Tab or simply key in the category without any other fields. Leo will display all the items in the
+specified category that are available for sale.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, if the description is misspelled or does not match any of the items in the inventory, Leo will recommend
+items with similar description that you might be looking for.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/food</code> - Displays all items that are under the 'food' category in the response box</p>
+</li>
+<li>
+<p><code>add c/stationary d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
+</li>
+<li>
+<p><code>add d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The system will allow a valid item to be added even if the category of the item does <strong>not</strong> match with the
+specified category inputted.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Steps:
+1. Type the command with a category specified as shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cashierUG/AddCommand1.png" alt="AddCommand1" width="600"">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Enter the desired description and quantity according to the items suggested by Leo as shown below:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cashierUG/AddCommand2.png" alt="AddCommand2" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cashierUG/AddCommand3.png" alt="AddCommand3" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Leo will respond to the successful addition with a response message. The newly added item will be shown on the table.</p>
+</div>
+<div class="paragraph">
+<p>{End of First Extract from User Guide}</p>
+</div>
+<div class="paragraph">
+<p>{Start of Second Extract from User Guide}</p>
+</div>
+<div class="paragraph">
+<p><span class="big">5.5.5 Checkout All Sales Items</span></p>
+</div>
+<div class="paragraph">
+<p>This command enables you to perform a checkout of all the sales items in the table.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:
+<code>checkout AMOUNT_PAID_BY_CUSTOMER</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The amount inputted should be the amount that the customer will be paying. This amount must be greater than or equal to the
+total amount listed on the bottom row of the table. If the amount paid is greater than the total amount, Leo will display
+the amount of change that the cashier should return.</p>
+</div>
+<div class="paragraph">
+<p>After checking out, all items in the table will be cleared and the cashier will be reset.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You must set the cashier before checking out. Else, checkout cannot proceed.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>checkout 850</code> - Customer pays $850 to cashier</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command and specify the amount that the customer is paying as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cashierUG/CheckoutCommand1.png" alt="CheckoutCommand1" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/cashierUG/CheckoutCommand2.png" alt="CheckoutCommand2" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>If checkout is successful, Leo will respond with a response message. The table will be cleared and the cashier will be reset.
+The <code>Home Tab</code> will be updated with this transaction and the remaining stock in the <code>Inventory Tab</code> will also be updated.</p>
+</div>
+<div class="paragraph">
+<p>{End of Second Extract from User Guide}</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section shows my contribution to the Developer Guide for features specific to the <code>Cashier Tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>{Start of First Extract from Developer Guide}</p>
+</div>
+<div class="paragraph">
+<p><span class="big">3.1.1 Add Sales Item feature</span></p>
+</div>
+<div class="paragraph">
+<p>This feature allows the addition of sales items to the cart.</p>
+</div>
+<div class="paragraph">
+<p>Adding of a sales item to the cart will require an input of its description and quantity. If the category field is input with other unspecified
+description and quantity fields, <code>Model</code> will search all the sales items in the <code>Inventory List</code>
+according to the specified category and suggestions would be shown by Leo.<br>
+If description and quantity are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
+</div>
+<div class="paragraph">
+<p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method
+to show a list of suggestions as shown below in the code snippet.</p>
+</div>
+<div class="paragraph">
+<p>The following is a code snippet from <code>getRecommendedItems(description)</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>if (description.length() &gt;= 3) {
+    char[] arr = description.toCharArray();
+    ArrayList&lt;String&gt; combinations = getCombination(arr, arr.length);
+    for (int j = 0; j &lt; combinations.size(); j++) {
+        if (combinations.get(j).contains(itemDescription) // itemDescription refers to the actual description of an item in the inventory
+                || itemDescription.contains(combinations.get(j))) {
+            recommendedItems.add(item.getDescription());
+            continue;
+        }
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the above snippet returns an ArrayList containing all subsets of
+descriptions that are of at least length 3. While iterating through the <code>InventoryList</code>, these subsets are compared
+with the actual descriptions of all items in the inventory to check if either contains the other.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>AddCommand</code> works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq" width="270">
+</div>
+<div class="title">Figure 2. Sequence Diagram of Add Command in Cashier Tab (cashier package)</div>
+</div>
+<div class="paragraph">
+<p><code>AddCommandParser</code> will carry out multiple checks to check the validity of the inputs. <code>hasItemInInventory(description)</code>
+and <code>hasSufficientQuantityToAdd(description, quantity)</code> methods will be called to ensure the item has sufficient stock
+left in the inventory. There will also be checks to ensure that the item specified is available for sale.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the steps proceeding after the user input an add command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity" width="600">
+</div>
+<div class="title">Figure 3. Activity Diagram of Add Command (cashier package)</div>
+</div>
+<div class="paragraph">
+<p>{End of First Extract from Developer Guide}</p>
+</div>
+<div class="paragraph">
+<p>{Start of Second Extract from Developer Guide}</p>
+</div>
+<div class="paragraph">
+<p><span class="big">3.1.2 Checkout Feature</span></p>
+</div>
+<div class="paragraph">
+<p>This feature records all the sales items in the table as one transaction under the <code>Sales</code> category.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Home Tab</code> will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock
+will also be updated on the <code>Inventory Tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>During the execution of the command, <code>getCashier()</code> method will be called which will return a person. This person will
+be used to create a <code>Transaction</code> object. If the cashier is null, the command cannot proceed and Leo will
+prompt the user to set a cashier.<br>
+Else, if the amount inputted is valid and cashier has been set, the <code>ModelManager</code> will create a new
+transaction of the sales made.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the execution of the above methods, a clear command will then be called to clear all the sales items on the tab.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the checkout command is executed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1" width="280">
+</div>
+<div class="title">Figure 4. Sequence Diagram of Checkout Command (cashier package)</div>
+</div>
+<div class="paragraph">
+<p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
+to the respective <code>.txt file</code>.<br>
+To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>,<code>readInUpdatedList()</code> method of inventory model will
+called to read in the entire inventory data file and transaction will be added to the transaction model.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the transaction and inventory are updated:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CheckoutCommandCashierSeq2.png" alt="CheckoutCommandCashierSeq2" width="600">
+</div>
+<div class="title">Figure 5. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
+</div>
+<div class="paragraph">
+<p>{End of Second Extract from Developer Guide}</p>
+</div>
+<div class="paragraph">
+<p>{Start of Third Extract from Developer Guide}</p>
+</div>
+<div class="paragraph">
+<p><span class="big">3.1.5 Overall Design Considerations</span></p>
+</div>
+<div class="paragraph">
+<p>This section explains the design considerations for some crucial implementations in the Cashier Tab.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+<th class="tableblock halign-left valign-top">Conclusion and Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An ArrayList is used to store the list of sales item shown on the <code>Cashier Tab</code>.</p>
+<p class="tableblock"><strong>Pros</strong>: Elements are be accessed directly more efficiently.</p>
+<p class="tableblock"><strong>Cons</strong>: Adding and removing from the head of the list is less time-efficient for ArrayList.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A LinkedList is used to store the list of sales item.</p>
+<p class="tableblock"><strong>Pros</strong>: Time performance is better when elements are accessed from the head of the list.</p>
+<p class="tableblock"><strong>Cons</strong>: Performance is poor when accessing directly via the index.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 is selected. An ArrayList has better performance with respect to time when accessing each elements directly. As the sales list will be updated and accessed regularly, an ArrayList is more fitting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Transaction, Inventory and Person <code>Model</code> interfaces are passed as parameters into Cashier&#8217;s <code>Logic</code>
+to call relevant methods to update the inventory and transactions.</p>
+<p class="tableblock"><strong>Pros</strong>: Cashier&#8217;s Logic can access all public methods in the respective <code>Model</code>.</p>
+<p class="tableblock"><strong>Cons</strong>: It might result in unintended modification to some of the data in the Models.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaces that only contains required methods are created. The methods are called via these interfaces
+to update the data.</p>
+<p class="tableblock"><strong>Pros</strong>: Prevents any unwanted changes through other methods. This follows the Facade Pattern.</p>
+<p class="tableblock"><strong>Cons</strong>: If more methods are needed, they need to be added to these interfaces.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented as only a few methods are required from each <code>Model</code>, so the new interfaces can act as facades
+and restrict access to all public methods in the models. This prevents in Cashier’s <code>Logic</code> from causing any
+unintended modification to any of the data in the Models.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier Storage directly writes to and from the data file of the inventory and transaction.</p>
+<p class="tableblock"><strong>Pros</strong>: It can access the data file directly without any dependencies.</p>
+<p class="tableblock"><strong>Cons</strong>: The data files can be modified from 2 sources, introducing more chances of bugs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier Storage accesses the methods from the Transaction and Inventory storage via their <code>Logic</code>
+to update the data.</p>
+<p class="tableblock"><strong>Pros</strong>: The data files are only modified from 1 source, ensuring cohesiveness in the format of data stored.</p>
+<p class="tableblock"><strong>Cons</strong>: It introduces more dependencies on the storage of other packages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is implemented to enforce defensive programming, so that the data files are not modified via 2 different
+methods and eliminate any chances of uncoordinated data in the data files.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>{End of Third Extract from Developer Guide}</p>
+</div>
+</div>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. command line interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:09:02 UTC</div></div></div></body></html>

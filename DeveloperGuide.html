@@ -1275,18 +1275,6 @@ the Table of the UI.</p>
 appended to the list of transactions on the <code>Home tab</code>. In addition, the stock remaining in the inventory will be updated
 accordingly in the <code>Inventory tab</code>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the user added an item such that the total amount exceed $999999.99, the system will prohibit the addition of that item.
-</td>
-</tr>
-</table>
-</div>
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
 <div class="paragraph">
@@ -1335,17 +1323,27 @@ return newList;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the above snippet returns an ArrayList of all subsets of
-descriptions that are of at least length 3. As shown in the first code snippet above, while iterating through the <code>InventoryList</code>,
-these subsets are compared with the actual descriptions of all items in the inventory to check if either contains the other.</p>
+<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the first snippet returns an ArrayList of all subsets of
+descriptions that are of at least length 3. While iterating through the <code>InventoryList</code>, these subsets are compared with the actual descriptions of all items in the inventory to check if either contains the other.</p>
 </div>
 <div class="paragraph">
-<p>After adding all the suggested words into the <code>recommendedItems</code> list, the list is passed into a stream to remove duplicates
-as shown in the second code snippet.</p>
+<p>As shown in the second code snippet, after adding all the suggested words into the <code>recommendedItems</code> list, the list
+is passed into a stream to remove duplicates.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user added an item such that the total amount exceed $999999.99, the system will prohibit the addition of that item.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>AddCommand</code> works and is the reference
-from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the <code>AddCommand</code> works and is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1395,7 +1393,8 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the pers
 informing the user that there is no such person.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the SetCashierCommandParser checks for an existing person:</p>
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows
+how the SetCashierCommandParser checks for an existing person:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1407,8 +1406,8 @@ informing the user that there is no such person.</p>
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the set cashier command works and is the reference
-from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>,
+shows how the set cashier command works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1432,7 +1431,7 @@ from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 <div class="sect3">
 <h4 id="checkout-feature"><a class="link" href="#checkout-feature">3.5.3. Checkout Feature</a></h4>
 <div class="paragraph">
-<p>This feature confirms all the sales items in the table as one sales transaction under the <code>Sales</code> category.</p>
+<p>This feature records all the sales items in the table as one sales transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
 <p>The <code>Home Tab</code> will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock of the sales items
@@ -1458,8 +1457,8 @@ After the execution of the above methods, a clear command will then be called to
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the checkout command is executed and is the reference
-from <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>,
+shows how the checkout command is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1494,6 +1493,61 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 </div>
 <div class="title">Figure 41. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="overall-design-considerations-2"><a class="link" href="#overall-design-considerations-2">3.5.4. Overall Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section explains the design considerations for some crucial implementations in the Cashier Tab.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+<th class="tableblock halign-left valign-top">Conclusion and Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An ArrayList is used to store the list of sales item shown on the <code>Cashier Tab</code>.</p>
+<p class="tableblock"><strong>Pros</strong>: Elements are be accessed directly more efficiently.</p>
+<p class="tableblock"><strong>Cons</strong>: Adding and removing from the head of the list is less time-efficient for ArrayList.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A LinkedList is used to store the list of sales item.</p>
+<p class="tableblock"><strong>Pros</strong>: Time performance is better when elements are accessed from the head of the list.</p>
+<p class="tableblock"><strong>Cons</strong>: Performance is poor when accessing directly via the index.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 is selected. An ArrayList has better performance with respect to time when accessing each elements directly. As the sales list will be updated and accessed regularly, an ArrayList is more fitting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Transaction, Inventory and Person <code>Model</code> interfaces are passed as parameters into Cashier&#8217;s <code>Logic</code>
+to call relevant methods to update the inventory and transactions.</p>
+<p class="tableblock"><strong>Pros</strong>: Cashier&#8217;s Logic can access all public methods in the respective <code>Model</code>.</p>
+<p class="tableblock"><strong>Cons</strong>: It might result in unintended modification to some of the data in the Models.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaces that only contains required methods are created. The methods are called via these interfaces
+to update the data.</p>
+<p class="tableblock"><strong>Pros</strong>: Prevents any unwanted changes through other methods. This follows the Facade Pattern.</p>
+<p class="tableblock"><strong>Cons</strong>: If more methods are needed, they need to be added to these interfaces.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented as only a few methods are required from each <code>Model</code>, so the new interfaces can act as facades
+and restrict access to all public methods in the models. This prevents in Cashier’s <code>Logic</code> from causing any
+unintended modification to any of the data in the Models.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier Storage directly writes to and from the data file of the inventory and transaction.</p>
+<p class="tableblock"><strong>Pros</strong>: It can access the data file directly without any dependencies.</p>
+<p class="tableblock"><strong>Cons</strong>: The data files can be modified from 2 sources, introducing more chances of bugs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier Storage accesses the methods from the Transaction and Inventory storage via their <code>Logic</code>
+to update the data.</p>
+<p class="tableblock"><strong>Pros</strong>: The data files are only modified from 1 source, ensuring cohesiveness in the format of data stored.</p>
+<p class="tableblock"><strong>Cons</strong>: It introduces more dependencies on the storage of other packages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is implemented to enforce defensive programming, so that the data files are not modified via 2 different
+methods and eliminate any chances of uncoordinated data in the data files.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2992,4 +3046,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 12:18:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:09:01 UTC</div></div></div></body></html>
