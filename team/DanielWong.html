@@ -320,8 +320,260 @@ releases).</p>
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="5-6-overview-tab"><a class="link" href="#5-6-overview-tab">5.6 Overview Tab</a></h3>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>The following section shows my additions to the treasurerPro User Guide for the <code>Home Tab</code> features.</p>
+<p><strong>Summary of features in the Overview Tab</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The overview tab displays a variety of statistics for the user.</p>
+</li>
+<li>
+<p>These include:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Total expenses made thus far</p>
+</li>
+<li>
+<p>Total inventory value</p>
+</li>
+<li>
+<p>Total sales revenue</p>
+</li>
+<li>
+<p>Remaining budget</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The user may also set financial goals and set up percentage thresholds to receive notifications.</p>
+</li>
+<li>
+<p>Leo will notify the user any time their financial goals have been reached.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="5-6-1-statistics-information"><a class="link" href="#5-6-1-statistics-information">5.6.1 Statistics Information</a></h4>
+<div class="paragraph">
+<p>The following describes how the various statistics are calculated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Expense Summary: Total spent represents the sum of all negative transactions (cash outflows) made by the club.</p>
+</li>
+<li>
+<p>Inventory Summary: Inventory value represents the total cost of all goods currently in the inventory.</p>
+</li>
+<li>
+<p>Sales Summary: Total sales represents the sum of all positive transactions (cash inflow) from the Sales category.</p>
+</li>
+<li>
+<p>Budget Overview: Amount remaining represents the budget goal + total sales - expenses.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="5-6-2-set-a-financial-goal"><a class="link" href="#5-6-2-set-a-financial-goal">5.6.2 Set a Financial Goal</a></h4>
+<div class="paragraph">
+<p>This command enables you to set a financial goal.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To set budget goal: <code>set b/AMOUNT</code></p>
+</li>
+<li>
+<p>To set expense goal: <code>set e/AMOUNT</code></p>
+</li>
+<li>
+<p>To set sales goal: <code>set s/AMOUNT</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To set budget goal: <code class="blue">set b/500</code></p>
+</li>
+<li>
+<p>To set expense goal: <code class="blue">set e/500</code></p>
+</li>
+<li>
+<p>To set sales goal: <code class="blue">set s/500</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The amount should be non-negative, and the maximum amount you may set is 10,000,000
+(10 million).
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the corresponding target and amount.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/overviewUG/SetCommandExample.png" alt="SetCommandExample" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/overviewUG/SetCommandResult.png" alt="SetCommandResult" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Leo displays a confirmation showing that the goal was successfully set.<br>
+The user interface reflects this under the respective section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="5-6-3-set-a-notification-threshold"><a class="link" href="#5-6-3-set-a-notification-threshold">5.6.3 Set a Notification Threshold</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To set budget goal notification: <code>notify b/PERCENTAGE</code></p>
+</li>
+<li>
+<p>To set expense goal notification: <code>notify e/PERCENTAGE</code></p>
+</li>
+<li>
+<p>To set sales goal notification: <code>notify s/PERCENTAGE</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To set budget goal notification: <code class="blue">notify b/PERCENTAGE</code></p>
+</li>
+<li>
+<p>To set expense goal notification: <code class="blue">notify e/PERCENTAGE</code></p>
+</li>
+<li>
+<p>To set sales goal notification: <code class="blue">notify s/PERCENTAGE</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The percentage value should be a value from 0 - 100.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the corresponding target and amount.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/overviewUG/NotifyCommandExample.png" alt="NotifyCommandExample" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/overviewUG/NotifyCommandResult.png" alt="NotifyCommandResult" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Leo displays a confirmation showing that the notification was successfully set.<br>
+Additionally, if the goal is already reached, it will display the notification immediately.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="5-6-4-viewing-notifications"><a class="link" href="#5-6-4-viewing-notifications">5.6.4 Viewing Notifications</a></h4>
+<div class="paragraph">
+<p>Notifications in treasurerPro are automatically displayed upon app launch by Leo as long as the threshold is met.<br>
+Notifications show only once per app run, or whenever a target or threshold is modified.</p>
+</div>
+<div class="paragraph">
+<p>The following screenshot shows an example of the notifications:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/overviewUG/NotificationExample.png" alt="NotificationExample" width="600">
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -329,7 +581,7 @@ releases).</p>
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my additions to the treasurerPro Developer Guide for the <code>Home Tab</code> features.</p>
+<p>The following section shows my additions to the treasurerPro Developer Guide for the Overview tab features.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 14:49:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 15:26:49 UTC</div></div></div></body></html>
