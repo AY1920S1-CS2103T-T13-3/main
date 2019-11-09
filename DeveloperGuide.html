@@ -24,7 +24,7 @@
 <ul class="sectlevel2">
 <li><a href="#home-tab">3.1. Home Tab</a></li>
 <li><a href="#members-tab">3.2. Members Tab</a></li>
-<li><a href="#reimbursement-tab">3.3. Reimbursement Tab</a></li>
+<li><a href="#reimbursements-tab">3.3. Reimbursements Tab</a></li>
 <li><a href="#inventory-tab">3.4. Inventory Tab</a></li>
 <li><a href="#cashier-tab">3.5. Cashier Tab</a></li>
 <li><a href="#overview-tab">3.6. Overview Tab</a></li>
@@ -42,7 +42,7 @@
 <ul class="sectlevel2">
 <li><a href="#overview-tab-2">C.1. Overview Tab</a></li>
 <li><a href="#home-tab-2">C.2. Home Tab</a></li>
-<li><a href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></li>
+<li><a href="#reimbursements-tab-2">C.3. Reimbursements Tab</a></li>
 <li><a href="#inventory-tab-2">C.4. Inventory Tab</a></li>
 <li><a href="#cashier-tab-2">C.5. Cashier Tab</a></li>
 </ul>
@@ -297,13 +297,13 @@ The diagram below shows a generalised view of the <code>Logic</code> component w
 <div class="title">Figure 5. Sequence diagram for execution within <code>Logic</code>.</div>
 </div>
 <div class="paragraph">
-<p>Further details on the implementation of the <code>Parser</code> and <code>Command</code> can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursement Tab</a>,
+<p>Further details on the implementation of the <code>Parser</code> and <code>Command</code> can be found below in <a href="#RTLogic">Section 2.3.1. Home and Reimbursements Tab</a>,
 <a href="#ICLogic">Section 2.3.2. Inventory and Cashier Tab</a> and <a href="#PLogic">Section 2.3.3. Members Tab</a> below.</p>
 </div>
 <div class="sect3">
-<h4 id="RTLogic"><a class="link" href="#RTLogic">2.3.1. Details on <code>Logic</code> Implementation for Home and Reimbursement Tab</a></h4>
+<h4 id="RTLogic"><a class="link" href="#RTLogic">2.3.1. Details on <code>Logic</code> Implementation for Home and Reimbursements Tab</a></h4>
 <div class="paragraph">
-<p>This section will show further details of the <code>Logic</code> Component of the Home and Reimbursement Tabs.</p>
+<p>This section will show further details of the <code>Logic</code> component of Home Tab and Reimbursements Tab.</p>
 </div>
 <div class="paragraph">
 <p>Given below is a Class Diagram showing the structure of <code>Parser</code> within the <code>Logic</code> component which is a reference for <a href="#fig-LogicClassDiagram">Figure 4, &#8220;Structure of the Generalised <code>Logic</code> Component&#8221;</a>:</p>
@@ -312,7 +312,7 @@ The diagram below shows a generalised view of the <code>Logic</code> component w
 <div class="content">
 <img src="images/LogicForR&T.png" alt="LogicForR&amp;T">
 </div>
-<div class="title">Figure 6. Structure of <code>Parser</code> for Home (Transaction) and Reimbursement Tab.</div>
+<div class="title">Figure 6. Structure of <code>Parser</code> for Home and Reimbursements Tab.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -321,7 +321,7 @@ The diagram below shows a generalised view of the <code>Logic</code> component w
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>XYZTabParser</code> represents the <code>TransactionTabParser</code> for the Home Tab and <code>ReimbursementTabParser</code> for the Reimbursement
+The <code>XYZTabParser</code> represents the <code>TransactionTabParser</code> for Home Tab and <code>ReimbursementTabParser</code> for Reimbursements
 Tab.
 </td>
 </tr>
@@ -352,7 +352,7 @@ Tab.
 </div>
 </li>
 <li>
-<p>Reimbursement Tab:</p>
+<p>Reimbursements Tab:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -388,7 +388,7 @@ Tab.
 </div>
 </li>
 <li>
-<p>Reimbursement Tab:</p>
+<p>Reimbursements Tab:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -407,7 +407,7 @@ Tab.
 </div>
 <div class="paragraph">
 <p>In addition, the <code>Logic</code> object
-for Home and Reimbursement Tab contains the <code>GetPersonByNameOnlyModel</code> since <code>Logic</code> only uses
+for Home and Reimbursements Tab contains the <code>GetPersonByNameOnlyModel</code> since <code>Logic</code> only uses
 the <code>ModelManager#getPersonByName</code> method
 in the person package.</p>
 </div>
@@ -415,7 +415,7 @@ in the person package.</p>
 <div class="sect3">
 <h4 id="ICLogic"><a class="link" href="#ICLogic">2.3.2. Details on <code>Logic</code> Implementation for Inventory and Cashier Tab</a></h4>
 <div class="paragraph">
-<p>This section will show further details of the <code>Logic</code> Component of the Inventory and Cashier Tabs.
+<p>This section will show further details of the <code>Logic</code> Component of Inventory Tab and Cashier Tab.
 Given below is a Class Diagram showing the structure of <code>Parser</code> within the <code>Logic</code> component:</p>
 </div>
 <div class="imageblock">
@@ -851,14 +851,14 @@ This update of the list of transactions is done for every command that is execut
 </div>
 <div class="paragraph">
 <p>Finally, the <code>StorageManager</code> and <code>ModelManager</code> inside the Reimbursement package will be updated with the latest <code>TransactionList</code> object
-to generate an updated list of reimbursements for the user to view in Reimbursement Tab. The following sequence diagram shows how
-Reimbursement Tab is updated from the <code>MainWindow</code>:</p>
+to generate an updated list of reimbursements for the user to view in Reimbursements Tab. The following sequence diagram shows how
+Reimbursements Tab is updated from the <code>MainWindow</code>:</p>
 </div>
 <div id="update-reimbursement" class="imageblock">
 <div class="content">
 <img src="images/TUpdateRinMainWindow.png" alt="TUpdateRinMainWindow">
 </div>
-<div class="title">Figure 15. Sequence diagram of updating the reimbursement list in Reimbursement Tab (transaction package)</div>
+<div class="title">Figure 15. Sequence diagram of updating the reimbursement list in Reimbursements Tab (transaction package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -867,7 +867,7 @@ Reimbursement Tab is updated from the <code>MainWindow</code>:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This update of the Reimbursement Tab is done for every command after the list of transactions is updated (shown in <a href="#updateTL">3.1.1. Add Command Feature: Figure 15</a>)
+This update of the Reimbursements Tab is done for every command after the list of transactions is updated (shown in <a href="#updateTL">3.1.1. Add Command Feature: Figure 15</a>)
 when there is a command executed successfully in Home Tab.
 </td>
 </tr>
@@ -889,8 +889,8 @@ the <code>AddressBook</code>, a response to inform the user of the incorrect inp
 done, a response message is shown as well by our mascot, Leo.</p>
 </div>
 <div class="paragraph">
-<p>Since Reimbursement Tab tabulates the amount to be reimbursed to a person, if the inputted amount is a negative
-amount to indicate a spending that needs to be reimbursed, Reimbursement Tab will update and show this record.</p>
+<p>Since Reimbursements Tab tabulates the amount to be reimbursed to a person, if the inputted amount is a negative
+amount to indicate a spending that needs to be reimbursed, Reimbursements Tab will update and show this record.</p>
 </div>
 </div>
 <div class="sect3">
@@ -934,7 +934,7 @@ The following sequence diagram shows how the <code>DeleteNameCommand</code> is c
 </div>
 <div class="paragraph">
 <p>In addition, the <code>Model#resetPredicate()</code> method defined in <a href="#resetPredicate">3.1.1. Add Command Feature</a> is not called in the <code>DeleteNameCommand</code>. If the prior input is a
-Find Command and the list at the start of the activity diagram shows
+find command and the list at the start of the activity diagram shows
 a filtered list, the table in the UI will continue to show the filtered list after the current Delete Command.
 To view the full transaction list, the user would be required to enter the
 back command where <code>BackCommand</code> calls <code>Model#resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
@@ -1074,7 +1074,7 @@ to any transaction records since every transaction must be linked to a <code>Per
 </div>
 </div>
 <div class="sect2">
-<h3 id="reimbursement-tab"><a class="link" href="#reimbursement-tab">3.3. Reimbursement Tab</a></h3>
+<h3 id="reimbursements-tab"><a class="link" href="#reimbursements-tab">3.3. Reimbursements Tab</a></h3>
 <div class="paragraph">
 <p>This tab helps to show reimbursements
 that the user has not paid to a person.
@@ -1103,7 +1103,7 @@ Tab.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDeadlineCommandSD.png" alt="ReimbursementDeadlineCommandSD">
 </div>
-<div class="title">Figure 25. Sequence Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 25. Sequence Diagram of Deadline Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, a user needs to add a deadline to a reimbursement by specifying
@@ -1117,7 +1117,7 @@ After that, the deadline is saved into a <code>.txt</code> file.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDeadlineCommand.png" alt="ReimbursementTabActivityDiagramDeadlineCommand">
 </div>
-<div class="title">Figure 26. Activity Diagram of Deadline Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 26. Activity Diagram of Deadline Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown by the above activity diagram, when a user inputs a person who does not exist in any
@@ -1138,7 +1138,7 @@ Person field should be provided and the person&#8217;s name should exist in reim
 <div class="content">
 <img src="images/Reimbursement/ReimbursementFindCommandSD.png" alt="ReimbursementFindCommandSD">
 </div>
-<div class="title">Figure 27. Sequence Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 27. Sequence Diagram of Find Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>A user needs to find a reimbursement by providing the person&#8217;s name.
@@ -1150,7 +1150,7 @@ and reimbursement tab only shows a <code>filteredList</code> which contains this
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramFindCommand.png" alt="ReimbursementTabActivityDiagramFindCommand">
 </div>
-<div class="title">Figure 28. Activity Diagram of Find Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 28. Activity Diagram of Find Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>The above activity diagram shows the steps needed for find command.
@@ -1168,7 +1168,7 @@ is found and displayed in the tab.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementBackCommandSD.png" alt="ReimbursementBackCommandSD">
 </div>
-<div class="title">Figure 29. Sequence Diagram of Back Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 29. Sequence Diagram of Back Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p><code>BackCommand</code> execution updates <code>filteredList</code> inside <code>ModelManager</code> to the original full <code>reimbursementList</code>.
@@ -1187,7 +1187,7 @@ Person field should be provided and the person&#8217;s name should exist in reim
 <div class="content">
 <img src="images/Reimbursement/ReimbursementDoneCommandSD.png" alt="ReimbursementDoneCommandSD">
 </div>
-<div class="title">Figure 30. Sequence Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 30. Sequence Diagram of Done Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>A user needs to mark a reimbursement as done by specifying the person&#8217;s name for the specific reimbursement.
@@ -1208,7 +1208,7 @@ of transaction tab to save it.</p>
 <div class="content">
 <img src="images/Reimbursement/ReimbursementUpdateTransactionsSD.png" alt="ReimbursementUpdateTransactionsSD">
 </div>
-<div class="title">Figure 31. Sequence Diagram of updating transactions in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 31. Sequence Diagram of updating transactions in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p><a href="#ReimbursementTabActivityDiagramDoneCommand">The following activity diagram</a> shows the steps needed for done command.
@@ -1220,7 +1220,7 @@ containing the provided person&#8217;s name is deleted from reimbursement list a
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDoneCommand.png" alt="ReimbursementTabActivityDiagramDoneCommand">
 </div>
-<div class="title">Figure 32. Activity Diagram of Done Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 32. Activity Diagram of Done Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1232,7 +1232,7 @@ containing the provided person&#8217;s name is deleted from reimbursement list a
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortCommandSD.png" alt="ReimbursementSortCommandSD">
 </div>
-<div class="title">Figure 33. Sequence Diagram of Sort Command in Reimbursement Tab (reimbursement package)</div>
+<div class="title">Figure 33. Sequence Diagram of Sort Command in Reimbursements Tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown in the above figure, <code>SortXYZCommand</code> is executed by calling <code>sortListByXYZ</code> method in
@@ -2688,7 +2688,7 @@ Lion replies with wrong input message if there invalid input</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reimbursement-tab-2"><a class="link" href="#reimbursement-tab-2">C.3. Reimbursement Tab</a></h3>
+<h3 id="reimbursements-tab-2"><a class="link" href="#reimbursements-tab-2">C.3. Reimbursements Tab</a></h3>
 <h3 id="use-case-7-refresh-and-update-reimbursement-status" class="discrete">Use Case 7: Refresh and update reimbursement status</h3>
 <div class="paragraph">
 <p><strong>Preconditions</strong></p>
@@ -2696,10 +2696,10 @@ Lion replies with wrong input message if there invalid input</p>
 <div class="ulist">
 <ul>
 <li>
-<p>User is on Reimbursement page</p>
+<p>User is on Reimbursements Tab page</p>
 </li>
 <li>
-<p>Reimbursement page shows correct amount of reimbursement for each person by retrieving data from Transaction tab</p>
+<p>Reimbursements Tab page shows correct amount of reimbursement for each person by retrieving data from Transaction tab</p>
 </li>
 </ul>
 </div>
@@ -3213,4 +3213,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 04:39:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:01:59 UTC</div></div></div></body></html>
