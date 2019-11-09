@@ -224,8 +224,7 @@ top left (for macOS) to close the application.</p>
 <p>You may add, delete or edit transactions within this tab.</p>
 </li>
 <li>
-<p>Leo, our mascot, helps give replies indicating successful addition, deletion and edit of the a transaction
-after a command has been input</p>
+<p>Leo, our mascot, helps give replies indicating successful commands executed.</p>
 </li>
 <li>
 <p>Leo will also give replies to guide you when there is a wrong input.</p>
@@ -250,7 +249,8 @@ from the club&#8217;s funds).</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-There is a limitation to the amount that you may enter which would be -999999.99 to 999999.
+There is a limitation to the amount that you may enter which would be -999999.99 to 999999.99. If more decimal points
+are entered, it will be rounded off to the nearest 2 decimal point.
 </td>
 </tr>
 </table>
@@ -287,7 +287,7 @@ There is a limitation to the amount that you may enter which would be -999999.99
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The format of the date has to be in dd-MMM-yyyy format. (Eg. 24-Aug-2019 or 03-Sep-2019)
+The format of the date has to be in dd-MMM-yyyy format and is case-sensitive. (Eg. 24-Aug-2019 or 03-Sep-2019)
 The person must be someone recorded in the Members Tab and is case-sensitive.
 </td>
 </tr>
@@ -330,13 +330,10 @@ to show up in the Reimbursements Tab.
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Hit <code>Enter</code>.</p>
+<p>Hit <code>Enter</code>. If the command is successfully added, Leo will respond with a success message and the transaction
+will be shown in the table. This is shown in the screenshot below:</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>If the command is successfully added, Leo will respond with a success message and the transaction
-will be shown in the table. This is shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -377,7 +374,7 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 </div>
 </div>
 <div class="sect3">
-<h4 id="to-delete-transaction-s-in-the-home-tab"><a class="link" href="#to-delete-transaction-s-in-the-home-tab">5.1.2. To Delete Transaction(s) in the Home Tab</a></h4>
+<h4 id="to-delete-transactions-in-the-home-tab"><a class="link" href="#to-delete-transactions-in-the-home-tab">5.1.2. To Delete Transactions in the Home Tab</a></h4>
 <div class="paragraph">
 <p>This command allows you to delete either all transactions of a person or a single transaction of a specific ID from the table.</p>
 </div>
@@ -392,10 +389,12 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 <div class="ulist">
 <ul>
 <li>
-<p>Delete by ID: <code class="blue">delete 1</code></p>
+<p>Delete by ID: <code class="blue">delete 1</code> - Deletes the transaction at the index shown in the table. If the table shows a filtered
+list of transactions due to the Find Command detailed in <a href="#findCommandHome">Section 5.1.5 To Find Transactions that Match Keywords in the Home Tab</a>,
+the 1st transaction in the filtered list is deleted.</p>
 </li>
 <li>
-<p>Delete by Person: <code class="blue">delete p/Alex Yeoh</code></p>
+<p>Delete by Person: <code class="blue">delete p/Alex Yeoh</code> - Deletes all transactions of the person in full list of transactions.</p>
 </li>
 </ul>
 </div>
@@ -420,12 +419,9 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Hit <code>Enter</code>.</p>
+<p>Hit <code>Enter</code>. Leo will respond with a success message and the transaction will be removed from the table as shown below:</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Leo will respond with a success message and the transaction will be removed from the table as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -455,12 +451,9 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Hit <code>Enter</code>.</p>
+<p>Hit <code>Enter</code>. Leo will respond with the success message and the transaction(s) will be removed from the table as shown below:</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Leo will respond with the success message and the transaction(s) will be removed from the table as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -485,7 +478,7 @@ Leo will respond with a message to inform you.</p>
 <ul>
 <li>
 <p>Command:
-<code>edit ID dt/DATE d/DESCRIPTION c/CATEGORY a/AMOUNT p/PERSON</code></p>
+<code>edit ID [dt/DATE] [d/DESCRIPTION] [c/CATEGORY] [a/AMOUNT] [p/PERSON]</code></p>
 </li>
 </ul>
 </div>
@@ -496,7 +489,7 @@ Leo will respond with a message to inform you.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The fields above can vary in their order. It is not compulsory to include all of them but you need to
+The optional fields above can vary in their order. It is not compulsory to include all of them but you need to
 include at least one.
 </td>
 </tr>
@@ -509,10 +502,9 @@ include at least one.
 <div class="ulist">
 <ul>
 <li>
-<p><code class="blue">edit 1 p/Bernice Yu dt/23-Aug-2019</code></p>
-</li>
-<li>
-<p><code class="blue">edit 3 a/12</code></p>
+<p><code class="blue">edit 1 p/Bernice Yu dt/23-Aug-2019</code> - Edits the transaction at the index shown in the table. If the table shows a filtered
+list of transactions due to the Find Command detailed in <a href="#findCommandHome">Section 5.1.5 To Find Transactions that Match Keywords in the Home Tab</a>,
+the 1st transaction in the filtered list is edited.</p>
 </li>
 </ul>
 </div>
@@ -533,6 +525,19 @@ include at least one.
 <div class="content">
 <img src="images/homeUG/HomeEditStep1cr.png" alt="HomeEditStep1cr">
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Similar to the Add Command, there is no restriction to the number of characters allowed for the description and
+category.
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="2">
@@ -579,6 +584,19 @@ include at least one.
 </ul>
 </div>
 </li>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code class="blue">find Alex</code><br>
+<code class="blue">sort date</code> - Sorts both the results of the <code class="blue">find</code> command shown and the actual transaction list. The Find Command is detailed
+in <a href="#findCommandHome">Section 5.1.5. To Find Transactions that Match Keywords in the Home Tab</a>. To view the full sorted list,
+enter <code class="blue">back</code> command which is detailed in <a href="#homeBackCommand">Section 5.1.6. To Go Back to Display the Full List in the Home Tab</a></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="admonitionblock note">
@@ -615,7 +633,20 @@ The undo sort command allows you to view the table of transactions in the order 
 <h4 id="findCommandHome"><a class="link" href="#findCommandHome">5.1.5. To Find Transactions that Match Keywords in the Home Tab</a></h4>
 <div class="paragraph">
 <p>This command transactions matching the specified keywords for viewing and for carrying out of subsequent commands,
-based on the filtered table of transactions shown.</p>
+based on the filtered table of transactions shown. The subsequent commands will include: delete, edit and sort.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An add command after a find command will cause the table to show all transactions. A find command will always
+find from the full list transactions and show the results.
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <ul>
@@ -673,7 +704,7 @@ based on the filtered table of transactions shown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindCurr.png" alt="HomeFindCurr" width="400">
+<img src="images/homeUG/HomeFindCurr.png" alt="HomeFindCurr" width="700">
 </div>
 </div>
 <div class="olist arabic">
@@ -691,23 +722,20 @@ based on the filtered table of transactions shown.</p>
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Hit <code>Enter</code>.</p>
+<p>Hit <code>Enter</code>. Leo will respond with the number of matching transactions, and the table will show only
+transactions matching the keywords. This is shown in the screenshot below:</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>Leo will respond with the number of matching transactions, and the table will show only
-transactions matching the keywords. This is shown in the screenshot below:</p>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindStep2.png" alt="HomeFindStep2" width="400">
+<img src="images/homeUG/HomeFindStep2.png" alt="HomeFindStep2" width="700">
 </div>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>Key in <code>back</code> and hit <code>Enter</code> to return to the table of all transactions, or enter your next command to be executed.
+<p>Key in <code class="blue">back</code> and hit <code>Enter</code> to return to the table of all transactions, or enter your next command to be executed.
 The screenshot below shows the Edit Command being input as the next command:</p>
 </li>
 </ol>
@@ -728,23 +756,23 @@ The screenshot below shows the Edit Command being input as the next command:</p>
 </td>
 <td class="content">
 If an Add Command is entered, the table will automatically reverse back to the previous view to show the full list of all transactions.
-All other commands require you to input <code>back</code> to return to the full list of all transactions.
+All other commands require you to input <code class="blue">back</code> to return to the full list of all transactions.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The screenshot below shows the table after entering <code>back</code> which shows all the transactions in the table again:</p>
+<p>The screenshot below shows the table after entering <code class="blue">back</code> which shows all the transactions in the table again:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/homeUG/HomeFindStep3Back.png" alt="HomeFindStep3Back" width="600">
+<img src="images/homeUG/HomeFindStep3Back.png" alt="HomeFindStep3Back" width="700">
 </div>
 <div class="title">Figure 2. Screenshot of the user input for Back Command after entering Find Command in Home Tab</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="to-go-back-to-display-the-full-list-in-the-home-tab"><a class="link" href="#to-go-back-to-display-the-full-list-in-the-home-tab">5.1.6. To Go Back to Display the Full List in the Home Tab</a></h4>
+<h4 id="homeBackCommand"><a class="link" href="#homeBackCommand">5.1.6. To Go Back to Display the Full List in the Home Tab</a></h4>
 <div class="paragraph">
 <p>This command helps you to display the full transaction list after Find Commands. After a Find Command, you can enter Delete, Edit or Sort Commands
 before entering the Back Command to display the full list.</p>
@@ -838,7 +866,7 @@ A person can have any number of tags (including 0).
 <ul>
 <li>
 <p>Command:
-<code>list</code></p>
+<code class="blue">list</code></p>
 </li>
 </ul>
 </div>
@@ -988,12 +1016,12 @@ A person can have any number of tags (including 0).
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code> - Deletes the 2nd person in the address book.</p>
+<p><code class="blue">list</code><br>
+<code class="blue">delete 2</code> - Deletes the 2nd person in the address book.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code> - Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code class="blue">find Betsy</code><br>
+<code class="blue">delete 1</code> - Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
@@ -2803,4 +2831,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the <code>Cashier Tab</code> is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 02:19:52 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the <code>Cashier Tab</code> is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 04:39:31 UTC</div></div></div></body></html>

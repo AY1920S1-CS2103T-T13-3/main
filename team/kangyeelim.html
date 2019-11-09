@@ -56,10 +56,10 @@ for Leo, our lion mascot. Each tab serves a different purpose that helps treasur
 or society&#8217;s finances.</p>
 </div>
 <div class="paragraph">
-<p>The home tab keeps track of individual transactions. The members tab keep track of all contact
-details of members. The reimbursement tab keeps track of reimbursement records for members that have spent money for the club activities.
-The inventory tab keeps track of items for sale. The cashier tab is a convenient way for the club to do
-cashiering duties which helps to directly input sales into the system. The overview tab allows treasurers to plan the
+<p>Home Tab keeps track of individual transactions. Members Tab keep track of all contact
+details of members. Reimbursement Tab keeps track of reimbursement records for members that have spent money for the club activities.
+Inventory Tab keeps track of items for sale. Cashier Tab helps the club with on-site sales
+and directly inputs all revenue into the system. Overview Tab allows treasurers to plan the
 club&#8217;s finances.
 This is what our application looks like when it is first opened (graphical user interface for treasurerPro):</p>
 </div>
@@ -76,7 +76,7 @@ This is what our application looks like when it is first opened (graphical user 
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of Contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My role was to design and write the code for the features of the Home Tab. The following sections shows a summary of these
+<p>My role was to design and write the code for the features of Home Tab. The following sections shows a summary of these
 features, as well as the relevant documentation I have added to the user and developer guides in
 relation to these features.</p>
 </div>
@@ -219,7 +219,7 @@ to write documentation to guide non-technical end-users on how to use treasurerP
 <p>{Start of First Extract from User Guide}</p>
 </div>
 <div class="paragraph">
-<p><strong class="big red">5.1.2 To Delete Transaction(s) in the Home Tab</strong></p>
+<p><strong class="big red">5.1.2. To Delete Transactions in the Home Tab</strong></p>
 </div>
 <div class="paragraph">
 <p>This command allows you to delete either all transactions of a person or a single transaction of a specific ID from the table.</p>
@@ -235,10 +235,12 @@ to write documentation to guide non-technical end-users on how to use treasurerP
 <div class="ulist">
 <ul>
 <li>
-<p>Delete by ID: <code class="blue">delete 1</code></p>
+<p>Delete by ID: <code class="blue">delete 1</code> - Deletes the transaction at the index shown in the table. If the table shows a filtered
+list of transactions due to the find command detailed in <a href="#findCommandHome">Section 5.1.5. To Find Transactions that Match Keywords in the Home Tab</a>,
+the 1st transaction in the filtered list is deleted.</p>
 </li>
 <li>
-<p>Delete by Person: <code class="blue">delete p/Alex Yeoh</code></p>
+<p>Delete by Person: <code class="blue">delete p/Alex Yeoh</code> - Deletes all transactions of the person in full list of transactions.</p>
 </li>
 </ul>
 </div>
@@ -263,12 +265,9 @@ to write documentation to guide non-technical end-users on how to use treasurerP
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Hit <code>Enter</code>.</p>
+<p>Hit <code>Enter</code>. Leo will respond with a success message and the transaction will be removed from the table as shown below:</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Leo will respond with a success message and the transaction will be removed from the table as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -297,12 +296,9 @@ to write documentation to guide non-technical end-users on how to use treasurerP
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p>Hit <code>Enter</code>.</p>
+<p>Hit <code>Enter</code>. Leo will respond with the success message and the transaction(s) will be removed from the table as shown below:</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Leo will respond with the success message and the transaction(s) will be removed from the table as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -321,7 +317,7 @@ Leo will respond with a message to inform you. If the person does not have any t
 <p>{Start of Second Extract from User Guide}</p>
 </div>
 <div class="paragraph">
-<p><strong class="big red">5.1.4 To Sort Transactions in the Home Tab</strong></p>
+<p><strong class="big red">5.1.4. To Sort Transactions in the Home Tab</strong></p>
 </div>
 <div class="paragraph">
 <p>This command sorts the table of transactions into the specified order for viewing and carrying out of subsequent commands.</p>
@@ -396,11 +392,11 @@ my ability to write documentation of technical concepts and the technical-depth 
 <div class="paragraph">
 <p>{Start of Extract from Developer Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.2 Delete Feature</strong></p>
+<div id="DeleteCommandHome" class="paragraph">
+<p><strong class="big red">3.1.2. Delete Feature</strong></p>
 </div>
 <div class="paragraph">
-<p>This section explains the implementation of the Delete Command in Home Tab. This feature allows for 2 types of deletion, by
+<p>This section explains the implementation of the delete command in Home Tab. This feature allows for 2 types of deletion, by
 the index shown in the table or by the person&#8217;s name. Inputting the person&#8217;s name will cause all transactions linked to
 that person to be deleted.
 The following activity diagram shows the steps needed to delete a new transaction:</p>
@@ -409,7 +405,7 @@ The following activity diagram shows the steps needed to delete a new transactio
 <div class="content">
 <img src="../images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand" width="500">
 </div>
-<div class="title">Figure 17. Activity Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 17. Activity diagram of the delete command being executed in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>The above activity diagram assumes the index to be within the bounds of the table but if it is not, a response will
@@ -419,47 +415,47 @@ when a successful deletion is done.</p>
 <div class="paragraph">
 <p>For the implementation, the <code>DeleteCommandParser</code> which is represented in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a> as a generic parser creates either a <code>DeleteIndexCommand</code> or <code>DeleteNameCommand</code> object according to the user input.
 The following sequence diagram shows how the <code>DeleteNameCommand</code> is created with the definition of <code>CheckAndGetPersonByNameOnlyModel#getPersonByName</code> defined in
-<a href="#getPersonByName">3.1.1 Add Command Feature</a>:</p>
+<a href="#getPersonByName">3.1.1. Add Command Feature</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeleteCommandParser.png" alt="DeleteCommandParser">
 </div>
-<div class="title">Figure 18. Sequence Diagram of the parser for the Delete Command to Delete by the Person&#8217;s Name</div>
+<div class="title">Figure 18. Sequence diagram of the parser for the delete command to delete by the <code>Person</code> 's name</div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the delete by name command works after it is created which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+<p>The following sequence diagram shows how the command to delete transactions according to the specified name works after it is created which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/HomeDeleteNameCommand.png" alt="HomeDeleteNameCommand" width="300">
 </div>
-<div class="title">Figure 19. Sequence Diagram of Delete Command in Home Tab (transaction package)</div>
+<div class="title">Figure 19. Sequence diagram of the delete command being executed in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p>In addition, the <code>Model#resetPredicate()</code> method defined in <a href="#resetPredicate">3.1.1 Add Command Feature</a> is not called in the <code>DeleteNameCommand</code>. If the prior input is a
+<p>In addition, the <code>Model#resetPredicate()</code> method defined in <a href="#resetPredicate">3.1.1. Add Command Feature</a> is not called in the <code>DeleteNameCommand</code>. If the prior input is a
 Find Command and the list at the start of the activity diagram shows
 a filtered list, the table in the UI will continue to show the filtered list after the current Delete Command.
 To view the full transaction list, the user would be required to enter the
 Back Command where <code>BackCommand</code> calls <code>Model#resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
-following section <a href="#BackCommandSD">3.1.3 BackCommand</a></p>
+following section <a href="#BackCommandSD">3.1.3. Back Command Feature</a></p>
 </div>
 <div class="paragraph">
-<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">3.1.1. Add Command feature: Figure 13</a>
-and <a href="#update-reimbursement">3.1.1. Add Command feature: Figure 14</a>
+<p>After this, the list of transactions and reimbursement tab is updated as shown in <a href="#updateTL">3.1.1. Add Command feature: Figure 14</a>
+and <a href="#update-reimbursement">3.1.1. Add Command feature: Figure 15</a>
 respectively.</p>
 </div>
 <div class="paragraph">
-<p>The delete by index implementation would be similar but does not require interaction with the <code>CheckAndGetPersonByNameOnlyModel</code> from the
+<p>The implementation of the command to delete transactions according to the specified index would be similar but does not require interaction with the <code>CheckAndGetPersonByNameOnlyModel</code> from the
 <code>AddressBook</code> in the person package inside its branch in <code>DeleteCommandParser</code>. In <code>DeleteIndexCommand</code>, it also calls the
 <code>Model#findTransactionInFilteredListByIndex(index)</code> and <code>Model#deleteTransaction(index)</code> instead which deletes the <code>Transaction</code> object according
 to its position in the filtered transaction list.</p>
 </div>
 <div class="paragraph">
-<p><strong class="big red">3.1.3 Back Command Feature</strong></p>
+<p><strong class="big red">3.1.3. Back Command Feature</strong></p>
 </div>
 <div id="BackCommandSD" class="paragraph">
-<p>This section explains the implementation of the Back Command feature in Home Tab.
+<p>This section explains the implementation of the back command feature in Home Tab.
 The <code>BackCommand</code> is not initialised by a specific command parser as shown in as shown in
  <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>
 but initialised by the <code>TransactionTabParser</code> instead.
@@ -469,13 +465,13 @@ The following detailed sequence diagram shows how the back command works:</p>
 <div class="content">
 <img src="../images/HomeTabBackCommandSequenceDiagram.png" alt="HomeTabBackCommandSequenceDiagram" width="500">
 </div>
-<div class="title">Figure 20. Sequence Diagram of Back Command in Home Tab (transaction package)</div>
+<div class="title">Figure 20. Sequence diagram of the back command being executed in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p><strong class="big red">3.1.4 Sort Command Feature</strong></p>
+<p><strong class="big red">3.1.4. Sort Command Feature</strong></p>
 </div>
 <div class="paragraph">
-<p>This section explains the implementation of the Sort Command feature in Home Tab.
+<p>This section explains the implementation of the sort command feature in Home Tab.
 The <code>SortCommand</code> allows for 3 types of sort, by name in
 alphabetical order, by amount (from least to most) and by date (from oldest to most recent).</p>
 </div>
@@ -486,18 +482,18 @@ alphabetical order, by amount (from least to most) and by date (from oldest to m
 <div class="content">
 <img src="../images/HomeTabSortSD.png" alt="HomeTabSortSD" width="300">
 </div>
-<div class="title">Figure 21. Sequence Diagram of Sort Command in Home Tab (transaction package)</div>
+<div class="title">Figure 21. Sequence diagram of the sort command being executed in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>When a user inputs the sort command, it is only checked that it is one of the 3 types or it will show a response about
 the incorrect user input. When it is successfully sorted, there will also be a response message shown.</p>
 </div>
 <div class="paragraph">
-<p>Similar to the Delete Command, the <code>Model#resetPredicate()</code> method is not called. If the UI table is showing a filtered
-list of transactions, the Back Command has to be entered to call that method from <code>BackCommand</code> to reset the predicate.</p>
+<p>Similar to the delete command in <a href="#DeleteCommandHome">3.1.2. Delete Command Feature</a>, the <code>Model#resetPredicate()</code> method is not called. If the UI table is showing a filtered
+list of transactions, the back command has to be entered to call that method from <code>BackCommand</code> to reset the predicate.</p>
 </div>
 <div class="paragraph">
-<p><strong class="big red">3.1.5 Overall Design Considerations</strong></p>
+<p><strong class="big red">3.1.5. Overall Design Considerations</strong></p>
 </div>
 <div class="paragraph">
 <p>This section&#8217;s table explains the design considerations for some implementations in the Home Tab.</p>
@@ -517,12 +513,12 @@ list of transactions, the Back Command has to be entered to call that method fro
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains 2 variables that point to a <code>TransactionList</code> object in original order and a <code>TransactionList</code>
-object for viewing that can be sorted such that when <code class="blue">sort reset</code> is called, the <code>TransactionList</code> for viewing can be set to be equals to the original one.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains 2 attributes that point to a <code>TransactionList</code> object in original order and a <code>TransactionList</code>
+object for viewing in the UI table that can be sorted such that when <code class="blue">sort reset</code> is called, the <code>TransactionList</code> for viewing can be set to be equals to the original one.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains only the shown <code>TransactionList</code> that can be sorted and reads from the data file to get
 the <code>TransactionList</code> object in original order when <code class="blue">sort reset</code> is called.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. Alternative 1 allows the data file to be exported in the desired order anytime while treasurerPro is running while
-alternative 2 meant that the data file would be updated only when treasurerPro is exited. The implementation is shown below the table in <a href="#lists">Figure 20</a>.</p></td>
+alternative 2 meant that the data file would be updated only when treasurerPro is exited. The implementation is shown below the table in <a href="#lists">Figure 22</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The Members Tab&#8217;s <code>Model</code> interface is passed as parameters into Transaction Tab&#8217;s <code>Logic</code> to give <code>Logic</code> access to all public methods
@@ -530,7 +526,7 @@ of <code>ModelManager</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A new interface is made to allow the only used method of Members Tab&#8217;s <code>ModelManager</code> to be accessed in Transaction Tab&#8217;s
 <code>Logic</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented. The new interface acts as a facade for <code>ModelManager</code> which prevent unwanted modifications
-to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPersonByNameOnlyModel</code> as shown below the table in <a href="#facade">Figure 21</a>.</p></td>
+to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPersonByNameOnlyModel</code> as shown below the table in <a href="#facade">Figure 23</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An <code>ArrayList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
@@ -543,17 +539,17 @@ to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPerso
 <div class="content">
 <img src="../images/homeDG/2lists.png" alt="2lists" width="450">
 </div>
-<div class="title">Figure 20. Code Snippet of <code>ModelManager</code> class with 2 <code>TransactionList</code> objects</div>
+<div class="title">Figure 22. Code snippet of <code>ModelManager</code> class with 2 <code>TransactionList</code> objects</div>
 </div>
 <div id="facade" class="imageblock">
 <div class="content">
 <img src="../images/homeDG/facadeForDesignConsiderations.png" alt="facadeForDesignConsiderations" width="450">
 </div>
-<div class="title">Figure 21. Code Snippet of <code>CheckAndGetPersonByNameOnly</code> facade class for <code>ModelManager</code> from Members Tab</div>
+<div class="title">Figure 23. Code snippet of <code>CheckAndGetPersonByNameOnly</code> facade class for <code>ModelManager</code> from Members Tab</div>
 </div>
 <div class="paragraph">
 <p>{End of Extract}</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 02:19:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 04:39:31 UTC</div></div></div></body></html>
