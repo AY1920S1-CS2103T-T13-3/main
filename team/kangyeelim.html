@@ -21,7 +21,7 @@ year 4 Computer Engineering Undergraduate student.</p>
 command line interface desktop application by morphing or enhancing an existing AddressBook desktop application.
 Our team decided to incorporate and morph the AddressBook application as part of our all-in-one application which
 enables treasurers or members of Co-Curricular Activities (CCA) Clubs and Societies to manage their club finances,
-reimbursements, inventory and member’s contact details easily. The duration of our project was 13 weeks.</p>
+reimbursements, inventory and members' contact details easily. The duration of our project was 13 weeks.</p>
 </div>
 </div>
 <div class="sect2">
@@ -41,7 +41,7 @@ This symbol indicates extra information or definition.
 <div class="paragraph">
 <p><code>Model</code> :
 Text with this font and grey highlight indicates a component, class or object in the architecture of
-the application.</p>
+the application. It also indicates a generic command format for the command box in the User Guide.</p>
 </div>
 <div class="paragraph">
 <p><code class="blue">command</code> :
@@ -57,7 +57,7 @@ or society&#8217;s finances.</p>
 </div>
 <div class="paragraph">
 <p>Home Tab keeps track of individual transactions. Members Tab keep track of all contact
-details of members. Reimbursements Tab keeps track of reimbursement records for members that have spent money for the club activities.
+details of members. Reimbursements Tab keeps track of reimbursement records for members that have spent money for club activities.
 Inventory Tab keeps track of items for sale. Cashier Tab helps the club with on-site sales
 and directly inputs all revenue into the system. Overview Tab allows treasurers to plan the
 club&#8217;s finances.
@@ -91,12 +91,12 @@ relation to these features.</p>
 <ul>
 <li>
 <p>What it does:
-The Delete Command allows all transactions linked to the specified member in the command to be deleted at once.</p>
+This feature allows all transactions linked to a specified member to be deleted at once.</p>
 </li>
 <li>
 <p>Justification:
 This feature allows the user to clear all transaction records linked to a specific member if the member
-has left the CCA since a member&#8217;s details can only be deleted in the Members Tab if the member does not have existing transaction
+has left the CCA since a member&#8217;s details can only be deleted in Members Tab if the member does not have existing transaction
 records.</p>
 </li>
 <li>
@@ -114,7 +114,7 @@ records. This works well with the deletion of member feature in Members Tab.</p>
 <li>
 <p>What it does:
 Each transaction records consists of a date, description, category, amount of money and
-person accountable for the transaction. Thus, the Sort Command helps to sort the transactions by the alphabetical order of
+person accountable for the transaction. Thus, this feature helps to sort the transactions by the alphabetical order of
 the person&#8217;s name, by the date (from oldest to most recent) or amount (from smallest to largest).</p>
 </li>
 <li>
@@ -210,8 +210,8 @@ This command can be extended easily to allow for sorting of transactions in the 
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my additions to the treasurerPro User Guide for the <code>Home Tab</code> features which showcases my ability
-to write documentation to guide non-technical end-users on how to use treasurerPro.</p>
+<p>The following section shows my additions to the treasurerPro User Guide for the features in Home Tab which showcases my ability
+to write documentation to guide end-users on how to use treasurerPro.</p>
 </div>
 <div class="sect2">
 <h3 id="current-enhancement"><a class="link" href="#current-enhancement">3.1. Current Enhancement</a></h3>
@@ -236,7 +236,8 @@ to write documentation to guide non-technical end-users on how to use treasurerP
 <ul>
 <li>
 <p>Delete by ID: <code class="blue">delete 1</code> - Deletes the transaction at the index shown in the table. If the table shows a filtered
-list of transactions due to the find command detailed in <a href="#findCommandHome">Section 5.1.5. To Find Transactions that Match Keywords in the Home Tab</a>,
+list of transactions due to the find command detailed in
+<a href="https://ay1920s1-cs2103t-t13-3.github.io/main/UserGuide.html#findCommandHome">Section 5.1.5. To Find Transactions that Match Keywords in the Home Tab</a>,
 the 1st transaction in the filtered list is deleted.</p>
 </li>
 <li>
@@ -413,9 +414,10 @@ be shown about the incorrect input. Also, as shown above, responses will be show
 when a successful deletion is done.</p>
 </div>
 <div class="paragraph">
-<p>For the implementation, the <code>DeleteCommandParser</code> which is represented in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a> as a generic parser creates either a <code>DeleteIndexCommand</code> or <code>DeleteNameCommand</code> object according to the user input.
+<p>For the implementation, the <code>DeleteCommandParser</code> which is represented in <a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#GeneralLogicSD">2.3. Logic component: Figure 5</a>
+as a generic parser creates either a <code>DeleteIndexCommand</code> or <code>DeleteNameCommand</code> object according to the user input.
 The following sequence diagram shows how the <code>DeleteNameCommand</code> is created with the definition of <code>CheckAndGetPersonByNameOnlyModel#getPersonByName</code> defined in
-<a href="#getPersonByName">3.1.1. Add Command Feature</a>:</p>
+<a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#getPersonByName">3.1.1. Add Command Feature</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -433,7 +435,8 @@ The following sequence diagram shows how the <code>DeleteNameCommand</code> is c
 <div class="title">Figure 19. Sequence diagram of the delete command being executed in Home Tab (transaction package)</div>
 </div>
 <div class="paragraph">
-<p>In addition, the <code>Model#resetPredicate()</code> method defined in <a href="#resetPredicate">3.1.1. Add Command Feature</a> is not called in the <code>DeleteNameCommand</code>. If the prior input is a
+<p>In addition, the <code>Model#resetPredicate()</code> method defined in
+ <a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#resetPredicate">3.1.1. Add Command Feature</a> is not called in the <code>DeleteNameCommand</code>. If the prior input is a
 find command and the list at the start of the activity diagram shows
 a filtered list, the table in the UI will continue to show the filtered list after the current delete command.
 To view the full transaction list, the user would be required to enter the
@@ -441,8 +444,8 @@ back command where <code>BackCommand</code> calls <code>Model#resetPredicate()</
 following section <a href="#BackCommandSD">3.1.3. Back Command Feature</a></p>
 </div>
 <div class="paragraph">
-<p>After this, the list of transactions and Reimbursement Tab is updated as shown in <a href="#updateTL">3.1.1. Add Command feature: Figure 14</a>
-and <a href="#update-reimbursement">3.1.1. Add Command feature: Figure 15</a>
+<p>After this, the list of transactions and Reimbursement Tab is updated as shown in <a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#updateTL">3.1.1. Add Command feature: Figure 14</a>
+and <a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#update-reimbursement">3.1.1. Add Command feature: Figure 15</a>
 respectively.</p>
 </div>
 <div class="paragraph">
@@ -457,7 +460,7 @@ to its position in the filtered transaction list.</p>
 <div id="BackCommandSD" class="paragraph">
 <p>This section explains the implementation of the back command feature in Home Tab.
 The <code>BackCommand</code> is not initialised by a specific command parser as shown in as shown in
- <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>
+ <a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#GeneralLogicSD">2.3. Logic component: Figure 5</a>
 but initialised by the <code>TransactionTabParser</code> instead.
 The following detailed sequence diagram shows how the back command works:</p>
 </div>
@@ -476,7 +479,8 @@ The <code>SortCommand</code> allows for 3 types of sort, by name in
 alphabetical order, by amount (from least to most) and by date (from oldest to most recent).</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the sort command works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+<p>The following sequence diagram shows how the sort command works which is referenced in
+<a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -552,4 +556,4 @@ to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPerso
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:06:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:25:13 UTC</div></div></div></body></html>
