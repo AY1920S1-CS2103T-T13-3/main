@@ -1828,10 +1828,9 @@ The description is case-insensitive. Regardless of the case, as long as the desc
 </ul>
 </div>
 <div class="paragraph">
-<p>The quantity that you input must be less than or equal to the stock available in the Inventory Tab.
-Else, Leo will display a message prompting input of a smaller quantity or another item.<br>
+<p>The quantity that you input must be less than or equal to the stock available in the Inventory tab.
 The category field is optional. If you are unsure about the description of the desired item, you can refer to
-the Inventory Tab or simply key in the category without any other fields. Leo will display all the items in the
+the Inventory tab or simply key in the category without any other fields. Leo will display all the items in the
 specified category that are available for sale.</p>
 </div>
 <div class="paragraph">
@@ -1842,9 +1841,10 @@ the existing quantity. If the total quantity exceed the stock available, the sys
 <p>Additionally, if the description is misspelled or does not match any of the items in the inventory, Leo will recommend
 items with similar description that you might be looking for.</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p>Examples:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1855,6 +1855,9 @@ items with similar description that you might be looking for.</p>
 </li>
 <li>
 <p><code class="blue">add d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1886,16 +1889,17 @@ description even if the category of the item does <strong>not</strong> match wit
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Steps:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>If you do not remember the exact description of the item to add, you can type the command "add" with a category
-specified as shown in the screenshot below.</p>
+<p>Steps:</p>
 </li>
-</ol>
+</ul>
+</div>
+<div class="paragraph">
+<p>1.
+If you do not remember the exact description of the item to add, you can type the command "add" with a category
+specified as shown in the screenshot below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1963,15 +1967,12 @@ The specified index should correspond to the row index of the item in the table.
 </li>
 <li>
 <p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>To delete an item, type the command "delete" with an index specified as shown in the screenshot below.</p>
-</li>
-</ol>
-</div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>1.
+To delete an item, type the command "delete" with an index specified as shown in the screenshot below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2002,7 +2003,7 @@ The specified index should correspond to the row index of the item in the table.
 <div class="ulist">
 <ul>
 <li>
-<p>Command:</p>
+<p>Commands:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2063,7 +2064,7 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>1.2. To edit by its <strong>description</strong>, you can enter the required description and quantity as shown below.</p>
+<p>1.2 To edit by its <strong>description</strong>, you can enter the command "edit"  with the required description and quantity as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2100,8 +2101,8 @@ If the quantity is invalid, Leo will display the quantity of stock left.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The person to be set as the cashier must be an existing member of the club. This means that their details must be found on the Members Tab.<br>
-If you have yet to record the cashier as a member, please proceed to Members Tab
+<p>The person to be set as the cashier must be an existing member of the club. This means that their details must be found on the Members tab.<br>
+If you have yet to record the cashier as a member, please proceed to Members tab
 to register him/her as a member before executing this command.</p>
 </div>
 <div class="admonitionblock note">
@@ -2130,15 +2131,12 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 </li>
 <li>
 <p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>To set a cashier, type the command "cashier" with the cashier&#8217;s name specified as shown in the screenshot below.</p>
-</li>
-</ol>
-</div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>1.
+To set a cashier, type the command "cashier" with the cashier&#8217;s name specified as shown in the screenshot below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2176,8 +2174,8 @@ This step must be executed before checking out. Else, checkout cannot proceed.
 </div>
 <div class="paragraph">
 <p>The amount inputted should be the amount that the customer will be paying. This amount must be greater than or equal to the
-total amount listed on the bottom row of the table. If the amount paid is greater than the total amount, Leo will display
-the amount of change that the cashier should return.</p>
+total amount listed on the bottom row of the table. If the amount paid is valid, Leo will display
+the total amount and the change that the cashier should return.</p>
 </div>
 <div class="paragraph">
 <p>After checking out, all items in the table will be cleared and the cashier will be reset.</p>
@@ -2208,15 +2206,12 @@ You must set the cashier before checking out. Else, checkout cannot proceed.
 </li>
 <li>
 <p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>To checkout, you can type the command "checkout" and specify the amount that the customer is paying as shown in the screenshot below.</p>
-</li>
-</ol>
-</div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>1.
+To checkout, you can type the command "checkout" and specify the amount that the customer is paying as shown in the screenshot below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2248,7 +2243,7 @@ The Home tab will be updated with this transaction and the remaining stock in th
 <div class="ulist">
 <ul>
 <li>
-<p>Command format:
+<p>Command:
 <code class="blue">clear</code></p>
 </li>
 </ul>
@@ -2294,15 +2289,12 @@ This command is irreversible. Please use at your own discretion.
 </li>
 <li>
 <p>Steps:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>To clear, type the "clear" command word only as shown in the screenshot below.</p>
-</li>
-</ol>
-</div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>1.
+To clear, you can type the "clear" command word only as shown in the screenshot below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2815,4 +2807,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the Cashier tab is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:31:41 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the Cashier tab is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:39:57 UTC</div></div></div></body></html>
