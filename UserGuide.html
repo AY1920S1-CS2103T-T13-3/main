@@ -390,7 +390,7 @@ it will simply be added to his existing row. This is shown in the screenshot bel
 <ul>
 <li>
 <p>Delete by ID: <code class="blue">delete 1</code> - Deletes the transaction at the index shown in the table. If the table shows a filtered
-list of transactions due to the Find Command detailed in <a href="#findCommandHome">Section 5.1.5 To Find Transactions that Match Keywords in the Home Tab</a>,
+list of transactions due to the Find command detailed in <a href="#findCommandHome">Section 5.1.5 To Find Transactions that Match Keywords in the Home Tab</a>,
 the 1st transaction in the filtered list is deleted.</p>
 </li>
 <li>
@@ -461,7 +461,7 @@ the 1st transaction in the filtered list is deleted.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For both delete commands, if the transaction(s) deleted was part of a pending reimbursement record, it will also be removed from that
+<p>For both Delete commands, if the transaction(s) deleted was part of a pending reimbursement record, it will also be removed from that
 reimbursement record. On the other hand, if the person entered is not part of our database as shown in the Members Tab,
 Leo will respond with a message to inform you.</p>
 </div>
@@ -503,7 +503,7 @@ include at least one.
 <ul>
 <li>
 <p><code class="blue">edit 1 p/Bernice Yu dt/23-Aug-2019</code> - Edits the transaction at the index shown in the table. If the table shows a filtered
-list of transactions due to the Find Command detailed in <a href="#findCommandHome">Section 5.1.5 To Find Transactions that Match Keywords in the Home Tab</a>,
+list of transactions due to the Find command detailed in <a href="#findCommandHome">Section 5.1.5 To Find Transactions that Match Keywords in the Home Tab</a>,
 the 1st transaction in the filtered list is edited.</p>
 </li>
 </ul>
@@ -533,7 +533,7 @@ the 1st transaction in the filtered list is edited.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Similar to the Add Command, there is no restriction to the number of characters allowed for the description and
+Similar to the Add command, there is no restriction to the number of characters allowed for the description and
 category.
 </td>
 </tr>
@@ -555,7 +555,7 @@ category.
 </div>
 </div>
 <div class="paragraph">
-<p>If the person entered into the command is not found in the Members tab, Leo will respond to inform you which is similar to <a href="#NoSuchPerson">Add Command</a>.</p>
+<p>If the person entered into the command is not found in the Members tab, Leo will respond to inform you which is similar to <a href="#NoSuchPerson">Add command</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -590,7 +590,7 @@ category.
 <ul>
 <li>
 <p><code class="blue">find Alex</code><br>
-<code class="blue">sort date</code> - Sorts both the results of the <code class="blue">find</code> command shown and the actual transaction list. The Find Command is detailed
+<code class="blue">sort date</code> - Sorts both the results of the <code class="blue">find</code> command shown and the actual transaction list. The Find command is detailed
 in <a href="#findCommandHome">Section 5.1.5. To Find Transactions that Match Keywords in the Home Tab</a>. To view the full sorted list,
 enter <code class="blue">back</code> command which is detailed in <a href="#homeBackCommand">Section 5.1.6. To Go Back to Display the Full List in the Home Tab</a></p>
 </li>
@@ -606,7 +606,7 @@ enter <code class="blue">back</code> command which is detailed in <a href="#home
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The undo sort command allows you to view the table of transactions in the order originally shown when the application was initially opened.
+The Undo Sort command allows you to view the table of transactions in the order originally shown when the application was initially opened.
 </td>
 </tr>
 </table>
@@ -642,7 +642,7 @@ based on the filtered table of transactions shown. The subsequent commands will 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-An add command after a find command will cause the table to show all transactions. A find command will always
+An Add command after a Find command will cause the table to show all transactions. A Find command will always
 find from the full list transactions and show the results.
 </td>
 </tr>
@@ -755,7 +755,7 @@ The screenshot below shows the Edit Command being input as the next command:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If an Add Command is entered, the table will automatically reverse back to the previous view to show the full list of all transactions.
+As mentioned, if an Add command is entered, the table will automatically reverse back to the previous view to show the full list of all transactions.
 All other commands require you to input <code class="blue">back</code> to return to the full list of all transactions.
 </td>
 </tr>
@@ -768,7 +768,6 @@ All other commands require you to input <code class="blue">back</code> to return
 <div class="content">
 <img src="images/homeUG/HomeFindStep3Back.png" alt="HomeFindStep3Back" width="700">
 </div>
-<div class="title">Figure 2. Screenshot of the user input for Back Command after entering Find Command in Home Tab</div>
 </div>
 </div>
 <div class="sect3">
@@ -784,7 +783,7 @@ before entering the Back Command to display the full list.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is no need for you to enter a Back Command after an Add Command since the Add Command automatically resets the
+There is no need for you to enter a Back command after an Add Command since the Add command automatically resets the
 table to show the full list of transactions.
 </td>
 </tr>
@@ -815,9 +814,9 @@ table to show the full list of transactions.
 <div class="sect2">
 <h3 id="members-tab"><a class="link" href="#members-tab">5.2. Members Tab</a></h3>
 <div class="sect3">
-<h4 id="add-a-person"><a class="link" href="#add-a-person">5.2.1. Add a Person</a></h4>
+<h4 id="to-add-a-person"><a class="link" href="#to-add-a-person">5.2.1. To Add a Person</a></h4>
 <div class="paragraph">
-<p>This command allows you to add a person to the database.</p>
+<p>The Add command allows you to add a person or member to the database.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -858,9 +857,9 @@ A person can have any number of tags (including 0).
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-all-persons"><a class="link" href="#list-all-persons">5.2.2. List all Persons</a></h4>
+<h4 id="to-list-all-persons"><a class="link" href="#to-list-all-persons">5.2.2. To List all Persons</a></h4>
 <div class="paragraph">
-<p>This command shows you a list of all persons in the database.</p>
+<p>The List command shows you a list of all persons in the database.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -872,9 +871,9 @@ A person can have any number of tags (including 0).
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-person"><a class="link" href="#edit-a-person">5.2.3. Edit a Person</a></h4>
+<h4 id="to-edit-a-person"><a class="link" href="#to-edit-a-person">5.2.3. To Edit a Person</a></h4>
 <div class="paragraph">
-<p>This command enables you to edit an existing person in the database at a specified index.</p>
+<p>The Edit command enables you to edit an existing person in the database at a specified index.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -926,9 +925,9 @@ A person can have any number of tags (including 0).
 </div>
 </div>
 <div class="sect3">
-<h4 id="locating-persons-by-name"><a class="link" href="#locating-persons-by-name">5.2.4. Locating Persons by Name</a></h4>
+<h4 id="to-locate-persons-by-name"><a class="link" href="#to-locate-persons-by-name">5.2.4. To Locate Persons by Name</a></h4>
 <div class="paragraph">
-<p>This command enables you to find every person whose name contain any of the inputted keywords.</p>
+<p>The Find command enables you to find every person whose name contain any of the inputted keywords.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -980,9 +979,9 @@ A person can have any number of tags (including 0).
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person"><a class="link" href="#deleting-a-person">5.2.5. Deleting a Person</a></h4>
+<h4 id="to-delete-a-person"><a class="link" href="#to-delete-a-person">5.2.5. To Delete a Person</a></h4>
 <div class="paragraph">
-<p>This command enables you to delete the specified person from the database.</p>
+<p>The Delete command enables you to delete the specified person from the database.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2847,4 +2846,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the <code>Cashier Tab</code> is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:50:55 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the <code>Cashier Tab</code> is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:03:46 UTC</div></div></div></body></html>
