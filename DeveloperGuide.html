@@ -1371,43 +1371,41 @@ according to the specified category and suggestions would be shown by Leo, the a
 If description and quantity field are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
 </div>
 <div class="paragraph">
-<p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method
-to show a list of suggestions.</p>
+<p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method,
+which will in turn call <code>getCombination(arr, arr.length)</code> to return an ArrayList containing all subsets of
+the inputted description that are of at least length 3. These subsets are then compared
+with the actual descriptions of all items in the inventory to check if either contains the other.</p>
 </div>
 <div class="paragraph">
-<p>The following are two code snippets from <code>getRecommendedItems(description)</code>:</p>
+<p>The following is a code snippet from <code>getCombination(char[] arr, int n)</code> method:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>if (description.length() &gt;= 3) {
-    char[] arr = description.toCharArray();
-    ArrayList&lt;String&gt; combinations = getCombination(arr, arr.length);
-    for (int j = 0; j &lt; combinations.size(); j++) {
-        if (combinations.get(j).contains(itemDescription) // itemDescription refers to the actual description of an item in the inventory
-                || itemDescription.contains(combinations.get(j))) {
-            recommendedItems.add(item.getDescription());
-            continue;
+<pre>public ArrayList&lt;String&gt; getCombination(char[] arr, int n) {
+    ArrayList&lt;String&gt; result = new ArrayList&lt;&gt;();
+    for (int start = 1; start &lt;= n; start++) {
+        String word = "";
+        for (int i = 0; i &lt;= n - start; i++) {
+            //  Adds characters from current starting character to current ending character
+            int j = i + start - 1;
+            for (int k = i; k &lt;= j; k++) {
+                word += String.valueOf(arr[k]);
+            }
+            result.add(word);
         }
     }
+    return result.stream()
+            .filter(str -&gt; str.length() &gt;= 3)
+            .collect(Collectors
+                    .toCollection(ArrayList::new));
 }</pre>
 </div>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>ArrayList&lt;String&gt; newList = recommendedItems.stream()
-.distinct()
-.collect(Collectors
-.toCollection(ArrayList::new));
-return newList;</pre>
-</div>
-</div>
 <div class="paragraph">
-<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the first snippet returns an ArrayList of all subsets of
-descriptions that are of at least length 3. While iterating through the <code>InventoryList</code>, these subsets are compared with the actual descriptions of all items in the inventory to check if either contains the other.</p>
-</div>
-<div class="paragraph">
-<p>As shown in the second code snippet, after adding all the suggested words into the <code>recommendedItems</code> list, the list
-is passed into a stream to remove duplicates.</p>
+<p>The <code>getCombination(arr, arr.length)</code> method in the above snippet consists of 3 nested loops. The first loop decides the
+starting character. The second loop takes each of the characters on the right of the starting character as the ending character.
+The last loop appends characters from the starting character to the ending character. After the nested loops, the ArrayList
+is passed into a stream to filter out all subsets of length less than 3.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1422,7 +1420,7 @@ If the user added an item such that the total amount exceed $999999.99, the syst
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the <code>AddCommand</code> works and is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the <code>AddCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -3241,4 +3239,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:25:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:50:55 UTC</div></div></div></body></html>

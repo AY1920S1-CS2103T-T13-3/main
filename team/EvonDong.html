@@ -4,7 +4,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This project portfolio briefly introduces the project, treasurerPro and outlines my contributions and explanations about
+<p>This project portfolio briefly introduces the project, treasurerPro, and outlines my contributions and explanations about
 my features.</p>
 </div>
 <div class="sect2">
@@ -101,7 +101,7 @@ managing of the organisation&#8217;s finances. The following shows the various t
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My role was to design the layout and code the features for the <code>Cashier Tab</code>. The following sections presents the
+<p>My role was to design the layout and code the features for the <code>Cashier Tab</code>. The following sections present the
 enhancements that I have implemented in greater detail, as well as the relevant documentation I have done in the
 user guide and developer guide.</p>
 </div>
@@ -122,7 +122,7 @@ It allows the user to add, delete and update the sales items added in the table 
 </li>
 <li>
 <p>Justification:
-These features incorporates the essential elements of a cash register and are fundamental for the <code>Cashier Tab</code>.
+These features incorporate the essential elements of a cash register and are fundamental for the <code>Cashier Tab</code>.
 By expediting the process of calculating and recording the quantity of sales items, it enables the cashier-in-charge to
 perform cashiering duties more efficiently.</p>
 </li>
@@ -467,31 +467,41 @@ according to the specified category and suggestions would be shown by Leo.<br>
 If description and quantity are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
 </div>
 <div class="paragraph">
-<p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method
-to show a list of suggestions as shown below in the code snippet.</p>
+<p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method,
+which will in turn call <code>getCombination(arr, arr.length)</code> to return an ArrayList containing all subsets of
+the inputted description that are of at least length 3. These subsets are then compared
+with the actual descriptions of all items in the inventory to check if either contains the other.</p>
 </div>
 <div class="paragraph">
-<p>The following is a code snippet from <code>getRecommendedItems(description)</code>:</p>
+<p>The following is a code snippet from <code>getCombination(char[] arr, int n)</code> method:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>if (description.length() &gt;= 3) {
-    char[] arr = description.toCharArray();
-    ArrayList&lt;String&gt; combinations = getCombination(arr, arr.length);
-    for (int j = 0; j &lt; combinations.size(); j++) {
-        if (combinations.get(j).contains(itemDescription) // itemDescription refers to the actual description of an item in the inventory
-                || itemDescription.contains(combinations.get(j))) {
-            recommendedItems.add(item.getDescription());
-            continue;
+<pre>public ArrayList&lt;String&gt; getCombination(char[] arr, int n) {
+    ArrayList&lt;String&gt; result = new ArrayList&lt;&gt;();
+    for (int start = 1; start &lt;= n; start++) {
+        String word = "";
+        for (int i = 0; i &lt;= n - start; i++) {
+            //  Adds characters from current starting character to current ending character
+            int j = i + start - 1;
+            for (int k = i; k &lt;= j; k++) {
+                word += String.valueOf(arr[k]);
+            }
+            result.add(word);
         }
     }
+    return result.stream()
+            .filter(str -&gt; str.length() &gt;= 3)
+            .collect(Collectors
+                    .toCollection(ArrayList::new));
 }</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>getCombination(arr, arr.length)</code> method in line 3 of the above snippet returns an ArrayList containing all subsets of
-descriptions that are of at least length 3. While iterating through the <code>InventoryList</code>, these subsets are compared
-with the actual descriptions of all items in the inventory to check if either contains the other.</p>
+<p>The <code>getCombination(arr, arr.length)</code> method in the above snippet consists of 3 nested loops. The first loop decides the
+starting character. The second loop takes each of the characters on the right of the starting character as the ending character.
+The last loop appends characters from the starting character to the ending character. After the nested loops, the ArrayList
+is passed into a stream to filter out all subsets of length less than 3.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>AddCommand</code> works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
@@ -640,4 +650,4 @@ methods and eliminate any chances of uncoordinated data in the data files.</p></
 <p>{End of Third Extract from Developer Guide}</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. command line interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:25:25 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. command line interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:50:55 UTC</div></div></div></body></html>
