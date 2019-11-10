@@ -17,7 +17,7 @@ year 4 Computer Engineering Undergraduate student.</p>
 <div class="sect2">
 <h3 id="about-the-project"><a class="link" href="#about-the-project">1.2. About the Project</a></h3>
 <div class="paragraph">
-<p>This project is part of the module 'Software Engineering Project CS2103T' where we were tasked to develop a basic
+<p>This project is part of the module 'Software Engineering CS2103T' where we were tasked to develop a basic
 command line interface desktop application by morphing or enhancing an existing AddressBook desktop application.
 Our team decided to incorporate and morph the AddressBook application as part of our all-in-one application which
 enables treasurers or members of Co-Curricular Activities (CCA) Clubs and Societies to manage their club finances,
@@ -218,9 +218,8 @@ to write documentation to guide end-users on how to use treasurerPro.</p>
 <div class="paragraph">
 <p>{Start of First Extract from User Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">5.1.2. To Delete Transactions in the Home Tab</strong></p>
-</div>
+<div class="sect3">
+<h4 id="5-1-2-to-delete-transactions-in-the-home-tab"><a class="link" href="#5-1-2-to-delete-transactions-in-the-home-tab">5.1.2. To Delete Transactions in the Home Tab</a></h4>
 <div class="paragraph">
 <p>This command allows you to delete either all transactions of a person or a single transaction of a specific ID from the table.</p>
 </div>
@@ -317,9 +316,9 @@ Leo will respond with a message to inform you. If the person does not have any t
 <div class="paragraph">
 <p>{Start of Second Extract from User Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">5.1.4. To Sort Transactions in the Home Tab</strong></p>
 </div>
+<div class="sect3">
+<h4 id="5-1-4-to-sort-transactions-in-the-home-tab"><a class="link" href="#5-1-4-to-sort-transactions-in-the-home-tab">5.1.4. To Sort Transactions in the Home Tab</a></h4>
 <div class="paragraph">
 <p>This command sorts the table of transactions into the specified order for viewing and carrying out of subsequent commands.</p>
 </div>
@@ -365,7 +364,7 @@ The undo sort command allows you to view the table of transactions in the order 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type the any one of the above command in blue font into the command box.</p>
+<p>Type any one of the above commands in blue font into the command box.</p>
 </li>
 <li>
 <p>Hit <code>Enter</code>. The table will now be sorted in the specified order for you.</p>
@@ -377,6 +376,7 @@ The undo sort command allows you to view the table of transactions in the order 
 </div>
 <div class="paragraph">
 <p>{End of Second Extract}</p>
+</div>
 </div>
 </div>
 </div>
@@ -393,9 +393,8 @@ my ability to write documentation of technical concepts and the technical-depth 
 <div class="paragraph">
 <p>{Start of Extract from Developer Guide}</p>
 </div>
-<div id="DeleteCommandHome" class="paragraph">
-<p><strong class="big red">3.1.2. Delete Feature</strong></p>
-</div>
+<div class="sect3">
+<h4 id="DeleteCommandHome"><a class="link" href="#DeleteCommandHome">3.1.2. Delete Feature</a></h4>
 <div class="paragraph">
 <p>This section explains the implementation of the delete command in Home Tab. This feature allows for 2 types of deletion, by
 the index shown in the table or by the person&#8217;s name. Inputting the person&#8217;s name will cause all transactions linked to
@@ -441,7 +440,7 @@ find command and the list at the start of the activity diagram shows
 a filtered list, the table in the UI will continue to show the filtered list after the current delete command.
 To view the full transaction list, the user would be required to enter the
 back command where <code>BackCommand</code> calls <code>Model#resetPredicate()</code>. The sequence diagram for the <code>BackCommand</code> is shown in the
-following section <a href="#BackCommandSD">3.1.3. Back Command Feature</a></p>
+following section <a href="#BackCommandSD">3.1.3. Back Command Feature</a>.</p>
 </div>
 <div class="paragraph">
 <p>After this, the list of transactions and Reimbursement Tab is updated as shown in <a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#updateTL">3.1.1. Add Command feature: Figure 14</a>
@@ -454,9 +453,9 @@ respectively.</p>
 <code>Model#findTransactionInFilteredListByIndex(index)</code> and <code>Model#deleteTransaction(index)</code> instead which deletes the <code>Transaction</code> object according
 to its position in the filtered transaction list.</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.3. Back Command Feature</strong></p>
 </div>
+<div class="sect3">
+<h4 id="3-1-3-back-command-feature"><a class="link" href="#3-1-3-back-command-feature">3.1.3. Back Command Feature</a></h4>
 <div id="BackCommandSD" class="paragraph">
 <p>This section explains the implementation of the back command feature in Home Tab.
 The <code>BackCommand</code> is not initialised by a specific command parser as shown in as shown in
@@ -470,9 +469,9 @@ The following detailed sequence diagram shows how the back command works:</p>
 </div>
 <div class="title">Figure 20. Sequence diagram of the back command being executed in Home Tab (transaction package)</div>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.4. Sort Command Feature</strong></p>
 </div>
+<div class="sect3">
+<h4 id="3-1-4-sort-command-feature"><a class="link" href="#3-1-4-sort-command-feature">3.1.4. Sort Command Feature</a></h4>
 <div class="paragraph">
 <p>This section explains the implementation of the sort command feature in Home Tab.
 The <code>SortCommand</code> allows for 3 types of sort, by name in
@@ -496,9 +495,9 @@ the incorrect user input. When it is successfully sorted, there will also be a r
 <p>Similar to the delete command in <a href="#DeleteCommandHome">3.1.2. Delete Command Feature</a>, the <code>Model#resetPredicate()</code> method is not called. If the UI table is showing a filtered
 list of transactions, the back command has to be entered to call that method from <code>BackCommand</code> to reset the predicate.</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.5. Overall Design Considerations</strong></p>
 </div>
+<div class="sect3">
+<h4 id="3-1-5-overall-design-considerations"><a class="link" href="#3-1-5-overall-design-considerations">3.1.5. Overall Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section&#8217;s table explains the design considerations for some implementations in the Home Tab.</p>
 </div>
@@ -556,4 +555,5 @@ to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPerso
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:08:57 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 05:17:24 UTC</div></div></div></body></html>
