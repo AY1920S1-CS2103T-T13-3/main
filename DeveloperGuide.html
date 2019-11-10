@@ -3547,13 +3547,13 @@ Expected: The full list of people are shown.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: There is an item with description "cup" and quantity of at least 3 in the inventory.<br>
-Test case: <code>add d/cup q/3</code><br>
+Test case: <code class="blue">add d/cup q/3</code><br>
 Expected: 3 items of description "cup" are added into the cart on the Cashier tab.
 Response message that cup has been added successfully shown.</p>
 </li>
 <li>
 <p>Prerequisites: There is an item with description "cup" and quantity of at least 3 in the inventory.<br>
-Test case: <code>add d/cup q/-1</code><br>
+Test case: <code class="blue">add d/cup q/-1</code><br>
 Expected: No item is added into the cart.
 Response message prompting positive integer for quantity shown.</p>
 </li>
@@ -3566,7 +3566,7 @@ Response message prompting positive integer for quantity shown.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: There are some sales items in the Inventory tab.<br>
-Test case: <code>delete 1</code><br>
+Test case: <code class="blue">delete 1</code><br>
 Expected: First item on the cart is deleted.
 Response message that cup has been deleted successfully shown.</p>
 </li>
@@ -3579,7 +3579,7 @@ Response message that cup has been deleted successfully shown.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: There are some sales items in the Inventory tab.<br>
-Test case: <code>edit i/1 q/2</code><br>
+Test case: <code class="blue">edit i/1 q/2</code><br>
 Expected: Quantity of first item on the cart is updated to 2.
 Response message that cup has been edited successfully shown.</p>
 </li>
@@ -3592,7 +3592,7 @@ Response message that cup has been edited successfully shown.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: There is an existing member called "Alice" on the Members tab.<br>
-Test case: <code>cashier Alice</code><br>
+Test case: <code class="blue">cashier Alice</code><br>
 Expected: Cashier on the bottom row is updated to "Alice".
 Response message that cashier has been set successfully shown.</p>
 </li>
@@ -3605,7 +3605,7 @@ Response message that cashier has been set successfully shown.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: A cashier is set and there are some sales item in the cart.<br>
-Test case: <code>clear</code><br>
+Test case: <code class="blue">clear</code><br>
 Expected: Cashier on the bottom row is reset and all items in the cart are cleared.
 Response message that table has been cleared successfully shown.</p>
 </li>
@@ -3618,7 +3618,7 @@ Response message that table has been cleared successfully shown.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: A cashier is set and there are some sales item in the cart.<br>
-Test case: <code>checkout 9</code><br>
+Test case: <code class="blue">checkout 9</code><br>
 Expected: If amount inputted is sufficient, the total amount and change is shown.
 Cashier on the bottom row is reset and all items in the cart are cleared.
 Response message that items has been checked out successfully shown.</p>
@@ -3660,4 +3660,4 @@ Changing the reimbursementInformation should not cause any issues.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:25:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:27:13 UTC</div></div></div></body></html>
