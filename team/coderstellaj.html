@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Jin Shuyuan – Project Portfolio for treasurerPro (tP)</title><link rel="stylesheet" href="./gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">treasurerPro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T13-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"><div class="sect1">
+<h2 id="jin-shuyuan-project-portfolio-for-treasurerpro-tp"><a class="link" href="#jin-shuyuan-project-portfolio-for-treasurerpro-tp">Jin Shuyuan – Project Portfolio for treasurerPro (tP)</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio page (PPP) introduces the project, treasurerPro.
+The PPP outlines my contributions to the project and showcases the key features I implemented.</p>
+</div>
+<div class="sect2">
+<h3 id="about-the-project"><a class="link" href="#about-the-project">1.1. About the project</a></h3>
+<div class="paragraph">
+<p>My team consists of 5 students from Computer Science/Computer Engineering.
+And the project is part of the module 'CS2103T Software Engineering Project' where we were tasked to develop a basic command line interface desktop application by morphing or enhancing an existing AddressBook desktop application.
+Our team decided to incorporate and morph the AddressBook application into our application <strong>treasurerPro</strong>.
+Our application enables treasurers of Co-Curricular Activities (CCA) Clubs to manage their club finances, reimbursements, inventory and member’s contact details easily.
+The duration of our project was 13 weeks.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="about-our-application"><a class="link" href="#about-our-application">1.2. About our application</a></h3>
+<div class="paragraph">
+<p>treasurerPro consists of home tab, members tab, reimbursements tab, inventory tab, cashier tab and overview tab, a command box for users to input their commands and a response box for Leo which is our lion mascot.
+Each tab serves a different purpose that helps treasurers and members better manage their club or society&#8217;s finances.</p>
+</div>
+<div class="paragraph">
+<p>This is what our application looks like when it is first opened:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/AnnotatedUi.png" alt="AnnotatedUi" width="500">
+</div>
+<div class="title">Figure 1. Graphical user interface of treasurerPro</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="icons-and-formatting"><a class="link" href="#icons-and-formatting">1.3. Icons and formatting</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This symbol indicates extra information or definition.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>Model</code> :
+The symbol indicates a component, class or object in the architecture of the application.</p>
+</div>
+<div class="paragraph">
+<p><code>command</code> :
+The symbol indicates a command that can be inputted by the user.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My role is designing and implementing the features of reimbursement tab as well as testing the functionality of this tab.
+This section shows a summary of my coding, documentation, and other helpful contributions to the team project.</p>
+</div>
+<div class="sect2">
+<h3 id="enhancements"><a class="link" href="#enhancements">2.1. Enhancements</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Extracting reimbursements from transactions by person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+The reimbursements are automatically extracted from transaction records if they have not been paid.
+The reimbursements are grouped by person.
+And any updates to transactions will also be reflected in reimbursements.</p>
+</li>
+<li>
+<p>Justification:
+This feature helps the user to quickly view how much money the treasurer needs to pay to a member.
+The amount, descriptions are aggregated together for a member.
+So it will be very easy to manage reimbursements.</p>
+</li>
+<li>
+<p>Highlights:
+If there are any changes to transactions, the reimbursement records are also updated in accordance with new transaction information.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Adding a deadline to a reimbursement</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+The user can use <code class="blue">deadline</code> command to add a deadline to a reimbursement.</p>
+</li>
+<li>
+<p>Justification:
+The user can add a deadline by using <code class="blue">deadline</code> command.
+The treasurer can easily remind himself when he should pay back to the members when managing a CCA event.</p>
+</li>
+<li>
+<p>Highlights:
+In case of any date changes, the treasurer can use <code class="blue">deadline</code> command to reassign a new deadline to a reimbursement.
+And if the user is reckless and keys in 30-Feb-2019, our app can correct it to 29-Feb-2019 and adds the date.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Finding and marking a reimbursement</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+The user can use <code class="blue">find</code> command to find a reimbursement for a member.
+And the treasurer can mark the reimbursement as done using <code class="blue">done</code> command.</p>
+</li>
+<li>
+<p>Justification:
+If the treasurer wants to check how much he should pay to a member, he can quickly find the details using <code class="blue">find</code> command.
+After paying back the member, he can use <code class="blue">done</code> command to remove the reimbursement from the tab.</p>
+</li>
+<li>
+<p>Highlights:
+The <code class="blue">done</code> command requires interactions with transactions.
+Integration is done between transactions and reimbursements to make sure the reimbursed transaction will not be accounted again in reimbursements.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sorting reimbursements</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+Each reimbursement contains the member&#8217;s name, amount and a deadline.
+The reimbursement records can be sorted based on these 3 attributes using <code class="blue">sort</code> command.</p>
+</li>
+<li>
+<p>Justification:
+It is useful for the user to keep track of reimbursements and view the reimbursement records according to different priorities.</p>
+</li>
+<li>
+<p>Highlights:
+The <code class="blue">sort</code> command can be extended easily to allow other types of sorting.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">2.2. Code Contributed</a></h3>
+<div class="paragraph">
+<p>Please click these links to view the code I have contributed for reimbursement tab:
+<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=coderstellaj&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=CoderStellaJ&amp;tabRepo=AY1920S1-CS2103T-T13-3%2Fmain%5Bmaster%5D">Overall Commit Activity and Code</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/main/java/seedu/address/reimbursement">Functional Code</a>
+, <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/tree/master/src/test/java/seedu/address/reimbursement">Test Code</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">2.3. Other Contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created issue labels and milestones v1.1, v1.2 on Github.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Implementations of new features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Implemented back, deadline, done, exit, find, sort commands in the reimbursement tab
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/53">(PR #53)</a>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/128">(PR #128)</a>.</p>
+</li>
+<li>
+<p>Integrated features in reimbursement tab with other tabs
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/54">(PR #54)</a>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/150">(PR #150)</a>.</p>
+</li>
+<li>
+<p>Wrote additional tests for new features to increase coverage to 94% for reimbursement tab
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/173">(PR #173)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added implementation details of reimbursement tab for developers in developer guide
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/159">(PR #159)</a>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/191">(PR #191)</a>.</p>
+</li>
+<li>
+<p>Added command instructions of reimbursement tab for users in user guide
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/192">(PR #192)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed Pull Requests (With Non-trivial Review Comments)
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/42">(PR #42)</a>.</p>
+</li>
+<li>
+<p>Contributed to forum discussion
+<a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/134">(Example #134)</a>
+<a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/135">(Example #135)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the user guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section contains my contributions to the treasurerPro user guide for the reimbursement tab features.
+The following is an excerpt from our treasurerPro user guide, showing only part of the additions that I have made.
+As for the complete additions, please refer to
+<a href="https://ay1920s1-cs2103t-t13-3.github.io/main/UserGuide.html#reimbursements-tab">reimbursement tab section</a>
+in the user guide.</p>
+</div>
+<div class="sect2">
+<h3 id="adding-a-deadline-to-a-reimbursement"><a class="link" href="#adding-a-deadline-to-a-reimbursement">3.1. Adding a deadline to a reimbursement</a></h3>
+<div class="paragraph">
+<p>This command allows you to add a deadline to a member&#8217;s reimbursement record.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+You can set the deadline as any day you want.
+It is your responsibility to set a reasonable deadline.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command: <code>deadline p/NAME dt/dd-mmm-yyyy</code></p>
+</li>
+<li>
+<p>Example: <code class="blue">deadline p/Alex Yeoh dt/19-Dec-2019</code></p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with all parameters filled in, as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementDeadlineCommand.png" alt="ReimbursementDeadlineCommand" width="500">
+</div>
+<div class="title">Figure 2. Input deadline command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the deadline is successfully added, Leo will respond with a success message and the deadline will now display for the specified person&#8217;s reimbursement.<br>
+Otherwise, Leo will show an error message indicating that the person is not in the reimbursement list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementDeadlineCommandSuccess.png" alt="ReimbursementDeadlineCommandSuccess" width="500">
+</div>
+<div class="title">Figure 3. Result of deadline command in reimbursement tab</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You must provide the deadline in the format <code>dd-mmm-yyyy</code> e.g. <code>19-Dec-2019</code>.<br>
+If an invalid format is inputted, e.g. <code>01-AAA-2019</code> or <code>19-DEC-2019</code> or <code>-1-Dec-2019</code>, Leo will inform you that the input is invalid.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If an invalid date is entered, e.g. <code>31-Feb-2019</code>, the app will round it to <code>28-Feb-2019</code>
+and adds the rounded date as the deadline.
+But our app only checks up to <code>31</code> in day.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To modify the deadline for a reimbursement, you can use <code>deadline</code> command again to reassign a new deadline to a reimbursement.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="marking-a-reimbursement-as-done"><a class="link" href="#marking-a-reimbursement-as-done">3.2. Marking a reimbursement as done</a></h3>
+<div class="paragraph">
+<p>This command helps you to mark a reimbursement as done and remove it from reimbursement list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Transactions not shown in the Reimbursement Tab are already marked as done.<br>
+No indication will be shown in the Transaction Tab.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command: <code>done p/NAME</code></p>
+</li>
+<li>
+<p>Example: <code class="blue">done p/Alex Yeoh</code></p>
+</li>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command, along with the person&#8217;s name whose reimbursement is to be marked as done, as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementDoneCommand.png" alt="ReimbursementDoneCommand" width="500">
+</div>
+<div class="title">Figure 4. Input done command in reimbursement tab</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The reimbursement for that person will be removed from the tab, as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementDoneCommandSuccess.png" alt="ReimbursementDoneCommandSuccess" width="500">
+</div>
+<div class="title">Figure 5. Result of done command in reimbursement tab</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the developer guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section contains my contributions to the treasurerPro developer guide for the reimbursement tab features.
+It only shows part of the additions I have made.
+As for the complete additions, please refer to
+<a href="https://ay1920s1-cs2103t-t13-3.github.io/main/DeveloperGuide.html#reimbursements-tab">reimbursement tab section</a>
+in the developer guide.</p>
+</div>
+<div class="sect2">
+<h3 id="deadline-command-feature"><a class="link" href="#deadline-command-feature">4.1. Deadline command feature</a></h3>
+<div class="paragraph">
+<p>This command is used to add a deadline date to a reimbursement for a person.
+Deadline command requires access to the <code>Model</code> of the person package which the <code>AddressBook</code> implementation is contained in.
+Deadline field should be provided in a valid date format.
+The person&#8217;s name inputted has to match a person&#8217;s name already existing in the <code>Reimbursement</code> which is shown in our Reimbursement Tab.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the execution of deadline command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementDeadlineCommandSD.png" alt="ReimbursementDeadlineCommandSD">
+</div>
+<div class="title">Figure 6. Sequence diagram of deadline command in reimbursements tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>As shown, a user needs to add a deadline to a reimbursement by specifying the person&#8217;s name and providing a date.
+The <code>DeadlineCommandParser</code> creates a <code>DeadlineCommand</code> with person and deadline date information.
+This <code>DeadlineCommand</code> is returned back to <code>LogicManager</code> of reimbursement and is executed by calling <code>addDeadline</code> method in
+<code>ModelManager</code>.
+After the operations, <code>LogicManager</code> gets updated reimbursement list from <code>ModelManager</code> and displays the deadline in reimbursement list.
+After that, the deadline is saved into a <code>.txt</code> file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementTabActivityDiagramDeadlineCommand.png" alt="ReimbursementTabActivityDiagramDeadlineCommand">
+</div>
+<div class="title">Figure 7. Activity diagram of deadline command in reimbursements tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>As shown by the above activity diagram, when a user inputs a person who does not exist in any reimbursement or keys in an invalid data format, our app displays the expected format of the deadline command.
+Otherwise, when the execution is successful, a response informs the user that deadline is successfully added to the reimbursement.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-command-feature"><a class="link" href="#find-command-feature">4.2. Find command feature</a></h3>
+<div class="paragraph">
+<p>This command is used to find a reimbursement that contains the person&#8217;s name.
+The find command requires access to <code>Model</code> of the person package which the <code>AddressBook</code> implementation is contained in.
+Person field should be provided and the person&#8217;s name should exist in reimbursement list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementFindCommandSD.png" alt="ReimbursementFindCommandSD">
+</div>
+<div class="title">Figure 8. Sequence diagram of find command in reimbursements tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>A user needs to find a reimbursement by providing the person&#8217;s name.
+As shown in the above figure, <code>FindCommand</code> is executed by calling <code>findReimbursement</code> method in
+<code>ModelManager</code>.
+After the operations, that reimbursement is returned and reimbursement tab only shows a <code>filteredList</code> which contains this single reimbursement.</p>
+</div>
+<div id="ReimbursementTabActivityDiagramFindCommand" class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/ReimbursementTabActivityDiagramFindCommand.png" alt="ReimbursementTabActivityDiagramFindCommand">
+</div>
+<div class="title">Figure 9. Activity diagram of find command in reimbursements tab (reimbursement package)</div>
+</div>
+<div class="paragraph">
+<p>The above activity diagram shows the steps needed for find command.
+The person&#8217;s name is checked whether it exists in reimbursement list.
+If not, our app informs the user that command is incorrect.
+If command is valid, the reimbursement is found and displayed in the tab.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overall-design-considerations"><a class="link" href="#overall-design-considerations">5. Overall design considerations</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section&#8217;s table explains the design considerations for some implementations in the reimbursement tab.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conclusion and Explanation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How <code class="blue">done</code> command in reimbursement tab updates transactions model and storage.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>reimbursementLogic</code> keeps a <code>transactionModel</code> and a <code>transactionStorage</code> to update transactions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MainWindow</code> calls methods from <code>reimbursementLogic</code> and <code>transactionLogic</code> when a command is executed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is chosen.
+<code>transactionLogic</code> follows Façade pattern to prevent exposing the internal details of the transaction tab.
+So, instead of directly manipulating model and storage of transactions from <code>reimbursementLogic</code>,
+the operations are done through <code>transactionLogic</code> as shown in the <a href="#facade">code snippet</a> below the table.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How reimbursement records are saved and read from <code>.txt</code> files</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reimbursement tab saves all the information of transactions that make up a reimbursement into <code>reimbursementInformation.txt</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reimbursement tab only saves person&#8217;s name, amount and the deadline information into <code>reimbursementInformation.txt</code>.
+When launching the application, reimbursement tab reads the transactions information from <code>transactionHistory.txt</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is chosen.
+Alternative 2 does not save duplicate information that has already been saved into <code>transactionHistory.txt</code>.
+So, alternative 2 is more efficient.</p></td>
+</tr>
+</tbody>
+</table>
+<div id="facade" class="imageblock">
+<div class="content">
+<img src="../images/Reimbursement/codeSnippetTransactionLogic.png" alt="codeSnippetTransactionLogic" width="500">
+</div>
+<div class="title">Figure 10. Code snippet of <code>transactionLogic</code> facade class in <code>MainWindow</code></div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:33:31 UTC</div></div></div></body></html>
