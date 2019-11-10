@@ -1381,8 +1381,8 @@ the Table of the UI.</p>
 </div>
 <div class="paragraph">
 <p>Upon every successful checkout, all the sales items sold will recorded as one transaction, which will subsequently be
-appended to the list of transactions on the <code>Home tab</code>. In addition, the stock remaining in the inventory will be updated
-accordingly in the <code>Inventory tab</code>.</p>
+appended to the list of transactions on the Home tab. In addition, the stock remaining in the inventory will be updated
+accordingly in the Inventory tab.</p>
 </div>
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
@@ -1402,7 +1402,7 @@ If description and quantity field are both valid, the <code>ModelManager</code> 
 </div>
 <div class="paragraph">
 <p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method,
-which will in turn call <code>getCombination(arr, arr.length)</code> to return an ArrayList containing all subsets of
+which will in turn call <code>getCombination(arr, arr.length)</code> method to return an ArrayList containing all subsets of
 the inputted description that are of at least length 3. These subsets are then compared
 with the actual descriptions of all items in the inventory to check if either contains the other.</p>
 </div>
@@ -1494,7 +1494,7 @@ will only be updated after the Checkout Command.
 the name of an existing person.</p>
 </div>
 <div class="paragraph">
-<p>To set a cashier, the person&#8217;s name inputted has to match an existing name in the <code>AddressBook</code> as shown on <code>Members Tab</code>.
+<p>To set a cashier, the person&#8217;s name inputted has to match an existing name in the <code>AddressBook</code> as shown on Members tab.
 This means that SetCommandParser requires access to the <code>Model</code> of the person package where the <code>AddressBook</code> implementation is.<br>
 If the person&#8217;s name cannot be found in the <code>Model</code> of the person package, a response message will be shown by Leo,
 informing the user that there is no such person.</p>
@@ -1541,8 +1541,8 @@ shows how the set cashier command works:</p>
 <p>This feature records all the sales items in the table as one sales transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Home Tab</code> will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock of the sales items
-will also be updated on the <code>Inventory Tab</code>.</p>
+<p>The Home tab will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock of the sales items
+will also be updated on the Inventory tab.</p>
 </div>
 <div class="paragraph">
 <p>During the execution of the command, <code>getCashier()</code> method will be called which will return a person. This person will
@@ -1576,7 +1576,7 @@ shows how the checkout command is executed:</p>
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
 to the respective <code>.txt file</code>.<br>
-To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>, transaction will be added to the transaction model and
+To update the view on the Inventory tab and Transaction tab, transaction will be added to the transaction model and
 <code>readInUpdatedList()</code> method of inventory model will called to read in the entire inventory data file.</p>
 </div>
 <div class="paragraph">
@@ -1621,7 +1621,7 @@ To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An ArrayList is used to store the list of sales item shown on the <code>Cashier Tab</code>.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An ArrayList is used to store the list of sales item shown on the Cashier tab.</p>
 <p class="tableblock"><strong>Pros</strong>: Elements are be accessed directly more efficiently.</p>
 <p class="tableblock"><strong>Cons</strong>: Adding and removing from the head of the list is less time-efficient for ArrayList.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A LinkedList is used to store the list of sales item.</p>
@@ -3269,4 +3269,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:03:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 08:28:25 UTC</div></div></div></body></html>

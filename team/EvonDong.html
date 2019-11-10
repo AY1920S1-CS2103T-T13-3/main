@@ -4,26 +4,30 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This project portfolio briefly introduces the project, treasurerPro, and outlines my contributions and explanations about
-my features.</p>
+<p>This document serves as a project portfolio for treasurerPro. It outlines my contributions to the project and showcases the
+features that I have implemented.</p>
 </div>
 <div class="sect2">
 <h3 id="about-the-team"><a class="link" href="#about-the-team">1.1. About the team</a></h3>
 <div class="paragraph">
-<p>My team consists of five software engineering students who are all taking the module CS2103T. Four of us, including me,
-are year two Computer Science students and the other is a year four Computer Engineering student.</p>
+<p>My team of five members consists of four Year 2 Computer Science students, including me, and a Year 4 Computer Engineering
+student, all taking the module CS2103T Software Engineering.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="about-the-project"><a class="link" href="#about-the-project">1.2. About the project</a></h3>
 <div class="paragraph">
-<p>This project is part of the module - Software Engineering Project, CS2103T. We were tasked to develop a basic
-command line interface <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup> (CLI)
-desktop application by morphing or enhancing an existing AddressBook desktop application over a period of 13 weeks.
-My team decided to morph and incorporate the AddressBook application as part of our all-in-one expense tracker.
-This application enables treasurers and members of Co-Curricular Activities (CCA) Clubs and Societies to regulate
-their club expenses, manage the stocks in the inventory and retrieve records of reimbursements of its members and
-their contact details easily.</p>
+<p>This project was developed as part of the module - Software Engineering Project, CS2103T. We were tasked to develop a desktop
+application <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>
+with a Command Line Interface <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup> by enhancing an existing AddressBook desktop application.</p>
+</div>
+<div class="paragraph">
+<p>My team decided to morph and incorporate the AddressBook application as part of our all-in-one expense tracker.
+This application aims to enable treasurers and members of Co-Curricular Activities (CCA) Clubs and Societies to regulate
+their club expenses, manage the stocks in the inventory and retrieve records of reimbursements of its members easily.</p>
+</div>
+<div class="paragraph">
+<p>In total, this project took place over a span of 8 weeks.</p>
 </div>
 </div>
 <div class="sect2">
@@ -44,7 +48,7 @@ This symbol indicates important information or definition.
 </table>
 </div>
 <div class="paragraph">
-<p><code class="blue"><strong>command</strong></code> :
+<p><code class="blue">command</code> :
 Text with blue font and grey highlight indicates a command that can be inputted into the command line by the user and
 be executed by the application.</p>
 </div>
@@ -66,22 +70,22 @@ managing of the organisation&#8217;s finances. The following shows the various t
 <div class="ulist">
 <ul>
 <li>
-<p><code>Home Tab</code>: keeps track of individual transactions</p>
+<p>Home Tab: keeps track of individual transactions</p>
 </li>
 <li>
-<p><code>Members Tab</code>: records contact details of all members</p>
+<p>Members Tab: records contact details of all members</p>
 </li>
 <li>
-<p><code>Reimbursement Tab</code>: handles reimbursement records for members who fork in their money</p>
+<p>Reimbursement Tab: handles reimbursement records for members who fork in their money</p>
 </li>
 <li>
-<p><code>Inventory Tab</code>: keeps track of items in the inventory</p>
+<p>Inventory Tab: keeps track of items in the inventory</p>
 </li>
 <li>
-<p><code>Cashier Tab</code>: supports cashiering duties and directly input sales into the system</p>
+<p>Cashier Tab: supports cashiering duties and directly input sales into the system</p>
 </li>
 <li>
-<p><code>Overview Tab</code>: gives an analysis of the organisation&#8217;s finances for future planning</p>
+<p>Overview Tab: gives an analysis of the organisation&#8217;s finances for future planning</p>
 </li>
 </ul>
 </div>
@@ -101,14 +105,15 @@ managing of the organisation&#8217;s finances. The following shows the various t
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My role was to design the layout and code the features for the <code>Cashier Tab</code>. The following sections present the
-enhancements that I have implemented in greater detail, as well as the relevant documentation I have done in the
-user guide and developer guide.</p>
+<p>My responsibilities include designing the layout, implementing the features for the Cashier tab and ensuring good code quality across all packages.</p>
+</div>
+<div class="paragraph">
+<p>The following sections present the enhancements that I have implemented in greater detail, as well as the relevant documentation I have done in the user guide and developer guide.</p>
 </div>
 <div class="sect2">
 <h3 id="main-enhancements"><a class="link" href="#main-enhancements">2.1. Main Enhancements</a></h3>
 <div class="paragraph">
-<p>The following illustrates some crucial enhancements that I have added for <code>Cashier Tab</code>.</p>
+<p>The following section illustrates some crucial enhancements that I have added for Cashier tab.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -118,19 +123,19 @@ user guide and developer guide.</p>
 <ul>
 <li>
 <p>What it does:
-It allows the user to add, delete and update the sales items added in the table shown on the tab.</p>
+It allows the user to add, delete and update the sales items in the table shown on the tab.</p>
 </li>
 <li>
 <p>Justification:
-These features incorporate the essential elements of a cash register and are fundamental for the <code>Cashier Tab</code>.
+These feature incorporate the essential elements of a cash register and is fundamental for the Cashier tab.
 By expediting the process of calculating and recording the quantity of sales items, it enables the cashier-in-charge to
 perform cashiering duties more efficiently.</p>
 </li>
 <li>
 <p>Highlights:
-The tab monitors the current stock in the inventory to ensure that the quantity keyed in does not exceed the stock
+It monitors the current stock in the inventory to ensure that the quantity keyed in does not exceed the stock
 available. This eliminates any hindrance involving manual checks for the availability of a certain item.<br>
-Furthermore, upon any mistyped words or description inputs that does not match an existing item in the inventory,
+Furthermore, upon any mistyped words or descriptions that do not match an existing item in the inventory,
 suggestions will be offered. This further augments the hassle-free aspect of this tab.</p>
 </li>
 </ul>
@@ -150,14 +155,38 @@ This checkout feature calculates and displays the total amount and the change to
 </li>
 <li>
 <p>Justification:
-This feature allows the stock to be updated accordingly automatically on the <code>Inventory Tab</code>
+This feature allows the stock to be updated accordingly automatically on the Inventory tab
 and abolish any need for manual logging of the stock.</p>
 </li>
 <li>
 <p>Highlights:
-This feature ensures accountability by prohibiting checkout if the cashier has not been set. Additionally, the sales
-made will be recorded and updated on the <code>Home Tab</code>. The sales made will also contribute towards the revenue and
-be used in the financial analysis.</p>
+This feature ensures accountability by prohibiting checkout if the cashier has not been set. Additionally,
+the sales made will be recorded on the Home tab as a transaction. This transaction will contribute towards the
+revenue and be used in the finance analysis.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cashier Mode</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+<code>Cashier Mode</code> will be automatically turned on when there are items in the table of the Cashier tab.
+When all the items in the table are cleared, <code>Cashier Mode</code> will automatically turn off.</p>
+</li>
+<li>
+<p>Justification:
+This feature prevents the users from modifying any of the existing items in the inventory whenever <code>Cashier Mode</code>
+is turned on. This feature serves as a security measure to ensure that no one can tamper with the existing data
+in the inventory while a purchase is being made.</p>
+</li>
+<li>
+<p>Highlights:
+While on <code>Cashier Mode</code>, only adding of items with new description is allowed in the inventory. Any changes to
+existing items are strictly prohibited. Users can only alter the items in the inventory after clearing all
+the items on the Cashier tab.</p>
 </li>
 </ul>
 </div>
@@ -177,7 +206,8 @@ be used in the financial analysis.</p>
 <div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">2.3. Other contributions</a></h3>
 <div class="paragraph">
-<p>The following section leads to the relevant GitHub pull requests <a href="#PR">[PR]</a> in relation to the specific contributions.</p>
+<p>The following section documents other contributions I have made and it includes relevant GitHub pull
+requests in relation to the relevant contributions.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -190,7 +220,7 @@ be used in the financial analysis.</p>
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/148">(PR #148)</a></p>
 </li>
 <li>
-<p>Refactored code to write to and from <code>Inventory</code> and <code>Transaction</code> package and update the respective models:
+<p>Refactored code to write to and from <code>Inventory</code> and <code>Transaction</code> package and updated the respective models:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/202">(PR #202)</a></p>
 </li>
 </ul>
@@ -206,7 +236,7 @@ be used in the financial analysis.</p>
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/196">(PR #196)</a></p>
 </li>
 <li>
-<p>Integrated <code>Cashier Tab</code> with other packages, fixed and added some <code>Inventory</code> classes:
+<p>Integrated <code>Cashier</code> package with other packages, fixed and added some <code>Inventory</code> classes:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/96">(PR #96)</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/94">(PR #94)</a></p>
 </li>
@@ -229,7 +259,7 @@ be used in the financial analysis.</p>
 <p>Added implementation details for the <code>Cashier Tab</code> in Developer Guide:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/209">(PR #209)</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/164">(PR #164)</a>,
-,https://github.com/AY1920S1-CS2103T-T13-3/main/pull/162[(PR #162)]</p>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/162">(PR #162)</a></p>
 </li>
 <li>
 <p>Added guide to use <code>Cashier Tab</code> in user guide:
@@ -237,7 +267,7 @@ be used in the financial analysis.</p>
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/212">(PR #212)</a></p>
 </li>
 <li>
-<p>Enhanced user guide to make it more user-friendly and updated <code>Members</code> Tab:
+<p>Enhanced user guide to make it more user-friendly and updated Members tab:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/303">(PR #303)</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/252">(PR #252)</a></p>
 </li>
@@ -261,14 +291,13 @@ be used in the financial analysis.</p>
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section illustrates my contribution to the User Guide for features specific to the <code>Cashier Tab</code>.</p>
+<p>The following section illustrates my contribution to the User Guide for features specific to the Cashier tab.</p>
 </div>
 <div class="paragraph">
 <p>{Start of First Extract from User Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">5.5.1. Add a Sales Item to the Table</strong></p>
-</div>
+<div class="sect2">
+<h3 id="5-5-1-add-a-sales-item-to-the-table"><a class="link" href="#5-5-1-add-a-sales-item-to-the-table">5.5.1. Add a Sales Item to the Table</a></h3>
 <div class="paragraph">
 <p>This command enables you to add a sales item into the table.</p>
 </div>
@@ -296,13 +325,13 @@ items with similar description that you might be looking for.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add c/food</code> - Displays all items that are under the 'food' category in the response box</p>
+<p><code class="blue">add c/food</code> - Displays all items that are under the 'food' category in the response box</p>
 </li>
 <li>
-<p><code>add c/stationary d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
+<p><code class="blue">add c/stationary d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
 </li>
 <li>
-<p><code>add d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
+<p><code class="blue">add d/pancake q/3</code> - Adds 3 similar items which have the description "pancake"</p>
 </li>
 </ul>
 </div>
@@ -361,9 +390,9 @@ specified category inputted.
 <div class="paragraph">
 <p>{Start of Second Extract from User Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">5.5.5 Checkout All Sales Items</strong></p>
 </div>
+<div class="sect2">
+<h3 id="5-5-5-checkout-all-sales-items"><a class="link" href="#5-5-5-checkout-all-sales-items">5.5.5 Checkout All Sales Items</a></h3>
 <div class="paragraph">
 <p>This command enables you to perform a checkout of all the sales items in the table.</p>
 </div>
@@ -402,7 +431,7 @@ You must set the cashier before checking out. Else, checkout cannot proceed.
 <div class="ulist">
 <ul>
 <li>
-<p><code>checkout 850</code> - Customer pays $850 to cashier</p>
+<p><code class="blue">checkout 850</code> - Customer pays $850 to cashier</p>
 </li>
 </ul>
 </div>
@@ -438,25 +467,25 @@ You must set the cashier before checking out. Else, checkout cannot proceed.
 </div>
 <div class="paragraph">
 <p>If checkout is successful, Leo will respond with a response message. The table will be cleared and the cashier will be reset.
-The <code>Home Tab</code> will be updated with this transaction and the remaining stock in the <code>Inventory Tab</code> will also be updated.</p>
+The Home tab will be updated with this transaction and the remaining stock in the <code>Inventory Tab</code> will also be updated.</p>
 </div>
 <div class="paragraph">
 <p>{End of Second Extract from User Guide}</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my contribution to the Developer Guide for features specific to the <code>Cashier Tab</code>.</p>
+<p>The following section shows my contribution to the Developer Guide for features specific to the Cashier tab.</p>
 </div>
 <div class="paragraph">
 <p>{Start of First Extract from Developer Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.1 Add Sales Item feature</strong></p>
-</div>
+<div class="sect2">
+<h3 id="3-1-1-add-sales-item-feature"><a class="link" href="#3-1-1-add-sales-item-feature">3.1.1 Add Sales Item feature</a></h3>
 <div class="paragraph">
 <p>This feature allows the addition of sales items to the cart.</p>
 </div>
@@ -468,7 +497,7 @@ If description and quantity are both valid, the <code>ModelManager</code> will a
 </div>
 <div class="paragraph">
 <p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method,
-which will in turn call <code>getCombination(arr, arr.length)</code> to return an ArrayList containing all subsets of
+which will in turn call <code>getCombination(arr, arr.length)</code> method to return an ArrayList containing all subsets of
 the inputted description that are of at least length 3. These subsets are then compared
 with the actual descriptions of all items in the inventory to check if either contains the other.</p>
 </div>
@@ -532,15 +561,15 @@ left in the inventory. There will also be checks to ensure that the item specifi
 <div class="paragraph">
 <p>{Start of Second Extract from Developer Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.2 Checkout Feature</strong></p>
 </div>
+<div class="sect2">
+<h3 id="3-1-2-checkout-feature"><a class="link" href="#3-1-2-checkout-feature">3.1.2 Checkout Feature</a></h3>
 <div class="paragraph">
 <p>This feature records all the sales items in the table as one transaction under the <code>Sales</code> category.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Home Tab</code> will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock
-will also be updated on the <code>Inventory Tab</code>.</p>
+<p>The Home tab will be updated with the new transaction labelled as <code>Items sold</code>. The remaining stock
+will also be updated on the Inventory tab.</p>
 </div>
 <div class="paragraph">
 <p>During the execution of the command, <code>getCashier()</code> method will be called which will return a person. This person will
@@ -573,7 +602,7 @@ After the execution of the above methods, a clear command will then be called to
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
 to the respective <code>.txt file</code>.<br>
-To update the view on the <code>Inventory Tab</code> and <code>Transaction Tab</code>,<code>readInUpdatedList()</code> method of inventory model will
+To update the view on the Inventory tab and Transaction tab,<code>readInUpdatedList()</code> method of inventory model will
 called to read in the entire inventory data file and transaction will be added to the transaction model.</p>
 </div>
 <div class="paragraph">
@@ -591,11 +620,11 @@ called to read in the entire inventory data file and transaction will be added t
 <div class="paragraph">
 <p>{Start of Third Extract from Developer Guide}</p>
 </div>
-<div class="paragraph">
-<p><strong class="big red">3.1.5 Overall Design Considerations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="3-1-5-overall-design-considerations"><a class="link" href="#3-1-5-overall-design-considerations">3.1.5 Overall Design Considerations</a></h3>
 <div class="paragraph">
-<p>This section explains the design considerations for some crucial implementations in the Cashier Tab.</p>
+<p>This section explains the design considerations for some crucial implementations in the Cashier tab.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -612,7 +641,7 @@ called to read in the entire inventory data file and transaction will be added t
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An ArrayList is used to store the list of sales item shown on the <code>Cashier Tab</code>.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An ArrayList is used to store the list of sales item shown on the Cashier tab.</p>
 <p class="tableblock"><strong>Pros</strong>: Elements are be accessed directly more efficiently.</p>
 <p class="tableblock"><strong>Cons</strong>: Adding and removing from the head of the list is less time-efficient for ArrayList.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A LinkedList is used to store the list of sales item.</p>
@@ -650,4 +679,5 @@ methods and eliminate any chances of uncoordinated data in the data files.</p></
 <p>{End of Third Extract from Developer Guide}</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. command line interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:03:46 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. A desktop application is an application that runs on various Operating System including Windows, macOS or Linux.</div><div class="footnote" id="_footnote_2"><a href="#_footnoteref_2">2</a>. Command Line Interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 08:28:25 UTC</div></div></div></body></html>
