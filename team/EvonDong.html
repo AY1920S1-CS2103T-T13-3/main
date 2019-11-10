@@ -141,10 +141,6 @@ suggestions will be offered. This further augments the hassle-free aspect of thi
 </ul>
 </div>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p>Checking Out the Cart</p>
 <div class="ulist">
@@ -291,7 +287,7 @@ requests in relation to the relevant contributions.</p>
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section illustrates my contribution to the User Guide for features specific to the Cashier tab.</p>
+<p>The following section showcases my contribution to the user guide for features specific to the Cashier tab.</p>
 </div>
 <div class="paragraph">
 <p>{Start of First Extract from User Guide}</p>
@@ -310,9 +306,9 @@ requests in relation to the relevant contributions.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The quantity that you input must be less than or equal to the stock available in the Inventory Tab.
+<p>The quantity that you input must be less than or equal to the stock available in the Inventory tab.
 The category field is optional. If you are unsure about the description of the desired item, you can refer to
-the Inventory Tab or simply key in the category without any other fields. Leo will display all the items in the
+the Inventory tab or simply key in the category without any other fields. Leo will display all the items in the
 specified category that are available for sale.</p>
 </div>
 <div class="paragraph">
@@ -405,7 +401,7 @@ specified category inputted.
 </ul>
 </div>
 <div class="paragraph">
-<p>The amount inputted should be the amount that the customer will be paying. This amount must be greater than or equal to the
+<p>You should input the amount that the customer is paying. This amount must be greater than or equal to the
 total amount listed on the bottom row of the table. If the amount paid is greater than the total amount, Leo will display
 the amount of change that the cashier should return.</p>
 </div>
@@ -479,27 +475,26 @@ The Home tab will be updated with this transaction and the remaining stock in th
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section shows my contribution to the Developer Guide for features specific to the Cashier tab.</p>
+<p>The following section showcases my contribution to the developer guide for features specific to the Cashier tab.</p>
 </div>
 <div class="paragraph">
 <p>{Start of First Extract from Developer Guide}</p>
 </div>
 <div class="sect2">
-<h3 id="3-1-1-add-sales-item-feature"><a class="link" href="#3-1-1-add-sales-item-feature">3.1.1 Add Sales Item feature</a></h3>
+<h3 id="3-5-1-add-sales-item-feature"><a class="link" href="#3-5-1-add-sales-item-feature">3.5.1 Add Sales Item Feature</a></h3>
 <div class="paragraph">
-<p>This feature allows the addition of sales items to the cart.</p>
+<p>This feature allows the adding of sales items to the cart.</p>
 </div>
 <div class="paragraph">
-<p>Adding of a sales item to the cart will require an input of its description and quantity. If the category field is input with other unspecified
-description and quantity fields, <code>Model</code> will search all the sales items in the <code>Inventory List</code>
-according to the specified category and suggestions would be shown by Leo.<br>
-If description and quantity are both valid, the <code>ModelManager</code> will add the item into the sales list.</p>
+<p>Adding of a sales item to the cart will require an input of its description and quantity. If only the category field is inputted,
+<code>Model</code> will search all the sales items in the <code>Inventory List</code>
+according to the specified category and suggestions would be shown by Leo.</p>
 </div>
 <div class="paragraph">
 <p>If the description inputted does not match any valid item, the <code>Model</code> will call the <code>getRecommendedItems(description)</code> method,
 which will in turn call <code>getCombination(arr, arr.length)</code> method to return an ArrayList containing all subsets of
-the inputted description that are of at least length 3. These subsets are then compared
-with the actual descriptions of all items in the inventory to check if either contains the other.</p>
+the inputted description that are of at least length 3. These subsets strings are then compared
+with the actual description of all items in the inventory to check if either contains the other.</p>
 </div>
 <div class="paragraph">
 <p>The following is a code snippet from <code>getCombination(char[] arr, int n)</code> method:</p>
@@ -529,8 +524,11 @@ with the actual descriptions of all items in the inventory to check if either co
 <div class="paragraph">
 <p>The <code>getCombination(arr, arr.length)</code> method in the above snippet consists of 3 nested loops. The first loop decides the
 starting character. The second loop takes each of the characters on the right of the starting character as the ending character.
-The last loop appends characters from the starting character to the ending character. After the nested loops, the ArrayList
-is passed into a stream to filter out all subsets of length less than 3.</p>
+The last loop appends characters from the starting character to the ending character. After the nested loops, the ArrayList <code>result</code>
+is passed into a stream to filter out all subsets strings that are of length less than 3.</p>
+</div>
+<div class="paragraph">
+<p>If description and quantity are both valid, the <code>ModelManager</code> will add the item into the sales list as shown in Figure 2.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>AddCommand</code> works which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
@@ -545,6 +543,19 @@ is passed into a stream to filter out all subsets of length less than 3.</p>
 <p><code>AddCommandParser</code> will carry out multiple checks to check the validity of the inputs. <code>hasItemInInventory(description)</code>
 and <code>hasSufficientQuantityToAdd(description, quantity)</code> methods will be called to ensure the item has sufficient stock
 left in the inventory. There will also be checks to ensure that the item specified is available for sale.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Once the item is added, boolean <code>onCashierMode</code> in ModelManager  will be immediately set to true if
+it is initially false.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following activity diagram shows the steps proceeding after the user input an add command:</p>
@@ -563,7 +574,7 @@ left in the inventory. There will also be checks to ensure that the item specifi
 </div>
 </div>
 <div class="sect2">
-<h3 id="3-1-2-checkout-feature"><a class="link" href="#3-1-2-checkout-feature">3.1.2 Checkout Feature</a></h3>
+<h3 id="3-5-3-checkout-feature"><a class="link" href="#3-5-3-checkout-feature">3.5.3 Checkout Feature</a></h3>
 <div class="paragraph">
 <p>This feature records all the sales items in the table as one transaction under the <code>Sales</code> category.</p>
 </div>
@@ -573,8 +584,8 @@ will also be updated on the Inventory tab.</p>
 </div>
 <div class="paragraph">
 <p>During the execution of the command, <code>getCashier()</code> method will be called which will return a person. This person will
-be used to create a <code>Transaction</code> object. If the cashier is null, the command cannot proceed and Leo will
-prompt the user to set a cashier.<br>
+be used to create a <code>Transaction</code> object. If the cashier is null, the execution of the command cannot proceed and Leo will
+prompt the user to set a cashier.
 Else, if the amount inputted is valid and cashier has been set, the <code>ModelManager</code> will create a new
 transaction of the sales made.</p>
 </div>
@@ -586,6 +597,19 @@ transaction of the sales made.</p>
 </td>
 <td class="content">
 After the execution of the above methods, a clear command will then be called to clear all the sales items on the tab.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After checkout command is executed, boolean <code>onCashierMode</code> in ModelManager  will be
+immediately set to false.
 </td>
 </tr>
 </table>
@@ -602,8 +626,8 @@ After the execution of the above methods, a clear command will then be called to
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction
 to the respective <code>.txt file</code>.<br>
-To update the view on the Inventory tab and Transaction tab,<code>readInUpdatedList()</code> method of inventory model will
-called to read in the entire inventory data file and transaction will be added to the transaction model.</p>
+To update the view on the Inventory tab and Transaction tab,<code>readInUpdatedList()</code> method of inventory <code>Model</code> will
+called to read in the entire inventory data file and transaction will be added to the transaction <code>Model</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the transaction and inventory are updated:</p>
@@ -645,33 +669,33 @@ called to read in the entire inventory data file and transaction will be added t
 <p class="tableblock"><strong>Pros</strong>: Elements are be accessed directly more efficiently.</p>
 <p class="tableblock"><strong>Cons</strong>: Adding and removing from the head of the list is less time-efficient for ArrayList.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A LinkedList is used to store the list of sales item.</p>
-<p class="tableblock"><strong>Pros</strong>: Time performance is better when elements are accessed from the head of the list.</p>
-<p class="tableblock"><strong>Cons</strong>: Performance is poor when accessing directly via the index.</p></td>
+<p class="tableblock"><strong>Pros</strong>: Elements can be accessed from the head and tail of the list in constant time.</p>
+<p class="tableblock"><strong>Cons</strong>: When accessing directly via the index, performance is poor with respect to time.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 is selected. An ArrayList has better performance with respect to time when accessing each elements directly. As the sales list will be updated and accessed regularly, an ArrayList is more fitting.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Transaction, Inventory and Person <code>Model</code> interfaces are passed as parameters into Cashier&#8217;s <code>Logic</code>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Transaction, Inventory and Person <code>Model</code> interfaces are passed as parameters into the constructor of Cashier&#8217;s <code>Logic</code>
 to call relevant methods to update the inventory and transactions.</p>
 <p class="tableblock"><strong>Pros</strong>: Cashier&#8217;s Logic can access all public methods in the respective <code>Model</code>.</p>
 <p class="tableblock"><strong>Cons</strong>: It might result in unintended modification to some of the data in the Models.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaces that only contains required methods are created. The methods are called via these interfaces
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaces that only contains the required methods are created. The methods are called via these interfaces
 to update the data.</p>
 <p class="tableblock"><strong>Pros</strong>: Prevents any unwanted changes through other methods. This adheres to the Facade Pattern.</p>
 <p class="tableblock"><strong>Cons</strong>: If more methods are needed, they need to be added to these interfaces.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented as only a few methods are required from each <code>Model</code>, so the new interfaces can act as facades
-and restrict access to all public methods in the models. This prevents in Cashier’s <code>Logic</code> from causing any
+and restrict access to all public methods in the models. This prevents Cashier’s <code>Logic</code> from causing any
 unintended modification to any of the data in the Models.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier Storage directly writes to and from the data file of the inventory and transaction.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier&#8217;s <code>Storage</code> directly writes to and from the data file of the inventory and transaction.</p>
 <p class="tableblock"><strong>Pros</strong>: It can access the data file directly without any dependencies.</p>
-<p class="tableblock"><strong>Cons</strong>: The data files can be modified from 2 sources, introducing more chances of bugs.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier Storage accesses the methods from the Transaction and Inventory storage via their <code>Logic</code>
+<p class="tableblock"><strong>Cons</strong>: The data files can be modified from 2 sources, increasing chances of bugs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cashier&#8217;s <code>Storage</code> accesses the methods from the Transaction and Inventory storage via their <code>Logic</code>
 to update the data.</p>
 <p class="tableblock"><strong>Pros</strong>: The data files are only modified from 1 source, ensuring cohesiveness in the format of data stored.</p>
 <p class="tableblock"><strong>Cons</strong>: It introduces more dependencies on the storage of other packages.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is implemented to enforce defensive programming, so that the data files are not modified via 2 different
-methods and eliminate any chances of uncoordinated data in the data files.</p></td>
+methods from different sources and eliminates any chances of uncoordinated data in the data files.</p></td>
 </tr>
 </tbody>
 </table>
@@ -680,4 +704,4 @@ methods and eliminate any chances of uncoordinated data in the data files.</p></
 </div>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. A desktop application is an application that runs on various Operating System including Windows, macOS or Linux.</div><div class="footnote" id="_footnote_2"><a href="#_footnoteref_2">2</a>. Command Line Interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:29:17 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. A desktop application is an application that runs on various Operating System including Windows, macOS or Linux.</div><div class="footnote" id="_footnote_2"><a href="#_footnoteref_2">2</a>. Command Line Interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:38:01 UTC</div></div></div></body></html>
