@@ -56,11 +56,11 @@
 <li><a href="#navigating-between-tabs">G.2. Navigating Between Tabs</a></li>
 <li><a href="#testing-home-tab-features">G.3. Testing Home Tab Features</a></li>
 <li><a href="#testing-members-tab-features">G.4. Testing Members Tab Features</a></li>
-<li><a href="#saving-data">G.5. Saving data</a></li>
-<li><a href="#testing-reimbursements-tab-features">G.6. Testing Reimbursements Tab Features</a></li>
-<li><a href="#testing-inventory-tab-features">G.7. Testing Inventory Tab Features</a></li>
-<li><a href="#testing-cashier-tab-features">G.8. Testing Cashier Tab Features</a></li>
-<li><a href="#testing-overview-tab-features">G.9. Testing Overview Tab Features</a></li>
+<li><a href="#testing-reimbursements-tab-features">G.5. Testing Reimbursements Tab Features</a></li>
+<li><a href="#testing-inventory-tab-features">G.6. Testing Inventory Tab Features</a></li>
+<li><a href="#testing-cashier-tab-features">G.7. Testing Cashier Tab Features</a></li>
+<li><a href="#testing-overview-tab-features">G.8. Testing Overview Tab Features</a></li>
+<li><a href="#saving-data">G.9. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -3220,46 +3220,210 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts.
-The window size may not be optimum.</p>
+Expected: Shows the GUI with an empty table for Home tab, Reimbursements tab, Inventory tab,
+Cashier tab and Overview tab.
+Shows a set of sample members in the Members Tab.
+The window size will be optimum and cannot be re-sized.
+The window position may not be optimum but can be moved.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Saving window preferences</p>
+<p>Shutdown after adding data into the tabs</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Resize the window to an optimum size.
-Move the window to a different location.
-Close the window.</p>
+<p>Type <code class="blue">exit</code> to exit the application</p>
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+Expected: The data of all the tabs except Cashier tab is retained.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="navigating-between-tabs"><a class="link" href="#navigating-between-tabs">G.2. Navigating Between Tabs</a></h3>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigating between tabs</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>go [home] [members] [reimbursement] [inventory] [cashier] [overview]</code><br>
+Expected: The specified tab should be showing in the UI</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="testing-home-tab-features"><a class="link" href="#testing-home-tab-features">G.3. Testing Home Tab Features</a></h3>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The member 'Alex Yeoh' is present in the Members Tab and 'Jack' is not present in the Members Tab.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">add dt/03-Sep-2019 d/grab ride c/transport a/-12 p/Alex Yeoh</code><br>
+Expected: The transaction with the specified parameters is added to the table.
+Leo responds with the details of the transaction that is a spending.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">add dt/03-Sep-2019 d/grab ride c/transport a/-12 p/Jack</code><br>
+Expected: Leo responds with a message indicating that the person is not a valid member.
+Transaction is not added.</p>
+</li>
+<li>
+<p>Other incorrect Delete commands to try: <code class="blue">add</code>, <code class="blue">add p/Alex Yeoh</code><br>
+Expected: Leo responds with error and no transaction is added.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one transaction at all times in the Home tab and
+there are some transactions linked to 'Alex Yeoh'.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">delete p/Alex Yeoh</code><br>
+Expected: The transaction with the 'Alex Yeoh' linked to it is deleted from the table.
+Leo responds with the number of transactions deleted.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">delete 1</code><br>
+Expected: Transaction at ID 1 is deleted.
+Leo responds with details of the transaction deleted.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">delete 0</code><br>
+Expected: No Transaction is deleted.
+Leo responds with details of the invalid index inputted.</p>
+</li>
+<li>
+<p>Other incorrect Delete commands to try: <code class="blue">delete</code>, <code>delete x</code> (where x is more than the last ID
+in the table), <code class="blue">delete p/Jack</code> (Jack is not linked
+to any transactions)<br>
+Expected: Leo responds with error and no transaction is deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are at least one transaction at all times in the Home tab.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">edit 1 a/-15 d/mahjong paper</code><br>
+Expected: The transaction with ID 1 is edited with the specified parameters.
+Leo responds with the details of the transaction edited that is a spending.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">edit 1 a/15</code><br>
+Expected: The transaction with ID 1 is edited with the specified parameters.
+Leo responds with the details of the transaction edited that is an earning.</p>
+</li>
+<li>
+<p>Other incorrect Edit commands to try: <code class="blue">edit</code>, <code>edit x a/12</code> (where x is more than the last ID
+in the table), <code class="blue">edit 1 p/Jack</code> (Jack is not linked
+to any transactions)<br>
+Expected: Leo responds with error and no transaction is edited.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Finding transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are a few transactions at all times in the Home tab with some
+with linked to 'Alex Yeoh' and 'Alex Low'.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">find alex</code><br>
+Expected: The transactions linked to 'Alex Yeoh' and 'Alex Low' are shown.
+Leo responds with the number of matching transactions.</p>
+</li>
+<li>
+<p>Test case 2a: <code class="blue">find alex yeoh</code><br>
+Expected: The transactions linked to 'Alex Yeoh' are shown.
+Leo responds with the number of matching transactions.</p>
+</li>
+<li>
+<p>Test case 2b: Any other subsequent commands except Add command<br>
+Expected: The transactions linked to 'Alex Yeoh' are shown and the commands are carried out
+according to the filtered table. If a Sort command is entered, the filtered table is sorted.</p>
+</li>
+<li>
+<p>Test case 2c: Type <code class="blue">back</code><br>
+Expected: The full list of transactions are shown. If a Sort command was entered,
+the full list of transactions would be sorted.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting transactions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are some transactions in the table with varied dates, person and amounts.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">sort name</code><br>
+Expected: The transactions are sorted by their names, without taking into account
+of upper or lower cases.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">sort amount</code><br>
+Expected: The transactions are sorted by their amounts from the smallest (most negative) to
+largest amount.</p>
+</li>
+<li>
+<p>Test case 3: <code class="blue">sort date</code><br>
+Expected: The transactions are sorted by their dates from the oldest to the most
+recent.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="testing-members-tab-features"><a class="link" href="#testing-members-tab-features">G.4. Testing Members Tab Features</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Adding a person</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case 1: <code class="blue">add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code><br>
+Expected: Person with specified parameters are added into the list.</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>Deleting a person while all persons are listed</p>
 <div class="olist loweralpha">
@@ -3269,60 +3433,112 @@ Expected: The most recent window size and location is retained.</p>
 Multiple persons in the list.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
+<p>Test case 1: <code class="blue">delete 1</code><br>
 Expected: First contact is deleted from the list.
 Details of the deleted contact shown in the status message.
 Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
+<p>Test case 2: <code class="blue">delete 0</code><br>
 Expected: No person is deleted.
 Error details shown in the status message.
 Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code class="blue">delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.5. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Deleting a person when it has a transaction record</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: The person in the list to be deleted to have transaction records in
+the Home tab.</p>
+</li>
+<li>
+<p>Test case 1: <code>delete ID</code> (where ID is the index of the person with a linked transaction)<br>
+Expected: Unable to delete the person.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing a person</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is at least one person in the list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case 1: <code class="blue">edit 1 p/91234567 e/johndoe@example.com</code><br>
+Expected: The person at the index of 1 is edited with the specified parameters.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">edit 1</code><br>
+Expected: Nothing is edited and Leo responds to inform of this.</p>
+</li>
+<li>
+<p>Test case 3: <code class="blue">edit 0 p/91234567 e/johndoe@example.com</code><br>
+Expected: No person is edited and Leo responds to inform of this.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Other incorrect delete commands to try: <code class="blue">edit</code>, <code>edit x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Finding a person</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are a few people at all times in the Members tab. 'Alex Yeoh' and 'Alex Low'
+are present in the list.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">find alex</code><br>
+Expected: 'Alex Yeoh' and 'Alex Low' are shown.
+Leo responds with the number of matching person.</p>
+</li>
+<li>
+<p>Test case 2a: <code class="blue">find alex yeoh</code><br>
+Expected: The person 'Alex Yeoh' is shown.
+Leo responds with the number of matching person.</p>
+</li>
+<li>
+<p>Test case 2b: Any other subsequent commands except Add command<br>
+Expected: The person 'Alex Yeoh' is shown and the commands are carried out
+according to the filtered table.</p>
+</li>
+<li>
+<p>Test case 2c: Type <code class="blue">list</code><br>
+Expected: The full list of people are shown.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="testing-reimbursements-tab-features"><a class="link" href="#testing-reimbursements-tab-features">G.6. Testing Reimbursements Tab Features</a></h3>
+<h3 id="testing-reimbursements-tab-features"><a class="link" href="#testing-reimbursements-tab-features">G.5. Testing Reimbursements Tab Features</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="testing-inventory-tab-features"><a class="link" href="#testing-inventory-tab-features">G.7. Testing Inventory Tab Features</a></h3>
+<h3 id="testing-inventory-tab-features"><a class="link" href="#testing-inventory-tab-features">G.6. Testing Inventory Tab Features</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="testing-cashier-tab-features"><a class="link" href="#testing-cashier-tab-features">G.8. Testing Cashier Tab Features</a></h3>
+<h3 id="testing-cashier-tab-features"><a class="link" href="#testing-cashier-tab-features">G.7. Testing Cashier Tab Features</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3414,8 +3630,34 @@ Response message that items has been checked out successfully shown.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="testing-overview-tab-features"><a class="link" href="#testing-overview-tab-features">G.9. Testing Overview Tab Features</a></h3>
+<h3 id="testing-overview-tab-features"><a class="link" href="#testing-overview-tab-features">G.8. Testing Overview Tab Features</a></h3>
 
 </div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.9. Saving data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dealing with missing/corrupted data files</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There is existing data in the various data files.</p>
+</li>
+<li>
+<p>Before the application is open, corrupt some of the text files by deleting parts of it.<br>
+Then, open the application.<br>
+Expected: If the transactionHistory.txt file is changed, the Home and Reimbursements tab will start with an empty
+table. If the inventoryInformation.txt file is changed, the Inventory tab will start with an empty
+table. If the mytasks.txt and tasks.txt files are changed, the Overview tab lose the notification reminders
+set. If the addressbook.json is changed, the sample address book data would be populated in the Members tab.
+Changing the reimbursementInformation should not cause any issues.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:50:38 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:08:20 UTC</div></div></div></body></html>
