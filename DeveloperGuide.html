@@ -3783,10 +3783,15 @@ Response message prompting positive integer for quantity shown.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: There are some sales items in the Inventory tab.<br>
+<p>Prerequisites: There are some sales items in the cart on the Cashier tab.<br>
 Test case: <code class="blue">delete 1</code><br>
 Expected: First item on the cart is deleted.
-Response message that cup has been deleted successfully shown.</p>
+Response message that item has been deleted successfully shown.</p>
+</li>
+<li>
+<p>Prerequisites: There are no sales item in the Inventory tab.<br>
+Test case: <code class="blue">delete 1</code><br>
+Expected: Response message that there is no item at the inputted index shown.</p>
 </li>
 </ol>
 </div>
@@ -3798,7 +3803,14 @@ Response message that cup has been deleted successfully shown.</p>
 <li>
 <p>Prerequisites: There are some sales items in the Inventory tab.<br>
 Test case: <code class="blue">edit i/1 q/2</code><br>
-Expected: Quantity of first item on the cart is updated to 2. Response message that cup has been edited successfully shown.</p>
+Expected: Quantity of first item on the cart is updated to 2.
+Response message that item has been edited successfully shown.</p>
+</li>
+<li>
+<p>Prerequisites: There is an item with description "cup" in the cart.<br>
+Test case: <code class="blue">edit d/cup q/1</code><br>
+Expected: Quantity of item "cup" on the cart is updated to 1.
+Response message that quantity of cup has been edited successfully shown.</p>
 </li>
 </ol>
 </div>
@@ -3821,7 +3833,7 @@ Response message that cashier has been set successfully shown.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: A cashier is set and there are some sales item in the cart.<br>
+<p>Prerequisites: A cashier is set and there are some sales items in the cart.<br>
 Test case: <code class="blue">clear</code><br>
 Expected: Cashier on the bottom row is reset and all items in the cart are cleared.
 Response message that table has been cleared successfully shown.</p>
@@ -3834,7 +3846,7 @@ Response message that table has been cleared successfully shown.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: A cashier is set and there are some sales item in the cart.<br>
+<p>Prerequisites: A cashier has been set and there are some sales item in the cart.<br>
 Test case: <code class="blue">checkout 9</code><br>
 Expected: If amount inputted is sufficient, the total amount and change is shown.
 Cashier on the bottom row is reset and all items in the cart are cleared.
@@ -3921,4 +3933,4 @@ If the reimbursementInformation.txt is altered, all deadline data will be lost.<
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:38:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:55:42 UTC</div></div></div></body></html>
