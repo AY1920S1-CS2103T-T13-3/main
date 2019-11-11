@@ -1336,72 +1336,144 @@ So, alternative 2 is more efficient.</p></td>
 <div class="sect2">
 <h3 id="inventory-tab"><a class="link" href="#inventory-tab">3.4. Inventory Tab</a></h3>
 <div class="paragraph">
-<p>This tab will help to keep records of all items currently in the club’s possession.
-Each item will require an input of its description, category, quantity, and cost per unit.
-Optionally, if the item is meant for sale, the price can be inputted as well.</p>
+<p>This tab will help to keep records of all items currently in the club’s possession.</p>
 </div>
 <div class="paragraph">
-<p>This is the overall Class Diagram of this tab:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/InventoryTabClassDiagram.png" alt="InventoryTabClassDiagram">
-</div>
-<div class="title">Figure 38. Class Diagram of Inventory tab (inventory package)</div>
+<p>Each item will require an input of its description, category, quantity, and cost per unit.
+Optionally, if the item is meant for sale, the price can be inputted as well.</p>
 </div>
 <div class="sect3">
 <h4 id="add-item-feature"><a class="link" href="#add-item-feature">3.4.1. Add Item Feature</a></h4>
 <div class="paragraph">
-<p>This features allows the adding of items to the inventory.</p>
+<p>This section explains the implementation of the add command feature of the Inventory Tab,
+which allows the addition of items to the inventory. These items are represented by <code>Item</code> objects.
+The addition of an <code>Item</code> to the inventory requires an input of the <code>Item</code>’s description, category, quantity, and cost.
+The price field is optional and may be added only to an <code>Item</code> meant for sale.</p>
 </div>
 <div class="paragraph">
-<p>When adding a new item, the user is required to input the description, category, quantity and cost per unit of the item.
-The only attribute that is optional is the price.</p>
+<p>Due to the usage of <code>ArgumentMultimap</code>, the fields can be in any order as they are retrieved via the prefixes that
+precede them.</p>
 </div>
 <div class="paragraph">
-<p>For an input to be valid, it must contain all four of the previously mentioned attributes, and the input for each attribute must be of the correct type.
-For example, quantity and cost must be numbers.
-However, the attributes can be inputted in any order.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how an add command works with the description, category, quantity, cost and price fields present:</p>
-</div>
-<div class="paragraph">
-<div class="title">Sequence Diagram of Add Command in Inventory tab (inventory package)</div>
-<p><em>{ to be added }</em></p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram displays the process of adding a new item to the inventory:</p>
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<code>AddCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/InventoryAddCommandActivityDiagram.png" alt="InventoryAddCommandActivityDiagram">
+<img src="images/inventoryDG/AddCommandSeqDiagram.png" alt="AddCommandSeqDiagram">
 </div>
-<div class="title">Figure 39. Activity Diagram of Add Command in Inventory tab (inventory package)</div>
-</div>
-<div class="paragraph">
-<p>As shown above, the input will be evaluated for its validity.
-If the input is not valid, the user will be informed through Leo that the command was in an invalid format and reminded of the correct format.</p>
+<div class="title">Figure 38. Sequence Diagram of the Add Command in the Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
-<p>Otherwise, the user will be informed through Leo that their input was successful, and the item will immediately be displayed in the Table of the UI.</p>
+<p>If the description of the <code>Item</code> being added matches that of an existing <code>Item</code>, the new <code>Item</code>’s quantity is added to
+that of the existing <code>Item</code> and the cost per unit is recalculated. This is handled within the <code>AddCommandParser</code>,
+which also checks the validity of the input.</p>
+</div>
+<div class="paragraph">
+<p>It prohibits the addition of an <code>Item</code> with any value equivalent to or greater than 10,000. This includes the total cost
+and expected revenue of each <code>Item</code>. It also prohibits non-numeric inputs where numeric inputs are expected.
+This is conducted through the isValidNumericString(string) method which performs the aforementioned checks and
+returns a <code>Boolean</code> that represents the validity of the input.</p>
+</div>
+<div class="paragraph">
+<p>The following Sequence Diagram shows how the <code>AddCommandParser</code> creates an <code>Item</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryDG/AddCommandParserSeqDiagram.png" alt="AddCommandParserSeqDiagram">
+</div>
+<div class="title">Figure 39. Sequence Diagram of the Add Command Parser in the Inventory Tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>After the <code>Item</code> is created and the command is executed, the <code>LogicManager</code> updates the in-app <code>InventoryList</code> via the
+<code>ModelManager</code> and updates the data file via the <code>StorageManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a greater understanding of the flow of events and checks, you may consult the following activity diagram that shows
+the steps that follow the input of an add command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryDG/AddCommandFlowChart.png" alt="AddCommandFlowChart">
+</div>
+<div class="title">Figure 40. Activity Diagram of the Add Command in the Inventory Tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-item-feature"><a class="link" href="#delete-item-feature">3.4.2. Delete Item Feature</a></h4>
-
+<div class="paragraph">
+<p>This section explains the implementation of the delete command feature of the Inventory Tab, which allows the deletion
+of items from the inventory. This feature requires only the command keyword and an index or description as input.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<code>DeleteCommand</code> works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryDG/DeleteCommandSeqDiagram.png" alt="DeleteCommandSeqDiagram">
+</div>
+<div class="title">Figure 41. Sequence Diagram of the Delete Command in the Inventory Tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteCommandParser</code> is responsible for checking the validity of the input, and does not allow any indexes that
+are less than 1 or greater than the largest index currently in the list. It can also take in a description as input and
+compares it against existing <code>Item</code> s in the <code>InventoryList</code>. This comparison is case-insensitive.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="edit-item-feature"><a class="link" href="#edit-item-feature">3.4.3. Edit Item Feature</a></h4>
-
+<div class="paragraph">
+<p>This section explains the implementation of the edit command feature of the Inventory Tab, which allows you to edit
+items in the inventory. This feature requires the command keyword, an index and at least one field as input.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<code>EditCommand</code> works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryDG/EditCommandSeqDiagram.png" alt="EditCommandSeqDiagram">
+</div>
+<div class="title">Figure 42. Sequence Diagram of the Edit Command in the Inventory Tab (inventory package)</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="sort-items-feature"><a class="link" href="#sort-items-feature">3.4.4. Sort Items Feature</a></h4>
-
+<div class="paragraph">
+<p>This section explains the implementation of the sort command feature of the Inventory Tab, which allows the sorting
+of items within the inventory. There are 3 ways items can be sorted - by description, category or quantity.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<code>SortCommand</code> works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inventoryDG/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
+</div>
+<div class="title">Figure 43. Sequence Diagram of the Sort Command in the Inventory Tab (inventory package)</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="proposed-auto-complete-feature"><a class="link" href="#proposed-auto-complete-feature">3.4.5. [Proposed] Auto-Complete Feature</a></h4>
-
+<h4 id="overall-design-considerations-3"><a class="link" href="#overall-design-considerations-3">3.4.5. Overall Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section explains the design considerations for some crucial implementations in the Inventory Tab.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+<th class="tableblock halign-left valign-top">Conclusion and Explanation</th>
+</tr>
+</thead>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1481,7 +1553,7 @@ There will also be checks to ensure that the item specified is available for sal
 <div class="content">
 <img src="images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq">
 </div>
-<div class="title">Figure 40. Sequence Diagram of Add Command in Cashier tab (cashier package)</div>
+<div class="title">Figure 44. Sequence Diagram of Add Command in Cashier tab (cashier package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1515,7 +1587,7 @@ Once the item is added, boolean <code>onCashierMode</code> in ModelManager will 
 <div class="content">
 <img src="images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity">
 </div>
-<div class="title">Figure 41. Activity Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 45. Activity Diagram of Add Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1536,7 +1608,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandSeq1.png" alt="SetCashierCommandSeq1">
 </div>
-<div class="title">Figure 42. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
+<div class="title">Figure 46. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
@@ -1548,7 +1620,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandSeq2.png" alt="SetCashierCommandSeq2">
 </div>
-<div class="title">Figure 43. Sequence Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 47. Sequence Diagram of Set Cashier Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the inputted name is invalid, the user will be prompted to enter a valid name.</p>
@@ -1560,7 +1632,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandActivity.png" alt="SetCashierCommandActivity">
 </div>
-<div class="title">Figure 44. Activity Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 48. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1609,7 +1681,7 @@ After checkout command is executed, boolean <code>onCashierMode</code> in ModelM
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1">
 </div>
-<div class="title">Figure 45. Sequence Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 49. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction to the respective <code>.txt file</code>.<br>
@@ -1623,7 +1695,7 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq2.png" alt="CheckoutCommandCashierSeq2">
 </div>
-<div class="title">Figure 46. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
+<div class="title">Figure 50. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the amount inputted is less than the total amount of items, the user will be prompted to key in a valid value.</p>
@@ -1635,11 +1707,11 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <div class="content">
 <img src="images/CheckoutCommandCashierActivityDiag.png" alt="CheckoutCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 47. Activity Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 51. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="overall-design-considerations-3"><a class="link" href="#overall-design-considerations-3">3.5.4. Overall Design Considerations</a></h4>
+<h4 id="overall-design-considerations-4"><a class="link" href="#overall-design-considerations-4">3.5.4. Overall Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section explains the design considerations for some crucial implementations in the Cashier tab.</p>
 </div>
@@ -1734,7 +1806,7 @@ There are four main statistics shown:</p>
 <div class="content">
 <img src="images/OverviewSetCommandSD.png" alt="OverviewSetCommandSD">
 </div>
-<div class="title">Figure 48. Sequence Diagram of Set Command in the Overview package.</div>
+<div class="title">Figure 52. Sequence Diagram of Set Command in the Overview package.</div>
 </div>
 <div class="paragraph">
 <p>After execution of the command, the <code>LogicManager</code> also instructs the <code>StorageManager</code> to save the new information to the data file.</p>
@@ -1753,7 +1825,7 @@ Upon hitting that percentage for a particular financial goal, the user will auto
 <div class="content">
 <img src="images/OverviewNotifyCommandSD.png" alt="OverviewNotifyCommandSD">
 </div>
-<div class="title">Figure 49. Sequence Diagram of Notify Command in the Overview Package</div>
+<div class="title">Figure 53. Sequence Diagram of Notify Command in the Overview Package</div>
 </div>
 <div class="paragraph">
 <p>After execution of the command, the <code>LogicManager</code> also instructs the <code>StorageManager</code> to save the new information to the data file.
@@ -1763,7 +1835,7 @@ The full execution of the command is shown in the activity diagram below:</p>
 <div class="content">
 <img src="images/OverviewNotifyActivityDiagram.png" alt="OverviewNotifyActivityDiagram">
 </div>
-<div class="title">Figure 50. Activity Diagram of Notify Command in the Overview Package</div>
+<div class="title">Figure 54. Activity Diagram of Notify Command in the Overview Package</div>
 </div>
 </div>
 <div class="sect3">
@@ -3590,7 +3662,127 @@ Expected: Leo responds with an error message that the command is invalid.</p>
 </div>
 <div class="sect2">
 <h3 id="testing-inventory-tab-features"><a class="link" href="#testing-inventory-tab-features">F.6. Testing Inventory Tab Features</a></h3>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The description, category, quantity and cost prefixes must be present. Quantity and cost must be a
+positive number less than 10,000. Quantity cannot be 0.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">add d/Shorts c/Clothing q/10 co/9 p/9</code><br>
+Expected: Leo responds with a success message with a brief description of the Item&#8217;s information.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">add d/ c/ q/10 co/9</code><br>
+Expected: Leo responds with a success message with a brief description of the Item&#8217;s information, where the description
+and category are empty, and the price is absent.</p>
+</li>
+<li>
+<p>Test case 3: <code class="blue">add d/Shorts c/Clothing q/10 co/9999 p/9999</code><br>
+Expected: Leo responds with an error message that the total is too large.</p>
+</li>
+<li>
+<p>Test case 4: <code class="blue">add d/Shorts c/Clothing q/-1 co/9 p/9</code><br>
+Expected: Leo responds with an error message with the specifications for valid numbers
+(positive number less than 10,000).</p>
+</li>
+<li>
+<p>Test case 5: <code class="blue">add d/Shorts c/Clothing q/number co/99 p/99</code><br>
+Expected: Leo responds with an error message with the specifications for valid numbers
+(positive number less than 10,000).</p>
+</li>
+<li>
+<p>Test case 6: <code class="blue">add d/Shorts c/Clothing q/10 co/9 p/12</code><br>
+<code class="blue">add d/shorts c/clothes q/50 co/8 p/9</code><br>
+Expected: Leo responds with a success message, stating that the item already exists and that the quantity,
+cost/unit and price have been updated. The item will have the following information:<br>
+Description: Shorts<br>
+Category: Clothing<br>
+Quantity: 60<br>
+Cost: 8.17<br>
+Price: 9.00</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting an item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The index/description must exist in the list.</p>
+</li>
+<li>
+<p>Test case 1: <code class="blue">delete 1</code><br>
+Expected: Leo responds with a success message and a brief description of the deleted item.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">delete shorts</code><br>
+Expected: Leo responds with a success message and a brief description of the deleted shorts item, given that an item
+with the description shorts had existed in the list.</p>
+</li>
+<li>
+<p>Test case 3: <code class="blue">delete -1</code><br>
+Expected: Leo responds with an error message that there is no item at that index.</p>
+</li>
+<li>
+<p>Test case 4: <code class="blue">delete shirt</code><br>
+Expected: If the list does not contain an item with the description shirt, Leo responds with an error message that there
+is no such item.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing an item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case 1: <code class="blue">edit 1 d/new description</code><br>
+Expected: The item at index 1 now has the description "new description". Leo responds with a success message comparing
+the item before and after the edit.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">edit 1 d/</code><br>
+Expected: The item at index 1 now has an empty description. Leo responds with a success message comparing
+the item before and after the edit.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">edit</code><br>
+Expected: Leo responds with an error message detailing the correct edit command format.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">edit 1</code><br>
+Expected: Leo responds with an error message that the item was not edited and detailing the correct edit command format.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting the items</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case 1: <code class="blue">sort description</code><br>
+Expected: Leo responds with a success message even if the list is empty.</p>
+</li>
+<li>
+<p>Test case 2: <code class="blue">sort category</code><br>
+Expected: Leo responds with a success message even if the list is empty.</p>
+</li>
+<li>
+<p>Test case 3: <code class="blue">sort quantity</code><br>
+Expected: Leo responds with a success message even if the list is empty.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="testing-cashier-tab-features"><a class="link" href="#testing-cashier-tab-features">F.7. Testing Cashier Tab Features</a></h3>
@@ -3758,4 +3950,4 @@ Changing the reimbursementInformation should not cause any issues.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:36:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:39:25 UTC</div></div></div></body></html>

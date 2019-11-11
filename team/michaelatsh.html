@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tang Shi Hui, Michaela – Project Portfolio for treasurerPro (tP)</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">treasurerPro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T13-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tang Shi Hui, Michaela – Project Portfolio for treasurerPro (tP)</h1></div><div id="content"><div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio briefly introduces the project, treasurerPro (tP), and showcases my contributions.</p>
+</div>
+<div class="sect2">
+<h3 id="about-the-team"><a class="link" href="#about-the-team">1.1. About the Team</a></h3>
+<div class="paragraph">
+<p>Our team consists of five members. Four, including me, are Year 2 Computer Science Undergraduate students, and one is a
+Year 4 Computer Engineering Undergraduate student.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="about-the-project"><a class="link" href="#about-the-project">1.2. About the Project</a></h3>
+<div class="paragraph">
+<p>This project was created as part of the “CS2103T Software Engineering” module, a project-driven software engineering
+module offered by the National University of Singapore (NUS). We were tasked with the assignment of morphing or
+enhancing an existing desktop application called AddressBook over the course of 13 weeks and chose the former. I am
+proud to present to you the end result of our hard work – treasurerPro.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="about-the-product"><a class="link" href="#about-the-product">1.3. About the Product</a></h3>
+<div class="paragraph">
+<p>treasurerPro is a desktop application that enables treasurers or members of Co-Curricular Activities (CCA) clubs to
+manage their club’s finances, members’ details, reimbursements, and inventory, as well as oversee their financial
+growth and long-term goals. It can operate entirely using text commands typed into the command box found at the top of
+the application.</p>
+</div>
+<div class="paragraph">
+<p>This is the application’s appearance when first opened:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AnnotatedUi.png" alt="AnnotatedUi" width="700">
+</div>
+<div class="title">Figure 1. Graphical User Interface of treasurerPro</div>
+</div>
+<div class="paragraph">
+<p>As seen from the above Figure, the application has 6 tabs with unique roles. All tabs are integrated. The 6 tabs are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Home tab, which keeps track of all transactions made.</p>
+</li>
+<li>
+<p>The Members tab, which records all of the club members’ details.</p>
+</li>
+<li>
+<p>The Reimbursements tab, which keeps track of all reimbursements that must be made to individual members.</p>
+</li>
+<li>
+<p>The Inventory tab, which keeps track of all items bought by the club.</p>
+</li>
+<li>
+<p>The Cashier tab, which simulates a cash register and supports the management of sales.</p>
+</li>
+<li>
+<p>The Overview tab, which presents a summary of the data of the other tabs in easy-to-decipher diagrams and allows you
+to plan the club’s finances.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="legend"><a class="link" href="#legend">1.4. Legend</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This symbol indicates extra information or definition.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>Model</code> :
+Text with this font and grey highlight indicates a component, class or object in the architecture of
+the application. It also indicates a generic command format for the command box in the User Guide.</p>
+</div>
+<div class="paragraph">
+<p><code class="blue">command</code> :
+Text with this blue font and grey highlight indicates a command that can be inputted by the user.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of Contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My role was to design and write the code for the Inventory tab. This section will describe my contributions in greater
+detail.</p>
+</div>
+<div class="sect2">
+<h3 id="main-contributions"><a class="link" href="#main-contributions">2.1. Main Contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Addition, Deletion and Editing of Items</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Function: These features allow you to add, delete and update the items in the inventory tab.</p>
+</li>
+<li>
+<p>Justification: These features are essential for the proper management of items in the inventory. They allow you to
+have full control of the details of the items owned by the club.</p>
+</li>
+<li>
+<p>Highlights: When adding an item with the same description, the quantity of the new input is added to the current
+quantity and the cost per unit is recalculated appropriately.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sorting of Items</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Function: This feature allows you to sort the list of items in 3 distinct ways – description, category and quantity.</p>
+</li>
+<li>
+<p>Justification: It aids you in re-ordering the list as you please. This can help you with various matters such as
+spotting items low in quantity and in need of restocking.</p>
+</li>
+<li>
+<p>Highlights: If you change your mind, the <code>sort reset</code> command allows you to revert the list to the order it was in
+when the application was first opened.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">2.2. Other Contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation:</p>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped to fix teammates' test cases.</p>
+</li>
+<li>
+<p>Cleaned checkstyle errors in other teammates' packages.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section showcases some of my contributions to the User Guide.</p>
+</div>
+<div class="paragraph">
+<p>{Start of the extract from the User Guide}</p>
+</div>
+<div class="sect3">
+<h4 id="AddCommandInventory"><a class="link" href="#AddCommandInventory">5.4.1. Add an Item:</a></h4>
+<div class="paragraph">
+<p>This command allows you to add an item to the table and saves it into the system.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Description and category can be empty, but their field prefixes (d/ and c/) must be present.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:
+<code>add d/DESCRIPTION c/CATEGORY q/QUANTITY co/COST_PER_UNIT [p/PRICE]</code></p>
+</li>
+<li>
+<p>Examples:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code class="blue">add d/T-Shirt c/Clothing q/20 co/5 p/14</code></p>
+</li>
+<li>
+<p><code class="blue">add d/Cupcake c/Food q/10 co/2</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The attributes can also be inputted in any order.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with all parameters filled in, as shown in the screenshot below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryUG/AddStep1.png" alt="AddStep1" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the command is successfully added, Leo will respond with a success message and the item
+will be shown in the table. This is shown in the screenshot below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryUG/AddSuccess.png" alt="AddSuccess" width="600">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the description of the input matches that of an existing item, a new item will not be added.
+Instead, the quantity will reflect the combined quantity of the input and the existing item, and the price and cost/unit
+will be updated. However, the category will not change, even if it differs from that of the original item.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteCommandInventory"><a class="link" href="#DeleteCommandInventory">5.4.2. Delete an Item:</a></h4>
+<div class="paragraph">
+<p>This command allows you to delete an item in the table by ID or by description.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command is case-insensitive.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command:
+<code>delete ID</code>
+<code>delete DESCRIPTION</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:
+<code class="blue">delete 1</code>
+<code class="blue">delete t-shirt</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type the command with the ID or description of the item to be deleted. An example of deleting using the ID is shown
+below:</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryUG/DeleteStep1.png" alt="DeleteStep1" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Hit <code>Enter</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Leo will respond with a success message and the item will be removed from the table as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryUG/DeleteSuccess.png" alt="DeleteSuccess" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>{End of the extract from the User Guide}</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section showcases some of my contributions to the User Guide.</p>
+</div>
+<div class="paragraph">
+<p>{Start of the first extract from Developer Guide}
+:sectnums!:</p>
+</div>
+<div class="sect3">
+<h4 id="AddCommandInventory"><a class="link" href="#AddCommandInventory">3.4.1. Add Item Feature</a></h4>
+<div class="paragraph">
+<p>This section explains the implementation of the add command feature of the Inventory Tab,
+which allows the addition of items to the inventory. These items are represented by <code>Item</code> objects.
+The addition of an <code>Item</code> to the inventory requires an input of the <code>Item</code>’s description, category, quantity, and cost.
+The price field is optional and may be added only to an <code>Item</code> meant for sale.</p>
+</div>
+<div class="paragraph">
+<p>Due to the usage of <code>ArgumentMultimap</code>, the fields can be in any order as they are retrieved via the prefixes that
+precede them.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+AddCommand works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryDG/AddCommandSeqDiagram.png" alt="AddCommandSeqDiagram">
+</div>
+<div class="title">Figure 2. Sequence Diagram of the Add Command in the Inventory Tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>If the description of the <code>Item</code> being added matches that of an existing <code>Item</code>, the new <code>Item</code>’s quantity is added to
+that of the existing <code>Item</code> and the cost per unit is recalculated. This is handled within the <code>AddCommandParser</code>,
+which also checks the validity of the input.</p>
+</div>
+<div class="paragraph">
+<p>It prohibits the addition of an <code>Item</code> with any value equivalent to or greater than 10,000. This includes the total cost
+and expected revenue of each <code>Item</code>. It also prohibits non-numeric inputs where numeric inputs are expected.
+This is conducted through the isValidNumericString(string) method which performs the aforementioned checks and
+returns a <code>Boolean</code> that represents the validity of the input.</p>
+</div>
+<div class="paragraph">
+<p>The following Sequence Diagram shows how the AddCommandParser creates an <code>Item</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryDG/AddCommandParserSeqDiagram.png" alt="AddCommandParserSeqDiagram">
+</div>
+<div class="title">Figure 3. Sequence Diagram of the Add Command Parser in the Inventory Tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>After the <code>Item</code> is created and the command is executed, the <code>LogicManager</code> updates the in-app <code>InventoryList</code> via the
+<code>ModelManager</code> and updates the data file via the <code>StorageManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a greater understanding of the flow of events and checks, you may consult the following activity diagram that shows
+the steps that follow the input of an add command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryDG/AddCommandFlowChart.png" alt="AddCommandFlowChart">
+</div>
+<div class="title">Figure 4. Activity Diagram of the Add Command in the Inventory Tab (inventory package)</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteCommandInventory"><a class="link" href="#DeleteCommandInventory">3.4.2. Delete Item Feature</a></h4>
+<div class="paragraph">
+<p>This section explains the implementation of the delete command feature of the Inventory Tab, which allows the deletion
+of items from the inventory. This feature requires only the command keyword and an index or description as input.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<code>DeleteCommand</code> works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryDG/DeleteCommandSeqDiagram.png" alt="DeleteCommandSeqDiagram">
+</div>
+<div class="title">Figure 5. Sequence Diagram of the Delete Command in the Inventory Tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteCommandParser</code> is responsible for checking the validity of the input, and does not allow any indexes that
+are less than 1 or greater than the largest index currently in the list. It can also take in a description as input and
+compares it against existing <code>Item</code> s in the <code>InventoryList</code>. This comparison is case-insensitive.
+{End of the first extract from Developer Guide}
+{Start of the second extract from Developer Guide}
+{End of the second extract from Developer Guide}</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 05:39:25 UTC</div></div></div></body></html>
