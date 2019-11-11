@@ -642,7 +642,8 @@ Given below is a Class Diagram showing the structure of <code>Parser</code> with
 <div class="sect2">
 <h3 id="3-6-overview-tab"><a class="link" href="#3-6-overview-tab">3.6 Overview Tab</a></h3>
 <div class="paragraph">
-<p>This tab displays various summary statistics for the data within treasurerPro. There are four main statistics shown:</p>
+<p>This tab displays various summary statistics for the data within treasurerPro.
+There are four main statistics shown:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -750,6 +751,26 @@ the long run as their lists of transactions and items become larger and larger.<
 <p class="tableblock">Additionally, it allows for future extensibility of summary statistics, as new statistics can be created simply by
 modifying or adding on new criteria.</p></td>
 </tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A design consideration was also made for the implementation of the notifications that are to be displayed
+to the user upon hitting the notification threshold. These are shown in the table below:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2 (Current Choice)</th>
+<th class="tableblock halign-left valign-top">Conclusion and Explanation</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A new class is created to act as a notifier, and is called after the execution of every command to check if any
 notifications need to be displayed to the user.</p>
@@ -790,10 +811,139 @@ implementation of this function,</p></td>
 }</pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="3-7-proposed-undo-redo-feature"><a class="link" href="#3-7-proposed-undo-redo-feature">3.7 [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="3-7-1-proposed-implementation"><a class="link" href="#3-7-1-proposed-implementation">3.7.1 Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The undo/redo mechanism is facilitated by <code>VersionedtreasurerPro</code>.
+It extends each tab&#8217;s <code>Model</code> with an undo/redo history, stored internally as a <code>tabStateList</code> and <code>tabStatePointer</code>.
+Additionally, it implements the following operations in each tab&#8217;s <code>ModelManager</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ModelManager#commit()</code>&#8201;&#8212;&#8201;Saves the current tab&#8217;s state in its history.</p>
+</li>
+<li>
+<p><code>ModelManager#undo()</code>&#8201;&#8212;&#8201;Restores the previous tab&#8217;s state from its history.</p>
+</li>
+<li>
+<p><code>ModelManager#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone tab&#8217;s state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface of the tab as <code>Model#commit()</code>, <code>Model#undo()</code> and <code>Model#redo()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.
+Each package&#8217;s model will be initialized with their initial default state, and the
+<code>tabStatePointer</code> of each package pointing to that state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes a command that modifies the application state.
+The command calls <code>Model#commit()</code>. The state after executing the command is saved in the <code>tabStateList</code>, and the
+<code>tabStatePointer</code> is shifted to that new state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Commands that do not modify the application state will not call <code>Model#commit()</code>, and thus no new state
+will be created in <code>tabStateList</code>. The <code>tabStatePointer</code> will continue to point at the same state.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>undo</code> to undo the last command.
+The <code>undo</code> command calls <code>Model#undo</code>, which shifts the currentStatePointer to the previous state,
+restoring it to that state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>tabStatePointer</code> is already pointing to the first item in the list, an error will be returned to the
+user and nothing will be done.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes <code>redo</code> to redo the last <code>undo</code> command.
+The <code>redo</code> command calls <code>Model#redo</code>, which shifts the currentStatePointer to the next state,
+restoring it to that state. In this case, it is identical to after Step 2.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="3-7-2-design-considerations"><a class="link" href="#3-7-2-design-considerations">3.7.2 Design Considerations</a></h4>
+<div class="paragraph">
+<p>In order to implement the undo/redo command, several alternatives in design were considered before
+settling on the current implementation:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Alternative 1 (Current Choice)</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+<th class="tableblock halign-left valign-top">Conclusion and Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The state of the tab is saved after every command.</p>
+<p class="tableblock"><strong>Pros</strong>: This is much easier to implement.</p>
+<p class="tableblock"><strong>Cons</strong>: Extra memory is used to store each state after every command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each command is capable of undoing/redoing itself.</p>
+<p class="tableblock"><strong>Pros</strong>: Less memory is required.</p>
+<p class="tableblock"><strong>Cons</strong>: The implementation of each command becomes more complex, as it must be able to correctly undo/redo itself.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is selected due to its ease of implementation. Most modern computers also have sufficient
+memory space to store extra states.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>{End of second extract from Developer Guide}</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:36:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:48:52 UTC</div></div></div></body></html>
