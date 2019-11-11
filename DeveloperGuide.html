@@ -1413,6 +1413,15 @@ If the input is not valid, the user will be informed through Leo that the comman
 <p>Upon every successful checkout, all the sales items sold will recorded as one transaction, which will subsequently be appended to the list of transactions on the Home tab.
 In addition, the stock remaining in the inventory will be updated accordingly in the Inventory tab.</p>
 </div>
+<div class="paragraph">
+<p>This is the overall Class Diagram of this tab:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UMLCashierTab.png" alt="UMLCashierTab" width="650">
+</div>
+<div class="title">Figure 40. Class Diagram of Cashier Tab (cashier package)</div>
+</div>
 <div class="sect3">
 <h4 id="add-sales-item-feature"><a class="link" href="#add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h4>
 <div class="paragraph">
@@ -1460,7 +1469,8 @@ according to the specified category and suggestions would be shown by Leo, the a
 </div>
 <div class="paragraph">
 <div class="title">Code snippet of <code>getCombination(char[] arr, int n)</code> method from Cashier package</div>
-<p>The <code>getCombination(arr, arr.length)</code> method in the above snippet consists of 3 nested loops. The first loop decides the
+<p><br>
+The <code>getCombination(arr, arr.length)</code> method in the above snippet consists of 3 nested loops. The first loop decides the
 starting character. The second loop takes each of the characters on the right of the starting character as the ending character.
 The last loop appends all the characters from the starting character to the ending character. After iterating through the nested loops,
 the ArrayList <code>result</code> is passed into a stream to filter out all subsets of length less than 3.</p>
@@ -1480,7 +1490,7 @@ There will also be checks to ensure that the item specified is available for sal
 <div class="content">
 <img src="images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq">
 </div>
-<div class="title">Figure 40. Sequence Diagram of Add Command in Cashier tab (cashier package)</div>
+<div class="title">Figure 41. Sequence Diagram of Add Command in Cashier tab (cashier package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1514,7 +1524,7 @@ Once the item is added, boolean <code>onCashierMode</code> in ModelManager will 
 <div class="content">
 <img src="images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity">
 </div>
-<div class="title">Figure 41. Activity Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 42. Activity Diagram of Add Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1535,7 +1545,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandSeq1.png" alt="SetCashierCommandSeq1">
 </div>
-<div class="title">Figure 42. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
+<div class="title">Figure 43. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
@@ -1547,7 +1557,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandSeq2.png" alt="SetCashierCommandSeq2">
 </div>
-<div class="title">Figure 43. Sequence Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 44. Sequence Diagram of Set Cashier Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the inputted name is invalid, the user will be prompted to enter a valid name.</p>
@@ -1559,7 +1569,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandActivity.png" alt="SetCashierCommandActivity">
 </div>
-<div class="title">Figure 44. Activity Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 45. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1608,7 +1618,7 @@ After checkout command is executed, boolean <code>onCashierMode</code> in ModelM
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1">
 </div>
-<div class="title">Figure 45. Sequence Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 46. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction to the respective <code>.txt file</code>.<br>
@@ -1622,7 +1632,7 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq2.png" alt="CheckoutCommandCashierSeq2">
 </div>
-<div class="title">Figure 46. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
+<div class="title">Figure 47. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the amount inputted is less than the total amount of items, the user will be prompted to key in a valid value.</p>
@@ -1634,7 +1644,7 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <div class="content">
 <img src="images/CheckoutCommandCashierActivityDiag.png" alt="CheckoutCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 47. Activity Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 48. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1733,7 +1743,7 @@ There are four main statistics shown:</p>
 <div class="content">
 <img src="images/OverviewSetCommandSD.png" alt="OverviewSetCommandSD">
 </div>
-<div class="title">Figure 48. Sequence Diagram of Set Command in the Overview package.</div>
+<div class="title">Figure 49. Sequence Diagram of Set Command in the Overview package.</div>
 </div>
 <div class="paragraph">
 <p>After execution of the command, the <code>LogicManager</code> also instructs the <code>StorageManager</code> to save the new information to the data file.</p>
@@ -1752,7 +1762,7 @@ Upon hitting that percentage for a particular financial goal, the user will auto
 <div class="content">
 <img src="images/OverviewNotifyCommandSD.png" alt="OverviewNotifyCommandSD">
 </div>
-<div class="title">Figure 49. Sequence Diagram of Notify Command in the Overview Package</div>
+<div class="title">Figure 50. Sequence Diagram of Notify Command in the Overview Package</div>
 </div>
 <div class="paragraph">
 <p>After execution of the command, the <code>LogicManager</code> also instructs the <code>StorageManager</code> to save the new information to the data file.
@@ -1762,7 +1772,7 @@ The full execution of the command is shown in the activity diagram below:</p>
 <div class="content">
 <img src="images/OverviewNotifyActivityDiagram.png" alt="OverviewNotifyActivityDiagram">
 </div>
-<div class="title">Figure 50. Activity Diagram of Notify Command in the Overview Package</div>
+<div class="title">Figure 51. Activity Diagram of Notify Command in the Overview Package</div>
 </div>
 </div>
 <div class="sect3">
@@ -3757,4 +3767,4 @@ Changing the reimbursementInformation should not cause any issues.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:21:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:54:00 UTC</div></div></div></body></html>
