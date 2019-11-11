@@ -162,6 +162,11 @@ This command can be extended easily to allow for sorting of transactions in the 
 <p>Helped to Debug Code in Other Member&#8217;s Package:
 <a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/126">(PR #126)</a></p>
 </li>
+<li>
+<p>Extracted Repetitive Code in All Packages:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/133">(PR #133)</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/385">(PR #385)</a></p>
+</li>
 </ul>
 </div>
 </li>
@@ -580,7 +585,7 @@ list of transactions, the back command must be entered to call that method from 
 object for viewing in the UI table that can be sorted such that when <code class="blue">sort reset</code> is called, the <code>TransactionList</code> for viewing can be set to be equals to the original one.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModelManager</code> contains only the shown <code>TransactionList</code> that can be sorted and reads from the data file to get
 the <code>TransactionList</code> object in original order when <code class="blue">sort reset</code> is called.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. Alternative 1 allows the data file to be exported in the desired order anytime while treasurerPro is running while
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 has been implemented. Alternative 1 allows the data file to be exported in the desired order anytime while treasurerPro is running while
 alternative 2 meant that the data file would be updated only when treasurerPro is exited. The implementation is shown in <a href="#lists">Figure 24</a>, below the table.</p></td>
 </tr>
 <tr>
@@ -588,13 +593,13 @@ alternative 2 meant that the data file would be updated only when treasurerPro i
 of <code>ModelManager</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A new interface is made to allow the only used method of Members Tab&#8217;s <code>ModelManager</code> to be accessed in Transaction Tab&#8217;s
 <code>Logic</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 was implemented. The new interface acts as a facade for <code>ModelManager</code> which prevent unwanted modifications
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 has been implemented. The new interface acts as a facade for <code>ModelManager</code> which prevent unwanted modifications
 to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPersonByNameOnlyModel</code> as shown in <a href="#facade">Figure 25</a>, below the table.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An <code>ArrayList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A <code>LinkedList</code> is used to store <code>Transaction</code> objects in <code>TransactionList</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 was implemented. An <code>ArrayList</code> has better performance for the set and get methods than a <code>LinkedList</code> which would be used frequently in <code>ModelManager</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 has been implemented. An <code>ArrayList</code> has better performance for the set and get methods than a <code>LinkedList</code> which would be used frequently in <code>ModelManager</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -616,4 +621,4 @@ to <code>AddressBook</code>. The interface implemented is <code>CheckAndGetPerso
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:53:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:57:30 UTC</div></div></div></body></html>
