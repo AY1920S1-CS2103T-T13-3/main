@@ -108,7 +108,7 @@ managing of the organisation&#8217;s finances. The following shows the various t
 <p>My responsibilities include designing the layout, implementing the features for the Cashier tab and ensuring good code quality across all packages.</p>
 </div>
 <div class="paragraph">
-<p>The following sections present the enhancements that I have implemented in greater detail, as well as the relevant documentation I have done in the user guide and developer guide.</p>
+<p>The following sections present the enhancements that I have implemented in greater details, as well as the relevant documentation I have done in the user guide and developer guide.</p>
 </div>
 <div class="sect2">
 <h3 id="main-enhancements"><a class="link" href="#main-enhancements">2.1. Main Enhancements</a></h3>
@@ -213,7 +213,7 @@ requests in relation to the relevant contributions.</p>
 <ul>
 <li>
 <p>Wrote tests for several <code>Inventory</code> classes:
-<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/148">(PR #148)</a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/156">(PR #156)</a></p>
 </li>
 <li>
 <p>Refactored code to write to and from <code>Inventory</code> and <code>Transaction</code> package and updated the respective models:
@@ -394,7 +394,7 @@ specified as shown in the screenshot below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="5-5-5-checkout-all-sales-items"><a class="link" href="#5-5-5-checkout-all-sales-items">5.5.5 Checkout All Sales Items</a></h3>
+<h3 id="5-5-5-checkout-all-sales-items"><a class="link" href="#5-5-5-checkout-all-sales-items">5.5.5. Checkout All Sales Items</a></h3>
 <div class="paragraph">
 <p>This command enables you to perform a checkout of all the sales items in the table.</p>
 </div>
@@ -483,27 +483,30 @@ The Home tab will be updated with this transaction and the remaining stock in th
 <div class="paragraph">
 <p>{Start of First Extract from Developer Guide}</p>
 </div>
-<div class="sect3">
-<h4 id="details-on-code-logic-code-implementation-for-the-inventory-and-cashier-tab"><a class="link" href="#details-on-code-logic-code-implementation-for-the-inventory-and-cashier-tab">Details on <code>Logic</code> Implementation for the Inventory and Cashier Tab</a></h4>
+<div class="sect2">
+<h3 id="2-3-3-details-on-code-logic-code-implementation-for-the-inventory-and-cashier-tab"><a class="link" href="#2-3-3-details-on-code-logic-code-implementation-for-the-inventory-and-cashier-tab">2.3.3. Details on <code>Logic</code> Implementation for the Inventory and Cashier Tab</a></h3>
 <div class="paragraph">
 <p>This section will show further details of the <code>Logic</code> Component of the Inventory tab and Cashier tab.
 Given below is a Class Diagram showing the structure of <code>Parser</code> within the <code>Logic</code> component:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ParserForInventoryCashier.png" alt="ParserForInventoryCashier">
+<img src="../images/ParserForInventoryCashier.png" alt="ParserForInventoryCashier" width="350">
 </div>
 <div class="title">Figure 38. Structure of <code>Parser</code> for the Inventory and Cashier tabs</div>
 </div>
 <div class="paragraph">
-<p>{Start of First Extract from Developer Guide}</p>
+<p>The XYZTabParser represents the InventoryTabParser for the Inventory tab and CashierTabParser for the Cashier tab.</p>
+</div>
+<div class="paragraph">
+<p>{End of First Extract from Developer Guide}</p>
 </div>
 <div class="paragraph">
 <p>{Start of Second Extract from Developer Guide}</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="3-5-1-add-sales-item-feature"><a class="link" href="#3-5-1-add-sales-item-feature">3.5.1 Add Sales Item Feature</a></h3>
+<h3 id="3-5-1-add-sales-item-feature"><a class="link" href="#3-5-1-add-sales-item-feature">3.5.1. Add Sales Item Feature</a></h3>
 <div class="paragraph">
 <p>This feature allows the adding of sales items to the cart.</p>
 </div>
@@ -559,7 +562,7 @@ the ArrayList <code>result</code> is passed into a stream to filter out all subs
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq" width="270">
+<img src="../images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq" width="300">
 </div>
 <div class="title">Figure 39. Sequence Diagram of Add Command in Cashier Tab (cashier package)</div>
 </div>
@@ -586,7 +589,7 @@ it is initially false.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity" width="600">
+<img src="../images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity" width="750">
 </div>
 <div class="title">Figure 40. Activity Diagram of Add Command (cashier package)</div>
 </div>
@@ -598,7 +601,7 @@ it is initially false.
 </div>
 </div>
 <div class="sect2">
-<h3 id="3-5-3-checkout-feature"><a class="link" href="#3-5-3-checkout-feature">3.5.3 Checkout Feature</a></h3>
+<h3 id="3-5-3-checkout-feature"><a class="link" href="#3-5-3-checkout-feature">3.5.3. Checkout Feature</a></h3>
 <div class="paragraph">
 <p>This feature records all the sales items in the table as one transaction under the <code>Sales</code> category.</p>
 </div>
@@ -643,7 +646,7 @@ immediately set to false.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1" width="280">
+<img src="../images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1" width="300">
 </div>
 <div class="title">Figure 44. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
@@ -670,7 +673,7 @@ called to read in the entire inventory data file and transaction will be added t
 </div>
 </div>
 <div class="sect2">
-<h3 id="3-1-5-overall-design-considerations"><a class="link" href="#3-1-5-overall-design-considerations">3.1.5 Overall Design Considerations</a></h3>
+<h3 id="3-1-5-overall-design-considerations"><a class="link" href="#3-1-5-overall-design-considerations">3.1.5. Overall Design Considerations</a></h3>
 <div class="paragraph">
 <p>This section explains the design considerations for some crucial implementations in the Cashier tab.</p>
 </div>
@@ -728,4 +731,4 @@ methods from different sources and eliminates any chances of uncoordinated data 
 </div>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. A desktop application is an application that runs on various Operating System including Windows, macOS or Linux.</div><div class="footnote" id="_footnote_2"><a href="#_footnoteref_2">2</a>. Command Line Interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:58:24 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. A desktop application is an application that runs on various Operating System including Windows, macOS or Linux.</div><div class="footnote" id="_footnote_2"><a href="#_footnoteref_2">2</a>. Command Line Interface (CLI) is a text-based user interface (UI) that allows the user to interact with the system using commands</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:59:48 UTC</div></div></div></body></html>
