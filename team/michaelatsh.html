@@ -35,7 +35,7 @@ the application.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AnnotatedUi.png" alt="AnnotatedUi" width="700">
+<img src="../images/AnnotatedUi.png" alt="AnnotatedUi">
 </div>
 <div class="title">Figure 1. Graphical User Interface of treasurerPro</div>
 </div>
@@ -148,19 +148,26 @@ in when the application was first opened.</p>
 <ul>
 <li>
 <p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Proofread User Guide and Developer Guide for spelling and grammatical errors.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Helped to fix teammates' test cases.</p>
+<p>Cleaned checkstyle errors and helped to solve bugs in other teammates' packages:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/98/commits/b66f1e4b99f3687e6c55894ae9aafa675468375a">(PR #98)</a></p>
 </li>
 <li>
-<p>Cleaned checkstyle errors in other teammates' packages.</p>
-</li>
-<li>
-<p>Helped to edit other teammate&#8217;s User Guide.</p>
+<p>Helped to edit other teammate&#8217;s User Guide:
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/371">(PR #371)</a>
+<a href="https://github.com/AY1920S1-CS2103T-T13-3/main/pull/387">(PR #387)</a></p>
 </li>
 </ul>
 </div>
@@ -199,7 +206,7 @@ Description and category can be empty, but their field prefixes (d/ and c/) must
 <div class="ulist">
 <ul>
 <li>
-<p>Command:
+<p>Command:<br>
 <code>add d/DESCRIPTION c/CATEGORY q/QUANTITY co/COST_PER_UNIT [p/PRICE]</code></p>
 </li>
 <li>
@@ -245,7 +252,7 @@ The attributes can also be inputted in any order.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/inventoryUG/AddStep1.png" alt="AddStep1" width="600">
+<img src="../images/inventoryUG/AddStep1.png" alt="AddStep1" width="500">
 </div>
 </div>
 <div class="olist arabic">
@@ -261,7 +268,7 @@ will be shown in the table. This is shown in the screenshot below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/inventoryUG/AddSuccess.png" alt="AddSuccess" width="600">
+<img src="../images/inventoryUG/AddSuccess.png" alt="AddSuccess" width="400">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -299,19 +306,15 @@ This command is case-insensitive.
 <div class="ulist">
 <ul>
 <li>
-<p>Command:
-<code>delete ID</code>
+<p>Command:<br>
+<code>delete ID</code><br>
 <code>delete DESCRIPTION</code></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:
-<code class="blue">delete 1</code>
+<li>
+<p>Example:<br>
+<code class="blue">delete 1</code><br>
 <code class="blue">delete t-shirt</code></p>
-</div>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p>Steps:</p>
 <div class="olist arabic">
@@ -360,6 +363,24 @@ below:</p>
 <div class="paragraph">
 <p>{Start of the first extract from Developer Guide}</p>
 </div>
+<div class="sect2">
+<h3 id="inventory-tab"><a class="link" href="#inventory-tab">Inventory Tab</a></h3>
+<div class="paragraph">
+<p>This tab will help to keep records of all items currently in the club’s possession.</p>
+</div>
+<div class="paragraph">
+<p>Each item will require an input of its description, category, quantity, and cost per unit.
+Optionally, if the item is meant for sale, the price can be inputted as well.</p>
+</div>
+<div class="paragraph">
+<p>The following Class Diagram shows the architectural design of the tab:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InventoryTabClassDiagram.png" alt="][width=&quot;500&quot;">
+</div>
+<div class="title">Figure 2. Class Diagram of Inventory tab (inventory package)</div>
+</div>
 <div class="sect3">
 <h4 id="AddCommandInventory"><a class="link" href="#AddCommandInventory">3.4.1. Add Item Feature</a></h4>
 <div class="paragraph">
@@ -369,8 +390,43 @@ The addition of an <code>Item</code> to the inventory requires an input of the <
 The price field is optional and may be added only to an <code>Item</code> meant for sale.</p>
 </div>
 <div class="paragraph">
-<p>Due to the usage of <code>ArgumentMultimap</code>, the fields can be in any order as they are retrieved via the prefixes that
-precede them.</p>
+<p>The following Sequence Diagram shows how the AddCommandParser creates an <code>Item</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryDG/AddCommandParserSeqDiagram.png" alt="AddCommandParserSeqDiagram">
+</div>
+<div class="title">Figure 3. Sequence Diagram of the add command parser in the Inventory tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>As seen in the above diagram, the parser takes in the user input as well as the existing <code>InventoryList</code>. Within the
+parser, it will use the <code>ArgumentTokenizer</code> to tokenize the arguments using the prefixes. This creates an
+<code>ArgumentMultimap</code>, allowing the system to retrieve the user input based on the prefixes that precede them. Thus, this
+increases the accuracy of the parsing and allows the fields to be in any order in the user input.</p>
+</div>
+<div class="paragraph">
+<p>If the description of the <code>Item</code> being added matches that of an existing <code>Item</code>, the new <code>Item</code>’s quantity is added to
+that of the existing <code>Item</code> and the cost per unit is recalculated. This is handled within the <code>AddCommandParser</code>,
+which also checks the validity of the input using the isValidNumericString(string) method.</p>
+</div>
+<div class="paragraph">
+<p>The code for the <code>AddCommandParser#isValidNumericString(String)</code> can be seen in the code snippet below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/inventoryDG/AddCommandSnippet.png" alt="AddCommandSnippet" width="500">
+</div>
+<div class="title">Figure 4. Code snippet of the <code>AddCommandParser#isValidNumericString(String)</code> method in the Inventory tab (inventory package)</div>
+</div>
+<div class="paragraph">
+<p>Through this method, the application prohibits the addition of an <code>Item</code> with any value equivalent to or greater than
+10,000. This includes the total cost and expected revenue of each <code>Item</code>. It also prohibits non-numeric inputs where
+numeric inputs are expected. The <code>AddCommandParser#isValidNumericString(String)</code> method performs the aforementioned
+checks and returns a boolean that represents the validity of the input.</p>
+</div>
+<div class="paragraph">
+<p>After the <code>Item</code> is created and the command is executed, the <code>LogicManager</code> updates the in-app <code>InventoryList</code> via the
+<code>ModelManager</code> and saves to the data file via the <code>StorageManager</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
@@ -380,41 +436,17 @@ AddCommand works:</p>
 <div class="content">
 <img src="../images/inventoryDG/AddCommandSeqDiagram.png" alt="][alt=addSeq" width="300" height="400">
 </div>
-<div class="title">Figure 2. Sequence Diagram of the Add Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 5. Sequence Diagram of the add command in the Inventory tab (inventory package)</div>
 </div>
 <div class="paragraph">
-<p>If the description of the <code>Item</code> being added matches that of an existing <code>Item</code>, the new <code>Item</code>’s quantity is added to
-that of the existing <code>Item</code> and the cost per unit is recalculated. This is handled within the <code>AddCommandParser</code>,
-which also checks the validity of the input.</p>
-</div>
-<div class="paragraph">
-<p>It prohibits the addition of an <code>Item</code> with any value equivalent to or greater than 10,000. This includes the total cost
-and expected revenue of each <code>Item</code>. It also prohibits non-numeric inputs where numeric inputs are expected.
-This is conducted through the isValidNumericString(string) method which performs the aforementioned checks and
-returns a <code>Boolean</code> that represents the validity of the input.</p>
-</div>
-<div class="paragraph">
-<p>The following Sequence Diagram shows how the AddCommandParser creates an <code>Item</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/inventoryDG/AddCommandParserSeqDiagram.png" alt="][alt=addParserSeq" width="300" height="400">
-</div>
-<div class="title">Figure 3. Sequence Diagram of the Add Command Parser in the Inventory Tab (inventory package)</div>
-</div>
-<div class="paragraph">
-<p>After the <code>Item</code> is created and the command is executed, the <code>LogicManager</code> updates the in-app <code>InventoryList</code> via the
-<code>ModelManager</code> and updates the data file via the <code>StorageManager</code>.</p>
-</div>
-<div class="paragraph">
-<p>For a greater understanding of the flow of events and checks, you may consult the following activity diagram that shows
-the steps that follow the input of an add command:</p>
+<p>For a greater understanding of the flow of events and checks, you may consult the following activity diagram that
+shows the steps that follow the input of an add command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/inventoryDG/AddCommandFlowChart.png" alt="][alt=addFlowChart" width="450" height="600">
 </div>
-<div class="title">Figure 4. Activity Diagram of the Add Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 6. Activity Diagram of the add command in the Inventory tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -431,12 +463,16 @@ of items from the inventory. This feature requires only the command keyword and 
 <div class="content">
 <img src="../images/inventoryDG/DeleteCommandSeqDiagram.png" alt="][alt=deleteSeq" width="300" height="400">
 </div>
-<div class="title">Figure 5. Sequence Diagram of the Delete Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 7. Sequence Diagram of the delete command in the Inventory tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>DeleteCommandParser</code> is responsible for checking the validity of the input, and does not allow any indexes that
 are less than 1 or greater than the largest index currently in the list. It can also take in a description as input and
 compares it against existing <code>Item</code> s in the <code>InventoryList</code>. This comparison is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p>After the command is executed and the <code>Item</code> is deleted, the <code>LogicManager</code> updates the in-app <code>InventoryList</code> via the
+<code>ModelManager</code> and saves to the data file via the <code>StorageManager</code>.</p>
 </div>
 <div class="paragraph">
 <p>{End of the first extract from Developer Guide}</p>
@@ -484,8 +520,8 @@ memory complexity.</p></td>
 <p class="tableblock"><strong>Pros</strong>: The head and tail of the list can be retrieved via linear time complexity.</p>
 <p class="tableblock"><strong>Cons</strong>: Every other element would be slower to retrieve.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 1 has been implemented. An ArrayList has better performance for the get and set methods than a LinkedList
-for elements not in the head and tail.
-As it is natural for the number of items in the inventory to be high, and the get and set methods would naturally be
+for elements not in the head and tail.</p>
+<p class="tableblock">As it is natural for the number of items in the inventory to be high, and the get and set methods would naturally be
 frequently used in the <code>ModelManager</code>, the ArrayList seems to be a better choice.</p></td>
 </tr>
 </tbody>
@@ -495,4 +531,5 @@ frequently used in the <code>ModelManager</code>, the ArrayList seems to be a be
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:10:59 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:20:14 UTC</div></div></div></body></html>
