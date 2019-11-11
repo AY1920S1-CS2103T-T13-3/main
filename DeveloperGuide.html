@@ -279,7 +279,7 @@ The diagram below shows a generalised view of the <code>Logic</code> component w
 </ol>
 </div>
 <div class="paragraph">
-<p>A general sequence diagram depicting the above outline is shown below:</p>
+<p>A general Sequence Diagram depicting the above outline is shown below:</p>
 </div>
 <div id="GeneralLogicSD" class="imageblock">
 <div class="content">
@@ -876,7 +876,7 @@ The following Sequence Diagram is the reference from <a href="#GeneralLogicSD">2
 </div>
 <div class="paragraph">
 <p>Thus, when the <code>Model#resetPredicate()</code> method is called in the <code>AddCommand</code>, the UI table will immediately shows the full transaction list regardless of the list shown at the start of the <a href="#activityDiagramAdd">Activity Diagram</a>.
-If the prior command was a find command, then the list in the beginning of the Activity Diagram would be a filtered list but after the Add command is executed, the full list of transactions would be shown.</p>
+If the prior command was a Find command, then the list in the beginning of the Activity Diagram would be a filtered list but after the Add command is executed, the full list of transactions would be shown.</p>
 </div>
 <div class="paragraph">
 <p>After the command is executed, the <code>LogicManager</code> updates the in-app list of transactions via the <code>ModelManager</code> and updates the data file via the <code>StorageManager</code>.
@@ -929,7 +929,7 @@ This update of the Reimbursements tab is done for every command after the list o
 <div class="content">
 <img src="images/HomeTabActivityDiagramAddCommand.png" alt="HomeTabActivityDiagramAddCommand">
 </div>
-<div class="title">Figure 18. Activity Diagram of the add command in the Home tab (transaction package)</div>
+<div class="title">Figure 18. Activity Diagram of the Add command in the Home tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>As shown, when a user does not input all the compulsory fields or input a name that does not match anyone in the <code>AddressBook</code>, a response to inform the user of the incorrect input is shown and when a successful addition is done, a response message is shown as well by our mascot, Leo.</p>
@@ -949,7 +949,7 @@ Inputting the person&#8217;s name will cause all transactions linked to that per
 <div class="content">
 <img src="images/HomeTabActivityDiagramDeleteCommand.png" alt="HomeTabActivityDiagramDeleteCommand">
 </div>
-<div class="title">Figure 19. Activity Diagram of the delete command in the Home tab (transaction package)</div>
+<div class="title">Figure 19. Activity Diagram of the Delete command in the Home tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>The above Activity Diagram assumes the index to be within the bounds of the table but if it is not, a response will be shown about the incorrect input.
@@ -1105,7 +1105,7 @@ The following Sequence Diagram shows how the Delete command works:</p>
 <div class="content">
 <img src="images/MembersDeleteSD.png" alt="MembersDeleteSD">
 </div>
-<div class="title">Figure 26. Sequence Diagram of the delete command in the Member tab (transaction package)</div>
+<div class="title">Figure 26. Sequence Diagram of the Delete command in the Member tab (transaction package)</div>
 </div>
 <div class="paragraph">
 <p>Before, the deletion is done, there will be a check to the <code>TransactionModel</code> to ensure that the member is not linked to any transaction records since every transaction must be linked to a <code>Person</code> in the <code>Members Tab</code> (<code>AddressBook</code>).</p>
@@ -1178,7 +1178,7 @@ Otherwise, when the execution is successful, a response informs the user that de
 <h4 id="find-command-feature"><a class="link" href="#find-command-feature">3.3.2. Find Command feature</a></h4>
 <div class="paragraph">
 <p>This command is used to find a reimbursement that contains the person&#8217;s name.
-The find command requires access to <code>Model</code> of the person package which the <code>AddressBook</code> implementation is contained in.
+The Find command requires access to <code>Model</code> of the person package which the <code>AddressBook</code> implementation is contained in.
 Person field should be provided and the person&#8217;s name should exist in reimbursement list.</p>
 </div>
 <div class="imageblock">
@@ -1200,7 +1200,7 @@ After the operations, that reimbursement is returned and reimbursement tab only 
 <div class="title">Figure 31. Activity Diagram of Find Command in Reimbursements tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
-<p>The above activity diagram shows the steps needed for find command.
+<p>The above activity diagram shows the steps needed for Find command.
 The person&#8217;s name is checked whether it exists in reimbursement list.
 If not, our app informs the user that command is incorrect.
 If command is valid, the reimbursement is found and displayed in the tab.</p>
@@ -1209,7 +1209,7 @@ If command is valid, the reimbursement is found and displayed in the tab.</p>
 <div class="sect3">
 <h4 id="back-command-feature-2"><a class="link" href="#back-command-feature-2">3.3.3. Back Command feature</a></h4>
 <div class="paragraph">
-<p>This command is used to return to the original list after executing find command</p>
+<p>This command is used to return to the original list after executing Find command</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1349,7 +1349,7 @@ Optionally, if the item is meant for sale, the price can be inputted as well.</p
 <div class="sect3">
 <h4 id="add-item-feature"><a class="link" href="#add-item-feature">3.4.1. Add Item Feature</a></h4>
 <div class="paragraph">
-<p>This section explains the implementation of the add command feature of the Inventory Tab,
+<p>This section explains the implementation of the Add command feature of the Inventory Tab,
 which allows the addition of items to the inventory. These items are represented by <code>Item</code> objects.
 The addition of an <code>Item</code> to the inventory requires an input of the <code>Item</code>’s description, category, quantity, and cost.
 The price field is optional and may be added only to an <code>Item</code> meant for sale.</p>
@@ -1361,7 +1361,7 @@ The price field is optional and may be added only to an <code>Item</code> meant 
 <div class="content">
 <img src="images/inventoryDG/AddCommandParserSeqDiagram.png" alt="AddCommandParserSeqDiagram">
 </div>
-<div class="title">Figure 38. Sequence Diagram of the add command parser in the Inventory tab (inventory package)</div>
+<div class="title">Figure 38. Sequence Diagram of the Add command parser in the Inventory tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>As seen in the above diagram, the parser takes in the user input as well as the existing <code>InventoryList</code>. Within the
@@ -1401,34 +1401,34 @@ AddCommand works:</p>
 <div class="content">
 <img src="images/inventoryDG/AddCommandSeqDiagram.png" alt="AddCommandSeqDiagram">
 </div>
-<div class="title">Figure 40. Sequence Diagram of the add command in the Inventory tab (inventory package)</div>
+<div class="title">Figure 40. Sequence Diagram of the Add command in the Inventory tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>For a greater understanding of the flow of events and checks, you may consult the following activity diagram that
-shows the steps that follow the input of an add command:</p>
+shows the steps that follow the input of an Add command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/inventoryDG/AddCommandFlowChart.png" alt="AddCommandFlowChart">
 </div>
-<div class="title">Figure 41. Activity Diagram of the add command in the Inventory tab (inventory package)</div>
+<div class="title">Figure 41. Activity Diagram of the Add command in the Inventory tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-item-feature"><a class="link" href="#delete-item-feature">3.4.2. Delete Item Feature</a></h4>
 <div class="paragraph">
-<p>This section explains the implementation of the delete command feature of the Inventory Tab, which allows the deletion
+<p>This section explains the implementation of the Delete command feature of the Inventory Tab, which allows the deletion
 of items from the inventory. This feature requires only the command keyword and an index or description as input.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
 <code>DeleteCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/inventoryDG/DeleteCommandSeqDiagram.png" alt="DeleteCommandSeqDiagram">
 </div>
-<div class="title">Figure 42. Sequence Diagram of the delete command in the Inventory tab (inventory package)</div>
+<div class="title">Figure 42. Sequence Diagram of the Delete command in the Inventory tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>DeleteCommandParser</code> is responsible for checking the validity of the input, and does not allow any indexes that
@@ -1443,35 +1443,35 @@ compares it against existing <code>Item</code> s in the <code>InventoryList</cod
 <div class="sect3">
 <h4 id="edit-item-feature"><a class="link" href="#edit-item-feature">3.4.3. Edit Item Feature</a></h4>
 <div class="paragraph">
-<p>This section explains the implementation of the edit command feature of the Inventory Tab, which allows you to edit
+<p>This section explains the implementation of the Edit command feature of the Inventory Tab, which allows you to edit
 items in the inventory. This feature requires the command keyword, an index and at least one field as input.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
 <code>EditCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/inventoryDG/EditCommandSeqDiagram.png" alt="EditCommandSeqDiagram">
 </div>
-<div class="title">Figure 43. Sequence Diagram of the edit command in the Inventory tab (inventory package)</div>
+<div class="title">Figure 43. Sequence Diagram of the Edit command in the Inventory tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="sort-items-feature"><a class="link" href="#sort-items-feature">3.4.4. Sort Items Feature</a></h4>
 <div class="paragraph">
-<p>This section explains the implementation of the sort command feature of the Inventory Tab, which allows the sorting
+<p>This section explains the implementation of the Sort command feature of the Inventory Tab, which allows the sorting
 of items within the inventory. There are 3 ways items can be sorted - by description, category or quantity.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the
 <code>SortCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/inventoryDG/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 44. Sequence Diagram of the sort command in the Inventory tab (inventory package)</div>
+<div class="title">Figure 44. Sequence Diagram of the Sort command in the Inventory tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1592,7 +1592,7 @@ There will also be checks to ensure that the item specified is available for sal
 <p>If description and quantity are both valid, the <code>ModelManager</code> will add the item into the sales list as shown in Figure 2.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the <code>AddCommand</code> works:</p>
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the <code>AddCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1607,7 +1607,7 @@ There will also be checks to ensure that the item specified is available for sal
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-After every add command, the quantity of items in the Inventory tab will still remain the same. The remaining stock
+After every Add command, the quantity of items in the Inventory tab will still remain the same. The remaining stock
 will only be updated after the Checkout Command.
 </td>
 </tr>
@@ -1626,7 +1626,7 @@ Once the item is added, boolean <code>onCashierMode</code> in ModelManager will 
 </table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram shows the steps proceeding after the user input an add command:</p>
+<p>The following activity diagram shows the steps proceeding after the user input an Add command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1647,7 +1647,7 @@ This means that SetCommandParser requires access to the <code>Model</code> of th
 If the person&#8217;s name cannot be found in the <code>Model</code> of the Person package, a response message will be shown by Leo, informing the user that there is no such person.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the SetCashierCommandParser checks for an existing person:</p>
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the SetCashierCommandParser checks for an existing person:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1659,7 +1659,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the set cashier command works:</p>
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the set cashier command works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1720,7 +1720,7 @@ After checkout command is executed, boolean <code>onCashierMode</code> in ModelM
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the checkout command is executed:</p>
+<p>The following Sequence Diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the checkout command is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1734,7 +1734,7 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <code>readInUpdatedList()</code> method of inventory <code>Model</code> will called to read in the entire inventory data file.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the transaction and inventory are updated:</p>
+<p>The following Sequence Diagram shows how the transaction and inventory are updated:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1846,7 +1846,7 @@ to set percentage thresholds for notifications.</p>
 <p>This feature allows the user to set a goal for their budget, expense or sales targets.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram depicts how the Set Command operates, and is an extension of the general sequence diagram
+<p>The following Sequence Diagram depicts how the Set Command operates, and is an extension of the general sequence diagram
 found in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
@@ -1867,7 +1867,7 @@ the data file.</p>
 particular financial goal, the user will automatically be notified of it with a message from Leo.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram depicts how the Notify Command operates, and is an extension of the general sequence
+<p>The following Sequence Diagram depicts how the Notify Command operates, and is an extension of the general sequence
 diagram found in <a href="#GeneralLogicSD">2.3 Logic component: Figure 5</a>:</p>
 </div>
 <div class="imageblock">
@@ -2634,7 +2634,7 @@ The user keys in a negative amount</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User type in command field with add command</p>
+<p>User type in command field with Add command</p>
 </li>
 <li>
 <p>Lion replies with success message</p>
@@ -2693,7 +2693,7 @@ Lion replies with wrong input if invalid index inputted</p>
 </li>
 <li>
 <p>3a.
-User input back command for table to show all transactions if find command was prior to the delete command</p>
+User input back command for table to show all transactions if Find command was prior to the Delete command</p>
 </li>
 </ul>
 </div>
@@ -2735,7 +2735,7 @@ Lion replies with wrong input if invalid index inputted</p>
 </li>
 <li>
 <p>3a.
-User input back command for table to show all transactions if find command was prior to the delete command</p>
+User input back command for table to show all transactions if Find command was prior to the Delete command</p>
 </li>
 </ul>
 </div>
@@ -2780,7 +2780,7 @@ Lion replies with wrong input message if there is invalid index or person given<
 </li>
 <li>
 <p>3a.
-User input back command for table to show all transactions if find command was prior to the delete command</p>
+User input back command for table to show all transactions if Find command was prior to the Delete command</p>
 </li>
 </ul>
 </div>
@@ -2791,7 +2791,7 @@ User input back command for table to show all transactions if find command was p
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type in command field with sort command</p>
+<p>Type in command field with Sort command</p>
 </li>
 <li>
 <p>Lion replies with success message</p>
@@ -3434,7 +3434,7 @@ Error details shown in the status message.
 Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code class="blue">delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect Delete commands to try: <code class="blue">delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3478,7 +3478,7 @@ Expected: No person is edited and Leo responds to inform of this.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Other incorrect delete commands to try: <code class="blue">edit</code>, <code>edit x</code> (where x is larger than the list size)<br>
+<p>Other incorrect Delete commands to try: <code class="blue">edit</code>, <code>edit x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3600,12 +3600,12 @@ Expected: The reimbursements are sorted based on amount of money.</p>
 <li>
 <p>Test case 4: <code class="blue">sort</code><br>
 Expected: Leo responds with an error message that
-sort command is invalid.</p>
+Sort command is invalid.</p>
 </li>
 <li>
 <p>Test case 5: <code class="blue">sort amount date</code><br>
 Expected: Leo responds with an error message that
-sort command is invalid.</p>
+Sort command is invalid.</p>
 </li>
 </ol>
 </div>
@@ -3724,11 +3724,11 @@ the item before and after the edit.</p>
 </li>
 <li>
 <p>Test case 2: <code class="blue">edit</code><br>
-Expected: Leo responds with an error message detailing the correct edit command format.</p>
+Expected: Leo responds with an error message detailing the correct Edit command format.</p>
 </li>
 <li>
 <p>Test case 2: <code class="blue">edit 1</code><br>
-Expected: Leo responds with an error message that the item was not edited and detailing the correct edit command format.</p>
+Expected: Leo responds with an error message that the item was not edited and detailing the correct Edit command format.</p>
 </li>
 </ol>
 </div>
@@ -3921,4 +3921,4 @@ If the reimbursementInformation.txt is altered, all deadline data will be lost.<
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:20:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:31:11 UTC</div></div></div></body></html>
