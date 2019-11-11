@@ -1258,13 +1258,11 @@ Otherwise, Leo will show an error message indicating that the person is not in r
 <div class="paragraph">
 <p>The tab will now show the full reimbursement list.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Reimbursement/ReimbursementBackCommandSuccess.png" alt="ReimbursementBackCommandSuccess" width="600">
-</div>
-</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>image::Reimbursement/ReimbursementBackCommandSuccess.png[width="600"]</p>
 </div>
 </li>
 </ul>
@@ -1314,13 +1312,11 @@ as shown in the screenshot below:</p>
 <div class="paragraph">
 <p>The reimbursement for that person will be removed from the tab, as shown below:</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Reimbursement/ReimbursementDoneCommandSuccess.png" alt="ReimbursementDoneCommandSuccess" width="600">
-</div>
-</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>image::Reimbursement/ReimbursementDoneCommandSuccess.png[width="600"]</p>
 </div>
 </li>
 </ul>
@@ -1353,13 +1349,11 @@ as shown in the screenshot below:</p>
 <div class="paragraph">
 <p>The reimbursements are sorted in descending order of the amount.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Reimbursement/ReimbursementSortAmountCommandSuccess.png" alt="ReimbursementSortAmountCommandSuccess" width="600">
-</div>
-</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>image::Reimbursement/ReimbursementSortAmountCommandSuccess.png[width="600"]</p>
 </div>
 </li>
 </ul>
@@ -1945,6 +1939,21 @@ specified as shown in the screenshot below.</p>
 <div class="paragraph">
 <p>Leo will respond to the successful addition with a response message. The newly added item will be shown on the table.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After you have executed this command, <code>Cashier Mode</code> will be immediately turned on. As long as <code>Cashier Mode</code> is turned on,
+the system will prohibit you from modifying any <strong>existing items</strong> in the Inventory tab except adding of items with new description.
+This is to ensure no one can tamper with the data in the inventory while a purchase is being made for security reasons.
+If you wish to alter any existing items in inventory, please enter the "clear" command on Cashier tab to turn off <code>Cashier Mode</code>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="delete-a-sales-item-from-the-table"><a class="link" href="#delete-a-sales-item-from-the-table">5.5.2. Delete a Sales Item from the Table</a></h4>
@@ -2004,6 +2013,19 @@ The specified index should correspond to the row index of the item in the table.
 </div>
 <div class="paragraph">
 <p>Leo will respond to the successful deletion with a response message. The item will be deleted from the table.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After deletion, if there are no more sales item on the cart, <code>Cashier Mode</code> will automatically turn off. You can then
+edit existing items in the inventory.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -2244,6 +2266,19 @@ shown in the screenshot below.</p>
 <p>If checkout is successful, Leo will respond with a response message. The table will be cleared and the cashier will be reset.<br>
 The Home tab will be updated with this transaction and the remaining stock in the Inventory tab will also be updated.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command checks out and clears all the sales items, turning off the <code>Cashier Mode</code> until a new item is added into the cart.
+You can now modify the existing items on the Inventory tab.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="clears-all-the-sales-items-in-the-table"><a class="link" href="#clears-all-the-sales-items-in-the-table">5.5.6. Clears All the Sales Items in the Table</a></h4>
@@ -2268,7 +2303,7 @@ The Home tab will be updated with this transaction and the remaining stock in th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This command enables you to disable the <code>Cashier Mode</code> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>.
+This command enables you to turn off the <code>Cashier Mode</code> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>.
 </td>
 </tr>
 </table>
@@ -2816,4 +2851,4 @@ e.g. <code>find James Jake</code></p>
 Reproduction and distribution without prior permission is prohibited.</p>
 </div>
 </div>
-</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the Cashier tab is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:42:01 UTC</div></div></div></body></html>
+</div></div><div id="footnotes"><hr><div class="footnote" id="_footnote_1"><a href="#_footnoteref_1">1</a>. <code>Cashier Mode</code> automatically turns on when the table in the Cashier tab is not empty. While the <code>Cashier Mode</code> is turned on, any modification to the inventory is prohibited except addition of items.</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:43:59 UTC</div></div></div></body></html>

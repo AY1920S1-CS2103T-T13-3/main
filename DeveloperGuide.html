@@ -1436,6 +1436,7 @@ with the actual description of all items in the inventory to check if either con
 </div>
 </div>
 <div class="paragraph">
+<div class="title">Code snippet of <code>getCombination(char[] arr, int n)</code> method from Cashier package</div>
 <p>The <code>getCombination(arr, arr.length)</code> method in the above snippet consists of 3 nested loops. The first loop decides the
 starting character. The second loop takes each of the characters on the right of the starting character as the ending character.
 The last loop appends all the characters from the starting character to the ending character. After iterating through the nested loops,
@@ -1449,18 +1450,6 @@ There will also be checks to ensure that the item specified is available for sal
 </div>
 <div class="paragraph">
 <p>If description and quantity are both valid, the <code>ModelManager</code> will add the item into the sales list as shown in Figure 2.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the user added an item such that the total amount exceed $999999.99, the system will prohibit the addition of that item.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram which is referenced in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>, shows how the <code>AddCommand</code> works:</p>
@@ -1578,7 +1567,7 @@ transaction of the sales made.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-After the execution of the above methods, a clear command will then be called to clear all the sales items on the tab.
+After the execution of the above methods, a clear command will then be called automatically to clear all the sales items on the tab.
 </td>
 </tr>
 </table>
@@ -3664,4 +3653,4 @@ Changing the reimbursementInformation should not cause any issues.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:42:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:43:59 UTC</div></div></div></body></html>
