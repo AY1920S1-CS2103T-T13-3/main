@@ -1246,18 +1246,6 @@ and that reimbursement is deleted from the reimbursement list.
 Then the updated reimbursement list is displayed and this new list without that deleted reimbursement is saved.</p>
 </div>
 <div class="paragraph">
-<p>The following figure shows how transactions' status is updated.
-Firstly, the reimbursement which contains the person&#8217;s name updates status of all transactions that made up of the reimbursement.
-Then <code>LogicManager</code> gets the updated transaction list and passes this list to <code>StorageManager</code>
-of transaction tab to save it.</p>
-</div>
-<div id="ReimbursementUpdateTransactionsSD" class="imageblock">
-<div class="content">
-<img src="images/Reimbursement/ReimbursementUpdateTransactionsSD.png" alt="ReimbursementUpdateTransactionsSD">
-</div>
-<div class="title">Figure 34. Sequence diagram of updating transactions in reimbursements tab (reimbursement package)</div>
-</div>
-<div class="paragraph">
 <p><a href="#ReimbursementTabActivityDiagramDoneCommand">The following activity diagram</a> shows the steps needed for done command.
 The person&#8217;s name is checked whether it exists in reimbursement list.
 If not, our app informs the user that command is incorrect.
@@ -1267,7 +1255,7 @@ If command is valid, the reimbursement containing the provided person&#8217;s na
 <div class="content">
 <img src="images/Reimbursement/ReimbursementTabActivityDiagramDoneCommand.png" alt="ReimbursementTabActivityDiagramDoneCommand">
 </div>
-<div class="title">Figure 35. Activity Diagram of Done Command in Reimbursements tab (reimbursement package)</div>
+<div class="title">Figure 34. Activity Diagram of Done Command in Reimbursements tab (reimbursement package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1279,7 +1267,7 @@ If command is valid, the reimbursement containing the provided person&#8217;s na
 <div class="content">
 <img src="images/Reimbursement/ReimbursementSortCommandSD.png" alt="ReimbursementSortCommandSD">
 </div>
-<div class="title">Figure 36. Sequence Diagram of Sort Command in Reimbursements tab (reimbursement package)</div>
+<div class="title">Figure 35. Sequence Diagram of Sort Command in Reimbursements tab (reimbursement package)</div>
 </div>
 <div class="paragraph">
 <p>As shown in the above figure, <code>SortXYZCommand</code> is executed by calling <code>sortListByXYZ</code> method in
@@ -1319,7 +1307,7 @@ For <code>SortDeadlineCommand</code>, the list will be sorted in the order that 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alternative 2 is chosen.
 <code>transactionLogic</code> follows Façade pattern to prevent exposing the internal details of the transaction tab.
 So, instead of directly manipulating model and storage of transactions from <code>reimbursementLogic</code>,
-the operations are done through <code>transactionLogic</code> as shown in the <a href="#facade">code snippet</a> below the table.</p></td>
+the operations are done through <code>transactionLogic</code> as shown in the <a href="#facadeRe">code snippet</a> below the table.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">How reimbursement records are saved and read from <code>.txt</code> files</p></td>
@@ -1332,11 +1320,11 @@ So, alternative 2 is more efficient.</p></td>
 </tr>
 </tbody>
 </table>
-<div id="facade" class="imageblock">
+<div id="facadeRe" class="imageblock">
 <div class="content">
 <img src="images/Reimbursement/codeSnippetTransactionLogic.png" alt="codeSnippetTransactionLogic" width="600">
 </div>
-<div class="title">Figure 37. Code snippet of <code>transactionLogic</code> facade class in <code>MainWindow</code></div>
+<div class="title">Figure 36. Code snippet of <code>transactionLogic</code> facade class in <code>MainWindow</code></div>
 </div>
 </div>
 </div>
@@ -1369,7 +1357,7 @@ precede them.</p>
 <div class="content">
 <img src="images/inventoryDG/AddCommandSeqDiagram.png" alt="AddCommandSeqDiagram">
 </div>
-<div class="title">Figure 38. Sequence Diagram of the Add Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 37. Sequence Diagram of the Add Command in the Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>If the description of the <code>Item</code> being added matches that of an existing <code>Item</code>, the new <code>Item</code>’s quantity is added to
@@ -1389,7 +1377,7 @@ returns a <code>Boolean</code> that represents the validity of the input.</p>
 <div class="content">
 <img src="images/inventoryDG/AddCommandParserSeqDiagram.png" alt="AddCommandParserSeqDiagram">
 </div>
-<div class="title">Figure 39. Sequence Diagram of the Add Command Parser in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 38. Sequence Diagram of the Add Command Parser in the Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>After the <code>Item</code> is created and the command is executed, the <code>LogicManager</code> updates the in-app <code>InventoryList</code> via the
@@ -1403,7 +1391,7 @@ the steps that follow the input of an add command:</p>
 <div class="content">
 <img src="images/inventoryDG/AddCommandFlowChart.png" alt="AddCommandFlowChart">
 </div>
-<div class="title">Figure 40. Activity Diagram of the Add Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 39. Activity Diagram of the Add Command in the Inventory Tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1420,7 +1408,7 @@ of items from the inventory. This feature requires only the command keyword and 
 <div class="content">
 <img src="images/inventoryDG/DeleteCommandSeqDiagram.png" alt="DeleteCommandSeqDiagram">
 </div>
-<div class="title">Figure 41. Sequence Diagram of the Delete Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 40. Sequence Diagram of the Delete Command in the Inventory Tab (inventory package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>DeleteCommandParser</code> is responsible for checking the validity of the input, and does not allow any indexes that
@@ -1442,7 +1430,7 @@ items in the inventory. This feature requires the command keyword, an index and 
 <div class="content">
 <img src="images/inventoryDG/EditCommandSeqDiagram.png" alt="EditCommandSeqDiagram">
 </div>
-<div class="title">Figure 42. Sequence Diagram of the Edit Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 41. Sequence Diagram of the Edit Command in the Inventory Tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1459,7 +1447,7 @@ of items within the inventory. There are 3 ways items can be sorted - by descrip
 <div class="content">
 <img src="images/inventoryDG/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 43. Sequence Diagram of the Sort Command in the Inventory Tab (inventory package)</div>
+<div class="title">Figure 42. Sequence Diagram of the Sort Command in the Inventory Tab (inventory package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1586,7 +1574,7 @@ There will also be checks to ensure that the item specified is available for sal
 <div class="content">
 <img src="images/AddCommandCashierSeq.png" alt="AddCommandCashierSeq">
 </div>
-<div class="title">Figure 44. Sequence Diagram of Add Command in Cashier tab (cashier package)</div>
+<div class="title">Figure 43. Sequence Diagram of Add Command in Cashier tab (cashier package)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1620,7 +1608,7 @@ Once the item is added, boolean <code>onCashierMode</code> in ModelManager will 
 <div class="content">
 <img src="images/AddCommandCashierActivity.png" alt="AddCommandCashierActivity">
 </div>
-<div class="title">Figure 45. Activity Diagram of Add Command (cashier package)</div>
+<div class="title">Figure 44. Activity Diagram of Add Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1641,7 +1629,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandSeq1.png" alt="SetCashierCommandSeq1">
 </div>
-<div class="title">Figure 46. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
+<div class="title">Figure 45. Sequence Diagram of SetCashierCommandParser (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the specified name is valid, the <code>Model</code> of the cashier package will set the person as cashier.</p>
@@ -1653,7 +1641,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandSeq2.png" alt="SetCashierCommandSeq2">
 </div>
-<div class="title">Figure 47. Sequence Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 46. Sequence Diagram of Set Cashier Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the inputted name is invalid, the user will be prompted to enter a valid name.</p>
@@ -1665,7 +1653,7 @@ If the person&#8217;s name cannot be found in the <code>Model</code> of the Pers
 <div class="content">
 <img src="images/SetCashierCommandActivity.png" alt="SetCashierCommandActivity">
 </div>
-<div class="title">Figure 48. Activity Diagram of Set Cashier Command (cashier package)</div>
+<div class="title">Figure 47. Activity Diagram of Set Cashier Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1714,7 +1702,7 @@ After checkout command is executed, boolean <code>onCashierMode</code> in ModelM
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq1.png" alt="CheckoutCommandCashierSeq1">
 </div>
-<div class="title">Figure 49. Sequence Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 48. Sequence Diagram of Checkout Command (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>The <code>Cashier Logic</code> will call relevant methods to update the inventory list and newly-generated transaction to the respective <code>.txt file</code>.<br>
@@ -1728,7 +1716,7 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <div class="content">
 <img src="images/CheckoutCommandCashierSeq2.png" alt="CheckoutCommandCashierSeq2">
 </div>
-<div class="title">Figure 50. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
+<div class="title">Figure 49. Sequence Diagram of how transaction and inventory get updated (cashier package)</div>
 </div>
 <div class="paragraph">
 <p>If the amount inputted is less than the total amount of items, the user will be prompted to key in a valid value.</p>
@@ -1740,7 +1728,7 @@ To update the view on the Inventory tab and Transaction tab, transaction will be
 <div class="content">
 <img src="images/CheckoutCommandCashierActivityDiag.png" alt="CheckoutCommandCashierActivityDiag">
 </div>
-<div class="title">Figure 51. Activity Diagram of Checkout Command (cashier package)</div>
+<div class="title">Figure 50. Activity Diagram of Checkout Command (cashier package)</div>
 </div>
 </div>
 <div class="sect3">
@@ -1841,7 +1829,7 @@ found in <a href="#GeneralLogicSD">2.3. Logic component: Figure 5</a>:</p>
 <div class="content">
 <img src="images/OverviewSetCommandSD.png" alt="OverviewSetCommandSD">
 </div>
-<div class="title">Figure 52. Sequence Diagram of Set Command in the Overview package.</div>
+<div class="title">Figure 51. Sequence Diagram of Set Command in the Overview package.</div>
 </div>
 <div class="paragraph">
 <p>After execution of the command, the <code>LogicManager</code> also instructs the <code>StorageManager</code> to save the new information to
@@ -1862,7 +1850,7 @@ diagram found in <a href="#GeneralLogicSD">2.3 Logic component: Figure 5</a>:</p
 <div class="content">
 <img src="images/OverviewNotifyCommandSD.png" alt="OverviewNotifyCommandSD">
 </div>
-<div class="title">Figure 53. Sequence Diagram of Notify Command in the Overview Package</div>
+<div class="title">Figure 52. Sequence Diagram of Notify Command in the Overview Package</div>
 </div>
 <div class="paragraph">
 <p>After execution of the command, the <code>LogicManager</code> also instructs the <code>StorageManager</code> to save the new information to
@@ -1872,7 +1860,7 @@ the data file. The full execution of the command is shown in the activity diagra
 <div class="content">
 <img src="images/OverviewNotifyActivityDiagram.png" alt="OverviewNotifyActivityDiagram">
 </div>
-<div class="title">Figure 54. Activity Diagram of Notify Command in the Overview Package</div>
+<div class="title">Figure 53. Activity Diagram of Notify Command in the Overview Package</div>
 </div>
 </div>
 <div class="sect3">
@@ -3909,4 +3897,4 @@ If the reimbursementInformation.txt is altered, all deadline data will be lost.<
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:39:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:53:46 UTC</div></div></div></body></html>
