@@ -1907,6 +1907,21 @@ modifying or adding on new criteria.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
+<p>The following is a code snippet of the chosen implementation above:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>public double getTotalExpenses() {
+    Stream&lt;Transaction&gt; transactionStream = transactionLogic.getTransactionList().stream();
+    return transactionStream
+        .filter(transaction -&gt; !transaction.getCategory().equals("Sales"))
+        .filter(transaction -&gt; transaction.isNegative())
+        .flatMapToDouble(transaction -&gt; DoubleStream.of(transaction.getAmount()))
+        .sum() * -1;
+}</pre>
+</div>
+</div>
+<div class="paragraph">
 <p>A design consideration was also made for the implementation of the notifications that are to be displayed
 to the user upon hitting the notification threshold. These are shown in the table below:</p>
 </div>
@@ -1940,19 +1955,7 @@ implementation of this function,</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The following are code snippets of each of the chosen implementations above:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>public double getTotalExpenses() {
-    Stream&lt;Transaction&gt; transactionStream = transactionLogic.getTransactionList().stream();
-    return transactionStream
-        .filter(transaction -&gt; !transaction.getCategory().equals("Sales"))
-        .filter(transaction -&gt; transaction.isNegative())
-        .flatMapToDouble(transaction -&gt; DoubleStream.of(transaction.getAmount()))
-        .sum() * -1;
-}</pre>
-</div>
+<p>The following is a code snippet of the chosen implementation above:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -3899,4 +3902,4 @@ If the reimbursementInformation.txt is altered, all deadline data will be lost.<
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:59:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:31:43 UTC</div></div></div></body></html>
